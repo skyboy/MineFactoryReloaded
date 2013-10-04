@@ -62,7 +62,7 @@ tile.mfr.conveyor.black.name = Schwarzes F\u00f6rderband
 
 tile.mfr.stainedglass.block.white.name = Wei\u00df get\u00f6ntes Glas
 tile.mfr.stainedglass.block.orange.name = Orange get\u00f6ntes Glas
-tile.mfr.stainedglass.block.magenta.name = Magenta get\u00f6ntes Glas
+tile.mfr.stainedglass.block.magenta.name = Magentafarben get\u00f6ntes Glas
 tile.mfr.stainedglass.block.lightblue.name = Hellblau get\u00f6ntes Glas
 tile.mfr.stainedglass.block.yellow.name = Gelb get\u00f6ntes Glas
 tile.mfr.stainedglass.block.lime.name = Hellgr\u00fcn get\u00f6ntes Glas
@@ -79,7 +79,7 @@ tile.mfr.stainedglass.block.black.name = Schwarz get\u00f6ntes Glas
 
 tile.mfr.stainedglass.pane.white.name = Wei\u00df get\u00f6nte Glasscheibe
 tile.mfr.stainedglass.pane.orange.name = Orange get\u00f6nte Glasscheibe
-tile.mfr.stainedglass.pane.magenta.name = Magenta get\u00f6nte Glasscheibe
+tile.mfr.stainedglass.pane.magenta.name = Magentafarben get\u00f6nte Glasscheibe
 tile.mfr.stainedglass.pane.lightblue.name = Hellblau get\u00f6nte Glasscheibe
 tile.mfr.stainedglass.pane.yellow.name = Gelb get\u00f6nte Glasscheibe
 tile.mfr.stainedglass.pane.lime.name = Hellgr\u00fcn get\u00f6nte Glasscheibe
@@ -212,7 +212,7 @@ item.mfr.ceramicdye.magenta.name = Magentafarbene Lasur
 item.mfr.ceramicdye.lightblue.name = Hellblaue Lasur
 item.mfr.ceramicdye.yellow.name = Gelbe Lasur
 item.mfr.ceramicdye.lime.name = Hellgr\u00fcne Lasur
-item.mfr.ceramicdye.pink.name = Pink Lasur
+item.mfr.ceramicdye.pink.name = Pinke Lasur
 item.mfr.ceramicdye.gray.name = Graue Lasur
 item.mfr.ceramicdye.lightgray.name = Hellgraue Lasur
 item.mfr.ceramicdye.cyan.name = T\u00fcrkise Lasur
