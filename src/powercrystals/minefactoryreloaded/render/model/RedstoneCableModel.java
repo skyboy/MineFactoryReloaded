@@ -95,14 +95,14 @@ public class RedstoneCableModel extends ModelBase
 	
 	private void renderModelState(RedNetConnectionType state, float yRot, float zRot, float scale)
 	{
-		switch (state)
+		switch (state.flags & 31)
 		{
-		case CableAll:
+		case 19: // isCable, isAllSubnets
 			_cableConn.rotateAngleY = yRot;
 			_cableConn.rotateAngleZ = zRot;
 			_cableConn.render(scale);
 			break;
-		case CableSingle:
+		case 11: // isCable, isSingleSubnet
 			_cableConn.rotateAngleY = yRot;
 			_cableConn.rotateAngleZ = zRot;
 			_cableConn.render(scale);
@@ -111,7 +111,7 @@ public class RedstoneCableModel extends ModelBase
 			_bandWhite.rotateAngleZ = zRot;
 			_bandWhite.render(scale);
 			break;
-		case PlateAll:
+		case 21: // isPlate, isAllSubnets
 			_interfaceConn.rotateAngleY = yRot;
 			_interfaceConn.rotateAngleZ = zRot;
 			_interfaceConn.render(scale);
@@ -120,7 +120,7 @@ public class RedstoneCableModel extends ModelBase
 			_plate.rotateAngleZ = zRot;
 			_plate.render(scale);
 			break;
-		case PlateSingle:
+		case 13: // isPlate, isSingleSubnet
 			_interfaceConn.rotateAngleY = yRot;
 			_interfaceConn.rotateAngleZ = zRot;
 			_interfaceConn.render(scale);
@@ -140,7 +140,7 @@ public class RedstoneCableModel extends ModelBase
 	
 	private void renderSide(RedNetConnectionType state, int color, float yRot, float zRot, float scale)
 	{
-		if (state == RedNetConnectionType.CableSingle || state == RedNetConnectionType.PlateSingle)
+		if (state.isSingleSubnet)
 		{
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glDisable(GL11.GL_LIGHTING);
@@ -159,7 +159,7 @@ public class RedstoneCableModel extends ModelBase
 		
 		renderModelState(state, yRot, zRot, scale);
 		
-		if (state == RedNetConnectionType.CableSingle || state == RedNetConnectionType.PlateSingle)
+		if (state.isSingleSubnet)
 		{
 			GL11.glDisable(GL11.GL_BLEND);
 			GL11.glDisable(GL11.GL_POLYGON_OFFSET_FILL);

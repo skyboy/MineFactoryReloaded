@@ -78,7 +78,7 @@ public class BlockRubberWood extends BlockLog implements IConnectableRedNet
 	@Override
 	public RedNetConnectionType getConnectionType(World world, int x, int y, int z, ForgeDirection side)
 	{
-		return RedNetConnectionType.None;
+		return RedNetConnectionType.ForcedPlateSingle;
 	}
 	
 	@Override

@@ -79,19 +79,19 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 		parts[1] = AxisAlignedBB.getBoundingBox(_wireStart, csd != RedNetConnectionType.None ? 0 : _wireStart, _wireStart, _wireEnd, csu != RedNetConnectionType.None ? 1 : _wireEnd, _wireEnd);
 		parts[2] = AxisAlignedBB.getBoundingBox(_wireStart, _wireStart, csn != RedNetConnectionType.None ? 0 : _wireStart, _wireEnd, _wireEnd, css != RedNetConnectionType.None ? 1 : _wireEnd);
 		
-		parts[3] = csw != RedNetConnectionType.PlateSingle && csw != RedNetConnectionType.PlateAll ? null : AxisAlignedBB.getBoundingBox(0, _plateStart, _plateStart, _plateDepth, _plateEnd, _plateEnd);
-		parts[4] = cse != RedNetConnectionType.PlateSingle && cse != RedNetConnectionType.PlateAll ? null : AxisAlignedBB.getBoundingBox(1.0F - _plateDepth, _plateStart, _plateStart, 1.0F, _plateEnd, _plateEnd);
-		parts[5] = csd != RedNetConnectionType.PlateSingle && csd != RedNetConnectionType.PlateAll ? null : AxisAlignedBB.getBoundingBox(_plateStart, 0 , _plateStart, _plateEnd, _plateDepth, _plateEnd);
-		parts[6] = csu != RedNetConnectionType.PlateSingle && csu != RedNetConnectionType.PlateAll ? null : AxisAlignedBB.getBoundingBox(_plateStart, 1.0F - _plateDepth, _plateStart, _plateEnd, 1.0F, _plateEnd);
-		parts[7] = csn != RedNetConnectionType.PlateSingle && csn != RedNetConnectionType.PlateAll ? null : AxisAlignedBB.getBoundingBox(_plateStart, _plateStart, 0, _plateEnd, _plateEnd, _plateDepth);
-		parts[8] = css != RedNetConnectionType.PlateSingle && css != RedNetConnectionType.PlateAll ? null : AxisAlignedBB.getBoundingBox(_plateStart, _plateStart, 1.0F - _plateDepth, _plateEnd, _plateEnd, 1.0F);
+		parts[3] = !csw.isPlate ? null : AxisAlignedBB.getBoundingBox(0, _plateStart, _plateStart, _plateDepth, _plateEnd, _plateEnd);
+		parts[4] = !cse.isPlate ? null : AxisAlignedBB.getBoundingBox(1.0F - _plateDepth, _plateStart, _plateStart, 1.0F, _plateEnd, _plateEnd);
+		parts[5] = !csd.isPlate ? null : AxisAlignedBB.getBoundingBox(_plateStart, 0 , _plateStart, _plateEnd, _plateDepth, _plateEnd);
+		parts[6] = !csu.isPlate ? null : AxisAlignedBB.getBoundingBox(_plateStart, 1.0F - _plateDepth, _plateStart, _plateEnd, 1.0F, _plateEnd);
+		parts[7] = !csn.isPlate ? null : AxisAlignedBB.getBoundingBox(_plateStart, _plateStart, 0, _plateEnd, _plateEnd, _plateDepth);
+		parts[8] = !css.isPlate ? null : AxisAlignedBB.getBoundingBox(_plateStart, _plateStart, 1.0F - _plateDepth, _plateEnd, _plateEnd, 1.0F);
 		
-		parts[9]  = csw != RedNetConnectionType.PlateSingle && csw != RedNetConnectionType.CableSingle ? null : AxisAlignedBB.getBoundingBox(_bandDepthStart, _bandWidthStart, _bandWidthStart, _bandDepthEnd, _bandWidthEnd, _bandWidthEnd);
-		parts[10] = cse != RedNetConnectionType.PlateSingle && cse != RedNetConnectionType.CableSingle ? null : AxisAlignedBB.getBoundingBox(1.0F - _bandDepthEnd, _bandWidthStart, _bandWidthStart, 1.0F - _bandDepthStart, _bandWidthEnd, _bandWidthEnd);
-		parts[11] = csd != RedNetConnectionType.PlateSingle && csd != RedNetConnectionType.CableSingle ? null : AxisAlignedBB.getBoundingBox(_bandWidthStart, _bandDepthStart, _bandWidthStart, _bandWidthEnd, _bandDepthEnd, _bandWidthEnd);
-		parts[12] = csu != RedNetConnectionType.PlateSingle && csu != RedNetConnectionType.CableSingle ? null : AxisAlignedBB.getBoundingBox(_bandWidthStart, 1.0F - _bandDepthEnd, _bandWidthStart, _bandWidthEnd, 1.0F - _bandDepthStart, _bandWidthEnd);
-		parts[13] = csn != RedNetConnectionType.PlateSingle && csn != RedNetConnectionType.CableSingle ? null : AxisAlignedBB.getBoundingBox(_bandWidthStart, _bandWidthStart, _bandDepthStart, _bandWidthEnd, _bandWidthEnd, _bandDepthEnd);
-		parts[14] = css != RedNetConnectionType.PlateSingle && css != RedNetConnectionType.CableSingle ? null : AxisAlignedBB.getBoundingBox(_bandWidthStart, _bandWidthStart, 1.0F - _bandDepthEnd, _bandWidthEnd, _bandWidthEnd, 1.0F - _bandDepthStart);
+		parts[9]  = !csw.isSingleSubnet ? null : AxisAlignedBB.getBoundingBox(_bandDepthStart, _bandWidthStart, _bandWidthStart, _bandDepthEnd, _bandWidthEnd, _bandWidthEnd);
+		parts[10] = !cse.isSingleSubnet ? null : AxisAlignedBB.getBoundingBox(1.0F - _bandDepthEnd, _bandWidthStart, _bandWidthStart, 1.0F - _bandDepthStart, _bandWidthEnd, _bandWidthEnd);
+		parts[11] = !csd.isSingleSubnet ? null : AxisAlignedBB.getBoundingBox(_bandWidthStart, _bandDepthStart, _bandWidthStart, _bandWidthEnd, _bandDepthEnd, _bandWidthEnd);
+		parts[12] = !csu.isSingleSubnet ? null : AxisAlignedBB.getBoundingBox(_bandWidthStart, 1.0F - _bandDepthEnd, _bandWidthStart, _bandWidthEnd, 1.0F - _bandDepthStart, _bandWidthEnd);
+		parts[13] = !csn.isSingleSubnet ? null : AxisAlignedBB.getBoundingBox(_bandWidthStart, _bandWidthStart, _bandDepthStart, _bandWidthEnd, _bandWidthEnd, _bandDepthEnd);
+		parts[14] = !css.isSingleSubnet ? null : AxisAlignedBB.getBoundingBox(_bandWidthStart, _bandWidthStart, 1.0F - _bandDepthEnd, _bandWidthEnd, _bandWidthEnd, 1.0F - _bandDepthStart);
 		
 		return parts;
 	}
@@ -337,7 +337,8 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 		if(te instanceof TileEntityRedNetCable)
 		{
 			TileEntityRedNetCable cable = ((TileEntityRedNetCable)te);
-			if(cable.getNetwork() == null || cable.getConnectionState(ForgeDirection.VALID_DIRECTIONS[side].getOpposite()) == RedNetConnectionType.None)
+			RedNetConnectionType state = cable.getConnectionState(ForgeDirection.getOrientation(side).getOpposite());
+			if(cable.getNetwork() == null || !state.isConnected || state.isAllSubnets)
 			{
 				return 0;
 			}
@@ -357,7 +358,8 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 		if(te instanceof TileEntityRedNetCable)
 		{
 			TileEntityRedNetCable cable = ((TileEntityRedNetCable)te);
-			if(cable.getNetwork() == null || cable.getConnectionState(ForgeDirection.VALID_DIRECTIONS[side].getOpposite()) == RedNetConnectionType.None)
+			RedNetConnectionType state = cable.getConnectionState(ForgeDirection.getOrientation(side).getOpposite());
+			if(cable.getNetwork() == null || !state.isConnected || state.isAllSubnets)
 			{
 				return 0;
 			}
