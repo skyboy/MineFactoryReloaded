@@ -15,7 +15,7 @@ tile.mfr.machine.grinder.name = Triturador
 tile.mfr.machine.autoenchanter.name = Auto-Encantador
 tile.mfr.machine.chronotyper.name = Maquina Cronotipo
 
-tile.mfr.machine.ejector.name = Eyector
+tile.mfr.machine.ejector.name = Expulsor
 tile.mfr.machine.itemrouter.name = Direccionador de Objetos
 tile.mfr.machine.liquidrouter.name = Direccionador de Líquidos
 tile.mfr.machine.deepstorageunit.name = Unidad de Almacenamientos Profunda
