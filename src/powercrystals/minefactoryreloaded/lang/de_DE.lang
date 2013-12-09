@@ -169,8 +169,11 @@ item.mfr.bucket.chocolatemilk.name = Eimer mit Kakao
 item.mfr.bucket.mushroomsoup.name = Eimer mit Pilzsuppe
 
 item.mfr.bucket.plasticcup.name = Plastikbecher
-item.mfr.bucket.plasticcup.prefix.name =
-item.mfr.bucket.plasticcup.suffix.name = Becher
+item.mfr.bucket.plasticcup.prefix.name = Becher mit
+item.mfr.bucket.plasticcup.suffix.name = 
+item.mfr.bucket.plasticcell.name = Plastikzelle
+item.mfr.bucket.plasticcell.prefix.name = Zelle mit
+item.mfr.bucket.plasticcell.suffix.name =
 
 item.mfr.hammer.name = Schmiedehammer
 item.mfr.fertilizer.name = Industried\u00fcnger
@@ -244,6 +247,7 @@ item.mfr.laserfocus.green.name = Gr\u00fcne Linse
 item.mfr.laserfocus.red.name = Rote Linse
 item.mfr.laserfocus.black.name = Schwarze Linse
 
+item.mfr.upgrade.radius.cobble.name = Pflasterstein-Upgrade
 item.mfr.upgrade.radius.lapis.name = Lapislazuli-Upgrade
 item.mfr.upgrade.radius.iron.name = Eisenupgrade
 item.mfr.upgrade.radius.tin.name = Zinnupgrade
