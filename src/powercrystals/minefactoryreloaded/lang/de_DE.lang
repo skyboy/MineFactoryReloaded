@@ -169,8 +169,11 @@ item.mfr.bucket.chocolatemilk.name = Eimer mit Kakao
 item.mfr.bucket.mushroomsoup.name = Eimer mit Pilzsuppe
 
 item.mfr.bucket.plasticcup.name = Plastikbecher
-item.mfr.bucket.plasticcup.prefix.name =
-item.mfr.bucket.plasticcup.suffix.name = Becher
+item.mfr.bucket.plasticcup.prefix.name = Becher mit
+item.mfr.bucket.plasticcup.suffix.name = 
+item.mfr.bucket.plasticcell.name = Plastikzelle
+item.mfr.bucket.plasticcell.prefix.name = Zelle mit
+item.mfr.bucket.plasticcell.suffix.name =
 
 item.mfr.hammer.name = Schmiedehammer
 item.mfr.fertilizer.name = Industried\u00fcnger
@@ -244,6 +247,7 @@ item.mfr.laserfocus.green.name = Gr\u00fcne Linse
 item.mfr.laserfocus.red.name = Rote Linse
 item.mfr.laserfocus.black.name = Schwarze Linse
 
+item.mfr.upgrade.radius.cobble.name = Pflasterstein-Upgrade
 item.mfr.upgrade.radius.lapis.name = Lapislazuli-Upgrade
 item.mfr.upgrade.radius.iron.name = Eisenupgrade
 item.mfr.upgrade.radius.tin.name = Zinnupgrade
@@ -374,3 +378,5 @@ death.attack.mfr.slaughterhouse.1=%1$s wurde zu Fleischsau\u00dfe verarbeitet
 death.attack.mfr.slaughterhouse.1.player=%1$s wurde von %2$s dazu verdammt, zu Fleischsau\u00dfe verarbeitet zu werden
 death.attack.mfr.grinder=%1$s wurde in Br\u00f6ckchen zermahlen
 death.attack.mfr.grinder.player=%2$s stellte sicher, dass %1$s in Br\u00f6ckchen zermahlen wurde
+death.attack.mfr.laser=%1$s wurde desintegriert
+death.attack.mfr.laser.player=%2$s stellte sicher, dass %1$s desintegriert wurde
