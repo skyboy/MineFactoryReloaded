@@ -374,3 +374,5 @@ death.attack.mfr.slaughterhouse.1=%1$s wurde zu Fleischsau\u00dfe verarbeitet
 death.attack.mfr.slaughterhouse.1.player=%1$s wurde von %2$s dazu verdammt, zu Fleischsau\u00dfe verarbeitet zu werden
 death.attack.mfr.grinder=%1$s wurde in Br\u00f6ckchen zermahlen
 death.attack.mfr.grinder.player=%2$s stellte sicher, dass %1$s in Br\u00f6ckchen zermahlen wurde
+death.attack.mfr.laser=%1$s wurde desintegriert
+death.attack.mfr.laser.player=%2$s stellte sicher, dass %1$s desintegriert wurde
