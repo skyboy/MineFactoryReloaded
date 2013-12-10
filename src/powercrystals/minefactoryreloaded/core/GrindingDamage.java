@@ -35,7 +35,7 @@ public class GrindingDamage extends DamageSource
     {
         EntityLivingBase entityliving1 = par1EntityLivingBase.func_94060_bK();
         String s = "death.attack." + this.damageType;
-        if (_msgCount > 0)
+        if (_msgCount > 1)
         {
         	int msg = _rand.nextInt(_msgCount);
         	if (msg != 0)

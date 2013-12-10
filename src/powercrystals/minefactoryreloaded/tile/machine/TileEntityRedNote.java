@@ -15,6 +15,12 @@ public class TileEntityRedNote extends TileEntityFactory
 	}
 	
 	@Override
+	public boolean canUpdate()
+	{
+		return false;
+	}
+	
+	@Override
 	public void onRedNetChanged(ForgeDirection side, int value)
 	{
 		if(value < 0 || value > 119)

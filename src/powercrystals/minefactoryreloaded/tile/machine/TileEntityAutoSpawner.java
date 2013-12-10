@@ -16,6 +16,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import powercrystals.minefactoryreloaded.MFRRegistry;
+import powercrystals.minefactoryreloaded.api.IMobSpawnHandler;
 import powercrystals.minefactoryreloaded.core.ITankContainerBucketable;
 import powercrystals.minefactoryreloaded.gui.client.GuiAutoSpawner;
 import powercrystals.minefactoryreloaded.gui.client.GuiFactoryInventory;
@@ -152,9 +153,17 @@ public class TileEntityAutoSpawner extends TileEntityFactoryPowered implements I
 				return false;
 			}
 			
-			if (!_spawnExact && spawnedLiving instanceof EntityLiving)
+			IMobSpawnHandler handler = MFRRegistry.getSpawnHandlers().get(spawnedLiving.getClass());
+			
+			if (!_spawnExact)
 			{
-				((EntityLiving)spawnedLiving).onSpawnWithEgg(null);
+				if (spawnedLiving instanceof EntityLiving)
+					((EntityLiving)spawnedLiving).onSpawnWithEgg(null);
+				handler.onMobSpawn(spawnedLiving);
+			}
+			else
+			{
+				handler.onMobExactSpawn(spawnedLiving);
 			}
 			
 			worldObj.spawnEntityInWorld(spawnedLiving);

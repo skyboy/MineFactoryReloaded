@@ -378,3 +378,5 @@ death.attack.mfr.slaughterhouse.1=%1$s was processed into meat sauce
 death.attack.mfr.slaughterhouse.1.player=%1$s was doomed to be processed into meat sauce by %2$s
 death.attack.mfr.grinder=%1$s was ground to bits
 death.attack.mfr.grinder.player=%2$s ensured %1$s was ground to bits
+death.attack.mfr.laser=%1$s was disintegrated
+death.attack.mfr.laser.player=%2$s ensured %1$s was disintegrated

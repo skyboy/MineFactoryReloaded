@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomItem;
 
@@ -20,6 +21,7 @@ import powercrystals.minefactoryreloaded.api.IFactoryPlantable;
 import powercrystals.minefactoryreloaded.api.IFactoryRanchable;
 import powercrystals.minefactoryreloaded.api.ILiquidDrinkHandler;
 import powercrystals.minefactoryreloaded.api.IMobEggHandler;
+import powercrystals.minefactoryreloaded.api.IMobSpawnHandler;
 import powercrystals.minefactoryreloaded.api.INeedleAmmo;
 import powercrystals.minefactoryreloaded.api.IRandomMobProvider;
 import powercrystals.minefactoryreloaded.api.ISafariNetHandler;
@@ -36,6 +38,8 @@ public abstract class MFRRegistry
 	private static Map<Class<?>, List<ItemStack>> _breederFoods = new HashMap<Class<?>, List<ItemStack>>();
 	private static Map<String, ILiquidDrinkHandler> _liquidDrinkHandlers = new HashMap<String, ILiquidDrinkHandler>();
 	private static Map<Integer, INeedleAmmo> _needleAmmoTypes = new HashMap<Integer, INeedleAmmo>();
+	private static Map<Class<? extends EntityLivingBase>, IMobSpawnHandler> _spawnHandlers =
+			new HashMap<Class<? extends EntityLivingBase>, IMobSpawnHandler>();
 	
 	private static List<Integer> _fruitLogBlocks = new ArrayList<Integer>();
 	private static Map<Integer, IFactoryFruit> _fruitBlocks = new HashMap<Integer, IFactoryFruit>();
@@ -297,6 +301,16 @@ public abstract class MFRRegistry
 	public static List<String> getAutoSpawnerBlacklist()
 	{
 		return _autoSpawnerBlacklist;
+	}
+	
+	public static void registerSpawnHandler(IMobSpawnHandler spawnHandler)
+	{
+		_spawnHandlers.put(spawnHandler.getMobClass(), spawnHandler);
+	}
+	
+	public static Map<Class<? extends EntityLivingBase>, IMobSpawnHandler> getSpawnHandlers()
+	{
+		return _spawnHandlers;
 	}
 
 	public static void registerUnifierBlacklist(String string)

@@ -1,28 +1,31 @@
 package powercrystals.minefactoryreloaded.block;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
 import powercrystals.minefactoryreloaded.api.rednet.IRedNetNoConnection;
+import powercrystals.minefactoryreloaded.core.GrindingDamage;
 import powercrystals.minefactoryreloaded.tile.machine.TileEntityLaserDrill;
 
 public class BlockFakeLaser extends Block implements IRedNetNoConnection
 {
+	private static GrindingDamage laserDamage = new GrindingDamage("mfr.laser");
+	
 	public BlockFakeLaser(int id)
 	{
 		super(id, Material.air);
 		setHardness(-1);
-		setResistance(100000000);
+		setResistance(Float.POSITIVE_INFINITY);
 		setBlockBounds(0F, 0F, 0F, 0F, 0F, 0F);
 	}
 	
@@ -41,6 +44,7 @@ public class BlockFakeLaser extends Block implements IRedNetNoConnection
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
+		entity.attackEntityFrom(laserDamage, 2);
 		entity.setFire(10);
 	}
 	
@@ -83,15 +87,15 @@ public class BlockFakeLaser extends Block implements IRedNetNoConnection
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
-		TileEntity upperTE = world.getBlockTileEntity(x, y + 1, z);
+		if (world.isRemote) return;
 		int upperId = world.getBlockId(x, y + 1, z);
 		int lowerId = world.getBlockId(x, y - 1, z);
 		
-		if(!world.isRemote && !(upperTE instanceof TileEntityLaserDrill) && upperId != blockID)
+		if (upperId != blockID && !(world.getBlockTileEntity(x, y + 1, z) instanceof TileEntityLaserDrill))
 		{
 			world.setBlockToAir(x, y, z);
 		}
-		if(lowerId != blockID && (Block.blocksList[lowerId] == null || Block.blocksList[lowerId].isAirBlock(world, x, y - 1, z)))
+		else if (lowerId != blockID && (Block.blocksList[lowerId] == null || Block.blocksList[lowerId].isAirBlock(world, x, y - 1, z)))
 		{
 			world.setBlock(x, y - 1, z, blockID);
 		}

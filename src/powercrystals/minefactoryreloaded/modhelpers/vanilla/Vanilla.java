@@ -12,7 +12,6 @@ import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntityVillager;
@@ -142,6 +141,7 @@ import powercrystals.minefactoryreloaded.farmables.safarinethandlers.EntityAgeab
 import powercrystals.minefactoryreloaded.farmables.safarinethandlers.EntityLivingHandler;
 import powercrystals.minefactoryreloaded.farmables.safarinethandlers.SheepHandler;
 import powercrystals.minefactoryreloaded.farmables.safarinethandlers.SlimeHandler;
+import powercrystals.minefactoryreloaded.farmables.spawnhandlers.SpawnableHorse;
 import powercrystals.minefactoryreloaded.setup.MFRConfig;
 
 @Mod(modid = "MineFactoryReloaded|CompatVanilla", name = "MFR Compat: Vanilla", version = MineFactoryReloadedCore.version, dependencies = "after:MineFactoryReloaded")
@@ -362,8 +362,8 @@ public class Vanilla
 		MFRRegistry.registerFruit(new FruitCocoa());
 		
 		MFRRegistry.registerAutoSpawnerBlacklist("VillagerGolem");
-		MFRRegistry.registerAutoSpawnerBlacklistClass(EntityHorse.class);
-		// TODO: add spawn handlers so donkey inventories can be cleared on exact copy
+		
+		MFRRegistry.registerSpawnHandler(new SpawnableHorse());
 		
 		MFRRegistry.registerNeedleAmmoType(MineFactoryReloadedCore.needlegunAmmoStandardItem.itemID,
 				(INeedleAmmo)MineFactoryReloadedCore.needlegunAmmoStandardItem);
