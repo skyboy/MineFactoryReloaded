@@ -1,5 +1,6 @@
 package powercrystals.minefactoryreloaded.setup.recipe;
 
+import gregtechmod.api.GregTech_API;
 import ic2.api.item.Items;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -22,6 +23,9 @@ public class GregTech extends Vanilla
 		}
 		try
 		{
+			ItemStack steelPipe = GregTech_API.ItemStack getGregTechBlock(1, 1, 1801);
+			ItemStack itemClearer = GregTech_API.ItemStack getGregTechBlock(1, 1, 24);
+			ItemStack cropHarvester = GregTech_API.ItemStack getGregTechBlock(1, 1, 26);
 			ItemStack generator = Items.getItem("generator");
 			ItemStack compressor = Items.getItem("compressor");
 			ItemStack luminator = Items.getItem("luminator");
@@ -33,15 +37,13 @@ public class GregTech extends Vanilla
 			{
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 0), new Object[]
 						{
-					"PTP",
-					"SFS",
-					"OCO",
+					"PIP",
+					"CBC",
+					"   ",
 					'P', "sheetPlastic",
-					'T', Item.flowerPot,
-					'S', Block.pistonBase,
-					'F', "craftingRawMachineTier00",
-					'O', "plateCopper",
-					'C', "craftingCircuitTier02",
+					'I', "itemClearer",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'C', "craftingCircuitTier04",
 						} ));
 			}
 			
@@ -49,14 +51,12 @@ public class GregTech extends Vanilla
 			{
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 1), new Object[]
 						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', Item.fishingRod,
-					'S', Item.bucketEmpty,
-					'F', "craftingRawMachineTier01",
-					'O', "plateSteel",
+					"CIC",
+					"FBF",
+					"   ",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'I', "itemClearer",
+					'F', "steelPipe",
 					'C', "craftingCircuitTier04"
 						} ));
 			}
@@ -65,14 +65,12 @@ public class GregTech extends Vanilla
 			{
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 2), new Object[]
 						{
-					"PTP",
-					"SFS",
-					"OCO",
+					"PHP",
+					"CBC",
+					"   ",
 					'P', "sheetPlastic",
-					'T', Item.axeIron,
-					'S', Item.shears,
-					'F', "craftingRawMachineTier00",
-					'O', "plateGold",
+					'H', "cropHarvester",
+					'B', MineFactoryReloadedCore.machineBaseItem,
 					'C', "craftingCircuitTier02"
 						} ));
 			}
