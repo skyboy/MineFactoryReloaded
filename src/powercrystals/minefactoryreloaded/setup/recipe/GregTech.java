@@ -26,622 +26,468 @@ public class GregTech extends Vanilla
 			ItemStack steelPipe = GregTech_API.ItemStack getGregTechBlock(1, 1, 1801);
 			ItemStack itemClearer = GregTech_API.ItemStack getGregTechBlock(1, 1, 24);
 			ItemStack cropHarvester = GregTech_API.ItemStack getGregTechBlock(1, 1, 26);
-			ItemStack generator = Items.getItem("generator");
-			ItemStack compressor = Items.getItem("compressor");
-			ItemStack luminator = Items.getItem("luminator");
-			ItemStack mfsUnit = Items.getItem("mfsUnit");
-			ItemStack reactorChamber = Items.getItem("reactorChamber");
-			ItemStack reinforcedGlass = Items.getItem("reinforcedGlass");
+			ItemStack centrifuge = GregTech_API.ItemStack getGregTechBlock(1, 1, 62);
+			ItemStack magicConverter = GregTech_API.ItemStack getGregTechBlock(1, 1, 42);
+			ItemStack sorter = GregTech_API.ItemStack getGregTechBlock(1, 1, 23);
+			ItemStack qChest = GregTech_API.ItemStack getGregTechBlock(1, 1, 49);
+			ItemStack distil = GregTech_API.ItemStack getGregTechBlock(1, 1, 44);
+			ItemStack dieselGen = GregTech_API.ItemStack getGregTechBlock(1, 1, 33);
+			ItemStack microwave = GregTech_API.ItemStack getGregTechBlock(1, 1, 63);
+			ItemStack typeSorter = GregTech_API.ItemStack getGregTechBlock(1, 1, 58);
+			ItemStack metalWorkbench = GregTech_API.ItemStack getGregTechBlock(1, 1, 112);
+			ItemStack GTteleporter = GregTech_API.ItemStack getGregTechBlock(1, 1, 90);
+			ItemStack redstoneScale = GregTech_API.ItemStack getGregTechBlock(1, 1, 78);
+			ItemStack gasTurbine = GregTech_API.ItemStack getGregTechBlock(1, 1, 34);
+			ItemStack glassCable = Items.getItem("glassFiberCableBlock");
 			
-			if(Machine.Planter.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 0), new Object[]
-						{
+			
+			registerMachine(Machine.Planter, new Object[] {
 					"PIP",
 					"CBC",
 					"   ",
 					'P', "sheetPlastic",
-					'I', "itemClearer",
+					'I', itemClearer,
 					'B', MineFactoryReloadedCore.machineBaseItem,
 					'C', "craftingCircuitTier04",
-						} ));
-			}
-			
-			if(Machine.Fisher.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 1), new Object[]
-						{
+			});
+						
+			registerMachine(Machine.Fisher, new Object[] {
 					"CIC",
 					"FBF",
 					"   ",
 					'B', MineFactoryReloadedCore.machineBaseItem,
-					'I', "itemClearer",
-					'F', "steelPipe",
+					'I', itemClearer,
+					'F', steelPipe,
 					'C', "craftingCircuitTier04"
-						} ));
-			}
+			});
 			
-			if(Machine.Harvester.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 2), new Object[]
-						{
+			registerMachine(Machine.Harvester, new Object[] {
 					"PHP",
 					"CBC",
 					"   ",
 					'P', "sheetPlastic",
-					'H', "cropHarvester",
+					'H', cropHarvester,
 					'B', MineFactoryReloadedCore.machineBaseItem,
-					'C', "craftingCircuitTier02"
-						} ));
-			}
-			
-			if(Machine.Rancher.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 3), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', "craftingPump",
-					'S', Item.shears,
-					'F', "craftingRawMachineTier01",
-					'O', "plateTin",
 					'C', "craftingCircuitTier04"
-						} ));
-			}
-			
-			if(Machine.Fertilizer.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 4), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
+			});
+
+			registerMachine(Machine.Rancher, new Object[] {
+					" U ",
+					"PFP",
+					"CIC",
 					'P', "sheetPlastic",
-					'T', Item.glassBottle,
-					'S', Item.leather,
-					'F', "craftingRawMachineTier01",
-					'O', "plateSilver",
+					'I', itemClearer,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'U', new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 0),
 					'C', "craftingCircuitTier04"
-						} ));
-			}
+			);
 			
-			if(Machine.Vet.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 5), new Object[]
-						{
-					"PTP",
-					"TFT",
-					"OCO",
+			registerMachine(Machine.Fertilizer, new Object[] {
+					" D ",
+					"PBP",
+					"CIC",
 					'P', "sheetPlastic",
-					'T', MineFactoryReloadedCore.syringeEmptyItem,
-					'F', "craftingRawMachineTier01",
-					'O', "plateZinc",
+					'I', itemClearer,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'D', "craftingCircuitTier06",
 					'C', "craftingCircuitTier04"
-						} ));
-			}
+			});
 			
-			if(Machine.ItemCollector.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 6), new Object[]
-						{
+			registerMachine(Machine.Vet, new Object[] {
+					"P P",
+					"DBU",
+					"CIC",
+					'P', "sheetPlastic",
+					'I', itemClearer,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'U', new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 0),
+					'D', "craftingCircuitTier06",
+					'C', "craftingCircuitTier04"
+			});
+			
+			registerMachine(Machine.ItemCollector, new Object[] {
 					"PVP",
 					" F ",
+					"P P",
+					'P', "sheetPlastic",
+					'F', "craftingRawMachineTier00",
+					'V', "craftingConveyor"
+			});
+			
+			registerMachine(Machine.BlockBreaker, new Object[] {
+					"VBG",
+					" C ",
+					"   ",
+					'V', "craftingConveyor",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'C', "craftingCircuitTier04",
+					'G', "craftingGrinder"
+			});
+			
+			registerMachine(Machine.WeatherCollector, new Object[] {
+					" D ",
+					"PFP",
+					"   ",
+					'P', "sheetPlastic",
+					'D', "craftingDrain",
+					'F', "craftingRawMachineTier00"
+			});
+			
+			registerMachine(Machine.SludgeBoiler, new Object[] {
+					"PIP",
+					"CBC",
+					"   ",
+					'P', "sheetPlastic",
+					'I', centrifuge,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'C', "craftingCircuitTier04"
+			});
+			
+			registerMachine(Machine.Sewer, new Object[] {
+					"PDP",
+					"SBS",
+					"   ",
+					'P', "sheetPlastic",
+					'D', "craftingDrain",
+					'S', Block.brick,
+					'B', MineFactoryReloadedCore.machineBaseItem
+			]);
+
+			
+			registerMachine(Machine.Composter, new Object[] {
+					"PIP",
+					"SBS",
+					"   ",
+					'P', "sheetPlastic",
+					'I', centrifuge,
+					'S', Block.brick,
+					'B', MineFactoryReloadedCore.machineBaseItem
+			} ));
+			
+			registerMachine(Machine.Breeder, new Object[] {
+					"DUD",
+					"PBP",
+					"CIC",
+					'P', "sheetPlastic",
+					'I', itemClearer,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'U', new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 0),
+					'D', "craftingCircuitTier05",
+					'C', "craftingCircuitTier04"
+			});
+			
+			registerMachine(Machine.Grinder, new Object[] {
+					"SIS",
+					"GBG",
+					"CMC",
+					'I', "itemClearer",
+					'M', magicConverter,
+					'G', "craftingGrinder",
+					'S', "craftingDiamondBlade",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'C', "craftingCircuitTier04"
+			});
+			
+			registerMachine(Machine.AutoEnchanter, new Object[] {
+					"PMP",
+					"DED",
+					"VBV",
+					'E', Block.enchantmentTable,
+					'P', "sheetPlastic",
+					'V', "craftingConveyor",
+					'M', magicConverter,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'D', "craftingCircuitTier06"
+			});
+			
+			registerMachine(Machine.Chronotyper, new Object[] {
+					"PUP",
+					"CTC",
+					"DBD",
+					'P', "sheetPlastic",
+					'T', "craftingTeleporter",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'U', new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 0),
+					'D', "craftingCircuitTier06",
+					'C', "craftingCircuitTier05"
+			});
+			
+			registerMachine(Machine.Ejector, new Object[] {							
+					"POP",
+					" F ",
+					"PVP",
+					'P', "sheetPlastic",
+					'V', "craftingConveyer",
+					'F', "craftingRawMachineTier00",
+					'O', "craftingWorkController"
+			});
+			
+			registerMachine(Machine.ItemRouter, new Object[] {					
+					"PCP",
+					"VSV",
 					"PCP",
 					'P', "sheetPlastic",
-					'F', "craftingRawMachineTier01",
-					'C', Block.chest,
-					'V', "craftingConveyor"
-						} ));
-			}
+					'S', sorter,
+					'V', "craftingConveyor",
+					'C', "craftingCircuitTier02"
+			});
 			
-			if(Machine.BlockBreaker.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 7), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
+			registerMachine(Machine.LiquidRouter, new Object[] {					
+					"PFP",
+					"FSF",
+					"PFP",
 					'P', "sheetPlastic",
-					'T', "craftingItemValve",
-					'S', Item.pickaxeIron,
-					'F', "craftingRawMachineTier02",
-					'O', "plateAluminium",
-					'C', "craftingCircuitTier04"
-						} ));
-			}
+					'F', steelPipe,
+					'S', sorter
+			});
 			
-			if(Machine.WeatherCollector.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 8), new Object[]
-						{
-					"PTP",
-					"TFT",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', Item.bucketEmpty,
-					'F', "craftingRawMachineTier02",
-					'O', "plateBrass",
-					'C', "craftingCircuitTier04"
-						} ));
-			}
+			registerMachine(Machine.DeepStorageUnit, new Object[] {					
+					"C  ",
+					"   ",
+					"   ",
+					'C', qChest,
+			});
 			
-			if(Machine.SludgeBoiler.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 9), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', Item.bucketEmpty,
-					'S', Block.furnaceIdle,
-					'F', "craftingRawMachineTier02",
-					'O', "plateIron",
-					'C', "craftingCircuitTier04"
-						} ));
-			}
-			
-			if(Machine.Sewer.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 10), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"SSS",
-					'P', "sheetPlastic",
-					'T', Item.bucketEmpty,
-					'S', Block.brick,
-					'F', "craftingRawMachineTier01",
-						} ));
-			}
-			
-			if(Machine.Composter.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 11), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', Block.furnaceIdle,
-					'S', Block.pistonBase,
-					'F', "craftingRawMachineTier01",
-					'O', Block.brick,
-					'C', "craftingCircuitTier04"
-						} ));
-			}
-			
-			if(Machine.Breeder.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 12), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', Item.appleGold,
-					'S', Item.goldenCarrot,
-					'F', "craftingRawMachineTier02",
-					'O', new ItemStack(Item.dyePowder, 1, 5),
-					'C', "craftingCircuitTier04"
-						} ));
-			}
-			
-			if(Machine.Grinder.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 13), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'S', "craftingMachineParts",
-					'T', "craftingGrinder",
-					'F', "craftingRawMachineTier02",
-					'O', Item.book,
-					'C', "craftingCircuitTier04"
-						} ));
-			}
-			
-			if(Machine.AutoEnchanter.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 14), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', "plateAlloyIridium",
-					'S', Item.book,
-					'F', "craftingRawMachineTier04",
-					'O', "craftingCircuitTier06",
-					'C', Block.obsidian
-						} ));
-			}
-			
-			if(Machine.Chronotyper.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(0), 1, 15), new Object[]
-						{
-					"PTP",
-					"TFT",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', "gemEmerald",
-					'F', "craftingRawMachineTier02",
-					'O', new ItemStack(Item.dyePowder, 1, 5),
-					'C', "craftingCircuitTier06"
-						} ));
-			}
-			
-			if(Machine.Ejector.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 0), new Object[]
-						{							
-					"PTP",
-					" F ",
-					"OOO",
-					'P', "sheetPlastic",
-					'T', "craftingRedstoneReceiver",
-					'F', "craftingRawMachineTier02",
-					'O', "dustRedstone"
-						} ));
-			}
-			
-			if(Machine.ItemRouter.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 1), new Object[]
-						{					
-					"PTP",
-					"SFS",
-					"PSP",
-					'P', "sheetPlastic",
-					'T', Block.chest,
-					'S', Item.redstoneRepeater,
-					'F', "craftingRawMachineTier02"
-						} ));
-			}
-			
-			if(Machine.LiquidRouter.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 2), new Object[]
-						{					
-					"PTP",
-					"SFS",
-					"PSP",
-					'P', "sheetPlastic",
-					'T', "craftingPump",
-					'S', Item.redstoneRepeater,
-					'F', "craftingRawMachineTier02"
-						} ));
-			}
-			
-			if(Machine.DeepStorageUnit.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 3), new Object[]
-						{					
-					"PDP",
-					"CFC",
-					"PEP",
-					'P', "sheetPlastic",
-					'C', "craftingCircuitTier07",
-					'E', Item.eyeOfEnder,
-					'D', "craftingCircuitTier08",
-					'F', "craftingRawMachineTier04"
-						} ));
-				
 				if(MFRConfig.enableCheapDSU.getBoolean(false))
 				{
-					GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 3), new Object[]
-							{					
-						"PCP",
-						"CFC",
-						"PCP",
+					registerMachine(Machine.Fertilizer, new Object[] {					
+						"DTD",
+						"PBP",
+						"DMD",
 						'P', "sheetPlastic",
-						'C', Block.chest,
-						'F', "craftingRawMachineTier01"
-							} ));
+						'B', "craftingRawMachineTier04",
+						'M', "craftingMonitorTier2",
+						'D', "craftingCircuitTier08",
+						'T', "craftingTeleporter"
+					});
 				}
 			}
 			
-			if(Machine.LiquiCrafter.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 4), new Object[]
-						{						
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', Block.workbench,
-					'S', "craftingPump",
-					'F', "craftingRawMachineTier01",
-					'O', Item.book,
-					'C', "craftingLiquidMeter"
-						} ));
-			}
+                        registerMachine(Machine.LiquiCrafter, new Object[] {						
+					"CRC",
+					"FTF",
+					"CAC",
+					'C', "cellEmpty",
+					'T', metalWorkbench,
+					'F', steelPipe,
+					'R', "craftingWorkController",
+					'A', "craftingCircuitTier04"
+			});
 			
-			if(Machine.LavaFabricator.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 5), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', "plateSteel",
-					'S', Item.magmaCream,
-					'F', "craftingRawMachineTier03",
-					'O', Item.blazeRod,
-					'C', "craftingCircuitTier04"
-						} ));
-			}
+                        registerMachine(Machine.LavaFabricator, new Object[] {
+					"CLC",
+					"BEB",
+					"CTC",
+					'L', "bucketLava",
+					'E', "crafting100kkEUStore",
+					'B', "craftingRawMachineTier04",
+					'T', "craftingTeleporter",
+					'C', "craftingCircuitTier07"
+			});
 			
-			if(Machine.OilFabricator.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 6), new Object[]
-						{
-					"PTP",
-					"OFO",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', Block.tnt,
-					'F', "craftingRawMachineTier03",
-					'O', Block.obsidian,
-					'C', "craftingCircuitTier04"
-						} ));
-			}
+                        registerMachine(Machine.OilFacricator, new Object[] {
+					"CLC",
+					"BEB",
+					"CTC",
+					'L', "cellOil",
+					'E', "crafting100kkEUStore",
+					'B', "craftingRawMachineTier04",
+					'T', "craftingTeleporter",
+					'C', "craftingCircuitTier07"
+			});
 			
-			if(Machine.AutoJukebox.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 7), new Object[]
-						{
+                        registerMachine(Machine.AutoJukebox, new Object[] {
 					"PJP",
 					" F ",
-					" P ",
-					'P', "sheetPlastic",
-					'J', Block.jukebox,
-					'F', "craftingRawMachineTier01"
-						} ));
-			}
-			
-			if(Machine.Unifier.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 8), new Object[]
-						{
-					"PTP",
-					"SFL",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', "plateCopper",
-					'S', "plateSilver",
-					'L', "plateGold",
-					'F', "craftingRawMachineTier01",
-					'O', Item.comparator,
-					'C', Item.book
-						} ));
-			}
-			
-			if(Machine.AutoSpawner.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 9), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', "plateAlloyIridium",
-					'S', Item.magmaCream,
-					'F', "craftingRawMachineTier02",
-					'O', "gemRuby",
-					'C', "craftingCircuitTier05"
-						} ));
-			}
-			
-			if(Machine.BioReactor.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 10), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', Item.fermentedSpiderEye,
-					'S', Item.slimeBall,
-					'F', "craftingRawMachineTier03",
-					'O', "craftingItemValve",
-					'C', "craftingPump"
-						} ));
-			}
-			
-			if(Machine.BioFuelGenerator.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 11), new Object[]
-						{
 					"PCP",
-					"SFS",
-					"OCO",
 					'P', "sheetPlastic",
-					'S', "plateIron",
-					'F', generator,
-					'O', Item.blazeRod,
-					'C', "craftingCircuitTier04"
-						} ));
-			}
+					'C', "craftingCircuitTier02",
+					'J', Block.jukebox,
+					'F', "craftingRawMachineTier00"
+			});
 			
-			if(Machine.AutoDisenchanter.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 12), new Object[]
-						{
-					"PTP",
-					"SFS",
-					"OCO",
-					'P', "sheetPlastic",
-					'T', "plateAlloyIridium",
-					'S', Item.book,
-					'F', "craftingRawMachineTier03",
-					'O', "craftingCircuitTier06",
-					'C', Block.netherBrick
-						} ));
-			}
+                        registerMachine(Machine.Unifier, new Object[] {
+					"V  ",
+					"B  ",
+					"  ",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'V', "craftingItemValve",
+			});
 			
-			if(Machine.Slaughterhouse.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 13), new Object[]
-						{
-					"GIG",
-					"SFS",
-					"XCX",
-					'G', "sheetPlastic",
-					'S', "craftingPump",
-					'X', "craftingGrinder",
-					'I', "craftingDiamondBlade",
-					'F', "craftingRawMachineTier02",
-					'C', "craftingCircuitTier04"
-						} ));
-			}
+                        registerMachine(Machine.AutoSpawner, new Object[] {
+					"CLC",
+					"BEB",
+					"CTC",
+					'L', magicConverter,
+					'E', "crafting100kkEUStore",
+					'B', "craftingRawMachineTier04",
+					'T', "craftingCircuitTier08",
+					'C', "craftingCircuitTier07"
+			});
 			
-			if(Machine.MeatPacker.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 14), new Object[]
-						{
-					"GSG",
-					"BFB",
-					"TCT",
-					'G', "sheetPlastic",
-					'B', "craftingHeatingCoilTier01",
-					'S', "craftingPump",
-					'F', compressor,
-					'C', "craftingMachineParts",
-					'T', "craftingPump"
-						} ));
-			}
+                        registerMachine(Machine.BioReactor, new Object[] {
+					"CDE",
+					"FBF",
+					"   ",
+					'D', distil,
+					'E', "craftingExtractor",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'F', steelPipe,
+					'C', "craftingCompressor"
+			});
 			
-			if(Machine.EnchantmentRouter.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(1), 1, 15), new Object[]
-						{					
+                        registerMachine(Machine.BioFuelGenerator, new Object[] {
+					"DDD",
+					"GBG",
+					"   ",
+					'D', dieselGen,
+					'G', "craftingGearTier02",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+			});
+			
+                        registerMachine(Machine.AutoDisenchanter, new Object[] {
 					"PBP",
-					"SFS",
-					"PSP",
+					"DED",
+					"VMV",
+					'E', Block.enchantmentTable,
 					'P', "sheetPlastic",
-					'B', Item.book,
-					'S', Item.redstoneRepeater,
-					'F', "craftingRawMachineTier02"
-						} ));
-			}
+					'V', "craftingConveyor",
+					'M', magicConverter,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'D', "craftingCircuitTier06"
+			} ));
 			
-			if(Machine.LaserDrill.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(2), 1, 0), new Object[]
-						{
-					"GFG",
-					"CRC",
-					"DLD",
-					'G', "sheetPlastic",
-					'D', "gemDiamond",
-					'L', reinforcedGlass,
-					'R', reactorChamber,
-					'F', "craftingRawMachineTier04",
-					'C', "craftingSuperconductor"
-						} ));
-			}
+                        registerMachine(Machine.Slaughterhouse, new Object[] {
+					"SIS",
+					"GBG",
+					"CMC",
+					'I', itemClearer,
+					'M', centrifuge,
+					'G', "craftingGrinder",
+					'S', "craftingDiamondBlade",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'C', steelPipe
+			});
 			
-			if(Machine.LaserDrillPrecharger.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(2), 1, 1), new Object[]
-						{
-					"GSG",
-					"RFL",
-					"DCD",
-					'G', "sheetPlastic",
-					'D', "gemDiamond",
-					'S', MineFactoryReloadedCore.pinkSlimeballItem,
-					'L', luminator,
-					'F', mfsUnit,
+                        registerMachine(Machine.Meatpacker, new Object[] {
+					"EMC",
+					"FBF",
+					"   ",
+					'E', "craftingExtractor",
+					'M', microwave,
+					'C', "craftingCompressor",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'F', steelPipe,
+			});
+			
+                        registerMachine(Machine.EnchantmentRouter, new Object[] {					
+					"T  ",
+					"B  ",
+					"   ",
+					'T', typeSorter,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+			});
+		
+                        registerMachine(Machine.LaserDrill, new Object[] {
+					"STS",
+					"CDC",
+					"SLS",
+					'L', "lenseDiamond",
+					'T', GTteleporter,
+					'D', supercondensator,
 					'C', "craftingCircuitTier07",
-					'R', "craftingSuperconductor"
-						} ));
-			}
+					'S', "craftingSuperconductor"
+			});
 			
-			if(Machine.AutoAnvil.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(2), 1, 2), new Object[]
-						{
-					"GIG",
-					"SFS",
-					"ACA",
-					'G', "sheetPlastic",
-					'A', Block.anvil,
-					'S', "plateSteel",
-					'F', "craftingRawMachineTier04",
+                        registerMachine(Machine.LaserDrillPrecharger, new Object[] {
+					"SGG",
+					"LLC",
+					"SGG",
+					'G', "blockGlowstone",
 					'C', "craftingCircuitTier07",
-					'I', "plateAlloyIridium"
-						} ));
-			}
+					'L', "lenseDiamond",
+					'S', superconductor
+			});
+			
+                        registerMachine(Machine.AutoAnvil, new Object[] {
+					"PBP",
+					"DED",
+					"VMV",
+					'E', Block.anvil,
+					'P', "sheetPlastic",
+					'V', "craftingConveyor",
+					'M', magicConverter,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'D', "craftingCircuitTier06"
+			});
 			
 			
-			if(Machine.BlockSmasher.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(2), 1, 3), new Object[]
-						{
-					"GPG",
-					"HFH",
-					"BCB",
-					'G', "sheetPlastic",
-					'P', Block.pistonBase,
-					'H', MineFactoryReloadedCore.factoryHammerItem,
-					'B', "craftingItemValve",
-					'F', "craftingRawMachineTier03",
-					'C', "craftingCircuitTier06"
-						} ));
-			}
+                        registerMachine(Machine.Blocksmasher, new Object[] {
+					"DMD",
+					"GBG",
+					"   ",
+					'G', "craftingGrinder",
+					'M', magicConverter,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'D', "craftingCircuitTier06"
+			});
 			
-			if(Machine.RedNote.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(2), 1, 4), new Object[]
-						{
-					"GNG",
-					"CFC",
-					"GNG",
-					'G', "sheetPlastic",
+                        registerMachine(Machine.RedNote, new Object[] {
+					" C ",
+					" N ",
+					"CCC",
 					'C', MineFactoryReloadedCore.rednetCableBlock,
 					'N', Block.music,
-					'F', "craftingRawMachineTier01"
-						} ));
-			}
+					'C', "craftingCircuitTier02"
+			});
 			
-			if(Machine.AutoBrewer.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(2), 1, 5), new Object[]
-						{
-					"GBG",
-					"CFC",
-					"RCR",
-					'G', "sheetPlastic",
-					'C', "craftingPump",
-					'B', Item.brewingStand,
-					'R', "craftingItemValve",
-					'F', "craftingRawMachineTier02",
-					'C', "craftingCircuitTier05"
-						} ));
-			}
-			
-			if(Machine.FruitPicker.getIsRecipeEnabled())
-			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.machineBlocks.get(2), 1, 6), new Object[]
-						{
-					"GXG",
-					"SFS",
-					"SCS",
-					'G', "sheetPlastic",
-					'X', Item.axeGold,
-					'S', Item.shears,
-					'F', "craftingRawMachineTier03",
+                        registerMachine(Machine.AutoBrewer, new Object[] {
+					"CSC",
+					"FBF",
+					"CSC",
+					'S', Item.brewingStand,
+					'F', steelPipe,
+					'B', MineFactoryReloadedCore.machineBaseItem,
 					'C', "craftingCircuitTier04"
-						} ));
-			}
+			});
+			
+                        registerMachine(Machine.FruitPicker, new Object[] {
+					"PHP",
+					"CBC",
+					"   ",
+					'P', "sheetPlastic",
+					'H', cropHarvester,
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'C', "craftingCircuitTier02"
+			});
+			
+                        registerMachine(Machine.BlockPlacer, new Object[] {
+					" C ",
+					"PBV",
+					" C ",
+					'P', block.piston,
+					'V', "craftingConveyor",
+					'B', MineFactoryReloadedCore.machineBaseItem,
+					'C', "craftingCircuitTier04"
+			});
+			
+			registerMachine(Machine.MobCounter, new Object[] {
+					"RRR",
+					" S ",
+					"   ",
+					'R', MineFactoryReloadedCore.rednetCableBlock,
+					'S', redstoneScale
+			});
+			
+			registerMachine(Machine.SteamTurbine, new Object[] {
+				" T ",
+				"GBG",
+				" T ",
+				'T', gasTurbine,
+				'G', "craftingGearTier02",
+				'B', MineFactoryReloadedCore.machineBaseItem
+			});
+			
 		}
 		catch (Exception x)
 		{
@@ -658,141 +504,241 @@ public class GregTech extends Vanilla
 		}
 		try
 		{
-			ItemStack insulatedGoldCableItem = Items.getItem("insulatedGoldCableItem");
-			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 0), new Object[]
 					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', "dyeBlue",
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier02",
+				"GGG",
+				"CTC",
+				"GGG",
+				'T', "craftingTeleporter",
+				'C', "craftingCircuitTier04",
+				'G', "glassCable"
 					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 1), new Object[]
-					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', Item.ingotIron,
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier02",
-					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 2), new Object[]
-					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', "ingotTin",
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier02",
-					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 3), new Object[]
-					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', "ingotCopper",
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier04",
-					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 4), new Object[]
-					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', "ingotBronze",
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier04",
-					} ));
-			
+					
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 5), new Object[]
 					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', "ingotSilver",
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier04",
+				"DBC",
+				" U ",
+				"   ",
+				'U', new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 0),
+				'C', "craftingCircuitTier06",
+				'D', "craftingCircuitTier07",
+				'B', "craftingRawMachineTier04",
+				
 					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 6), new Object[]
-					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', "ingotGold",
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier04",
-					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 7), new Object[]
-					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', Item.netherQuartz,
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier06",
-					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 8), new Object[]
-					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', "gemDiamond",
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier06",
-					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 9), new Object[]
-					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', "ingotPlatinum",
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier06",
-					} ));
-			
+					
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 10), new Object[]
 					{
-				"III",
-				"PPP",
-				"RGR",
-				'I', Item.emerald,
-				'P', "dustPlastic",
-				'R', insulatedGoldCableItem,
-				'G', "craftingCircuitTier06",
+				"DBC",
+				" U ",
+				"   ",
+				'U', new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 5),
+				'C', "craftingCircuitTier06",
+				'D', "craftingCircuitTier07",
+				'B', "craftingRawMachineTier04",
+				
 					} ));
 			
-			for(int i = 0; i < 16; i++)
+			for(int i = 2; i < 11; i + 2)
 			{
-				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, i), new Object[]
-						{
-					"ENE",
-					"NGN",
-					"ENE",
-					'E', Item.emerald,
-					'N', "nuggetChrome",
-					'G', new ItemStack(MineFactoryReloadedCore.factoryGlassPaneBlock, 1, i)
-						} ));
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, i), new Object[]
+					{
+				" G ",
+				"CUC",
+				" G ",
+				'U', new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, i - 2),
+				'C', "craftingCircuitTier06",
+				'G', "glassCable"
+					} ));
 			}
+			
+			for(int i = 1; i < 11; i++)
+			{
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, i), new Object[]
+					{
+				"GCG",
+				"GUG",
+				"GTG",
+				'T', "craftingTeleporter",
+				'U', new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, i - 1),
+				'C', "craftingCircuitTier04",
+				'G', "glassCable"
+					} ));
+			}
+			
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 0), new Object[]
+					{
+				"TWT",
+				"CWC",
+				"TWT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'W', "craftingLenseWhite"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 1), new Object[]
+					{
+				"TRT",
+				"CRC",
+				"TGT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'R', "craftingLenseRed"'
+				'G', "craftingLenseGreen"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 2), new Object[]
+					{
+				"TGT",
+				"CWC",
+				"TRT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'W', "craftingLenseWhite",
+				'R', "craftingLenseRed"'
+				'G', "craftingLenseGreen"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 3), new Object[]
+					{
+				"TBT",
+				"CWC",
+				"TBT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'W', "craftingLenseWhite",
+				'B', "craftingLenseBlue"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 4), new Object[]
+					{
+				"TRT",
+				"CGC",
+				"TGT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'R', "craftingLenseRed"'
+				'G', "craftingLenseGreen"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 5), new Object[]
+					{
+				"TGT",
+				"CWC",
+				"TGT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'W', "craftingLenseWhite",
+				'G', "craftingLenseGreen"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 6), new Object[]
+					{
+				"TWT",
+				"CRC",
+				"TWT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'W', "craftingLenseWhite",
+				'R', "craftingLenseRed"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 7), new Object[]
+					{
+				"TDT",
+				"CWC",
+				"TDT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'W', "craftingLenseWhite",
+				'D', "craftingIndustrialDiamond"
+					} ));
+					
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 8), new Object[]
+					{
+				"TWT",
+				"CDC",
+				"TWT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'W', "craftingLenseWhite",
+				'D', "craftingIndustrialDiamond"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 9), new Object[]
+					{
+				"TBT",
+				"CGC",
+				"TBT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'G', "craftingLenseGreen"'
+				'B', "craftingLenseBlue"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 10), new Object[]
+					{
+				"TRT",
+				"CBC",
+				"TBT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'R', "craftingLenseRed"'
+				'B', "craftingLenseBlue"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 11), new Object[]
+					{
+				"TBT",
+				"CBC",
+				"TBT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'B', "craftingLenseBlue"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 12), new Object[]
+					{
+				"TRT",
+				"CGC",
+				"TBT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'R', "craftingLenseRed"'
+				'G', "craftingLenseGreen"'
+				'B', "craftingLenseBlue"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 13), new Object[]
+					{
+				"TGT",
+				"CGC",
+				"TGT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'G', "craftingLenseGreen"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 14), new Object[]
+					{
+				"TRT",
+				"CRC",
+				"TRT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'R', "craftingLenseRed"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.laserFocusItem, 1, 15), new Object[]
+					{
+				"TDT",
+				"CDC",
+				"TDT",
+				'T', "screwTungstenSteel",
+				'C', "stickChrome",
+				'D', "craftingIndustrialDiamond"
+					} ));
+					
 		}
 		catch (Exception x)
 		{
@@ -812,10 +758,19 @@ public class GregTech extends Vanilla
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.conveyorBlock, 16, 16), new Object[]
 					{
 				"UUU",
-				"RIR",
+				"PVP",
 				'U', "itemRubber",
-				'R', "dustRedstone",
-				'I', "plateIron",
+				'V', "craftingConveyor",
+				'P', "plateSteel"
+					} ));
+					
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.conveyorBlock, 16, 16), new Object[]
+					{
+				"UUU",
+				"PVP",
+				'U', "itemRubber",
+				'V', "craftingConveyor",
+				'P', "plateAluminium"
 					} ));
 			
 			for(int i = 0; i < 16; i++)
@@ -847,8 +802,8 @@ public class GregTech extends Vanilla
 				" I ",
 				'P', "sheetPlastic",
 				'R', "itemRubber",
-				'I', Item.ingotIron,
-				'C', cell
+				'I', "stickIron",
+				'C', "emptyCell"
 					} ));
 			
 			GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.syringeHealthItem), new Object[] { MineFactoryReloadedCore.syringeEmptyItem, Item.appleRed });
@@ -860,7 +815,7 @@ public class GregTech extends Vanilla
 				"FSF",
 				"FFF",
 				'F', Item.rottenFlesh,
-				'S', MineFactoryReloadedCore.syringeEmptyItem,
+				'S', MineFactoryReloadedCore.syringeEmptyItem
 					} );
 			
 			GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.syringeSlimeItem, 1), new Object[]
@@ -870,7 +825,7 @@ public class GregTech extends Vanilla
 				"BLB",
 				'B', Item.slimeBall,
 				'L', new ItemStack(Item.dyePowder, 1, 4),
-				'S', MineFactoryReloadedCore.syringeEmptyItem,
+				'S', MineFactoryReloadedCore.syringeEmptyItem
 					} );
 			
 			GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.syringeCureItem), new Object[] { MineFactoryReloadedCore.syringeEmptyItem, Item.appleGold });
@@ -894,10 +849,10 @@ public class GregTech extends Vanilla
 					{
 				"##",
 				"##",
-				'#', "dustPlastic",
+				'#', "dustPlastic"
 					} ));
 			
-			GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.fertilizerItem, 16), new Object[]
+			GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.fertilizerItem, 4), new Object[]
 					{
 				"WBW",
 				"STS",
@@ -905,28 +860,29 @@ public class GregTech extends Vanilla
 				'W', Item.wheat,
 				'B', new ItemStack(Item.dyePowder, 1, 15),
 				'S', Item.silk,
-				'T', Item.stick,
+				'T', Item.stick
 					} );
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.safariNetItem, 1), new Object[]
 					{
-				" E ",
-				"CGC",
+				" C ",
+				"GPG",
 				" E ",
 				'E', Item.enderPearl,
 				'G', Item.ghastTear,
-				'C', "craftingCircuitTier04"
+				'C', "craftingCircuitTier05"
 					} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.safariNetSingleItem, 1), new Object[]
 					{
-				"SLS",
-				"CBC",
-				"S S",
+				"ILI",
+				"SPS",
+				"IBI",
 				'S', Item.silk,
 				'L', Item.leather,
 				'B', Item.slimeBall,
-				'C', "craftingCircuitTier02"
+				'P', "plateIron"'
+				'I', "stickIron"
 					} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.safariNetJailerItem, 1), new Object[]
@@ -941,14 +897,12 @@ public class GregTech extends Vanilla
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.safariNetLauncherItem, 1), new Object[]
 					{
-				"PGP",
-				"LGL",
-				"IRI",
-				'P', "sheetPlastic",
-				'L', Item.glowstone,
-				'G', Item.gunpowder,
-				'I', "plateIron",
-				'R', "craftingItemValve"
+				"GPP",
+				"GPP",
+				"RR ",
+				'P', "plateIron",
+				'L', "gearIron",
+				'G', "stickIron"
 					} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryHammerItem, 1), new Object[]
@@ -957,7 +911,7 @@ public class GregTech extends Vanilla
 				" S ",
 				" S ",
 				'P', "sheetPlastic",
-				'S', Item.stick,
+				'S', Item.stick
 					} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.blankRecordItem, 1), new Object[]
@@ -966,29 +920,28 @@ public class GregTech extends Vanilla
 				"RPR",
 				"RRR",
 				'R', "dustPlastic",
-				'P', Item.paper,
+				'P', Item.paper
 					} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.spyglassItem), new Object[]
 					{
-				"GLG",
-				"PLP",
-				" S ",
-				'G', "ingotGold",
-				'L', Block.glass,
-				'P', "sheetPlastic",
-				'S', Item.stick
+				" L ",
+				" P ",
+				" L ",
+				'G', "plateBrass",
+				'L', Block.glassPane
 					} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.portaSpawnerItem), new Object[]
 					{
-				"GLG",
-				"DND",
-				"GLG",
-				'G', "plateChrome",
-				'L', "plateAlloyIridium",
-				'D', "gemDiamond",
-				'N', Item.netherStar
+				"SNS",
+				"PDP",
+				"STS",
+				'P', "plateStainlessSteel",
+				'S', "screwStainlessSteel",
+				'D', "craftingCircuitTier08",
+				'N', Item.netherStar,
+				'T', "craftingTeleporter"
 					} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.strawItem), new Object[]
