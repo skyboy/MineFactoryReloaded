@@ -1,6 +1,7 @@
 package powercrystals.minefactoryreloaded.setup.recipe;
 
 import gregtechmod.api.GregTech_API;
+import gregtechmod.api.interfaces.IGT_RecipeAdder;
 import ic2.api.item.Items;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -38,6 +39,8 @@ public class GregTech extends Vanilla
 			ItemStack GTteleporter = GregTech_API.ItemStack getGregTechBlock(1, 1, 90);
 			ItemStack redstoneScale = GregTech_API.ItemStack getGregTechBlock(1, 1, 78);
 			ItemStack gasTurbine = GregTech_API.ItemStack getGregTechBlock(1, 1, 34);
+			ItemStack methane = GregTech_API.ItemStack getGregTechItem(0, 1, 9);
+			ItemStack ICFertilizer = Items.getItem("fertilizer");
 			ItemStack glassCable = Items.getItem("glassFiberCableBlock");
 			
 			
@@ -488,6 +491,19 @@ public class GregTech extends Vanilla
 				'B', MineFactoryReloadedCore.machineBaseItem
 			});
 			
+			GregTech_API.sRecipeAdder.addCannerRecipe(MineFactoryReloadedCore.syringeEmptyItem, Item.appleRed, MineFactoryReloadedCore.syringeHealthItem, null, 200, 5);
+			GregTech_API.sRecipeAdder.addCannerRecipe(MineFactoryReloadedCore.syringeEmptyItem, Item.goldenCarrot, MineFactoryReloadedCore.syringeGrowthItem, null, 400, 10);
+			GregTech_API.sRecipeAdder.addCannerRecipe(MineFactoryReloadedCore.syringeEmptyItem, new ItemStack(Item.rottenFlesh, 8, 0), MineFactoryReloadedCore.syringeZombieItem, null, 100, 5);
+			GregTech_API.sRecipeAdder.addCannerRecipe(MineFactoryReloadedCore.syringeEmptyItem, new ItemStack(MineFactoryReloadedCore.pinkSlimeballItem, 8, 0), MineFactoryReloadedCore.syringeSlimeItem, null, 400, 10);
+			GregTech_API.sRecipeAdder.addCannerRecipe(MineFactoryReloadedCore.syringeEmptyItem, Item.appleGold, MineFactoryReloadedCore.syringeCureItem, null, 400, 10);
+			
+			GregTech_API.sRecipeAdder.addBenderRecipe(MineFactoryReloadedCore.rawPlasticItem, MineFactoryReloadedCore.plasticSheetItem, 40, 20);
+			GregTech_API.sRecipeAdder.addAssemblerRecipe(Item.paper, MineFactoryReloadedCore.rawPlasticItem, MineFactoryReloadedCore.blankRecordItem, 200, 10);
+			
+			GregTech_API.sRecipeAdder.addCentrifugeRecipe(new ItemStack(MineFactoryReloadedCore.fertilizerItem, 8, 0), 1, methane, ICFertilizer, null, null, 5000);
+			GregTech_API.sRecipeAdder.addCentrifugeRecipe(new ItemStack(MineFactoryReloadedCore.meatIngotRawItem, 10, 0), 1, methane, null, null, null, 5000);
+			GregTech_API.sRecipeAdder.addCentrifugeRecipe(new ItemStack(MineFactoryReloadedCore.meatIngotCookedItem, 12, 0), 1, methane, null, null, null, 5000);
+			
 		}
 		catch (Exception x)
 		{
@@ -753,7 +769,7 @@ public class GregTech extends Vanilla
 		}
 		try
 		{
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.conveyorBlock, 16, 16), new Object[]
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.conveyorBlock, 8, 16), new Object[]
 					{
 				"UUU",
 				"PVP",
@@ -762,7 +778,7 @@ public class GregTech extends Vanilla
 				'P', "plateSteel"
 			} ));
 			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.conveyorBlock, 16, 16), new Object[]
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.conveyorBlock, 6, 16), new Object[]
 					{
 				"UUU",
 				"PVP",
@@ -803,28 +819,6 @@ public class GregTech extends Vanilla
 				'C', "emptyCell"
 			} ));
 			
-			GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.syringeHealthItem), new Object[] { MineFactoryReloadedCore.syringeEmptyItem, Item.appleRed });
-			GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.syringeGrowthItem), new Object[] { MineFactoryReloadedCore.syringeEmptyItem, Item.goldenCarrot });
-			
-			GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.syringeZombieItem, 1), new Object[]
-					{
-				"FFF",
-				"FSF",
-				"FFF",
-				'F', Item.rottenFlesh,
-				'S', MineFactoryReloadedCore.syringeEmptyItem
-			} );
-			
-			GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.syringeSlimeItem, 1), new Object[]
-					{
-				"   ",
-				" S ",
-				" B ",
-				'B', MineFactoryReloadedCore.pinkSlimeballItem,
-				'S', MineFactoryReloadedCore.syringeEmptyItem
-			} );
-			
-			GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.syringeCureItem), new Object[] { MineFactoryReloadedCore.syringeEmptyItem, Item.appleGold });
 		}
 		catch (Exception x)
 		{
@@ -841,12 +835,6 @@ public class GregTech extends Vanilla
 		}
 		try
 		{
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.plasticSheetItem, 4), new Object[]
-					{
-				"##",
-				"##",
-				'#', "dustPlastic"
-			} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.safariNetItem, 1), new Object[]
 					{
@@ -897,15 +885,6 @@ public class GregTech extends Vanilla
 				" S ",
 				'P', "sheetPlastic",
 				'S', Item.stick
-					} ));
-			
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.blankRecordItem, 1), new Object[]
-					{
-				"RRR",
-				"RPR",
-				"RRR",
-				'R', "dustPlastic",
-				'P', Item.paper
 					} ));
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.spyglassItem), new Object[]
