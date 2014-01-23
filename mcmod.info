@@ -456,5 +456,24 @@
             "MineFactoryReloaded"
         ], 
         "description": "Compatibility addon for Forestry Trees"
+    }, 
+    {
+        "name": "MFR Compat Dye Trees", 
+        "parent": "MineFactoryReloaded", 
+        "url": "http://minecraft.curseforge.com/mc-mods/minefactory-reloaded/", 
+        "logoFile": "", 
+        "updateUrl": "", 
+        "credits": "All the contributors", 
+        "version": "2.7.5B1", 
+        "modid": "MFR Compat Dye Trees", 
+        "authors": [
+            "Ciesson"
+        ], 
+        "mcversion": "1.6.2", 
+        "screenshots": [], 
+        "dependencies": [
+            "MineFactoryReloaded"
+        ], 
+        "description": "Compatibility addon for Dye Trees"
     }
 ]
