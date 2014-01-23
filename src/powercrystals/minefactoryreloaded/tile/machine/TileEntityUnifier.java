@@ -33,6 +33,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 	private static FluidStack _ethanol;
 	private static FluidStack _essence;
 	private static FluidStack _liquidxp;
+	private static FluidStack _xpjuice;
 	private int _roundingCompensation;
 	private boolean ignoreChange = false;
 	
@@ -51,6 +52,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 		_ethanol = FluidRegistry.getFluidStack("bioethanol", 1);
 		_essence = FluidRegistry.getFluidStack("mobessence", 1);
 		_liquidxp = FluidRegistry.getFluidStack("immibis.liquidxp", 1);
+		_xpjuice = FluidRegistry.getFluidStack("xpjuice", 1);
 	}
 	
 	@Override
@@ -272,6 +274,17 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
 				return new FluidStack(_liquidxp.fluidID, 
+						resource.amount / 2 + (resource.amount & _roundingCompensation));
+			}
+		}
+		if(_essence != null & _xpjuice != null)
+		{
+			if (_xpjuice.isFluidEqual(resource))
+				return new FluidStack(_essence.fluidID, resource.amount * 2);
+			else if (_essence.isFluidEqual(resource))
+			{
+				if(doFill) _roundingCompensation ^= (resource.amount & 1);
+				return new FluidStack(_xpjuice.fluidID, 
 						resource.amount / 2 + (resource.amount & _roundingCompensation));
 			}
 		}
