@@ -280,21 +280,27 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 		if(_essence != null & _liquidxp == null & _xpjuice != null)
 		{
 			if (_xpjuice.isFluidEqual(resource))
-				return new FluidStack(_essence.fluidID, resource.amount * 2);
-				//_xpjuice / _essence ratio based off of _liquidxp / _essence ratio
+				return new FluidStack(_essence.fluidID, resource.amount * 3);
+				//50 xp = 1 bucket of xpjuice
+				//1 bucket of essence = 10 - 15 xp (thanks for the randomness -.-)
+				//Rounding to 3 (~ 50 / 15)
 			else if (_essence.isFluidEqual(resource))
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
 				return new FluidStack(_xpjuice.fluidID, 
-						resource.amount / 2 + (resource.amount & _roundingCompensation));
+						resource.amount / 3 + (resource.amount & _roundingCompensation));
 			}
 		}
 		if(_essence != null & _liquidxp != null & _xpjuice != null)
 		{
 			if (_liquidxp.isFluidEqual(resource))
-				return new FluidStack(_xpjuice.fluidID, resource.amount);
+			{
+				if(doFill) _roundingCompensation ^= (resource.amount & 1);
+				return new FluidStack(_xpjuice.fluidID,
+						resource.amount / 1.5 + (resource.amount & _roundingCompensation));
+			}
 			else if (_xpjuice.isFluidEqual(resource))
-				return new FluidStack(_essence.fluidID, resource.amount * 2));
+				return new FluidStack(_essence.fluidID, resource.amount * (10 / 3));
 			else if (_essence.isFluidEqual(resource))
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
@@ -303,6 +309,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			}
 		}
 		//Fluids loop around as to not conflict if both mods are installed
+		//P.S. I have no idea what the Bitwise Operators do, so it might be wrong
 		return null;
 	}
 	
