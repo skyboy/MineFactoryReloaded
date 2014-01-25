@@ -274,7 +274,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
 				return new FluidStack(_liquidxp.fluidID, 
-						resource.amount / 2 + (resource.amount & _roundingCompensation));
+						(int) Math.round(resource.amount / 2 + (resource.amount & _roundingCompensation)));
 			}
 		}
 		if(_essence != null & _liquidxp == null & _xpjuice != null)
@@ -288,7 +288,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
 				return new FluidStack(_xpjuice.fluidID, 
-						resource.amount / 3 + (resource.amount & _roundingCompensation));
+						(int) Math.round(resource.amount / 3 + (resource.amount & _roundingCompensation)));
 			}
 		}
 		if(_essence != null & _liquidxp != null & _xpjuice != null)
@@ -297,7 +297,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
 				return new FluidStack(_xpjuice.fluidID,
-						resource.amount / 1.5 + (resource.amount & _roundingCompensation));
+						(int) Math.round(resource.amount / 1.5 + (resource.amount & _roundingCompensation)));
 			}
 			else if (_xpjuice.isFluidEqual(resource))
 				return new FluidStack(_essence.fluidID, resource.amount * (10 / 3));
@@ -305,7 +305,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
 				return new FluidStack(_liquidxp.fluidID, 
-						resource.amount / 2 + (resource.amount & _roundingCompensation));
+						(int) Math.round(resource.amount / 2 + (resource.amount & _roundingCompensation)));
 			}
 		}
 		//Fluids loop around as to not conflict if both mods are installed
