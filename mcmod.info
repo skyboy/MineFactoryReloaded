@@ -40,6 +40,25 @@
         "description": "Compatibility addon for Applied Energistics"
     }, 
     {
+        "name": "MFR Compat: Artifice", 
+        "parent": "MineFactoryReloaded", 
+        "url": "http://minecraft.curseforge.com/mc-mods/minefactory-reloaded/", 
+        "logoFile": "", 
+        "updateUrl": "", 
+        "credits": "All the contributors", 
+        "version": "2.7.5B1", 
+        "modid": "MineFactoryReloaded|CompatArtifice", 
+        "authors": [
+            "PowerCrystals"
+        ], 
+        "mcversion": "1.6.2", 
+        "screenshots": [], 
+        "dependencies": [
+            "MineFactoryReloaded"
+        ], 
+        "description": "Compatibility addon for Artifice"
+    }, 
+    {
         "name": "MFR Compat: Atum", 
         "parent": "MineFactoryReloaded", 
         "url": "http://minecraft.curseforge.com/mc-mods/minefactory-reloaded/", 
