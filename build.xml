@@ -41,6 +41,7 @@
 			<!--<available file="${mcpsrc.dir}/thermalexpansion" type="dir"/>-->
 			<!--<available file="${mcpsrc.dir}/thaumcraft" type="dir"/>-->
 			<available file="${mcpsrc.dir}/forestry" type="dir"/>
+			<available file="${mcpsrc.dir}/dyetrees" type="dir"/>
 		</and>
 	</condition>
 	
@@ -82,6 +83,9 @@
 		
 		<echo message="Downloading Forestry API... "/>
 		<get src="http://forestry.sengir.net/files/forestry/releases/2.3.0.1/forestry-api-2.3.0.1.zip" dest="${download.dir}/ForestryAPI.zip" />
+
+		<echo message="Downloading DyeTrees API... "/>
+		<get src="https://github.com/ReikaKalseki/DyeTrees/archive/0596cb365daeed8906f2d3471cfcabc19a395266.zip" dest="${download.dir}/DyeTreesAPI.zip" />
 	</target>
 
 	<target name="extract-dependencies" depends="setup-forge,get-dependencies" unless="${have-apis}">
@@ -116,6 +120,10 @@
 		<echo message="Extracting Forestry API... " />
 		<unzip src="${download.dir}/ForestryAPI.zip" dest="${download.dir}" />
 		<move file="${download.dir}/forestry" todir="${mcpsrc.dir}" />
+
+		<echo message="Extracting Dye Trees API... " />
+		<unzip src="${download.dir}/DyeTreesAPI.zip" dest="${download.dir}/dyetrees/" />
+		<move file="${download.dir}/dyetrees/DyeTrees-0596cb365daeed8906f2d3471cfcabc19a395266/API" todir="${mcpsrc.dir}/Reika/DyeTrees/" />
 	</target>
 
 	<mkdir dir="${download.dir}"/>
