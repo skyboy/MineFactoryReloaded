@@ -33,6 +33,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 	private static FluidStack _ethanol;
 	private static FluidStack _essence;
 	private static FluidStack _liquidxp;
+	private static FluidStack _xpjuice;
 	private int _roundingCompensation;
 	private boolean ignoreChange = false;
 	
@@ -51,6 +52,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 		_ethanol = FluidRegistry.getFluidStack("bioethanol", 1);
 		_essence = FluidRegistry.getFluidStack("mobessence", 1);
 		_liquidxp = FluidRegistry.getFluidStack("immibis.liquidxp", 1);
+		_xpjuice = FluidRegistry.getFluidStack("xpjuice", 1);
 	}
 	
 	@Override
@@ -269,7 +271,7 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			else if (_biofuel.isFluidEqual(resource))
 				return new FluidStack(_ethanol.fluidID, resource.amount);
 		}
-		if(_essence != null & _liquidxp != null)
+		if(_essence != null & _liquidxp != null &_xpjuice == null)
 		{
 			if (_liquidxp.isFluidEqual(resource))
 				return new FluidStack(_essence.fluidID, resource.amount * 2);
@@ -277,9 +279,42 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
 				return new FluidStack(_liquidxp.fluidID, 
-						resource.amount / 2 + (resource.amount & _roundingCompensation));
+						(int) Math.floor(resource.amount / 2 + (resource.amount & _roundingCompensation)));
 			}
 		}
+		if(_essence != null & _liquidxp == null & _xpjuice != null)
+		{
+			if (_xpjuice.isFluidEqual(resource))
+				return new FluidStack(_essence.fluidID, resource.amount * 3);
+				//50 xp = 1 bucket of xpjuice
+				//1 bucket of essence = 10 - 15 xp (thanks for the randomness -.-)
+				//Rounding to 3 (~ 50 / 15)
+			else if (_essence.isFluidEqual(resource))
+			{
+				if(doFill) _roundingCompensation ^= (resource.amount & 1);
+				return new FluidStack(_xpjuice.fluidID, 
+						(int) Math.floor(resource.amount / 3 + (resource.amount & _roundingCompensation)));
+			}
+		}
+		if(_essence != null & _liquidxp != null & _xpjuice != null)
+		{
+			if (_liquidxp.isFluidEqual(resource))
+			{
+				if(doFill) _roundingCompensation ^= (resource.amount & 1);
+				return new FluidStack(_xpjuice.fluidID,
+						(int) Math.floor(resource.amount / 1.5 + (resource.amount & _roundingCompensation)));
+			}
+			else if (_xpjuice.isFluidEqual(resource))
+				return new FluidStack(_essence.fluidID, resource.amount * (10 / 3));
+			else if (_essence.isFluidEqual(resource))
+			{
+				if(doFill) _roundingCompensation ^= (resource.amount & 1);
+				return new FluidStack(_liquidxp.fluidID, 
+						(int) Math.floor(resource.amount / 2 + (resource.amount & _roundingCompensation)));
+			}
+		}
+		//Fluids loop around as to not conflict if both mods are installed
+		//P.S. I have no idea what the Bitwise Operators do, so it might be wrong
 		return null;
 	}
 	
