@@ -42,6 +42,7 @@ import powercrystals.minefactoryreloaded.core.BlockNBTManager;
 import powercrystals.minefactoryreloaded.core.IEntityCollidable;
 import powercrystals.minefactoryreloaded.core.MFRUtil;
 import powercrystals.minefactoryreloaded.gui.MFRCreativeTab;
+import powercrystals.minefactoryreloaded.item.ItemPlasticBoots;
 import powercrystals.minefactoryreloaded.tile.conveyor.TileEntityConveyor;
 
 public class BlockConveyor extends BlockContainer implements IConnectableRedNet
@@ -255,9 +256,17 @@ public class BlockConveyor extends BlockContainer implements IConnectableRedNet
 			return;
 		}
 		
-		if(!world.isRemote && entity instanceof EntityItem)
-		{
-			specialRoute(world, x, y, z, (EntityItem)entity);
+		if (!world.isRemote)
+		l: {
+			if (entity instanceof EntityItem)
+				specialRoute(world, x, y, z, (EntityItem)entity);
+			else if (entity instanceof EntityLivingBase)
+			{
+				ItemStack item = ((EntityLivingBase)entity).getCurrentItemOrArmor(1);
+				if (item == null) break l;
+				if (item.getItem() instanceof ItemPlasticBoots)
+					return;
+			}
 		}
 		
 		double xVelocity = 0;

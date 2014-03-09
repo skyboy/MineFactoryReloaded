@@ -42,6 +42,7 @@ tile.mfr.machine.fruitpicker.name = Fruit Picker
 tile.mfr.machine.blockplacer.name = Block Placer
 tile.mfr.machine.mobcounter.name = Mob Counter
 tile.mfr.machine.steamturbine.name = Steam Turbine
+tile.mfr.machine.chunkloader.name = Chunk Loader
 
 tile.mfr.conveyor.default.name = Conveyor Belt
 tile.mfr.conveyor.white.name = Conveyor Belt (White)
@@ -136,6 +137,7 @@ tile.mfr.vinescaffold.name = Vine Scaffolding
 tile.mfr.detcord.name = DetCord
 
 tile.mfr.rubberwood.sapling.name = Rubber Sapling
+tile.mfr.rubberwood.sapling.massive.name = Sacred Rubber Sapling
 tile.mfr.rubberwood.log.name = Rubber Wood
 tile.mfr.rubberwood.leaves.name = Rubber Leaves
 
@@ -145,6 +147,9 @@ tile.mfr.rail.passenger.dropoff.name = Passenger Dropoff Rail
 tile.mfr.rail.passenger.pickup.name = Passenger Pickup Rail
 
 tile.mfr.cable.redstone.name = RedNet Cable
+tile.mfr.cable.redstone.glass.name = RedNet Cable
+tile.mfr.cable.redstone.energy.name = RedNet Energy Cable
+tile.mfr.cable.redstone.energyglass.name = RedNet Energy Cable
 tile.mfr.rednet.logic.name = Programmable RedNet Controller
 tile.mfr.rednet.panel.historian.name = RedNet Historian
 
@@ -176,6 +181,11 @@ item.mfr.bucket.plasticcup.suffix.name = Cup
 item.mfr.bucket.plasticcell.name = Plastic Cell
 item.mfr.bucket.plasticcell.prefix.name =
 item.mfr.bucket.plasticcell.suffix.name = Cell
+
+item.mfr.armor.helm.plastic  = Plastic Helmet
+item.mfr.armor.chest.plastic = Plastic Breastplate
+item.mfr.armor.legs.plastic  = Plastic Leggings
+item.mfr.armor.boots.plastic = Plastic Boots
 
 item.mfr.hammer.name = Precision Sledgehammer
 item.mfr.fertilizer.name = Industrial Fertilizer
@@ -346,6 +356,9 @@ circuit.mfr.xor.2 = Xor (2-Input)
 circuit.mfr.xor.3 = Xor (3-Input)
 circuit.mfr.xor.4 = Xor (4-Input)
 
+container.mfr.radius = Radius:
+container.mfr.power = Energy draw:
+
 chat.info.mfr.safarinet.capture = Changed to capture mode
 chat.info.mfr.safarinet.release = Changed to release mode
 
@@ -378,6 +391,10 @@ chat.info.mfr.rednet.connection.cableonly = Set cable to cable-only connection m
 
 chat.info.mfr.bag.stacksize = You can only open one bag at a time
 
+tip.info.mfr.holdShift1 = Hold
+tip.info.mfr.holdShift2 = Shift
+tip.info.mfr.holdShift3 = for more information
+
 tip.info.mfr.safarinet.mode = Sneak-click to change mode
 tip.info.mfr.safarinet.jailer = Released creatures don't despawn normally
 tip.info.mfr.safarinet.mystery = It is a mystery
@@ -396,7 +413,8 @@ tip.info.mfr.dsu.contains = Contains
 
 tip.info.mfr.mobcounter = Emits an analog redstone signal\nproportional to the count of\nmobs that are within range.
 
-tip.info.mfr.laserdrill = Placed over a hole to bedrock
+tip.info.mfr.laserdrill = Placed over a hole to bedrock or the void
+tip.info.mfr.laserdrillprecharger = Placed one block away from a valid laser target
 
 death.attack.mfr.slaughterhouse = %1$s was processed into Liquid Meat
 death.attack.mfr.slaughterhouse.player = %1$s was doomed to be processed into Liquid Meat by %2$s

@@ -5,28 +5,14 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockMushroom;
 import net.minecraft.world.World;
-import powercrystals.minefactoryreloaded.api.FertilizerType;
-import powercrystals.minefactoryreloaded.api.IFactoryFertilizable;
 
-public class FertilizableGiantMushroom implements IFactoryFertilizable
+import powercrystals.minefactoryreloaded.api.FertilizerType;
+
+public class FertilizableGiantMushroom extends FertilizableBase
 {
-	private int fertilizableId;
-	
-	public FertilizableGiantMushroom(int fertilizableId)
+	public FertilizableGiantMushroom(int id)
 	{
-		this.fertilizableId = fertilizableId;
-	}
-	
-	@Override
-	public int getFertilizableBlockId()
-	{
-		return fertilizableId;
-	}
-	
-	@Override
-	public boolean canFertilizeBlock(World world, int x, int y, int z, FertilizerType fertilizerType)
-	{
-		return fertilizerType == FertilizerType.GrowPlant;
+		super(id);
 	}
 	
 	@Override

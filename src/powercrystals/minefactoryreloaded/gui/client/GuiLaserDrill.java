@@ -35,7 +35,7 @@ public class GuiLaserDrill extends GuiFactoryInventory
 	{
 		super.drawTooltips(mouseX, mouseY);
 		
-		if(isPointInRegion(151, 15, 8, 60, mouseX, mouseY))
+		if(isPointInRegion(150, 15, 8, 60, mouseX, mouseY))
 		{
 			int energyPerMJ = TileEntityFactoryPowered.energyPerMJ;
 			int energyPerEU = TileEntityFactoryPowered.energyPerEU;
@@ -48,7 +48,7 @@ public class GuiLaserDrill extends GuiFactoryInventory
 			lines.add(stored / energyPerEU + " / " + storedMax / energyPerEU + " " + "EU");
 			drawTooltip(lines, mouseX, mouseY);
 		}
-		else if(isPointInRegion(161, 15, 8, 60, mouseX, mouseY))
+		else if(isPointInRegion(160, 15, 8, 60, mouseX, mouseY))
 		{
 			drawBarTooltip("Work", "Wk", _drill.getWorkDone(), _drill.getWorkMax(), mouseX, mouseY);
 		}

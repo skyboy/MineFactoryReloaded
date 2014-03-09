@@ -1,10 +1,11 @@
 package powercrystals.minefactoryreloaded.tile.machine;
 
+import buildcraft.api.transport.IPipeTile.PipeType;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import buildcraft.api.transport.IPipeTile.PipeType;
-
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -13,12 +14,17 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidHandler;
 
 import powercrystals.core.inventory.IInventoryManager;
 import powercrystals.core.inventory.InventoryManager;
 import powercrystals.core.util.Util;
 import powercrystals.core.util.UtilInventory;
+import powercrystals.minefactoryreloaded.core.MFRUtil;
 import powercrystals.minefactoryreloaded.gui.client.GuiEjector;
 import powercrystals.minefactoryreloaded.gui.client.GuiFactoryInventory;
 import powercrystals.minefactoryreloaded.gui.container.ContainerEjector;
@@ -34,12 +40,35 @@ public class TileEntityEjector extends TileEntityFactoryInventory
 	protected boolean _ignoreDamage = true;
 	
 	protected boolean _hasItems = false;
+	protected ForgeDirection[] _pullDirections;
 	
 	public TileEntityEjector()
 	{
 		super(Machine.Ejector);
 		setManageSolids(true);
 		setCanRotate(true);
+	}
+	
+	@Override
+	public void rotateDirectlyTo(int r)
+	{
+		super.rotateDirectlyTo(r);
+		onRotate();
+	}
+	
+	@Override
+	public void rotate()
+	{
+		super.rotate();
+		onRotate();
+	}
+	
+	protected void onRotate()
+	{
+		LinkedList<ForgeDirection> list = new LinkedList<ForgeDirection>();
+		list.addAll(MFRUtil.VALID_DIRECTIONS);
+		list.remove(getDirectionFacing());
+		_pullDirections = list.toArray(new ForgeDirection[5]);
 	}
 	
 	@Override
@@ -53,54 +82,80 @@ public class TileEntityEjector extends TileEntityFactoryInventory
 		boolean redstoneState = Util.isRedstonePowered(this);
 		if (redstoneState & !_lastRedstoneState & (!_whitelist | (_whitelist == _hasItems)))
 		{
-			Map<ForgeDirection, IInventory> chests = UtilInventory.
-					findChests(worldObj, xCoord, yCoord, zCoord);
-			inv: for (Entry<ForgeDirection, IInventory> chest : chests.entrySet())
+			inv:
 			{
-				if(chest.getKey() == getDirectionFacing())
+				final ForgeDirection facing = getDirectionFacing();
+				Map<ForgeDirection, IInventory> chests = UtilInventory.
+						findChests(worldObj, xCoord, yCoord, zCoord, _pullDirections);
+				for (Entry<ForgeDirection, IInventory> chest : chests.entrySet())
 				{
-					continue;
-				}
-				
-				IInventoryManager inventory = InventoryManager.create(chest.getValue(),
-						chest.getKey().getOpposite());
-				Map<Integer, ItemStack> contents = inventory.getContents();
-				
-				set: for (Entry<Integer, ItemStack> stack : contents.entrySet())
-				{
-					if (stack == null || stack.getValue() == null)
+					if(chest.getKey() == facing)
 					{
 						continue;
 					}
-					ItemStack itemstack = stack.getValue();
-					
-					if (chest.getValue() instanceof ISidedInventory)
-					{ // TODO: expose canRemoveItem in IInventoryManager
-						ISidedInventory sided = (ISidedInventory)chest.getValue();
-						if(!sided.canExtractItem(stack.getKey(), itemstack,
-								chest.getKey().getOpposite().ordinal()))
+	
+					IInventoryManager inventory = InventoryManager.create(chest.getValue(),
+							chest.getKey().getOpposite());
+					Map<Integer, ItemStack> contents = inventory.getContents();
+	
+					set: for (Entry<Integer, ItemStack> stack : contents.entrySet())
+					{
+						if (stack == null || stack.getValue() == null)
 						{
 							continue;
 						}
+						ItemStack itemstack = stack.getValue();
+	
+						if (chest.getValue() instanceof ISidedInventory)
+						{ // TODO: expose canRemoveItem in IInventoryManager
+							ISidedInventory sided = (ISidedInventory)chest.getValue();
+							if(!sided.canExtractItem(stack.getKey(), itemstack,
+									chest.getKey().getOpposite().ordinal()))
+							{
+								continue;
+							}
+						}
+	
+						boolean hasMatch = false;
+	
+						for (int i = getSizeItemList(); i --> 0; )
+							if (itemMatches(_inventory[i], itemstack))
+								hasMatch = true;
+	
+						if (_whitelist != hasMatch) continue set;
+	
+						ItemStack stackToDrop = itemstack.copy();
+						stackToDrop.stackSize = 1;
+						ItemStack remaining = UtilInventory.dropStack(this, stackToDrop,
+								facing, facing);
+	
+						// remaining == null if dropped successfully.
+						if (remaining == null)
+						{
+							inventory.removeItem(1, stackToDrop);
+							break inv;
+						}
 					}
-					
-					boolean hasMatch = false;
-					
-					for (int i = getSizeItemList(); i --> 0; )
-						if (itemMatches(_inventory[i], itemstack))
-							hasMatch = true;
-					
-					if (_whitelist != hasMatch) continue set;
-					
-					ItemStack stackToDrop = itemstack.copy();
-					stackToDrop.stackSize = 1;
-					ItemStack remaining = UtilInventory.dropStack(this, stackToDrop,
-							this.getDirectionFacing(), this.getDirectionFacing());
-					
-					// remaining == null if dropped successfully.
-					if (remaining == null)
+				}
+				TileEntity te = worldObj.getBlockTileEntity(xCoord + facing.offsetX,
+							yCoord + facing.offsetY, zCoord + facing.offsetZ);
+				if (te instanceof IFluidHandler)
+				{
+					IFluidHandler tank = (IFluidHandler)te;
+					for (ForgeDirection side : _pullDirections)
 					{
-						inventory.removeItem(1, stackToDrop);
+						te = worldObj.getBlockTileEntity(xCoord + side.offsetX,
+								yCoord + side.offsetY, zCoord + side.offsetZ);
+						if (!(te instanceof IFluidHandler))
+							continue;
+						IFluidHandler handler = (IFluidHandler)te;
+						FluidStack drained = handler.drain(side.getOpposite(),
+								FluidContainerRegistry.BUCKET_VOLUME, false);
+						if (drained == null || drained.amount <= 0)
+							continue;
+						if (tank.fill(facing.getOpposite(), drained, false) <= 0)
+							continue;
+						handler.drain(side.getOpposite(), tank.fill(facing.getOpposite(), drained, true), true);
 						break inv;
 					}
 				}

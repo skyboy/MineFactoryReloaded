@@ -1,13 +1,13 @@
 package powercrystals.minefactoryreloaded.block;
 
-import cpw.mods.fml.common.network.PacketDispatcher;
+import cofh.api.block.IBlockInfo;
+import cofh.api.block.IDismantleable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,10 +33,14 @@ import powercrystals.minefactoryreloaded.api.rednet.RedNetConnectionType;
 import powercrystals.minefactoryreloaded.core.MFRUtil;
 import powercrystals.minefactoryreloaded.gui.MFRCreativeTab;
 import powercrystals.minefactoryreloaded.item.ItemRedNetMeter;
+import powercrystals.minefactoryreloaded.render.block.RedNetCableRenderer;
+import powercrystals.minefactoryreloaded.setup.Machine;
 import powercrystals.minefactoryreloaded.tile.rednet.RedstoneNetwork;
 import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetCable;
+import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetEnergy;
 
-public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkContainer
+public class BlockRedNetCable extends BlockContainer
+								implements IRedNetNetworkContainer, IBlockInfo, IDismantleable
 {
 	private static float _wireSize = 0.25F;
 	private static float _plateWidth = 14.0F / 16.0F;
@@ -59,7 +63,7 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 	
 	public BlockRedNetCable(int id)
 	{
-		super(id, Material.clay);
+		super(id, Machine.MATERIAL);
 		
 		setUnlocalizedName("mfr.cable.redstone");
 		setHardness(0.8F);
@@ -208,7 +212,7 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 				if (!world.isRemote)
 				{
 					cable.setMode(mode);
-					PacketDispatcher.sendPacketToAllAround(x, y, z, 50, world.provider.dimensionId, cable.getDescriptionPacket());
+					world.markBlockForUpdate(x, y, z);
 					switch (mode)
 					{
 					case 0:
@@ -331,9 +335,14 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 	public void breakBlock(World world, int x, int y, int z, int id, int meta)
 	{
 		TileEntity te = world.getBlockTileEntity(x, y, z);
-		if(te instanceof TileEntityRedNetCable && ((TileEntityRedNetCable)te).getNetwork() != null)
+		if(te instanceof TileEntityRedNetCable)
 		{
-			((TileEntityRedNetCable)te).getNetwork().setInvalid();
+			if (((TileEntityRedNetCable)te).getNetwork() != null)
+				((TileEntityRedNetCable)te).getNetwork().setInvalid();
+			
+			world.markTileEntityForDespawn(te);
+			te.invalidate();
+			world.removeBlockTileEntity(x, y, z);
 		}
 		for(ForgeDirection d : ForgeDirection.VALID_DIRECTIONS)
 		{
@@ -344,6 +353,23 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 			world.notifyBlocksOfNeighborChange(bp.x, bp.y, bp.z, MineFactoryReloadedCore.rednetCableBlock.blockID);
 		}
 		super.breakBlock(world, x, y, z, id, meta);
+	}
+
+	@Override
+	public ItemStack dismantleBlock(EntityPlayer player, World world, int x, int y, int z, boolean returnBlock)
+	{
+		ItemStack machine = new ItemStack(idDropped(blockID, world.rand, 0), 1,
+				damageDropped(world.getBlockMetadata(x, y, z)));
+		world.setBlockToAir(x, y, z);
+		if (!returnBlock)
+			dropBlockAsItem_do(world, x, y, z, machine);
+		return machine;
+	}
+
+	@Override
+	public boolean canDismantle(EntityPlayer player, World world, int x, int y, int z)
+	{
+		return true;
 	}
 	
 	@Override
@@ -411,17 +437,30 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 	{
 		return true;
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World world)
 	{
-		return new TileEntityRedNetCable();
+		return null;
+	}
+	
+	@Override
+	public TileEntity createTileEntity(World world, int meta)
+	{
+		switch (meta)
+		{
+		default:
+		case 0:
+			return new TileEntityRedNetCable();
+		case 2:
+			return new TileEntityRedNetEnergy();
+		}
 	}
 	
 	@Override
 	public int getRenderType()
 	{
-		return MineFactoryReloadedCore.renderIdRedstoneCable;
+		return MineFactoryReloadedCore.renderIdRedNet;
 	}
 	
 	@Override
@@ -429,6 +468,7 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 	public void registerIcons(IconRegister ir)
 	{
 		blockIcon = ir.registerIcon("minefactoryreloaded:" + getUnlocalizedName());
+		RedNetCableRenderer.updateUVT(blockIcon);
 	}
 	
 	@Override
@@ -451,5 +491,20 @@ public class BlockRedNetCable extends BlockContainer implements IRedNetNetworkCo
 			//((TileEntityRedNetCable)te).getNetwork().updatePowerLevels(subnet);
 			((TileEntityRedNetCable)te).updateNodes();
 		}
+	}
+
+	@Override
+	public void getBlockInfo(IBlockAccess world, int x, int y, int z,
+			ForgeDirection side, EntityPlayer player, List<String> info, boolean debug)
+	{
+		TileEntity tile = world.getBlockTileEntity(x, y, z);
+		if (tile instanceof TileEntityRedNetEnergy)
+			((TileEntityRedNetEnergy)tile).getTileInfo(info, side, player, debug);
+	}
+
+	@Override
+	public int damageDropped(int i)
+	{
+		return i;
 	}
 }

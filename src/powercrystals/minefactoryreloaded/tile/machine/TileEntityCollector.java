@@ -99,6 +99,7 @@ public class TileEntityCollector extends TileEntityFactoryInventory implements I
 	{
 		super.readFromNBT(tag);
 		canStuff = tag.getBoolean("hasTinkerStuff");
+		setIsActive(canStuff);
 	}
 	
 	@Override

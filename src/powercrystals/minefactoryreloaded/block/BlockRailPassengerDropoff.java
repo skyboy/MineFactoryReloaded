@@ -19,42 +19,42 @@ public class BlockRailPassengerDropoff extends BlockFactoryRail
 {
 	public BlockRailPassengerDropoff(int blockId)
 	{
-		super(blockId, true);
+		super(blockId, true, false);
 		setUnlocalizedName("mfr.rail.passenger.dropoff");
 	}
-	
+
 	@Override
 	public void onMinecartPass(World world, EntityMinecart minecart, int x, int y, int z)
 	{
 		if (world.isRemote)
 			return;
-		
+
 		Class<? extends EntityLivingBase> target = isPowered(world, x, y, z) ? EntityLiving.class : EntityPlayer.class;
 		if (!target.isInstance(minecart.riddenByEntity))
 			return;
-		
+
 		Entity player = minecart.riddenByEntity;
 		AxisAlignedBB dropCoords = findSpaceForPlayer(player, x, y, z, world);
 		if (dropCoords == null)
 			return;
-		
+
 		player.mountEntity(null);
 		MineFactoryReloadedCore.proxy.movePlayerToCoordinates((EntityLivingBase)player,
 				dropCoords.minX + (dropCoords.maxX - dropCoords.minX) / 2,
 				dropCoords.minY,
 				dropCoords.minZ + (dropCoords.maxZ - dropCoords.minZ) / 2);
 	}
-	
+
 	private AxisAlignedBB findSpaceForPlayer(Entity entity, int x, int y, int z, World world)
 	{
-        AxisAlignedBB bb = entity.boundingBox.getOffsetBoundingBox((Math.floor(entity.posX) - entity.posX) / 2,
-        		(Math.floor(entity.posY) - entity.posY) / 2, (Math.floor(entity.posZ) - entity.posZ) / 2);
+		AxisAlignedBB bb = entity.boundingBox.getOffsetBoundingBox((Math.floor(entity.posX) - entity.posX) / 2,
+				(Math.floor(entity.posY) - entity.posY) / 2, (Math.floor(entity.posZ) - entity.posZ) / 2);
 		bb.offset((int)bb.minX - bb.minX, (int)bb.minY - bb.minY, (int)bb.minZ - bb.minZ);
 		bb.offset(x - bb.minX, 0, z - bb.minZ);
 		int searchX = MFRConfig.passengerRailSearchMaxHorizontal.getInt();
 		int searchY = MFRConfig.passengerRailSearchMaxVertical.getInt();
 
-        bb.offset(0.25, -searchY + 0.01, 0.25);
+		bb.offset(0.25, -searchY + 0.01, 0.25);
 		for(int offsetY = -searchY; offsetY <= searchY; offsetY++)
 		{
 			bb.offset(-searchX, 0, 0);
@@ -79,10 +79,10 @@ public class BlockRailPassengerDropoff extends BlockFactoryRail
 			}
 			bb.offset(-searchX - 1, 1, 0);
 		}
-		
+
 		return null;
 	}
-	
+
 	private boolean isBadBlockToStandOn(World world, int x, int y, int z)
 	{
 		Block block = Block.blocksList[world.getBlockId(x, y, z)];
@@ -94,7 +94,7 @@ public class BlockRailPassengerDropoff extends BlockFactoryRail
 		}
 		return false;
 	}
-	
+
 	private boolean isBadBlockToStandIn(World world, int x, int y, int z)
 	{
 		Block block = Block.blocksList[world.getBlockId(x, y, z)];

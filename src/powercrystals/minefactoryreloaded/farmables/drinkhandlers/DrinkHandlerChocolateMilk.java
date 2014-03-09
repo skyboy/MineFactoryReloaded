@@ -12,6 +12,6 @@ public class DrinkHandlerChocolateMilk implements ILiquidDrinkHandler
 	{
 		player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 3));
 		player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60 * 20, 2));
-		player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 5 * 20, 1));
+		player.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 5 * 20, 1));
 	}
 }

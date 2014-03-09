@@ -69,7 +69,7 @@ public class ThermalExpansion implements IRandomMobProvider
 	public List<RandomMob> getRandomMobs(World world) {
 		ArrayList<RandomMob> mobs = new ArrayList<RandomMob>();
 		
-		EntityCreeper creeper = (EntityCreeper)MFRUtil.prepareMob(EntityCreeper.class, world);
+		EntityCreeper creeper = MFRUtil.prepareMob(EntityCreeper.class, world);
 		creeper.setCustomNameTag("Exploding Zeldo");
 		creeper.setAlwaysRenderNameTag(true);
 		creeper.func_110163_bv();

@@ -19,8 +19,8 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 
 import powercrystals.minefactoryreloaded.core.ITankContainerBucketable;
+import powercrystals.minefactoryreloaded.gui.client.GuiAutoAnvil;
 import powercrystals.minefactoryreloaded.gui.client.GuiFactoryInventory;
-import powercrystals.minefactoryreloaded.gui.client.GuiFactoryPowered;
 import powercrystals.minefactoryreloaded.gui.container.ContainerAutoAnvil;
 import powercrystals.minefactoryreloaded.gui.container.ContainerFactoryPowered;
 import powercrystals.minefactoryreloaded.setup.Machine;
@@ -28,8 +28,9 @@ import powercrystals.minefactoryreloaded.tile.base.TileEntityFactoryPowered;
 
 public class TileEntityAutoAnvil extends TileEntityFactoryPowered implements ITankContainerBucketable
 {
-	private int maximumCost;
+	private float maximumCost;
 	private int stackSizeToBeUsedInRepair;
+	private boolean repairOnly;
 	
 	private ItemStack _output;
 	
@@ -48,7 +49,21 @@ public class TileEntityAutoAnvil extends TileEntityFactoryPowered implements ITa
 	@Override
 	public boolean canInsertItem(int slot, ItemStack stack, int sideordinal)
 	{
-		if(slot == 0 || slot == 1) return true;
+		if (stack == null) return false;
+		if (repairOnly)
+		{
+			if (slot == 0) return Item.itemsList[stack.itemID].isRepairable();
+			if (slot == 1 && _inventory[0] != null && Item.itemsList[stack.itemID].isRepairable()) 
+				return _inventory[0].itemID == stack.itemID;
+			return false;
+		}
+		if (slot == 0) return stack.isItemStackDamageable();
+		if (slot == 1 && _inventory[0] != null)
+		{
+			if (stack.itemID == Item.enchantedBook.itemID && Item.enchantedBook.func_92110_g(stack).tagCount() > 0)
+				return true;
+			return _inventory[0].getItem().getIsRepairable(_inventory[0], stack);
+		}
 		return false;
 	}
 	
@@ -69,7 +84,7 @@ public class TileEntityAutoAnvil extends TileEntityFactoryPowered implements ITa
 	@SideOnly(Side.CLIENT)
 	public GuiFactoryInventory getGui(InventoryPlayer inventoryPlayer)
 	{
-		return new GuiFactoryPowered(getContainer(inventoryPlayer), this);
+		return new GuiAutoAnvil(getContainer(inventoryPlayer), this);
 	}
 	
 	@Override
@@ -81,12 +96,35 @@ public class TileEntityAutoAnvil extends TileEntityFactoryPowered implements ITa
 	@Override
 	protected boolean activateMachine()
 	{
-		if(_output == null)
+		if(_output == null || _inventory[2] != null)
 		{
 			return false;
 		}
 		else
 		{
+			if (repairOnly)
+			{
+				if (_inventory[0] != null && _inventory[1] != null &&
+						_inventory[0].itemID == _inventory[1].itemID &&
+						Item.itemsList[_inventory[0].itemID].isRepairable())
+				{
+					setWorkDone(getWorkDone() + 1);
+
+					if(getWorkDone() >= getWorkMax())
+					{
+						_inventory[0] = null;
+						_inventory[1] = null;
+						_inventory[2] = _output;
+						
+						setWorkDone(0);
+						_output = null;
+					}
+					return true;
+				}
+				
+				return false;
+			}
+			
 			if(drain(_tanks[0], 4, false) != 4)
 			{
 				return false;
@@ -138,6 +176,27 @@ public class TileEntityAutoAnvil extends TileEntityFactoryPowered implements ITa
 		
 		if(startingItem == null)
 		{
+			return null;
+		}
+		else if (repairOnly)
+		{
+			this.stackSizeToBeUsedInRepair = 0;
+			ItemStack addedItem = _inventory[1];
+			Item item = Item.itemsList[startingItem.itemID];
+			
+			if (addedItem != null && item.isRepairable() &&
+					startingItem.itemID == addedItem.itemID)
+			{
+				int d = item.getMaxDamage();
+	            int k = startingItem.getItemDamageForDisplay();
+	            int l = addedItem.getItemDamageForDisplay();
+	            int i1 = (d - k) + (d - l) + d * 5 / 100;
+	            int j1 = Math.max(d - i1, 0);
+				
+				this.maximumCost = ((k + l) / 2 - j1) / 100f;
+
+	            return new ItemStack(startingItem.itemID, 1, j1);
+			}
 			return null;
 		}
 		else
@@ -347,10 +406,21 @@ public class TileEntityAutoAnvil extends TileEntityFactoryPowered implements ITa
 		}
 	}
 	
+	public boolean getRepairOnly()
+	{
+		return repairOnly;
+	}
+	
+	public void setRepairOnly(boolean v)
+	{
+		repairOnly = v;
+		onFactoryInventoryChanged();
+	}
+	
 	@Override
 	public int getWorkMax()
 	{
-		return 100 * maximumCost;
+		return (int)(100f * maximumCost);
 	}
 	
 	@Override

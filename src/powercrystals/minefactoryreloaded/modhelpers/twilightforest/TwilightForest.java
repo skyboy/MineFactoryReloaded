@@ -19,6 +19,7 @@ import powercrystals.minefactoryreloaded.api.HarvestType;
 import powercrystals.minefactoryreloaded.farmables.fertilizables.FertilizableSapling;
 import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableStandard;
 import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableTreeLeaves;
+import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableWood;
 import powercrystals.minefactoryreloaded.farmables.plantables.PlantableStandard;
 
 @Mod(modid = "MineFactoryReloaded|CompatTwilightForest", name = "MFR Compat: TwilightForest", version = MineFactoryReloadedCore.version, dependencies = "after:MineFactoryReloaded;after:TwilightForest")
@@ -85,10 +86,10 @@ public class TwilightForest
 			Class tfBlocks = Class.forName("twilightforest.block.TFBlocks");
 			if(tfBlocks != null)
 			{
-				MFRRegistry.registerHarvestable(new HarvestableStandard(((Block)tfBlocks.getField("log").get(null)).blockID, HarvestType.Tree));
-				MFRRegistry.registerHarvestable(new HarvestableStandard(((Block)tfBlocks.getField("magicLog").get(null)).blockID, HarvestType.Tree));
-				MFRRegistry.registerHarvestable(new HarvestableStandard(((Block)tfBlocks.getField("magicLogSpecial").get(null)).blockID, HarvestType.Tree));
-				MFRRegistry.registerHarvestable(new HarvestableStandard(((Block)tfBlocks.getField("root").get(null)).blockID, HarvestType.Tree));
+				MFRRegistry.registerHarvestable(new HarvestableWood(((Block)tfBlocks.getField("log").get(null)).blockID));
+				MFRRegistry.registerHarvestable(new HarvestableWood(((Block)tfBlocks.getField("magicLog").get(null)).blockID));
+				MFRRegistry.registerHarvestable(new HarvestableWood(((Block)tfBlocks.getField("magicLogSpecial").get(null)).blockID));
+				MFRRegistry.registerHarvestable(new HarvestableStandard(((Block)tfBlocks.getField("root").get(null)).blockID, HarvestType.TreeFlipped));
 				MFRRegistry.registerHarvestable(new HarvestableTreeLeaves(((Block)tfBlocks.getField("leaves").get(null)).blockID));
 				MFRRegistry.registerHarvestable(new HarvestableTreeLeaves(((Block)tfBlocks.getField("magicLeaves").get(null)).blockID));
 				MFRRegistry.registerHarvestable(new HarvestableTreeLeaves(((Block)tfBlocks.getField("hedge").get(null)).blockID));

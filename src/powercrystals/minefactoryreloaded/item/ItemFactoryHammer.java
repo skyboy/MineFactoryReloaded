@@ -1,5 +1,7 @@
 package powercrystals.minefactoryreloaded.item;
 
+import java.util.Random;
+
 import cofh.api.block.IDismantleable;
 import com.google.common.collect.Multimap;
 
@@ -10,8 +12,13 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.Event.Result;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import powercrystals.minefactoryreloaded.api.IToolHammer;
 import powercrystals.minefactoryreloaded.setup.Machine;
 
@@ -29,6 +36,13 @@ public class ItemFactoryHammer extends ItemFactory implements IToolHammer, ITool
 		Block block = Block.blocksList[world.getBlockId(x, y, z)];
 		if (block != null)
 		{
+			PlayerInteractEvent e = new PlayerInteractEvent(player, Action.RIGHT_CLICK_BLOCK,
+					x, y, z, side);
+			if(MinecraftForge.EVENT_BUS.post(e) || e.getResult() == Result.DENY
+					|| e.useBlock == Result.DENY || e.useItem == Result.DENY)
+			{
+				return false;
+			}
 			if (player.isSneaking() && block instanceof IDismantleable &&
 					((IDismantleable)block).canDismantle(player, world, x, y, z))
 			{
@@ -95,7 +109,25 @@ public class ItemFactoryHammer extends ItemFactory implements IToolHammer, ITool
     public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player)
     {
     	Block block = Block.blocksList[player.worldObj.getBlockId(x, y, z)];
-    	return block == null || block.getBlockHardness(player.worldObj, x, y, z) > 2.9f;
+    	if (block == null || block.getBlockHardness(player.worldObj, x, y, z) > 2.9f)
+    	{
+    		Random rnd = player.getRNG();
+    		player.playSound("random.break", 0.8F + rnd.nextFloat() * 0.4F, 0.4F);
+
+            for (int i = 0, e = 10 + rnd.nextInt(5); i < e; ++i)
+            {
+                Vec3 vec3 = player.worldObj.getWorldVec3Pool().getVecFromPool((rnd.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
+                vec3.rotateAroundX(-player.rotationPitch * (float)Math.PI / 180.0F);
+                vec3.rotateAroundY(-player.rotationYaw * (float)Math.PI / 180.0F);
+                Vec3 vec31 = player.worldObj.getWorldVec3Pool().getVecFromPool((rnd.nextFloat() - 0.5D) * 0.3D, rnd.nextFloat(), 0.6D);
+                vec31.rotateAroundX(-player.rotationPitch * (float)Math.PI / 180.0F);
+                vec31.rotateAroundY(-player.rotationYaw * (float)Math.PI / 180.0F);
+                vec31 = vec31.addVector(player.posX, player.posY + player.getEyeHeight(), player.posZ);
+                player.worldObj.spawnParticle("tilecrack_51_0", vec31.xCoord, vec31.yCoord, vec31.zCoord, vec3.xCoord, vec3.yCoord + 0.05D, vec3.zCoord);
+            }
+    		return true;
+    	}
+    	return false;
     }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -103,7 +135,8 @@ public class ItemFactoryHammer extends ItemFactory implements IToolHammer, ITool
 	public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", 1, 0));
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
+        		new AttributeModifier(field_111210_e, "Weapon modifier", 1, 0));
         return multimap;
     }
     

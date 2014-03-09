@@ -165,7 +165,7 @@ public class TileEntityLaserDrill extends TileEntityFactoryInventory implements 
 	
 	private boolean shouldCheckDrill()
 	{
-		return worldObj.getWorldTime() % 32 == 0;
+		return worldObj.getTotalWorldTime() % 32 == 0;
 	}
 	
 	private void updateDrill()
@@ -246,7 +246,10 @@ public class TileEntityLaserDrill extends TileEntityFactoryInventory implements 
 	
 	public boolean shouldDrawBeam()
 	{
-		updateDrill();
+		if(shouldCheckDrill())
+		{
+			updateDrill();
+		}
 		return _bedrockLevel >= 0;
 	}
 	

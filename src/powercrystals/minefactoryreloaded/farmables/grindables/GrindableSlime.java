@@ -45,7 +45,7 @@ public class GrindableSlime implements IFactoryGrindable
 
 	public GrindableSlime(Class<?> slime, ItemStack drop, int dropSize)
 	{
-		this(slime, new MobDrop[]{new MobDrop(10, drop)}, dropSize);
+		this(slime, new MobDrop[]{new MobDrop(10, drop), new MobDrop(20, null)}, dropSize);
 	}
 
 	@Override
@@ -54,10 +54,16 @@ public class GrindableSlime implements IFactoryGrindable
 	}
 
 	@Override
-	public List<MobDrop> grind(World world, EntityLivingBase entity, Random random) {
-		if (((EntitySlime)entity).getSlimeSize() > dropSize)
+	public List<MobDrop> grind(World world, EntityLivingBase entity, Random random)
+	{
+		if (shouldDrop((EntitySlime)entity))
 			return drops;
 		return null;
+	}
+	
+	protected boolean shouldDrop(EntitySlime slime)
+	{
+		return slime.getSlimeSize() > dropSize;
 	}
 
 	@Override

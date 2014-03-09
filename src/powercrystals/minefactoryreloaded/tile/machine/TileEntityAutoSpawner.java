@@ -135,7 +135,7 @@ public class TileEntityAutoSpawner extends TileEntityFactoryPowered implements I
 				for (int i = 0; i < 5; ++i)
 				{
 					if (spawnedLiving instanceof EntityLiving)
-						((EntityLiving)spawnedLiving).setEquipmentDropChance(i, 0);
+						((EntityLiving)spawnedLiving).setEquipmentDropChance(i, Float.NEGATIVE_INFINITY);
 				}
 			}
 			

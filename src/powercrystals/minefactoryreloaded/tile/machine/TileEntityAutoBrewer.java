@@ -60,21 +60,21 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered
 		}
 		
 		boolean hasWorkToDo = false;
-		for(int row = 0; row < 6; row++)
+		for (int row = 0; row < 6; row++)
 		{
-			if(_inventory[getProcessSlot(row)] != null && _inventory[getProcessSlot(row + 1)] == null && canBrew(row))
+			if (_inventory[getProcessSlot(row)] != null && _inventory[getProcessSlot(row + 1)] == null && canBrew(row))
 			{
 				hasWorkToDo = true;
 			}
 		}
 		
-		if(!hasWorkToDo)
+		if (!hasWorkToDo)
 		{
 			setWorkDone(0);
 			return false;
 		}
 		
-		if(getWorkDone() < getWorkMax())
+		if (getWorkDone() < getWorkMax())
 		{
 			setWorkDone(getWorkDone() + 1);
 			return true;
@@ -82,57 +82,64 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered
 		
 		setWorkDone(0);
 		
-		for(int row = 5; row >= 0; row--)
+		for (int row = 5; row >= 0; row--)
 		{
 			ItemStack current = _inventory[getProcessSlot(row)];
 			ItemStack next = _inventory[getProcessSlot(row + 1)];
-			if(next != null && current != null)
+			if (next != null && current != null)
 			{
 				return row < 5;
 			}
 			
 			ItemStack ingredient = _inventory[getTemplateSlot(row)];
 			
-			if(_inventory[getProcessSlot(row)] != null && _inventory[getProcessSlot(row)].getItem() instanceof ItemPotion)
+			if (current != null && current.getItem() instanceof ItemPotion)
 			{
-				int existingPotion = _inventory[getProcessSlot(row)].getItemDamage();
-				int newPotion = this.getPotionResult(existingPotion, ingredient);
-				@SuppressWarnings("unchecked") List<Integer> existingEffects = Item.potion.getEffects(existingPotion);
-				@SuppressWarnings("unchecked") List<Integer> newEffects = Item.potion.getEffects(newPotion);
-				
-				if((existingPotion <= 0 || existingEffects != newEffects) && (existingEffects == null || !existingEffects.equals(newEffects) && newEffects != null))
+				for (int i = 0; i < 3; i++)
 				{
-					if(existingPotion != newPotion)
-					{
-						_inventory[getProcessSlot(row)].setItemDamage(newPotion);
-					}
-				}
-				else if(!ItemPotion.isSplash(existingPotion) && ItemPotion.isSplash(newPotion))
-				{
-					_inventory[getProcessSlot(row)].setItemDamage(newPotion);
-				}
-				
-				_inventory[getProcessSlot(row + 1)] = _inventory[getProcessSlot(row)];
-				_inventory[getProcessSlot(row)] = null;
-			
-				for(int i = 0; i < 3; i++)
-				{
-					if(!UtilInventory.stacksEqual(_inventory[getResourceSlot(row, i)], ingredient))
+					int slot = getResourceSlot(row, i);
+					if (ingredient.stackSize <= 0 && !UtilInventory.stacksEqual(_inventory[slot], ingredient))
 					{
 						continue;
 					}
 					
-					if(Item.itemsList[ingredient.itemID].hasContainerItem())
+					int existingPotion = current.getItemDamage();
+					int newPotion = this.getPotionResult(existingPotion, ingredient);
+					@SuppressWarnings("unchecked") List<Integer> existingEffects = Item.potion.getEffects(existingPotion);
+					@SuppressWarnings("unchecked") List<Integer> newEffects = Item.potion.getEffects(newPotion);
+
+					if((existingPotion <= 0 || existingEffects != newEffects) && (existingEffects == null || !existingEffects.equals(newEffects) && newEffects != null))
 					{
-						_inventory[getResourceSlot(row, i)] = Item.itemsList[ingredient.itemID].getContainerItemStack(_inventory[getResourceSlot(row, i)]);
+						if(existingPotion != newPotion)
+						{
+							current.setItemDamage(newPotion);
+						}
+					}
+					else if(!ItemPotion.isSplash(existingPotion) && ItemPotion.isSplash(newPotion))
+					{
+						current.setItemDamage(newPotion);
+					}
+
+					_inventory[getProcessSlot(row + 1)] = current;
+					_inventory[getProcessSlot(row)] = null;
+					
+					if (ingredient.stackSize > 0)
+						--ingredient.stackSize;
+					else if (Item.itemsList[ingredient.itemID].hasContainerItem())
+					{
+						ItemStack r = Item.itemsList[ingredient.itemID].getContainerItemStack(_inventory[slot]);
+						if (r.isItemStackDamageable() && r.getItemDamage() > r.getMaxDamage())
+							r = null;
+						_inventory[slot] = r;
 					}
 					else
 					{
-						_inventory[getResourceSlot(row, i)].stackSize--;
+						--_inventory[slot].stackSize;
+						++ingredient.stackSize;
 						
-						if(_inventory[getResourceSlot(row, i)].stackSize <= 0)
+						if(_inventory[slot].stackSize <= 0)
 						{
-							_inventory[getResourceSlot(row, i)] = null;
+							_inventory[slot] = null;
 						}
 					}
 					break;
@@ -144,38 +151,39 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered
 	
 	private boolean canBrew(int row)
 	{
-		if(_inventory[getTemplateSlot(row)] == null)
+		if (_inventory[getTemplateSlot(row)] == null)
 		{
 			return false;
 		}
 		
-		boolean hasIngredients = false;
-		for(int i = 0; i < 3; i++)
+		boolean hasIngredients = _inventory[getTemplateSlot(row)].stackSize > 0;
+		if (!hasIngredients) for (int i = 0; i < 3; i++)
 		{
-			if(UtilInventory.stacksEqual(_inventory[getTemplateSlot(row)], _inventory[getResourceSlot(row, i)]))
+			if (UtilInventory.stacksEqual(_inventory[getTemplateSlot(row)], _inventory[getResourceSlot(row, i)]))
 			{
 				hasIngredients = true;
 				break;
 			}
 		}
-		if(!hasIngredients)
+		if (!hasIngredients)
 		{
 			return false;
 		}
 	
 		ItemStack ingredient = _inventory[getTemplateSlot(row)];
 		
-		if(!Item.itemsList[ingredient.itemID].isPotionIngredient())
+		if (!Item.itemsList[ingredient.itemID].isPotionIngredient())
 		{
 			return false;
 		}
 		
-		if(_inventory[getProcessSlot(row)] != null && _inventory[getProcessSlot(row)].getItem() instanceof ItemPotion)
+		if (_inventory[getProcessSlot(row)] != null &&
+				_inventory[getProcessSlot(row)].getItem() instanceof ItemPotion)
 		{
 			int existingPotion = _inventory[getProcessSlot(row)].getItemDamage();
 			int newPotion = this.getPotionResult(existingPotion, ingredient);
 			
-			if(!ItemPotion.isSplash(existingPotion) && ItemPotion.isSplash(newPotion))
+			if (!ItemPotion.isSplash(existingPotion) && ItemPotion.isSplash(newPotion))
 			{
 				return true;
 			}
@@ -183,7 +191,9 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered
 			@SuppressWarnings("unchecked") List<Integer> existingEffects = Item.potion.getEffects(existingPotion);
 			@SuppressWarnings("unchecked") List<Integer> newEffects = Item.potion.getEffects(newPotion);
 			
-			if((existingPotion <= 0 || existingEffects != newEffects) && (existingEffects == null || !existingEffects.equals(newEffects) && newEffects != null) && existingPotion != newPotion)
+			if ((existingPotion <= 0 || existingEffects != newEffects) &&
+					(existingEffects == null || !existingEffects.equals(newEffects) &&
+					newEffects != null) && existingPotion != newPotion)
 			{
 				return true;
 			}
@@ -194,7 +204,7 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered
 	
 	private int getPotionResult(int existingPotion, ItemStack ingredient)
 	{
-		if(ingredient == null || !Item.itemsList[ingredient.itemID].isPotionIngredient())
+		if (ingredient == null || !Item.itemsList[ingredient.itemID].isPotionIngredient())
 		{
 			return existingPotion;
 		}
@@ -236,6 +246,14 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered
 		if(column == 1) return false;
 		if(column == 0) return _inventory[getTemplateSlot(row)] == null;
 		return !UtilInventory.stacksEqual(_inventory[getTemplateSlot(row)], itemstack);
+	}
+	
+	@Override
+	public void setInventorySlotContents(int slot, ItemStack itemstack)
+	{
+		if (itemstack != null && !shouldDropSlotWhenBroken(slot))
+			itemstack.stackSize = 0;
+		super.setInventorySlotContents(slot, itemstack);
 	}
 	
 	@Override

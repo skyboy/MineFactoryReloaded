@@ -11,7 +11,7 @@ public class DrinkHandlerPinkSlime implements ILiquidDrinkHandler
 	public void onDrink(EntityPlayer player)
 	{
 		player.addPotionEffect(new PotionEffect(Potion.confusion.id, 24 * 20, 0));
-		player.addPotionEffect(new PotionEffect(Potion.poison.id, 12 * 20, 0));
+		player.addPotionEffect(new PotionEffect(Potion.weakness.id, 12 * 20, 0));
 		player.addPotionEffect(new PotionEffect(Potion.hunger.id, 12 * 20, 0));
 		player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 2));
 	}

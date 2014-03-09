@@ -6,7 +6,6 @@ import powercrystals.minefactoryreloaded.api.rednet.IRedNetLogicCircuit;
 public class Counter implements IRedNetLogicCircuit
 {
 	private int _count;
-	private int _preset;
 	
 	private boolean _lastIncrementState;
 	private boolean _lastDecrementState;
@@ -14,7 +13,7 @@ public class Counter implements IRedNetLogicCircuit
 	@Override
 	public int getInputCount()
 	{
-		return 3;
+		return 4;
 	}
 	
 	@Override
@@ -26,7 +25,13 @@ public class Counter implements IRedNetLogicCircuit
 	@Override
 	public int[] recalculateOutputValues(long worldTime, int[] inputValues)
 	{
-		_preset = inputValues[2];
+		int _preset = inputValues[2];
+		if (_preset <= 0)
+		{
+			return new int[] {0, _count};
+		}
+		
+		_count = inputValues[3] > 0 ? 0 : inputValues[3] < 0 ? _preset - 1 : _count;
 		
 		if(inputValues[0] > 0 && !_lastIncrementState)
 		{
@@ -63,7 +68,13 @@ public class Counter implements IRedNetLogicCircuit
 	@Override
 	public String getInputPinLabel(int pin)
 	{
-		return pin == 0 ? "INC" : pin == 1 ? "DEC" : "PRE";
+		switch (pin) {
+		case 0: return "INC";
+		case 1: return "DEC";
+		case 2: return "PRE";
+		case 3: return "R";
+		}
+		return "";
 	}
 	
 	@Override

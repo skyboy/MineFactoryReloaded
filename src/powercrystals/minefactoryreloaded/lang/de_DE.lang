@@ -42,6 +42,7 @@ tile.mfr.machine.fruitpicker.name = Fruchtsammler
 tile.mfr.machine.blockplacer.name = Block-Platzierer
 tile.mfr.machine.mobcounter.name = Mob-Z\u00e4hler
 tile.mfr.machine.steamturbine.name = Dampfturbine
+tile.mfr.machine.chunkloader.name = Chunk-Loader
 
 tile.mfr.conveyor.default.name = F\u00f6rderband
 tile.mfr.conveyor.white.name = Wei\u00dfes F\u00f6rderband
@@ -135,9 +136,10 @@ tile.mfr.vinescaffold.name = Lianenger\u00fcst
 
 tile.mfr.detcord.name = Sprengschnur
 
-tile.mfr.rubberwood.sapling.name = Kautschuksetzling
-tile.mfr.rubberwood.log.name = Kautschukholz
-tile.mfr.rubberwood.leaves.name = Kautschukbl\u00e4tter
+tile.mfr.rubberwood.sapling.name = Gummibaumsetzling
+tile.mfr.rubberwood.sapling.massive.name = Heiliger Gummibaumsetzlingk
+tile.mfr.rubberwood.log.name = Gummibaumholz
+tile.mfr.rubberwood.leaves.name = Gummibaumbl\u00e4tter
 
 tile.mfr.rail.cargo.dropoff.name = Entladungsgleis
 tile.mfr.rail.cargo.pickup.name = Beladungsgleis
@@ -177,12 +179,17 @@ item.mfr.bucket.plasticcell.name = Plastikzelle
 item.mfr.bucket.plasticcell.prefix.name = Zelle mit
 item.mfr.bucket.plasticcell.suffix.name =
 
+item.mfr.armor.helm.plastic  = Plastikhelm
+item.mfr.armor.chest.plastic = Plastikbrustpanzer
+item.mfr.armor.legs.plastic  = Plastikbeinschutz
+item.mfr.armor.boots.plastic = Plastikstiefel
+
 item.mfr.hammer.name = Schmiedehammer
 item.mfr.fertilizer.name = Industried\u00fcnger
 item.mfr.plastic.sheet.name = Plastikfolie
-item.mfr.plastic.raw.name = Amorphes Plastik
+item.mfr.plastic.raw.name = Rohplastik
 item.mfr.rubber.bar.name = Gummiriegel
-item.mfr.rubber.raw.name = Amorphes Gummi
+item.mfr.rubber.raw.name = Kautschuk
 item.mfr.syringe.cure.name = Dezombifikationsspritze
 item.mfr.syringe.empty.name = Leere Spritze
 item.mfr.syringe.empty.prefix.name = Spritze mit
@@ -215,6 +222,7 @@ item.mfr.rocket.name = Selbstangetriebene Anti-Material-Rakete (SPAMR)
 item.mfr.rocket.smart.name = Verfolgende Selbstangetriebene Anti-Material-Rakete
 item.mfr.rocketlauncher.name = SPAMR-Raketenwerfer
 item.mfr.fishingrod.name = Angel
+item.mfr.plastic.bag.name = Plastikt\u00fcte
 
 item.mfr.ceramicdye.white.name = Wei\u00dfe Lasur
 item.mfr.ceramicdye.orange.name = Orange Lasur
@@ -345,6 +353,9 @@ circuit.mfr.xor.2 = XOR (2 Eing\u00e4nge)
 circuit.mfr.xor.3 = XOR (3 Eing\u00e4nge)
 circuit.mfr.xor.4 = XOR (4 Eing\u00e4nge)
 
+container.mfr.radius = Radius:
+container.mfr.power = Energieverbrauch:
+
 chat.info.mfr.safarinet.capture = Gewechselt in Fangmodus
 chat.info.mfr.safarinet.release = Gewechselt in Freilassmodus
 
@@ -374,6 +385,8 @@ chat.info.mfr.rednet.connection.standard = Kabel auf Standard-Verbindungsmodus g
 chat.info.mfr.rednet.connection.forced = Kabel auf Erzwungenen Verbindungsmodus gestellt
 chat.info.mfr.rednet.connection.forcedstrong = Kabel auf Starken Verbindungsmodus gestellt
 chat.info.mfr.rednet.connection.cableonly = Kabel auf Nur-Kabel-Verbindungsmodus gestellt
+
+chat.info.mfr.bag.stacksize = Du kannst nur eine T\u00fcte zur Zeit \u00f6ffnen
 
 tip.info.mfr.safarinet.mode = Shift-klicke, um Modus zu \u00e4ndern
 tip.info.mfr.safarinet.jailer = Freigelassene Kreaturen verschwinden nicht auf normale Weise

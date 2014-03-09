@@ -6,7 +6,7 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded", 
         "authors": [
             "PowerCrystals", 
@@ -15,7 +15,7 @@
             "Feanorith", 
             "skyboy026"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [], 
         "description": "Automate everything!"
@@ -27,12 +27,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatAppliedEnergistics", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -46,12 +46,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatAtum", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -65,12 +65,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatBackTools", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -84,12 +84,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatBuildCraft", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -103,12 +103,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatChococraft", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -122,12 +122,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatExtraBiomes", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -141,12 +141,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatForestry", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -160,12 +160,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatForestryPre", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -179,12 +179,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatForgeMicroblock", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -198,12 +198,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatIC2", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -217,12 +217,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatMagicalCrops", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -236,12 +236,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatMystcraft", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -255,12 +255,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatPams", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -274,12 +274,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatRailcraft", 
         "authors": [
             "skyboy"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -293,12 +293,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatRP2", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -312,12 +312,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatSufficientBiomes", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -331,12 +331,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatThaumcraft", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -350,12 +350,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatThermalExpansion", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -369,12 +369,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatTwilightForest", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -388,12 +388,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatVanilla", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -407,12 +407,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MineFactoryReloaded|CompatXyCraft", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
@@ -426,17 +426,36 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MFR Compat Extra Trees", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"
         ], 
         "description": "Compatibility addon for Extra Trees"
+    }, 
+    {
+        "name": "MFR Compat ProjectRed", 
+        "parent": "MineFactoryReloaded", 
+        "url": "http://minecraft.curseforge.com/mc-mods/minefactory-reloaded/", 
+        "logoFile": "", 
+        "updateUrl": "", 
+        "credits": "All the contributors", 
+        "version": "2.7.6B1", 
+        "modid": "MineFactoryReloaded|CompatProjRed", 
+        "authors": [
+            "PowerCrystals"
+        ], 
+        "mcversion": "1.6.4", 
+        "screenshots": [], 
+        "dependencies": [
+            "MineFactoryReloaded"
+        ], 
+        "description": "Compatibility addon for ProjectRed"
     }, 
     {
         "name": "MFR Compat Forestry Trees", 
@@ -445,12 +464,12 @@
         "logoFile": "", 
         "updateUrl": "", 
         "credits": "All the contributors", 
-        "version": "2.7.5B1", 
+        "version": "2.7.6B1", 
         "modid": "MFR Compat Forestry Trees", 
         "authors": [
             "PowerCrystals"
         ], 
-        "mcversion": "1.6.2", 
+        "mcversion": "1.6.4", 
         "screenshots": [], 
         "dependencies": [
             "MineFactoryReloaded"

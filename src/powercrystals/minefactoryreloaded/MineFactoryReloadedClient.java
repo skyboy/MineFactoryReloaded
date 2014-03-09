@@ -54,6 +54,7 @@ import powercrystals.minefactoryreloaded.render.block.ConveyorRenderer;
 import powercrystals.minefactoryreloaded.render.block.DetCordRenderer;
 import powercrystals.minefactoryreloaded.render.block.FactoryGlassPaneRenderer;
 import powercrystals.minefactoryreloaded.render.block.FactoryGlassRenderer;
+import powercrystals.minefactoryreloaded.render.block.RedNetCableRenderer;
 import powercrystals.minefactoryreloaded.render.block.VineScaffoldRenderer;
 import powercrystals.minefactoryreloaded.render.entity.EntityNeedleRenderer;
 import powercrystals.minefactoryreloaded.render.entity.EntityPinkSlimeRenderer;
@@ -69,11 +70,9 @@ import powercrystals.minefactoryreloaded.render.tileentity.LaserDrillRenderer;
 import powercrystals.minefactoryreloaded.render.tileentity.RedNetCardItemRenderer;
 import powercrystals.minefactoryreloaded.render.tileentity.RedNetHistorianRenderer;
 import powercrystals.minefactoryreloaded.render.tileentity.RedNetLogicRenderer;
-import powercrystals.minefactoryreloaded.render.tileentity.RedstoneCableRenderer;
 import powercrystals.minefactoryreloaded.setup.MFRConfig;
 import powercrystals.minefactoryreloaded.tile.machine.TileEntityLaserDrill;
 import powercrystals.minefactoryreloaded.tile.machine.TileEntityLaserDrillPrecharger;
-import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetCable;
 import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetHistorian;
 import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetLogic;
 
@@ -96,40 +95,58 @@ public class MineFactoryReloadedClient implements IScheduledTickHandler
 	{
 		instance = new MineFactoryReloadedClient();
 		
+		// IDs
 		MineFactoryReloadedCore.renderIdConveyor = RenderingRegistry.getNextAvailableRenderId();
 		MineFactoryReloadedCore.renderIdFactoryGlassPane = RenderingRegistry.getNextAvailableRenderId();
-		MineFactoryReloadedCore.renderIdRedstoneCable = RenderingRegistry.getNextAvailableRenderId();
+		//MineFactoryReloadedCore.renderIdUnused = RenderingRegistry.getNextAvailableRenderId();
 		MineFactoryReloadedCore.renderIdFluidClassic = RenderingRegistry.getNextAvailableRenderId();
 		MineFactoryReloadedCore.renderIdRedNetLogic = RenderingRegistry.getNextAvailableRenderId();
 		MineFactoryReloadedCore.renderIdVineScaffold = RenderingRegistry.getNextAvailableRenderId();
 		MineFactoryReloadedCore.renderIdFactoryGlass = RenderingRegistry.getNextAvailableRenderId();
 		MineFactoryReloadedCore.renderIdDetCord = RenderingRegistry.getNextAvailableRenderId();
+		MineFactoryReloadedCore.renderIdRedNet = RenderingRegistry.getNextAvailableRenderId();
 		
-		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdConveyor, new ConveyorRenderer());
-		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdFactoryGlassPane, new FactoryGlassPaneRenderer());
-		RenderingRegistry.registerEntityRenderingHandler(EntitySafariNet.class, new EntitySafariNetRenderer());
-		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdFluidClassic, new RenderBlockFluidClassic(
-				MineFactoryReloadedCore.renderIdFluidClassic));
-		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdVineScaffold, new VineScaffoldRenderer());
-		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdFactoryGlass, new FactoryGlassRenderer());
-		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdDetCord, new DetCordRenderer());
+		// Blocks
+		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdConveyor,
+				new ConveyorRenderer());
+		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdFactoryGlassPane,
+				new FactoryGlassPaneRenderer());
+		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdFluidClassic,
+				new RenderBlockFluidClassic(MineFactoryReloadedCore.renderIdFluidClassic));
+		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdVineScaffold,
+				new VineScaffoldRenderer());
+		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdFactoryGlass,
+				new FactoryGlassRenderer());
+		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdDetCord,
+				new DetCordRenderer());
+		RenderingRegistry.registerBlockHandler(MineFactoryReloadedCore.renderIdRedNet,
+				new RedNetCableRenderer());
 		
-		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.factoryGlassPaneBlock.blockID, new FactoryGlassPaneItemRenderer());
-		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.plasticCupItem.itemID, new FactoryFluidOverlayRenderer());
+		// Items
+		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.factoryGlassPaneBlock.blockID,
+				new FactoryGlassPaneItemRenderer());
+		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.logicCardItem.itemID,
+				new RedNetCardItemRenderer());
+		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.plasticCupItem.itemID,
+				new FactoryFluidOverlayRenderer());
+		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.needlegunItem.itemID,
+				new NeedleGunItemRenderer());
+		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.rocketItem.itemID,
+				new RocketItemRenderer());
+		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.rocketLauncherItem.itemID,
+				new RocketLauncherItemRenderer());
 		if (MineFactoryReloadedCore.syringeEmptyItem instanceof IFluidContainerItem)
-			MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.syringeEmptyItem.itemID, new FactoryFluidOverlayRenderer(false));
-		//MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.plasticCellItem.itemID, new FactoryFluidOverlayRenderer());
-		RenderingRegistry.registerEntityRenderingHandler(EntityFishingRod.class,
-					new RenderSnowball(MineFactoryReloadedCore.fishingRodItem));
+			MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.syringeEmptyItem.itemID,
+					new FactoryFluidOverlayRenderer(false));
+		//MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.plasticCellItem.itemID,
+		//		new FactoryFluidOverlayRenderer());
 		if (MFRConfig.vanillaOverrideGlassPane.getBoolean(true))
 		{
-			MinecraftForgeClient.registerItemRenderer(Block.thinGlass.blockID, new FactoryGlassPaneItemRenderer());			
+			MinecraftForgeClient.registerItemRenderer(Block.thinGlass.blockID,
+					new FactoryGlassPaneItemRenderer());			
 		}
 		
-		RedstoneCableRenderer renderer = new RedstoneCableRenderer();
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRedNetCable.class, renderer);
-		RenderingRegistry.registerBlockHandler(renderer);
-		
+		// TileEntities
 		RedNetLogicRenderer logicRender = new RedNetLogicRenderer();
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRedNetLogic.class, logicRender);
 		RenderingRegistry.registerBlockHandler(logicRender);
@@ -138,23 +155,25 @@ public class MineFactoryReloadedClient implements IScheduledTickHandler
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRedNetHistorian.class, panelRenderer);
 		RenderingRegistry.registerBlockHandler(panelRenderer);
 		
-		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.logicCardItem.itemID, new RedNetCardItemRenderer());
-		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaserDrill.class, new LaserDrillRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaserDrillPrecharger.class, new LaserDrillPrechargerRenderer());
-		
-		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.needlegunItem.itemID, new NeedleGunItemRenderer());
-		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.rocketItem.itemID, new RocketItemRenderer());
-		MinecraftForgeClient.registerItemRenderer(MineFactoryReloadedCore.rocketLauncherItem.itemID, new RocketLauncherItemRenderer());
-		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaserDrillPrecharger.class,
+				new LaserDrillPrechargerRenderer());
+
+		// Entities
+		RenderingRegistry.registerEntityRenderingHandler(EntitySafariNet.class, new EntitySafariNetRenderer());
+		RenderingRegistry.registerEntityRenderingHandler(EntityPinkSlime.class,
+				new EntityPinkSlimeRenderer(new ModelSlime(16), new ModelSlime(0), 0.25F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityNeedle.class, new EntityNeedleRenderer());
 		RenderingRegistry.registerEntityRenderingHandler(EntityRocket.class, new EntityRocketRenderer());
-		RenderingRegistry.registerEntityRenderingHandler(EntityPinkSlime.class, new EntityPinkSlimeRenderer(new ModelSlime(16), new ModelSlime(0), 0.25F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityFishingRod.class,
+				new RenderSnowball(MineFactoryReloadedCore.fishingRodItem));
 		
+		// Handlers
 		TickRegistry.registerScheduledTickHandler(instance, Side.CLIENT);
 		TickRegistry.registerTickHandler(new RenderTickHandler(), Side.CLIENT);
 		
-		VillagerRegistry.instance().registerVillagerSkin(MFRConfig.zoolologistEntityId.getInt(), new ResourceLocation(MineFactoryReloadedCore.villagerFolder + "zoologist.png"));
+		VillagerRegistry.instance().registerVillagerSkin(MFRConfig.zoolologistEntityId.getInt(),
+				new ResourceLocation(MineFactoryReloadedCore.villagerFolder + "zoologist.png"));
 		
 		MinecraftForge.EVENT_BUS.register(instance);
 	}

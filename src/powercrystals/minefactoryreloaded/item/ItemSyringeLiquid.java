@@ -152,7 +152,10 @@ public class ItemSyringeLiquid extends ItemSyringe implements IFluidContainerIte
 		if (fluid == null)
 		{
 			if (doFill)
+			{
 				fluid = resource.copy();
+				fluid.amount = 0;
+			}
 		}
 		else if (!fluid.isFluidEqual(resource))
 			return 0;
@@ -163,7 +166,7 @@ public class ItemSyringeLiquid extends ItemSyringe implements IFluidContainerIte
 		{
 			if (tag == null)
 				tag = stack.stackTagCompound = new NBTTagCompound();
-			fluid.amount = fillAmount;
+			fluid.amount += fillAmount;
 			tag.setTag("fluid", fluid.writeToNBT(fluidTag == null ? new NBTTagCompound() : fluidTag));
 			tag.setLong("uniqifier", (System.identityHashCode(resource) << 32) |
 					System.identityHashCode(stack));
@@ -189,6 +192,9 @@ public class ItemSyringeLiquid extends ItemSyringe implements IFluidContainerIte
 			tag.removeTag("fluidName");
 			if (tag.hasNoTags())
 				stack.setTagCompound(null);
+			fluid.amount -= drainAmount;
+			if (fluid.amount > 0)
+				fill(stack, fluid, true);
 		}
 		fluid.amount = drainAmount;
 		return fluid;

@@ -33,7 +33,7 @@ public class PamFruit implements IFactoryFruit
 	@Override
 	public ItemStack getReplacementBlock(World world, int x, int y, int z)
 	{
-		return null;
+		return new ItemStack(getSourceBlockId(), 1, 0);
 	}
 
 	@Override

@@ -24,7 +24,9 @@ public class Vanilla
 	private static boolean _registeredConveyors;
 	private static boolean _registeredDecorative;
 	private static boolean _registeredSyringes;
+	private static boolean _registeredPlastics;
 	private static boolean _registeredMiscItems;
+	private static boolean _registeredSafariNets;
 	private static boolean _registeredVanillaImprovements;
 	private static boolean _registeredRails;
 	private static boolean _registeredGuns;
@@ -33,6 +35,7 @@ public class Vanilla
 	
 	public final void registerRecipes()
 	{
+		gatherItems();
 		registerMachines();
 		registerMachineUpgrades();
 		registerMachineTinkers();
@@ -40,13 +43,19 @@ public class Vanilla
 		registerDecorative();
 		if (MFRConfig.enableSyringes.getBoolean(true))
 				registerSyringes();
+		registerPlastics();
 		registerMiscItems();
+		registerSafariNets();
 		registerVanillaImprovements();
 		registerRails();
 		if (MFRConfig.enableGuns.getBoolean(true))
 			registerGuns();
 		registerRedNet();
 		registerRedNetManual();
+	}
+	
+	protected void gatherItems()
+	{
 	}
 	
 	protected void registerMachines()
@@ -62,7 +71,7 @@ public class Vanilla
 			"PPP",
 			"SSS",
 			'P', "sheetPlastic",
-			'S', Block.stone,
+			'S', "stone",
 				} ));
 		
 		// regex: if\s*\((Machine\.\w+)[^\n]+\n[^\n]+\n[^\n]+\n\s+(\{[^}]+\} \))[^\n]+\n[^\n]+
@@ -551,6 +560,18 @@ public class Vanilla
 				'R', Item.netherrackBrick,
 				'M', MineFactoryReloadedCore.machineBaseItem,
 					} );
+		
+		registerMachine(Machine.ChunkLoader, new Object[]
+					{
+				"GGG",
+				"PFP",
+				"RMR",
+				'G', "sheetPlastic",
+				'F', Item.netherStar,
+				'P', Machine.DeepStorageUnit.getItemStack(),
+				'R', Block.blockRedstone,
+				'M', MineFactoryReloadedCore.machineBaseItem,
+					} );
 	}
 	
 	protected void registerMachine(Machine machine, Object... recipe)
@@ -584,7 +605,7 @@ public class Vanilla
 			'I', new ItemStack(Item.dyePowder, 1, 4),
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 1), new Object[]
@@ -595,7 +616,7 @@ public class Vanilla
 			'I', Item.ingotIron,
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 2), new Object[]
@@ -606,7 +627,7 @@ public class Vanilla
 			'I', "ingotTin",
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 3), new Object[]
@@ -617,7 +638,7 @@ public class Vanilla
 			'I', "ingotCopper",
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 4), new Object[]
@@ -628,7 +649,7 @@ public class Vanilla
 			'I', "ingotBronze",
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 5), new Object[]
@@ -639,7 +660,7 @@ public class Vanilla
 			'I', "ingotSilver",
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 6), new Object[]
@@ -647,10 +668,10 @@ public class Vanilla
 			"III",
 			"PPP",
 			"RGR",
-			'I', Item.ingotGold,
+			'I', "ingotGold",
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 7), new Object[]
@@ -661,7 +682,7 @@ public class Vanilla
 			'I', Item.netherQuartz,
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 8), new Object[]
@@ -672,7 +693,7 @@ public class Vanilla
 			'I', Item.diamond,
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 9), new Object[]
@@ -683,7 +704,7 @@ public class Vanilla
 			'I', "ingotPlatinum",
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 10), new Object[]
@@ -694,7 +715,7 @@ public class Vanilla
 			'I', Item.emerald,
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.upgradeItem, 1, 11), new Object[]
@@ -705,7 +726,7 @@ public class Vanilla
 			'I', "cobblestone",
 			'P', "dustPlastic",
 			'R', Item.redstone,
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 				} ));
 		
 		for(int i = 0; i < 16; i++)
@@ -716,7 +737,7 @@ public class Vanilla
 				"NGN",
 				"ENE",
 				'E', Item.emerald,
-				'N', Item.goldNugget,
+				'N', "nuggetGold",
 				'G', new ItemStack(MineFactoryReloadedCore.factoryGlassPaneBlock, 1, i)
 					} ));
 		}
@@ -766,10 +787,16 @@ public class Vanilla
 			'R', Item.redstone,
 			'I', Item.ingotIron,
 				} ));
+
+		String[] dyes = { "Black", "Red", "Green", "Brown", "Blue", "Purple",
+				"Cyan", "LightGray", "Gray", "Pink", "Lime", "Yellow",
+				"LightBlue", "Magenta", "Orange", "White" }; // order copied from forge
 		
 		for(int i = 0; i < 16; i++)
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.conveyorBlock, 1, i), new ItemStack(MineFactoryReloadedCore.conveyorBlock, 1, 16), new ItemStack(MineFactoryReloadedCore.ceramicDyeItem, 1, i));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(MineFactoryReloadedCore.conveyorBlock, 1, i),
+					new ItemStack(MineFactoryReloadedCore.conveyorBlock, 1, 16),
+					"dyeCeramic" + dyes[15 - i]));
 		}
 	}
 	
@@ -781,8 +808,8 @@ public class Vanilla
 		}
 		_registeredDecorative = true;
 		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryRoadBlock, 16), new Object[]
-				{
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryRoadBlock, 16),
+				new Object[] {
 			"BBB",
 			"BPB",
 			"BBB",
@@ -806,22 +833,20 @@ public class Vanilla
 				"Cyan", "LightGray", "Gray", "Pink", "Lime", "Yellow",
 				"LightBlue", "Magenta", "Orange", "White" }; // order copied from forge
 		
+		ItemStack pane = new ItemStack(Block.thinGlass);
 		for(int i = 0; i < 16; i++)
 		{
 			ItemStack dye = new ItemStack(MineFactoryReloadedCore.ceramicDyeItem, 4, i);
 			GameRegistry.addRecipe(new ShapelessOreRecipe(dye, new ItemStack(Item.clay), "dye" + dyes[15 - i]));
+			dye.stackSize = 1;
 			ItemStack glassStack = new ItemStack(MineFactoryReloadedCore.factoryGlassBlock, 1, i);
-			ItemStack glass = new ItemStack(Block.glass);
 			ItemStack paneStack = new ItemStack(MineFactoryReloadedCore.factoryGlassPaneBlock, 1, i);
-			ItemStack pane = new ItemStack(Block.thinGlass);
 			OreDictionary.registerOre("glass" + dyes[15 - i], glassStack.copy());
 			OreDictionary.registerOre("glassPane" + dyes[15 - i], paneStack.copy());
-			dye.stackSize = 1;
+			OreDictionary.registerOre("dyeCeramic" + dyes[15 - i], dye.copy());
 			GameRegistry.addRecipe(new ShapelessOreRecipe(glassStack, dye, "glass"));
-			GameRegistry.addShapelessRecipe(glassStack.copy(), dye, glass);
 			glassStack.stackSize = 3;
 			GameRegistry.addRecipe(new ShapelessOreRecipe(glassStack, dye, "glass", "glass", "glass"));
-			GameRegistry.addShapelessRecipe(glassStack.copy(), dye, glass, glass, glass);
 			GameRegistry.addShapelessRecipe(paneStack.copy(), dye, pane);
 			paneStack.stackSize = 3;
 			GameRegistry.addShapelessRecipe(paneStack.copy(), dye, pane, pane, pane);
@@ -940,23 +965,26 @@ public class Vanilla
 		/**
 		 * Smooth:
 		 **/
-		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 0), new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 0), new Object[]
 				{
 			"SSS",
 			"SDS",
 			"SSS",
-			'S', Block.stone,
+			'S', "stone",
 			'D', new ItemStack(Item.dyePowder, 1, 0),
-				} );
+				}));
 		
-		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 1), new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 1), new Object[]
 				{
 			"SSS",
 			"SDS",
 			"SSS",
-			'S', Block.stone,
+			'S', "stone",
 			'D', Item.sugar,
-				} );
+				}));
+		
+		OreDictionary.registerOre("stone", new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 0));
+		OreDictionary.registerOre("stone", new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 1));
 		
 		// cobble->smooth
 		int stoneID = MineFactoryReloadedCore.factoryDecorativeStoneBlock.blockID;
@@ -966,23 +994,26 @@ public class Vanilla
 		/**
 		 * Cobble:
 		 **/
-		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 2), new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 2), new Object[]
 				{
 			"SSS",
 			"SDS",
 			"SSS",
-			'S', Block.cobblestone,
+			'S', "cobblestone",
 			'D', new ItemStack(Item.dyePowder, 1, 0),
-				} );
+				}));
 		
-		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 3), new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 3), new Object[]
 				{
 			"SSS",
 			"SDS",
 			"SSS",
-			'S', Block.cobblestone,
+			'S', "cobblestone",
 			'D', Item.sugar,
-				} );
+				}));
+		
+		OreDictionary.registerOre("cobblestone", new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 2));
+		OreDictionary.registerOre("cobblestone", new ItemStack(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 8, 3));
 		
 		// meta-sensitive optional override in block code?
 		
@@ -1180,6 +1211,16 @@ public class Vanilla
 		}
 		_registeredSyringes = true;
 		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.xpExtractorItem), new Object[]
+				{
+			"PLP",
+			"PLP",
+			"RPR",
+			'R', "itemRubber",
+			'L', "glass",
+			'P', "sheetPlastic",
+				} ));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.syringeEmptyItem, 1), new Object[]
 				{
 			"PRP",
@@ -1202,17 +1243,90 @@ public class Vanilla
 			'S', MineFactoryReloadedCore.syringeEmptyItem,
 				} );
 		
-		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.syringeSlimeItem, 1), new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.syringeSlimeItem, 1), new Object[]
 				{
 			"   ",
 			" S ",
 			"BLB",
-			'B', Item.slimeBall,
+			'B', "slimeball",
 			'L', new ItemStack(Item.dyePowder, 1, 4),
 			'S', MineFactoryReloadedCore.syringeEmptyItem,
-				} );
+				}));
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.syringeCureItem), new Object[] { MineFactoryReloadedCore.syringeEmptyItem, Item.appleGold });
+	}
+	
+	protected void registerPlastics()
+	{
+		if(_registeredPlastics)
+		{
+			return;
+		}
+		_registeredPlastics = true;
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.plasticSheetItem, 4), new Object[]
+				{
+			"##",
+			"##",
+			'#', "dustPlastic",
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryHammerItem, 1), new Object[]
+				{
+			"PPP",
+			" S ",
+			" S ",
+			'P', "sheetPlastic",
+			'S', "stickWood",
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.strawItem), new Object[]
+				{
+			"PP",
+			"P ",
+			"P ",
+			'P', "sheetPlastic",
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.rulerItem), new Object[]
+				{
+			"P",
+			"A",
+			"P",
+			'P', "sheetPlastic",
+			'A', Item.paper,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.plasticCupItem, 16), new Object[]
+				{
+			" P ",
+			"P P",
+			'P', "sheetPlastic",
+				} ));
+		/*
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.plasticCellItem, 12), new Object[]
+				{
+			" P ",
+			"P P",
+			" P ",
+			'P', "sheetPlastic",
+				} ));//*/
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.bagItem, 3), new Object[]
+				{
+			"SPS",
+			"P P",
+			"PPP",
+			'P', "sheetPlastic",
+			'S', Item.silk
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.plasticBootsItem, 1), new Object[]
+				{
+			"P P",
+			"P P",
+			'P', "sheetPlastic",
+				} ));
 	}
 	
 	protected void registerMiscItems()
@@ -1222,13 +1336,6 @@ public class Vanilla
 			return;
 		}
 		_registeredMiscItems = true;
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.plasticSheetItem, 4), new Object[]
-				{
-			"##",
-			"##",
-			'#', "dustPlastic",
-				} ));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.fertilizerItem, 16), new Object[]
 				{
@@ -1241,6 +1348,57 @@ public class Vanilla
 			'T', "stickWood",
 				} ));
 		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.spyglassItem), new Object[]
+				{
+			"GLG",
+			"PLP",
+			" S ",
+			'G', "ingotGold",
+			'L', "glass",
+			'P', "sheetPlastic",
+			'S', "stickWood",
+				} ));
+		
+		if (MFRConfig.enablePortaSpawner.getBoolean(true))
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.portaSpawnerItem), new Object[]
+				{
+			"GLG",
+			"DND",
+			"GLG",
+			'G', "ingotGold",
+			'L', "glass",
+			'D', Item.diamond,
+			'N', Item.netherStar
+				}));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.detCordBlock, 6), new Object[]
+				{
+			"PPP",
+			"PTP",
+			"PPP",
+			'P', "itemRubber",
+			'T', Block.tnt,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.fishingRodItem, 1), new Object[]
+				{
+			"DD ",
+			"DFD",
+			"TDD",
+			'D', "wireExplosive",
+			'F', Item.fishingRod,
+			'T', Block.torchRedstoneActive
+				} ));
+	}
+	
+	protected void registerSafariNets()
+	{
+		if(_registeredSafariNets)
+		{
+			return;
+		}
+		_registeredSafariNets = true;
+		
 		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.safariNetItem, 1), new Object[]
 				{
 			" E ",
@@ -1250,15 +1408,15 @@ public class Vanilla
 			'G', Item.ghastTear,
 				} );
 		
-		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.safariNetSingleItem, 1), new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.safariNetSingleItem, 1), new Object[]
 				{
 			"SLS",
 			" B ",
 			"S S",
 			'S', Item.silk,
 			'L', Item.leather,
-			'B', Item.slimeBall,
-				} );
+			'B', "slimeball",
+				}));
 		
 		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.safariNetJailerItem, 1), new Object[]
 				{
@@ -1280,127 +1438,6 @@ public class Vanilla
 			'G', Item.gunpowder,
 			'I', Item.ingotIron,
 			'R', Item.redstone,
-				} ));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryHammerItem, 1), new Object[]
-				{
-			"PPP",
-			" S ",
-			" S ",
-			'P', "sheetPlastic",
-			'S', "stickWood",
-				} ));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.blankRecordItem, 1), new Object[]
-				{
-			"RRR",
-			"RPR",
-			"RRR",
-			'R', "dustPlastic",
-			'P', Item.paper,
-				} ));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.spyglassItem), new Object[]
-				{
-			"GLG",
-			"PLP",
-			" S ",
-			'G', Item.ingotGold,
-			'L', Block.glass,
-			'P', "sheetPlastic",
-			'S', "stickWood",
-				} ));
-		
-		if (MFRConfig.enablePortaSpawner.getBoolean(true))
-			GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.portaSpawnerItem), new Object[]
-				{
-			"GLG",
-			"DND",
-			"GLG",
-			'G', Item.ingotGold,
-			'L', Block.glass,
-			'D', Item.diamond,
-			'N', Item.netherStar
-				} );
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.strawItem), new Object[]
-				{
-			"PP",
-			"P ",
-			"P ",
-			'P', "sheetPlastic",
-				} ));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.xpExtractorItem), new Object[]
-				{
-			"PLP",
-			"PLP",
-			"RPR",
-			'R', "itemRubber",
-			'L', Block.glass,
-			'P', "sheetPlastic",
-				} ));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.rulerItem), new Object[]
-				{
-			"P",
-			"A",
-			"P",
-			'P', "sheetPlastic",
-			'A', Item.paper,
-				} ));
-		
-		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.vineScaffoldBlock, 8), new Object[]
-				{
-			"VV",
-			"VV",
-			"VV",
-			'V', Block.vine,
-				} );
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.chocolateMilkBucketItem), Item.bucketMilk, Item.bucketEmpty, new ItemStack(Item.dyePowder, 1, 3));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.plasticCupItem, 16), new Object[]
-				{
-			" P ",
-			"P P",
-			'P', "sheetPlastic",
-				} ));
-		/*
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.plasticCellItem, 12), new Object[]
-				{
-			" P ",
-			"P P",
-			" P ",
-			'P', "sheetPlastic",
-				} ));//*/
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.detCordBlock, 6), new Object[]
-				{
-			"PPP",
-			"PTP",
-			"PPP",
-			'P', "itemRubber",
-			'T', Block.tnt,
-				} ));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.fishingRodItem, 1), new Object[]
-				{
-			"DD ",
-			"DFD",
-			"TDD",
-			'D', "wireExplosive",
-			'F', Item.fishingRod,
-			'T', Block.torchRedstoneActive
-				} ));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.bagItem, 3), new Object[]
-				{
-			"SPS",
-			"P P",
-			"PPP",
-			'P', "sheetPlastic",
-			'S', Item.silk
 				} ));
 	}
 	
@@ -1428,6 +1465,15 @@ public class Vanilla
 			'P', Block.pistonBase
 				}));
 		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.blankRecordItem, 1), new Object[]
+				{
+			"RRR",
+			"RPR",
+			"RRR",
+			'R', "dustPlastic",
+			'P', Item.paper,
+				} ));
+		
 		if(MFRConfig.vanillaOverrideIce.getBoolean(true))
 		{
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Block.ice, 1, 1), new ItemStack(Block.ice, 1, 0), "dustPlastic"));
@@ -1443,11 +1489,21 @@ public class Vanilla
 					} );
 		}
 		
+		GameRegistry.addRecipe(new ItemStack(MineFactoryReloadedCore.vineScaffoldBlock, 8), new Object[]
+				{
+			"VV",
+			"VV",
+			"VV",
+			'V', Block.vine,
+				} );
+		
 		GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.milkBottleItem), new Object[]
 				{
 			Item.bucketMilk,
 			Item.glassBottle
 				} );
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.chocolateMilkBucketItem), Item.bucketMilk, Item.bucketEmpty, new ItemStack(Item.dyePowder, 1, 3));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Block.torchWood, 4), new Object[]
 				{
@@ -1550,24 +1606,25 @@ public class Vanilla
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.needlegunItem), new Object[]
 				{
-					"PIP",
-					"PIP",
-					"SLS",
+					"PGP",
+					"PLP",
+					"SIS",
 					'P', "sheetPlastic",
 					'I', Item.ingotIron,
-					'S', Item.slimeBall,
-					'L', MineFactoryReloadedCore.safariNetLauncherItem
+					'S', Item.magmaCream,
+					'L', MineFactoryReloadedCore.safariNetLauncherItem,
+					'G', MineFactoryReloadedCore.spyglassItem
 				}));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.rocketLauncherItem), new Object[]
 				{
+					"PCP",
 					"PRP",
 					"ILI",
-					"PCP",
 					'P', "sheetPlastic",
-					'I', Block.blockIron,
+					'I', Item.minecartEmpty,
 					'L', MineFactoryReloadedCore.needlegunItem,
-					'R', MineFactoryReloadedCore.rednetLogicBlock,
+					'R', new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 1),
 					'C', new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 2)
 				}));
 		
@@ -1657,6 +1714,29 @@ public class Vanilla
 			'P', "sheetPlastic",
 				} ));
 		
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetCableBlock, 1, 2), new Object[]
+				{
+			"nuggetGold",
+			"nuggetGold",
+			"nuggetGold",
+			Item.redstone,
+			Item.redstone,
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+				} ));
+		
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetCableBlock, 1, 2), new Object[]
+				{
+			"ingotGold",
+			"ingotGold",
+			Block.blockRedstone,
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+				} ));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 1, 11), new Object[]
 				{
 			"PRP",
@@ -1664,7 +1744,7 @@ public class Vanilla
 			"PIP",
 			'R', Item.redstone,
 			'P', "sheetPlastic",
-			'G', Block.glass,
+			'G', "glass",
 			'I', Item.ingotIron,
 				} ));
 		
@@ -1675,7 +1755,7 @@ public class Vanilla
 			"PHP",
 			'H', new ItemStack(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 1, 11),
 			'P', "sheetPlastic",
-			'G', Item.ingotGold,
+			'G', "ingotGold",
 			'L', new ItemStack(Item.dyePowder, 1, 4),
 			'D', Item.diamond,
 			'R', Item.redstone,
@@ -1687,7 +1767,7 @@ public class Vanilla
 			"PGP",
 			"RPR",
 			'P', "sheetPlastic",
-			'G', Item.ingotGold,
+			'G', "ingotGold",
 			'R', Item.redstone,
 				} ));
 		
@@ -1698,7 +1778,7 @@ public class Vanilla
 			"RGR",
 			'C', new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 0),
 			'P', "sheetPlastic",
-			'G', Item.ingotGold,
+			'G', "ingotGold",
 			'R', Item.redstone,
 				} ));
 		
@@ -1709,7 +1789,7 @@ public class Vanilla
 			"GDG",
 			'C', new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 1),
 			'P', "sheetPlastic",
-			'G', Item.ingotGold,
+			'G', "ingotGold",
 			'D', Item.diamond,
 			'R', Item.redstone,
 				} ));
@@ -1720,7 +1800,7 @@ public class Vanilla
 			"PR",
 			"PP",
 			'P', "sheetPlastic",
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 			'R', Item.redstone,
 				} ));
 		
@@ -1730,7 +1810,7 @@ public class Vanilla
 			"PRP",
 			"PPP",
 			'P', "sheetPlastic",
-			'G', Item.goldNugget,
+			'G', "nuggetGold",
 			'R', Item.redstone,
 				} ));
 		

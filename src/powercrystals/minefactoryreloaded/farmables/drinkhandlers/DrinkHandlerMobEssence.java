@@ -8,6 +8,6 @@ public class DrinkHandlerMobEssence implements ILiquidDrinkHandler
 	@Override
 	public void onDrink(EntityPlayer player)
 	{
-		player.addExperience(player.worldObj.rand.nextInt(5) + 10);
+		player.addExperience(player.worldObj.rand.nextInt(6) + 10);
 	}
 }

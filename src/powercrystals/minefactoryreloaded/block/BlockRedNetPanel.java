@@ -1,14 +1,6 @@
 package powercrystals.minefactoryreloaded.block;
 
-import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
-import powercrystals.minefactoryreloaded.api.rednet.IConnectableRedNet;
-import powercrystals.minefactoryreloaded.api.rednet.RedNetConnectionType;
-import powercrystals.minefactoryreloaded.core.MFRUtil;
-import powercrystals.minefactoryreloaded.gui.MFRCreativeTab;
-import powercrystals.minefactoryreloaded.tile.base.TileEntityFactory;
-import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetHistorian;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,13 +16,22 @@ import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
+import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
+import powercrystals.minefactoryreloaded.api.rednet.IConnectableRedNet;
+import powercrystals.minefactoryreloaded.api.rednet.RedNetConnectionType;
+import powercrystals.minefactoryreloaded.core.MFRUtil;
+import powercrystals.minefactoryreloaded.gui.MFRCreativeTab;
+import powercrystals.minefactoryreloaded.setup.Machine;
+import powercrystals.minefactoryreloaded.tile.base.TileEntityFactory;
+import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetHistorian;
+
 public class BlockRedNetPanel extends BlockContainer implements IConnectableRedNet
 {
 	private int[] _blankOutputs = new int[16];
 	
 	public BlockRedNetPanel(int id)
 	{
-		super(id, Material.clay);
+		super(id, Machine.MATERIAL);
 		setUnlocalizedName("mfr.rednet.panel");
 		setHardness(0.8F);
 		

@@ -15,11 +15,11 @@ public class PlantableThaumcraftTree extends PlantableStandard
 	@Override
 	public boolean canBePlantedHere(World world, int x, int y, int z, ItemStack stack)
 	{
-		int saplingMeta = world.getBlockMetadata(x, y, z) & 0x1;
+		int saplingMeta = world.getBlockMetadata(x, y, z);
 		if(!super.canBePlantedHere(world, x, y, z, stack))
 		{
 			return false;
 		}
-		return saplingMeta == 1 || (world.isAirBlock(x + 1, y, z) && world.isAirBlock(x + 1, y, z + 1) && world.isAirBlock(x, y, z + 1));
+		return saplingMeta != 0 || (world.isAirBlock(x + 1, y, z) && world.isAirBlock(x + 1, y, z + 1) && world.isAirBlock(x, y, z + 1));
 	}
 }

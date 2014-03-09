@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class ItemBlockFactory extends ItemBlock
 {
-	protected String[] _names;
+	protected String[] _names = {null};
 
 	public ItemBlockFactory(int id)
 	{
@@ -43,7 +43,8 @@ public class ItemBlockFactory extends ItemBlock
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return getUnlocalizedName() + "." + _names[Math.min(stack.getItemDamage(), _names.length - 1)];
+		String str = _names[Math.min(stack.getItemDamage(), _names.length - 1)];
+		return getUnlocalizedName() + (str != null ? "." + str : "");
 	}
 
 	@Override

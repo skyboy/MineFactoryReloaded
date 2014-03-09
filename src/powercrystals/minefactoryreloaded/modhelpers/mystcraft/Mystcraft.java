@@ -32,6 +32,7 @@ public class Mystcraft
 		try
 		{
 			blackListFluid("mobessence");
+			blackListFluid("biofuel");
 			Class entityLinkbook = Class.forName("com.xcompwiz.mystcraft.entity.EntityLinkbook");
 			MFRRegistry.registerAutoSpawnerBlacklistClass(entityLinkbook);
 		}
@@ -47,7 +48,7 @@ public class Mystcraft
 		NBTTagCompound fluidMsg = new NBTTagCompound();
 		fluidMsg.setFloat("rarity", 0.0F);
 		fluidMsg.setFloat("grammarweight", 0.0F);
-		fluidMsg.setFloat("instabilityPerBlock", 1000000F);
+		fluidMsg.setFloat("instabilityPerBlock", 1000F);
 		fluidMsg.setString("fluidname", FluidName);
 		NBTMsg.setCompoundTag("fluidsymbol", fluidMsg);
 		FMLInterModComms.sendMessage("Mystcraft", "fluidsymbol", NBTMsg);

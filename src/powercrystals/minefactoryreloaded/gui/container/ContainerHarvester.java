@@ -27,7 +27,6 @@ public class ContainerHarvester extends ContainerUpgradable
 		{
 			((ICrafting)crafters.get(i)).sendProgressBarUpdate(this, 100, getSetting("silkTouch"));
 			((ICrafting)crafters.get(i)).sendProgressBarUpdate(this, 101, getSetting("harvestSmallMushrooms"));
-			((ICrafting)crafters.get(i)).sendProgressBarUpdate(this, 102, getSetting("harvestJungleWood"));
 		}
 	}
 	
@@ -38,7 +37,6 @@ public class ContainerHarvester extends ContainerUpgradable
 		
 		if(var == 100) setSetting("silkTouch", value);
 		if(var == 101) setSetting("harvestSmallMushrooms", value);
-		if(var == 102) setSetting("harvestJungleWood", value);
 	}
 	
 	private int getSetting(String setting)

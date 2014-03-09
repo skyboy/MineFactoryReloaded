@@ -20,8 +20,7 @@ public class ItemRuler extends ItemFactory
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		
-		if(world.isRemote)
+		if (world.isRemote)
 		{
 			MovingObjectPosition mop = player.rayTrace(MFRConfig.spyglassRange.getInt(), 1.0F);
 			if(mop == null || (mop.typeOfHit == EnumMovingObjectType.ENTITY && mop.entityHit == null))
@@ -36,21 +35,23 @@ public class ItemRuler extends ItemFactory
 			}
 			else
 			{
-				if(stack.getTagCompound() == null)
+				NBTTagCompound data = player.getEntityData();
+				NBTTagCompound tag = data.getCompoundTag("ruler");
+				if (!data.hasKey("ruler"))
 				{
-					NBTTagCompound tag = new NBTTagCompound();
 					tag.setInteger("x", mop.blockX);
 					tag.setInteger("y", mop.blockY);
 					tag.setInteger("z", mop.blockZ);
-					stack.setTagCompound(tag);
+					data.setCompoundTag("ruler", tag);
 					player.sendChatToPlayer(new ChatMessageComponent()
 							.addKey("chat.info.mfr.ruler.startposition"));
 				}
 				else
 				{
-					int x = stack.getTagCompound().getInteger("x");
-					int y = stack.getTagCompound().getInteger("y");
-					int z = stack.getTagCompound().getInteger("z");
+					int x = tag.getInteger("x");
+					int y = tag.getInteger("y");
+					int z = tag.getInteger("z");
+					data.removeTag("ruler");
 					
 					int distX = Math.abs(mop.blockX - x);
 					int distY = Math.abs(mop.blockY - y);

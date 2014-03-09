@@ -60,9 +60,16 @@ public class VanillaMobProvider implements IRandomMobProvider
 		mobs.add(new RandomMob(MFRUtil.prepareMob(EntityWolf.class, world), 20));
 		mobs.add(new RandomMob(MFRUtil.prepareMob(EntityBat.class, world), 35));
 		mobs.add(new RandomMob(MFRUtil.prepareMob(EntityHorse.class, world), 20));
+		
+		EntityXPOrb batJockey = prepareXPOrb(world);
+		EntityBat invisibat = MFRUtil.prepareMob(EntityBat.class, world);
+		invisibat.addPotionEffect(new PotionEffect(Potion.invisibility.id, Short.MAX_VALUE));
+		batJockey.mountEntity(invisibat);
+		mobs.add(new RandomMob(invisibat, 15));
+		
 		mobs.add(new RandomMob(MFRUtil.prepareMob(EntityMinecartHopper.class, world), 15));
 		
-		EntityCreeper chargedCreeper = (EntityCreeper)MFRUtil.prepareMob(EntityCreeper.class, world);
+		EntityCreeper chargedCreeper = MFRUtil.prepareMob(EntityCreeper.class, world);
 		NBTTagCompound creeperNBT = new NBTTagCompound(); 
 		chargedCreeper.writeToNBT(creeperNBT);
 		creeperNBT.setBoolean("powered", true);
@@ -70,68 +77,62 @@ public class VanillaMobProvider implements IRandomMobProvider
 		chargedCreeper.readFromNBT(creeperNBT);
 		mobs.add(new RandomMob(chargedCreeper, 5));
 		
-		EntityTNTPrimed armedTNT = (EntityTNTPrimed)MFRUtil.prepareMob(EntityTNTPrimed.class, world);
+		EntityTNTPrimed armedTNT = MFRUtil.prepareMob(EntityTNTPrimed.class, world);
 		armedTNT.fuse = 120;
 		mobs.add(new RandomMob(armedTNT, 5));
 		
-		EntitySlime invisislime = (EntitySlime)MFRUtil.prepareMob(EntitySlime.class, world);
+		EntitySlime invisislime = MFRUtil.prepareMob(EntitySlime.class, world);
 		invisislime.addPotionEffect(new PotionEffect(Potion.invisibility.id, 120 * 20));
 		mobs.add(new RandomMob(invisislime, 5));
 		
-		EntityMooshroom invisishroom = (EntityMooshroom)MFRUtil.prepareMob(EntityMooshroom.class, world);
+		EntityMooshroom invisishroom = MFRUtil.prepareMob(EntityMooshroom.class, world);
 		invisishroom.addPotionEffect(new PotionEffect(Potion.invisibility.id, 120 * 20));
 		mobs.add(new RandomMob(invisishroom, 5));
 		
-		EntityWolf invisiwolf = (EntityWolf)MFRUtil.prepareMob(EntityWolf.class, world);
+		EntityWolf invisiwolf = MFRUtil.prepareMob(EntityWolf.class, world);
 		invisiwolf.addPotionEffect(new PotionEffect(Potion.invisibility.id, 120 * 20));
 		invisiwolf.setAngry(true);
 		mobs.add(new RandomMob(invisiwolf, 5));
 
-		EntityTNTPrimed tntJockey = (EntityTNTPrimed)MFRUtil.prepareMob(EntityTNTPrimed.class, world);
-		EntityBat tntMount = (EntityBat)MFRUtil.prepareMob(EntityBat.class, world);
+		EntityTNTPrimed tntJockey = MFRUtil.prepareMob(EntityTNTPrimed.class, world);
+		EntityBat tntMount = MFRUtil.prepareMob(EntityBat.class, world);
 		tntJockey.fuse = 120;
 		tntJockey.mountEntity(tntMount);
 		mobs.add(new RandomMob(tntMount, 2));
 		
-		EntitySkeleton skeleton1 = (EntitySkeleton)MFRUtil.prepareMob(EntitySkeleton.class, world);
-		EntitySkeleton skeleton2 = (EntitySkeleton)MFRUtil.prepareMob(EntitySkeleton.class, world);
-		EntitySkeleton skeleton3 = (EntitySkeleton)MFRUtil.prepareMob(EntitySkeleton.class, world);
-		EntitySkeleton skeleton4 = (EntitySkeleton)MFRUtil.prepareMob(EntitySkeleton.class, world);
+		EntitySkeleton skeleton1 = MFRUtil.prepareMob(EntitySkeleton.class, world);
+		EntitySkeleton skeleton2 = MFRUtil.prepareMob(EntitySkeleton.class, world);
+		EntitySkeleton skeleton3 = MFRUtil.prepareMob(EntitySkeleton.class, world);
+		EntitySkeleton skeleton4 = MFRUtil.prepareMob(EntitySkeleton.class, world);
 		skeleton4.mountEntity(skeleton3);
 		skeleton3.mountEntity(skeleton2);
 		skeleton2.mountEntity(skeleton1);
 		mobs.add(new RandomMob(skeleton1, 2));
 		
-		EntityBlaze blazeJockey = (EntityBlaze)MFRUtil.prepareMob(EntityBlaze.class, world);
-		EntityGhast blazeMount = (EntityGhast)MFRUtil.prepareMob(EntityGhast.class, world);
+		EntityBlaze blazeJockey = MFRUtil.prepareMob(EntityBlaze.class, world);
+		EntityGhast blazeMount = MFRUtil.prepareMob(EntityGhast.class, world);
 		blazeJockey.mountEntity(blazeMount);
 		mobs.add(new RandomMob(blazeMount, 2));
 		
-		EntityCreeper creeperJockey = (EntityCreeper)MFRUtil.prepareMob(EntityCreeper.class, world);
-		EntityCaveSpider creeperMount = (EntityCaveSpider)MFRUtil.prepareMob(EntityCaveSpider.class, world);
+		EntityCreeper creeperJockey = MFRUtil.prepareMob(EntityCreeper.class, world);
+		EntityCaveSpider creeperMount = MFRUtil.prepareMob(EntityCaveSpider.class, world);
 		creeperJockey.mountEntity(creeperMount);
 		mobs.add(new RandomMob(creeperMount, 2));
 
-		tntJockey = (EntityTNTPrimed)MFRUtil.prepareMob(EntityTNTPrimed.class, world);
-		EntityXPOrb tntMount2 = (EntityXPOrb)MFRUtil.prepareMob(EntityXPOrb.class, world);
+		tntJockey = MFRUtil.prepareMob(EntityTNTPrimed.class, world);
+		EntityXPOrb tntMount2 = prepareXPOrb(world);
 		tntJockey.fuse = 120;
-		tntMount2.xpValue = 1;
-		tntMount2.xpOrbAge = Short.MIN_VALUE;
-		tntMount2.field_70532_c = Short.MAX_VALUE;
 		tntJockey.mountEntity(tntMount2);
 		mobs.add(new RandomMob(tntMount2, 2));
 		
-		creeperJockey = (EntityCreeper)MFRUtil.prepareMob(EntityCreeper.class, world);
-		EntityXPOrb creeperMount2 = (EntityXPOrb)MFRUtil.prepareMob(EntityXPOrb.class, world);
-		creeperMount2.xpValue = 1;
-		creeperMount2.xpOrbAge = Short.MIN_VALUE;
-		creeperMount2.field_70532_c = Short.MAX_VALUE;
+		creeperJockey = MFRUtil.prepareMob(EntityCreeper.class, world);
+		EntityXPOrb creeperMount2 = prepareXPOrb(world);
 		creeperJockey.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 20));
 		creeperJockey.onStruckByLightning(null);
 		creeperJockey.mountEntity(creeperMount2);
 		mobs.add(new RandomMob(creeperMount2, 1));
 
-		EntityEnderman direBane = (EntityEnderman)MFRUtil.prepareMob(EntityEnderman.class, world);
+		EntityEnderman direBane = MFRUtil.prepareMob(EntityEnderman.class, world);
 		direBane.addPotionEffect(new PotionEffect(Potion.regeneration.id, 120 * 20));
 		direBane.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 120 * 20));
 		direBane.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(120);
@@ -155,5 +156,14 @@ public class VanillaMobProvider implements IRandomMobProvider
 		mobs.add(new RandomMob(direBane, 1));
 		
 		return mobs;
+	}
+	
+	private EntityXPOrb prepareXPOrb(World world)
+	{
+		EntityXPOrb orb = MFRUtil.prepareMob(EntityXPOrb.class, world);
+		orb.xpValue = 1;
+		orb.xpOrbAge = Short.MIN_VALUE + 6001;
+		orb.field_70532_c = Short.MAX_VALUE;
+		return orb;
 	}
 }

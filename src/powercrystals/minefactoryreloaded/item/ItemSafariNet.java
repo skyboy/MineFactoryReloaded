@@ -213,11 +213,11 @@ public class ItemSafariNet extends ItemFactory
 		
 		if(spawnedCreature != null)
 		{
-			if ((spawnedCreature instanceof EntityLiving) &&
-					itemstack.itemID == MineFactoryReloadedCore.safariNetJailerItem.itemID &&
-					itemstack.hasDisplayName())
+			if ((spawnedCreature instanceof EntityLiving) && itemstack.hasDisplayName())
 			{
 				((EntityLiving)spawnedCreature).setCustomNameTag(itemstack.getDisplayName());
+				// TODO: secondary jailer net for:
+				// ((EntityLiving)spawnedCreature).setAlwaysRenderNameTag(true);
 			}
 			
 			if(isSingleUse(itemstack))
@@ -228,10 +228,7 @@ public class ItemSafariNet extends ItemFactory
 			{
 				itemstack.setItemDamage(0);
 			}
-			else
-			{
-				itemstack.setTagCompound(null);
-			}
+			itemstack.setTagCompound(null);
 		}
 		
 		return spawnedCreature;
@@ -246,7 +243,6 @@ public class ItemSafariNet extends ItemFactory
 			
 			for(IRandomMobProvider p : MFRRegistry.getRandomMobProviders())
 			{
-				System.out.println("Adding mobs from " + p.getClass().getName());
 				mobs.addAll(p.getRandomMobs(world));
 			}
 			e = ((RandomMob)WeightedRandom.getRandomItem(world.rand, mobs)).getMob();

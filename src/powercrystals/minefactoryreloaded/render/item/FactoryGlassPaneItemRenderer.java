@@ -2,17 +2,17 @@ package powercrystals.minefactoryreloaded.render.item;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
-import powercrystals.minefactoryreloaded.block.BlockFactoryGlassPane;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
+
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
+import powercrystals.minefactoryreloaded.block.BlockFactoryGlassPane;
 
 public class FactoryGlassPaneItemRenderer implements IItemRenderer
 {

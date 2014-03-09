@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -199,11 +200,17 @@ public class BlockFactoryMachine extends BlockContainer
 	public void breakBlock(World world, int x, int y, int z, int blockId, int meta)
 	{
 		TileEntity te = world.getBlockTileEntity(x, y, z);
-		dropContents(te);
+		if (te != null)
+		{
+			dropContents(te);
 
-		if (te instanceof TileEntityFactoryInventory)
-			((TileEntityFactoryInventory)te).onBlockBroken();
+			if (te instanceof TileEntityFactoryInventory)
+				((TileEntityFactoryInventory)te).onBlockBroken();
 
+			world.markTileEntityForDespawn(te);
+			te.invalidate();
+			world.removeBlockTileEntity(x, y, z);
+		}
 		super.breakBlock(world, x, y, z, blockId, meta);
 	}
 
@@ -300,6 +307,11 @@ public class BlockFactoryMachine extends BlockContainer
 					((TileEntityFactoryInventory)te).setInvName(stack.getDisplayName());
 				}
 			}
+			
+			if (entity instanceof ICommandSender && entity.addedToChunk)
+				((TileEntityFactory)te).setOwner(((ICommandSender)entity).getCommandSenderName());
+			else
+				((TileEntityFactory)te).setOwner(null);
 		}
 	}
 
@@ -384,7 +396,7 @@ public class BlockFactoryMachine extends BlockContainer
 					return true;
 				}
 			}
-			else if(((ITankContainerBucketable)te).allowBucketFill() &&
+			if(((ITankContainerBucketable)te).allowBucketFill() &&
 					(isFluidContainer || FluidContainerRegistry.isFilledContainer(ci)))
 			{
 				if(MFRLiquidMover.manuallyFillTank((ITankContainerBucketable)te, entityplayer))

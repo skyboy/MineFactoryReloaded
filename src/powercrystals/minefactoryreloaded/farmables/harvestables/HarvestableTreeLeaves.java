@@ -35,11 +35,7 @@ public class HarvestableTreeLeaves extends HarvestableStandard
 				}
 			}
 			ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
-			int meta = world.getBlockMetadata(x, y, z);
-			if(blockId == Block.leaves.blockID)
-			{
-				meta = meta & 0x03;
-			}
+			int meta = block.damageDropped(world.getBlockMetadata(x, y, z));
 			drops.add(new ItemStack(getPlantId(), 1, meta));
 			return drops;
 		}
@@ -54,5 +50,25 @@ public class HarvestableTreeLeaves extends HarvestableStandard
 		{
 			return Block.blocksList[getPlantId()].getBlockDropped(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
 		}
+	}
+	
+	@Override
+	public void postHarvest(World world, int x, int y, int z)
+	{
+		int id = getPlantId();
+		
+        notifyBlock(world, x, y - 1, z, id);
+        notifyBlock(world, x - 1, y, z, id);
+        notifyBlock(world, x + 1, y, z, id);
+        notifyBlock(world, x, y, z - 1, id);
+        notifyBlock(world, x, y, z + 1, id);
+        notifyBlock(world, x, y + 1, z, id);
+	}
+	
+	protected void notifyBlock(World world, int x, int y, int z, int id)
+	{
+		Block block = Block.blocksList[world.getBlockId(x, y, z)];
+		if (block != null && !block.isLeaves(world, x, y, z))
+			world.notifyBlockOfNeighborChange(x, y, z, id);
 	}
 }

@@ -1,9 +1,9 @@
 package powercrystals.minefactoryreloaded.block;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,10 +11,9 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityXPOrb;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
@@ -48,14 +47,16 @@ public class BlockFactoryFluid extends BlockFluidClassic implements IRedNetNoCon
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		super.onEntityCollidedWithBlock(world, x, y, z, entity);
-		if (world.isRemote | world.getTotalWorldTime() % 40 == 0)
-		{
-			return;
-		}
 
-		if(entity instanceof EntityPlayer ||
-				entity instanceof EntityMob && !((EntityLivingBase)entity).isEntityUndead())
+		if(entity instanceof EntityLivingBase)
 		{
+			NBTTagCompound data = entity.getEntityData();
+			if (world.isRemote | data.getLong("mfr:fluidTimer" + blockID) > world.getTotalWorldTime())
+			{
+				return;
+			}
+			data.setLong("mfr:fluidTimer" + blockID, world.getTotalWorldTime() + 40);
+			
 			EntityLivingBase ent = (EntityLivingBase)entity;
 			if(blockID == MineFactoryReloadedCore.milkLiquid.blockID)
 			{
@@ -87,6 +88,8 @@ public class BlockFactoryFluid extends BlockFluidClassic implements IRedNetNoCon
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
+		/*BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
+		l: if (biome != null && biome.getFloatTemperature() > 1.9f)//*/
 		l: if (world.provider.isHellWorld)
 		{
 			if (!isSourceBlock(world, x, y, z))

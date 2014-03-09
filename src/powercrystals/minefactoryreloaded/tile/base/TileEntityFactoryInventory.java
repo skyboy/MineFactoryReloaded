@@ -37,9 +37,10 @@ public abstract class TileEntityFactoryInventory extends TileEntityFactory imple
 	
 	protected List<ItemStack> failedDrops = null;
 	private List<ItemStack> missedDrops = new ArrayList<ItemStack>(5);
-	
 	protected int _failedDropTicksMax = 20;
 	private int _failedDropTicks = 0;
+	
+	protected boolean internalChange = false;
 
 	protected FluidTank[] _tanks;
 	
@@ -72,6 +73,7 @@ public abstract class TileEntityFactoryInventory extends TileEntityFactory imple
 	
 	public void onDisassembled()
 	{
+		onChunkUnload();
 		if (failedDrops != null)
 			inv: while (failedDrops.size() > 0) 
 		{
@@ -160,7 +162,11 @@ public abstract class TileEntityFactoryInventory extends TileEntityFactory imple
 			if (drained != null)
 			{
 				if (doDrain)
+				{
+					internalChange = true;
 					onInventoryChanged();
+					internalChange = false;
+				}
 				return drained.amount;
 			}
 		}
@@ -338,7 +344,8 @@ public abstract class TileEntityFactoryInventory extends TileEntityFactory imple
 	@Override
 	public void onInventoryChanged()
 	{
-		onFactoryInventoryChanged();
+		if (!internalChange)
+			onFactoryInventoryChanged();
 		super.onInventoryChanged();
 	}
 	
@@ -353,9 +360,13 @@ public abstract class TileEntityFactoryInventory extends TileEntityFactory imple
 	}
 	
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack)
+	public boolean isItemValidForSlot(int slot, ItemStack itemstack)
 	{
-		ItemStack slotContent = this.getStackInSlot(i);
+		int start = getStartInventorySide(ForgeDirection.UNKNOWN);
+		if (slot < start ||
+				slot > (start + getSizeInventorySide(ForgeDirection.UNKNOWN)))
+			return false;
+		ItemStack slotContent = this.getStackInSlot(slot);
 		return slotContent == null || UtilInventory.stacksEqual(itemstack, slotContent);
 	}
 	

@@ -33,6 +33,8 @@ public class MineFactoryReloadedWorldGen implements IWorldGenerator
 		int z = chunkZ * 16 + random.nextInt(16);
 		
 		BiomeGenBase b = world.getBiomeGenForCoords(x, z);
+		if (b == null)
+			return;
 		
 		if(MFRConfig.rubberTreeWorldGen.getBoolean(true))
 		{

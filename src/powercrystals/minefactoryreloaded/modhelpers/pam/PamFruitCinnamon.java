@@ -18,12 +18,6 @@ public class PamFruitCinnamon extends PamFruit
 	}
 
 	@Override
-	public ItemStack getReplacementBlock(World world, int x, int y, int z)
-	{
-		return new ItemStack(getSourceBlockId(), 1, 0);
-	}
-
-	@Override
 	public List<ItemStack> getDrops(World world, Random rand, int x, int y, int z)
 	{
 		List<ItemStack> drops = new ArrayList<ItemStack>();

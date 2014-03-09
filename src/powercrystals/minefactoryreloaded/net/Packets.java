@@ -22,4 +22,5 @@ public final class Packets
 	public static final int HistorianValueChanged = 18;
 	public static final int FakeSlotChange = 19;
 	public static final int RocketLaunchWithLock = 20;
+	public static final int EnergyCableDescription = 21;
 }

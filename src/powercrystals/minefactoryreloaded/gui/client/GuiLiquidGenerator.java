@@ -29,7 +29,7 @@ public class GuiLiquidGenerator extends GuiFactoryInventory
 	@Override
 	protected void drawTooltips(int mouseX, int mouseY)
 	{
-		if(isPointInRegion(161, 15, 8, 60, mouseX, mouseY))
+		if(isPointInRegion(160, 15, 8, 60, mouseX, mouseY))
 		{
 			int buffer = ((TileEntityLiquidGenerator)_tileEntity).getBuffer();
 			int bufferMax = ((TileEntityLiquidGenerator)_tileEntity).getBufferMax();

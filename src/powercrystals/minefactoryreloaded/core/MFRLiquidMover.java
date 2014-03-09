@@ -1,6 +1,7 @@
 package powercrystals.minefactoryreloaded.core;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
@@ -29,27 +30,41 @@ public abstract class MFRLiquidMover
 		FluidStack liquid = FluidContainerRegistry.getFluidForFilledItem(ci);
 		if(liquid != null)
 		{
+			Item item = ci.getItem();
 			if(itcb.fill(ForgeDirection.UNKNOWN, liquid, false) == liquid.amount)
 			{
 				itcb.fill(ForgeDirection.UNKNOWN, liquid, true);
 				if(!entityplayer.capabilities.isCreativeMode)
 				{
-					entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, UtilInventory.consumeItem(ci, entityplayer));
+					if (item.hasContainerItem()) {
+						ItemStack drop = item.getContainerItemStack(ci);
+						if (drop.isItemStackDamageable() && drop.getItemDamage() > drop.getMaxDamage())
+							drop = null;
+						disposePlayerItem(ci, drop, entityplayer, true);
+					} else
+						entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, UtilInventory.consumeItem(ci, entityplayer));
 				}
 				return true;
 			}
 		}
 		else if (ci != null && ci.getItem() instanceof IFluidContainerItem)
 		{
-			IFluidContainerItem fluidContainer = (IFluidContainerItem)ci.getItem();
+			Item item = ci.getItem();
+			IFluidContainerItem fluidContainer = (IFluidContainerItem)item;
 			liquid = fluidContainer.getFluid(ci);
 			if (itcb.fill(ForgeDirection.UNKNOWN, liquid, false) > 0) {
 				int amount = itcb.fill(ForgeDirection.UNKNOWN, liquid, true);
-				ItemStack filled = ci.splitStack(1);
-				fluidContainer.drain(filled, amount, true);
-				if (!entityplayer.capabilities.isCreativeMode)
-					disposePlayerItem(ci, filled, entityplayer, false);
-				else ci.stackSize++;
+				ItemStack drop = ci.splitStack(1);
+				ci.stackSize++;
+				fluidContainer.drain(drop, amount, true);
+				if (!entityplayer.capabilities.isCreativeMode) {
+					if (item.hasContainerItem()) {
+						drop = item.getContainerItemStack(drop);
+						if (drop.isItemStackDamageable() && drop.getItemDamage() > drop.getMaxDamage())
+							drop = null;
+					}
+					disposePlayerItem(ci, drop, entityplayer, true);
+				}
 				return true;
 			}
 		}
@@ -136,7 +151,7 @@ public abstract class MFRLiquidMover
 		else if (allowDrop)
 		{
 			stack.stackSize -= 1;
-			if(!entityplayer.inventory.addItemStackToInventory(dropStack))
+			if (dropStack != null && !entityplayer.inventory.addItemStackToInventory(dropStack))
 			{
 				entityplayer.dropPlayerItem(dropStack);
 			}

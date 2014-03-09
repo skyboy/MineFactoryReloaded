@@ -17,33 +17,33 @@ public class BlockRailCargoDropoff extends BlockFactoryRail
 {
 	public BlockRailCargoDropoff(int id)
 	{
-		super(id, true);
+		super(id, true, false);
 		setUnlocalizedName("mfr.rail.cargo.dropoff");
 	}
-	
+
 	@Override
 	public void onMinecartPass(World world, EntityMinecart entity, int x, int y, int z)
 	{
 		if(world.isRemote || !(entity instanceof IInventory))
 			return;
-		
+
 		IInventoryManager minecart = InventoryManager.create((IInventory)entity, ForgeDirection.UNKNOWN);
-		
+
 		for(Entry<Integer, ItemStack> contents : minecart.getContents().entrySet())
 		{
 			if(contents.getValue() == null)
 			{
 				continue;
 			}
-			
+
 			ItemStack stackToAdd = contents.getValue().copy();
 			ItemStack remaining = UtilInventory.dropStack(world, new BlockPosition(x, y, z), contents.getValue(), ForgeDirection.VALID_DIRECTIONS, ForgeDirection.UNKNOWN);
-			
+
 			if(remaining != null)
 			{
 				stackToAdd.stackSize -= remaining.stackSize;
 			}
-			
+
 			minecart.removeItem(stackToAdd.stackSize, stackToAdd);
 		}
 	}

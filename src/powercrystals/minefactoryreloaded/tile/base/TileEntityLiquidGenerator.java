@@ -148,7 +148,7 @@ public abstract class TileEntityLiquidGenerator extends TileEntityGenerator impl
 	@Override
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
 	{
-		if (resource != null)
+		if (resource != null && isFluidFuel(resource))
 			for (FluidTank _tank : (FluidTank[])getTanks())
 				if (_tank.getFluidAmount() == 0 || resource.isFluidEqual(_tank.getFluid()))
 					return _tank.fill(resource, doFill);

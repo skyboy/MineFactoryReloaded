@@ -1,6 +1,8 @@
 package powercrystals.minefactoryreloaded.tile.rednet;
 
 import cpw.mods.fml.common.network.PacketDispatcher;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -631,4 +633,11 @@ public class TileEntityRedNetLogic extends TileEntity implements IRotateableTile
 
 		return true;
 	}
+
+    @Override
+	@SideOnly(Side.CLIENT)
+    public double getMaxRenderDistanceSquared()
+    {
+        return 4096.0D;
+    }
 }

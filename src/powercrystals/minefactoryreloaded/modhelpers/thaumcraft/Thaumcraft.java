@@ -16,11 +16,21 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.oredict.OreDictionary;
 
 import powercrystals.minefactoryreloaded.MFRRegistry;
 import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
+import powercrystals.minefactoryreloaded.api.FertilizerType;
 import powercrystals.minefactoryreloaded.api.HarvestType;
+import powercrystals.minefactoryreloaded.farmables.fertilizables.FertilizableCocoa;
+import powercrystals.minefactoryreloaded.farmables.fruits.FruitCocoa;
+import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableCocoa;
 import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableStandard;
+import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableWood;
+import powercrystals.minefactoryreloaded.farmables.plantables.PlantableCocoa;
 import powercrystals.minefactoryreloaded.setup.MFRConfig;
 import powercrystals.minefactoryreloaded.setup.Machine;
 
@@ -39,27 +49,65 @@ public class Thaumcraft
 		
 		try
 		{
-			Block tcSapling = GameRegistry.findBlock("Thaumcraft", "blockCustomPlant");
-			Block tcLog = GameRegistry.findBlock("Thaumcraft", "blockMagicalLog");
-			Block tcLeaves = GameRegistry.findBlock("Thaumcraft", "blockMagicalLeaves");
-			Block tcFibres = GameRegistry.findBlock("Thaumcraft", "blockTaintFibres");
+			final Block tcSapling = GameRegistry.findBlock("Thaumcraft", "blockCustomPlant");
+			final Block tcLog = GameRegistry.findBlock("Thaumcraft", "blockMagicalLog");
+			final Block tcLeaves = GameRegistry.findBlock("Thaumcraft", "blockMagicalLeaves");
+			final Block tcFibres = GameRegistry.findBlock("Thaumcraft", "blockTaintFibres");
+			final Block tcPod = GameRegistry.findBlock("Thaumcraft", "blockManaPod");
+			final Item tcBean = GameRegistry.findItem("Thaumcraft", "ItemManaBean");
 			Class<?> golem = Class.forName("thaumcraft.common.entities.golems.EntityGolemBase");
+			Class<?> trunk = Class.forName("thaumcraft.common.entities.golems.EntityTravelingTrunk");
+			Class<?> pech = Class.forName("thaumcraft.common.entities.monster.EntityPech");
 			
 			MFRRegistry.registerAutoSpawnerBlacklistClass(golem);
+			MFRRegistry.registerAutoSpawnerBlacklistClass(trunk);
+			
+			MFRRegistry.registerSpawnHandler(new SpawnablePech(pech));
 			
 			MFRRegistry.registerGrinderBlacklist(golem);
+			MFRRegistry.registerGrinderBlacklist(trunk);
 			
 			if (MFRConfig.conveyorNeverCapturesTCGolems.getBoolean(false))
 			{
 				MFRRegistry.registerConveyerBlacklist(golem);
+				MFRRegistry.registerConveyerBlacklist(trunk);
 			}
 			
-			MFRRegistry.registerHarvestable(new HarvestableStandard(tcLog.blockID, HarvestType.Tree));
+			MFRRegistry.registerHarvestable(new HarvestableWood(tcLog.blockID));
 			MFRRegistry.registerHarvestable(new HarvestableStandard(tcFibres.blockID, HarvestType.Normal));
 			MFRRegistry.registerHarvestable(new HarvestableThaumcraftLeaves(tcLeaves.blockID, tcSapling.blockID));
 			MFRRegistry.registerHarvestable(new HarvestableThaumcraftPlant(tcSapling.blockID));
+			MFRRegistry.registerHarvestable(new HarvestableCocoa(tcPod.blockID));
 			
 			MFRRegistry.registerPlantable(new PlantableThaumcraftTree(tcSapling.blockID, tcSapling.blockID));
+			MFRRegistry.registerPlantable(new PlantableCocoa(tcBean.itemID, tcPod.blockID) {
+				@Override
+				protected boolean isNextToAcceptableLog(World world, int x, int y, int z)
+				{
+					boolean isMagic = false;
+					BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
+					if (biome != null)
+						isMagic = BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.MAGICAL);
+					return isMagic &&
+							isGoodLog(world, x+1, y, z) ||
+							isGoodLog(world, x-1, y, z) ||
+							isGoodLog(world, x, y, z+1) ||
+							isGoodLog(world, x, y, z-1);
+				}
+				
+				@Override
+				protected boolean isGoodLog(World world, int x, int y, int z)
+				{
+					int id = world.getBlockId(x, y, z);
+					return id == Block.wood.blockID | id == tcLog.blockID;
+				}
+			});
+			
+			MFRRegistry.registerFruitLogBlockId(tcLog.blockID);
+			MFRRegistry.registerFruit(new FruitCocoa(tcPod.blockID));
+			
+			MFRRegistry.registerFertilizable(new FertilizableCocoa(tcPod.blockID, FertilizerType.GrowMagicalCrop));
+			MFRRegistry.registerFertilizable(new FertilizableTCSapling(tcSapling));
 			
 			Class<?> Aspect = Class.forName("thaumcraft.api.aspects.Aspect");
 			aspects = (LinkedHashMap<String, ? extends Object>)Aspect.
@@ -90,20 +138,23 @@ public class Thaumcraft
 	
 	private static void parseAspects(ItemStack item, String toadd, boolean craftedAspects) throws Throwable
 	{
-		String[] list = toadd.split(",");
 		Object aspectList;
 		if (craftedAspects)
 			aspectList = newAspectList.newInstance(item.itemID, item.getItemDamage());
 		else
 			aspectList = AspectList.newInstance();
-		for (int i = list.length; i --> 0; )
+		if (!toadd.trim().isEmpty())
 		{
-			String[] temp = list[i].trim().split(" ");
-			temp[1] = temp[1].toLowerCase();
-			if (aspects.containsKey(temp[1]))
-				addAspect.invoke(aspectList, aspects.get(temp[1]), Integer.parseInt(temp[0], 10));
-			else
-				FMLLog.severe("%s aspect missing.", temp[1]);
+			String[] list = toadd.split(",");
+			for (int i = list.length; i --> 0; )
+			{
+				String[] temp = list[i].trim().split(" ");
+				temp[1] = temp[1].toLowerCase();
+				if (aspects.containsKey(temp[1]))
+					addAspect.invoke(aspectList, aspects.get(temp[1]), Integer.parseInt(temp[0], 10));
+				else
+					FMLLog.severe("%s aspect missing.", temp[1]);
+			}
 		}
 		registerItem.invoke(null, item.itemID, item.getItemDamage(), aspectList);
 	}
@@ -124,17 +175,22 @@ public class Thaumcraft
 	
 	private static void parseAspects(Item item, String toadd) throws Throwable
 	{
-		parseAspects(new ItemStack(item, 1, 0), toadd, false);
+		parseAspects(item, OreDictionary.WILDCARD_VALUE, toadd, true);
+	}
+	
+	private static void parseAspects(Item item, int meta, String toadd, boolean craftedAspects) throws Throwable
+	{
+		parseAspects(new ItemStack(item, 1, meta), toadd, craftedAspects);
 	}
 	
 	private static void parseAspects(Block item, int meta, String toadd) throws Throwable
 	{
-		parseAspects(new ItemStack(item, 1, meta), toadd, false);
+		parseAspects(new ItemStack(item, 1, meta), toadd, true);
 	}
 	
 	private static void parseAspects(Block item, String toadd) throws Throwable
 	{
-		parseAspects(item, 0, toadd);
+		parseAspects(item, OreDictionary.WILDCARD_VALUE, toadd);
 	}
 	
 	private static void parseAspects(Block item, int meta, String toadd, boolean craftedAspects) throws Throwable
@@ -144,12 +200,12 @@ public class Thaumcraft
 	
 	private static void parseAspects(Block item, String toadd, boolean craftedAspects) throws Throwable
 	{
-		parseAspects(item, 0, toadd, craftedAspects);
+		parseAspects(item, OreDictionary.WILDCARD_VALUE, toadd, craftedAspects);
 	}
 	
 	private static void parseAspects(Machine item, String toadd) throws Throwable
 	{
-		parseAspects(new ItemStack(item.getBlockId(), 1, item.getMeta()), toadd, false);
+		parseAspects(new ItemStack(item.getBlockId(), 1, item.getMeta()), toadd, true);
 	}
 	
 	private static void doAspects() throws Throwable
@@ -205,7 +261,7 @@ public class Thaumcraft
 		parseAspects(MineFactoryReloadedCore.essenceLiquid, "4 praecantatio, 2 cognitio, 2 Aqua");
 		parseAspects(MineFactoryReloadedCore.factoryGlassBlock, "1 Vitreus, 1 Sensus");
 		parseAspects(MineFactoryReloadedCore.factoryHammerItem, "1 Instrumentum, 2 Fabrico, 2 ignis, 3 Ordo");
-		parseAspects(MineFactoryReloadedCore.fertilizerItem, "1 Granum, 1 Herba, 1 Messis");
+		parseAspects(MineFactoryReloadedCore.fertilizerItem, "1 Granum, 1 Herba, 1 Messis, 1 sensus");
 		parseAspects(MineFactoryReloadedCore.laserFocusItem, "1 Ordo, 1 Vitreus, 4 Lucrum");
 		parseAspects(MineFactoryReloadedCore.machineBaseItem, "2 Fabrico, 2 Machina, 1 Saxum");
 		parseAspects(MineFactoryReloadedCore.meatBucketItem, "3 Corpus, 1 bestia, 1 Aqua, 8 metallum, 1 vacuos");
@@ -259,18 +315,27 @@ public class Thaumcraft
 		
 		Item item = MineFactoryReloadedCore.upgradeItem;
 		
+		parseAspects(item, "2 cognitio");
 		for (int i = 0, n = 10; i <= n; ++i)
-			parseAspects(new ItemStack(item, 1, i), "2 cognitio", true);
-		parseAspects(new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 0), "4 Cognitio", true);
-		parseAspects(new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 2), "7 Cognitio", true);
-		parseAspects(new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 3), "10 Cognitio", true);
+			parseAspects(item, i, "2 cognitio", true);
+		parseAspects(MineFactoryReloadedCore.logicCardItem, 0, "4 Cognitio", true);
+		parseAspects(MineFactoryReloadedCore.logicCardItem, 1, "7 Cognitio", true);
+		parseAspects(MineFactoryReloadedCore.logicCardItem, 2, "10 Cognitio", true);
 		
-		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 1, "3 Lux, 2 Sensus");
-		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 6, "1 Terra, 3 Lux, 2 Sensus");
-		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 3, "1 Terra, 3 ignis, 1 Saxum, 1 tenebrae");
-		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 9, "3 ignis, 2 Saxum, 1 tenebrae");
-		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 4, "2 Terra, 1 Saxum");
-		//parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 4, "2 Saxum");
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  0, "2 gelum, 1 terra"); // ice
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  1, "1 terra, 3 Lux, 2 sensus"); // glowstone
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  2, "2 Terra, 4 sensus"); // lapis
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  3, "1 Terra, 3 ignis, 1 Saxum, 1 tenebrae"); // obsidian
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  4, "2 Terra, 1 Saxum"); // paved stone
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  5, "1 gelum, 1 terra"); // snow
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  6, "1 saxum, 3 Lux, 2 Sensus"); // glowstone_large
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  7, "2 gelum, 1 saxum"); // ice_large
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  8, "2 saxum, 4 sensus"); // lapis_large
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock,  9, "3 ignis, 2 Saxum, 1 tenebrae"); // obsidian large
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 10, "1 gelum, 1 saxum"); // snow_large
+		//parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 11, ""); // PRC housing (below)
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 12, "3 Corpus, 2 fames, 1 bestia", true); // raw meat block
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 13, "3 Corpus, 2 fames, 1 Ignis", true); // cooked meat block
 		parseAspects(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 0, "2 Saxum, 1 tenebrae");
 		parseAspects(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 1, "2 Saxum, 1 Victus");
 		parseAspects(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 2, "1 perditio, 1 Saxum, 1 tenebrae");
@@ -286,10 +351,12 @@ public class Thaumcraft
 		//parseAspects(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 12, "2 Saxum, 1 tenebrae");
 		//parseAspects(MineFactoryReloadedCore.factoryDecorativeStoneBlock, 13, "2 Saxum, 1 Victus");
 
-		parseAspects(new ItemStack(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 1, 11), "1 cognitio, 3 Machina", true);
+		parseAspects(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 11, "1 cognitio, 3 Machina", true);
 		parseAspects(MineFactoryReloadedCore.factoryRoadBlock, 0, "1 iter, 1 Saxum, 1 sensus");
-		parseAspects(MineFactoryReloadedCore.factoryRoadBlock, 1, "1 iter, 1 Saxum, 1 sensus, 3 Lux");
-		parseAspects(MineFactoryReloadedCore.factoryRoadBlock, 4, "1 iter, 1 Saxum, 1 sensus, 3 Lux");
+		parseAspects(MineFactoryReloadedCore.factoryRoadBlock, 1, "1 iter, 1 Saxum, 1 sensus, 3 Lux"); // road light (off)
+		parseAspects(MineFactoryReloadedCore.factoryRoadBlock, 2, "1 iter, 1 Saxum, 1 sensus, 3 Lux"); // road light (on)
+		parseAspects(MineFactoryReloadedCore.factoryRoadBlock, 3, "1 iter, 1 Saxum, 1 sensus, 3 Lux"); // road light inverted (off)
+		parseAspects(MineFactoryReloadedCore.factoryRoadBlock, 4, "1 iter, 1 Saxum, 1 sensus, 3 Lux"); // road light inverted (on)
 		
 	}
 }

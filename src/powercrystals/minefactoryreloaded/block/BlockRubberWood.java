@@ -1,5 +1,8 @@
 package powercrystals.minefactoryreloaded.block;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,17 +12,16 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+
 import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
 import powercrystals.minefactoryreloaded.api.rednet.IRedNetDecorative;
 import powercrystals.minefactoryreloaded.gui.MFRCreativeTab;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockRubberWood extends BlockLog implements IRedNetDecorative
 {
 	private Icon _iconLogTop;
 	private Icon _iconLogSide;
-	
+
 	public BlockRubberWood(int id)
 	{
 		super(id);
@@ -28,7 +30,7 @@ public class BlockRubberWood extends BlockLog implements IRedNetDecorative
 		setUnlocalizedName("mfr.rubberwood.log");
 		setCreativeTab(MFRCreativeTab.tab);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister ir)
@@ -36,37 +38,43 @@ public class BlockRubberWood extends BlockLog implements IRedNetDecorative
 		_iconLogSide = ir.registerIcon("minefactoryreloaded:" + getUnlocalizedName() + ".side");
 		_iconLogTop = ir.registerIcon("minefactoryreloaded:" + getUnlocalizedName() + ".top");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int meta)
+	protected Icon getSideIcon(int par1)
 	{
-		int logDirection = meta & 12;
-		return logDirection == 0 && (side == 1 || side == 0) ? _iconLogTop : (logDirection == 4 && (side == 5 || side == 4) ? _iconLogTop : (logDirection == 8 && (side == 2 || side == 3) ? _iconLogTop : _iconLogSide));
+		return _iconLogSide;
 	}
-	
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	protected Icon getEndIcon(int par1)
+	{
+		return _iconLogTop;
+	}
+
 	@Override
 	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
 	{
 		ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
-		
+
 		drops.add(new ItemStack(blockID, 1, 0));
-		if((metadata & 3) > 0)
-		{
-			drops.add(new ItemStack(MineFactoryReloadedCore.rawRubberItem, fortune <= 0 ? 1 : 1 + world.rand.nextInt(fortune)));
-		}
-		
+		if((metadata & 3) == 1)
+			drops.add(new ItemStack(MineFactoryReloadedCore.rawRubberItem,
+					fortune <= 0 ? 1 : 1 + world.rand.nextInt(fortune)));
+
 		return drops;
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(int blockId, CreativeTabs tab, List subBlocks)
 	{
 		subBlocks.add(new ItemStack(blockId, 1, 0));
+		subBlocks.add(new ItemStack(blockId, 1, 1));
 	}
-	
+
 	@Override
 	protected boolean canSilkHarvest()
 	{

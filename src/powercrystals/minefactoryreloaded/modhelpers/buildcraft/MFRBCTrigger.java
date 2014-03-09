@@ -58,6 +58,11 @@ public abstract class MFRBCTrigger implements ITrigger
 	{
 		return false;
 	}
+	
+	public boolean requiresParameter()
+	{
+		return false;
+	}
 
 	@Override
 	public String getDescription()

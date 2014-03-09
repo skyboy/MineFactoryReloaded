@@ -9,6 +9,7 @@ public class MFRConfig
 {
 	// client config
 	public static Property spyglassRange;
+	public static Property brightRednetBand;
 	
 	// common config
 	public static Property dropFilledContainers;
@@ -55,10 +56,10 @@ public class MFRConfig
 	public static Property mushroomSoupStillBlockId;
 	
 	public static Property hammerItemId;
-	public static Property milkItemId;
-	public static Property sludgeItemId;
-	public static Property sewageItemId;
-	public static Property mobEssenceItemId;
+	public static Property milkItemId; //TODO: UNUSED
+	public static Property sludgeItemId; //TODO: UNUSED
+	public static Property sewageItemId; //TODO: UNUSED
+	public static Property mobEssenceItemId; //TODO: UNUSED
 	public static Property fertilizerItemId;
 	public static Property plasticSheetItemId;
 	public static Property rawPlasticItemId;
@@ -76,7 +77,7 @@ public class MFRConfig
 	public static Property blankRecordId;
 	public static Property syringeZombieId;
 	public static Property safariNetSingleItemId;
-	public static Property bioFuelItemId;
+	public static Property bioFuelItemId; //TODO: UNUSED
 	public static Property bioFuelBucketItemId;
 	public static Property upgradeItemId;
 	public static Property safariNetLauncherItemId;
@@ -117,6 +118,7 @@ public class MFRConfig
 	public static Property plasticCellItemId;
 	public static Property fishingRodItemId;
 	public static Property bagItemId;
+	public static Property plasticBootsItemId;
 	
 	public static Property zoolologistEntityId;
 	
@@ -142,8 +144,6 @@ public class MFRConfig
 	public static Property vanillaOverrideIce;
 	public static Property vanillaOverrideMilkBucket;
 	
-	public static Property enableSlipperyRoads;
-	
 	public static Property enableCheapDSU;
 	public static Property craftSingleDSU;
 	public static Property enableMossyCobbleRecipe;
@@ -155,6 +155,8 @@ public class MFRConfig
 	public static Property enableSPAMRExploding;
 	public static Property enableFuelExploding;
 	public static Property enableSpawnerCarts;
+	public static Property enableMassiveTree;
+	public static Property enableChunkLimitBypassing;
 	
 	public static Property redNetConnectionBlacklist;
 	
@@ -169,6 +171,7 @@ public class MFRConfig
 	public static Property rubberTreeBiomeBlacklist;
 	public static Property worldGenDimensionBlacklist;
 	public static Property unifierBlacklist;
+	public static Property spawnerBlacklist;
 	
 	public static Property passengerRailSearchMaxHorizontal;
 	public static Property passengerRailSearchMaxVertical;
@@ -184,6 +187,8 @@ public class MFRConfig
 		
 		spyglassRange = c.get(Configuration.CATEGORY_GENERAL, "SpyglassRange", 200);
 		spyglassRange.comment = "The maximum number of blocks the spyglass and ruler can look to find something. This calculation is performed only on the client side.";
+		brightRednetBand = c.get(Configuration.CATEGORY_GENERAL, "BrightRedNetColors", true);
+		brightRednetBand.comment = "If true, RedNet color bands will always be bright.";
 		
 		c.save();
 	}
@@ -195,101 +200,108 @@ public class MFRConfig
 		Configuration c = new Configuration(configFile);
 		c.load();
 		config = c;
-		machineBlock0Id = c.getBlock("ID.MachineBlock", 3120);
-		conveyorBlockId = c.getBlock("ID.ConveyorBlock", 3121);
-		rubberWoodBlockId = c.getBlock("ID.RubberWood", 3122);
-		rubberLeavesBlockId = c.getBlock("ID.RubberLeaves", 3123);
-		rubberSaplingBlockId = c.getBlock("ID.RubberSapling", 3124);
-		railDropoffCargoBlockId = c.getBlock("ID.CargoRailDropoffBlock", 3125);
-		railPickupCargoBlockId = c.getBlock("ID.CargoRailPickupBlock", 3126);
-		railDropoffPassengerBlockId = c.getBlock("ID.PassengerRailDropoffBlock", 3127);
-		railPickupPassengerBlockId = c.getBlock("ID.PassengerRailPickupBlock", 3128);
-		factoryGlassBlockId = c.getBlock("ID.StainedGlass", 3129);
-		factoryGlassPaneBlockId = c.getBlock("ID.StainedGlassPane", 3130);
-		machineBlock1Id = c.getBlock("ID.MachineBlock1", 3131);
-		factoryRoadBlockId = c.getBlock("ID.Road", 3132);
-		factoryDecorativeBrickBlockId = c.getBlock("ID.Bricks", 3133);
-		factoryDecorativeStoneBlockId = c.getBlock("ID.Stone", 3134);
-		milkStillBlockId = c.getBlock("ID.Milk.Still", 3135);
-		meatStillBlockId = c.getBlock("ID.Meat.Still", 3136);
-		sludgeStillBlockId = c.getBlock("ID.Sludge.Still", 3137);
-		pinkslimeStillBlockId = c.getBlock("ID.PinkSlime.Still", 3138);
-		sewageStillBlockId = c.getBlock("ID.Sewage.Still", 3139);
-		chocolateMilkStillBlockId = c.getBlock("ID.ChocolateMilk.Still", 3140);
-		essenceStillBlockId = c.getBlock("ID.MobEssence.Still", 3141);
-		mushroomSoupStillBlockId = c.getBlock("ID.MushroomSoup.Still", 3142);
-		biofuelStillBlockId = c.getBlock("ID.BioFuel.Still", 3143);
-		rednetCableBlockId = c.getBlock("ID.RedNet.Cable", 3144);
-		rednetLogicBlockId = c.getBlock("ID.RedNet.Logic", 3145);
-		machineBlock2Id = c.getBlock("ID.MachineBlock2", 3146);
-		fakeLaserBlockId = c.getBlock("ID.FakeLaser", 3147);
-		vineScaffoldBlockId = c.getBlock("ID.VineScaffold", 3148);
-		rednetPanelBlockId = c.getBlock("ID.RedNet.Panel", 3149);
-		detCordBlockId = c.getBlock("ID.DetCord", 3150);
+		Property base = c.get(Configuration.CATEGORY_BLOCK, "BaseID", 3120);
+		base.comment = "This is the base ID blocks will assign from. Delete the other IDs here to auto-align to this value.";
+		int idBase = base.getInt(3120);
+		machineBlock0Id = c.getBlock("ID.MachineBlock", idBase++);
+		conveyorBlockId = c.getBlock("ID.ConveyorBlock", idBase++);
+		rubberWoodBlockId = c.getBlock("ID.RubberWood", idBase++);
+		rubberLeavesBlockId = c.getBlock("ID.RubberLeaves", idBase++);
+		rubberSaplingBlockId = c.getBlock("ID.RubberSapling", idBase++);
+		railDropoffCargoBlockId = c.getBlock("ID.CargoRailDropoffBlock", idBase++);
+		railPickupCargoBlockId = c.getBlock("ID.CargoRailPickupBlock", idBase++);
+		railDropoffPassengerBlockId = c.getBlock("ID.PassengerRailDropoffBlock", idBase++);
+		railPickupPassengerBlockId = c.getBlock("ID.PassengerRailPickupBlock", idBase++);
+		factoryGlassBlockId = c.getBlock("ID.StainedGlass", idBase++);
+		factoryGlassPaneBlockId = c.getBlock("ID.StainedGlassPane", idBase++);
+		machineBlock1Id = c.getBlock("ID.MachineBlock1", idBase++);
+		factoryRoadBlockId = c.getBlock("ID.Road", idBase++);
+		factoryDecorativeBrickBlockId = c.getBlock("ID.Bricks", idBase++);
+		factoryDecorativeStoneBlockId = c.getBlock("ID.Stone", idBase++);
+		milkStillBlockId = c.getBlock("ID.Milk.Still", idBase++);
+		meatStillBlockId = c.getBlock("ID.Meat.Still", idBase++);
+		sludgeStillBlockId = c.getBlock("ID.Sludge.Still", idBase++);
+		pinkslimeStillBlockId = c.getBlock("ID.PinkSlime.Still", idBase++);
+		sewageStillBlockId = c.getBlock("ID.Sewage.Still", idBase++);
+		chocolateMilkStillBlockId = c.getBlock("ID.ChocolateMilk.Still", idBase++);
+		essenceStillBlockId = c.getBlock("ID.MobEssence.Still", idBase++);
+		mushroomSoupStillBlockId = c.getBlock("ID.MushroomSoup.Still", idBase++);
+		biofuelStillBlockId = c.getBlock("ID.BioFuel.Still", idBase++);
+		rednetCableBlockId = c.getBlock("ID.RedNet.Cable", idBase++);
+		rednetLogicBlockId = c.getBlock("ID.RedNet.Logic", idBase++);
+		machineBlock2Id = c.getBlock("ID.MachineBlock2", idBase++);
+		fakeLaserBlockId = c.getBlock("ID.FakeLaser", idBase++);
+		vineScaffoldBlockId = c.getBlock("ID.VineScaffold", idBase++);
+		rednetPanelBlockId = c.getBlock("ID.RedNet.Panel", idBase++);
+		detCordBlockId = c.getBlock("ID.DetCord", idBase++);
 		
-		hammerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Hammer", 11987);
-		milkItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Milk", 11988);
-		sludgeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Sludge", 11989);
-		sewageItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Sewage", 11990);
-		mobEssenceItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MobEssence", 11991);
-		fertilizerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.FertilizerItem", 11992);
-		plasticSheetItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticSheet", 11993);
-		rawPlasticItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RawPlastic", 11994);
-		rubberBarItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RubberBar", 11995);
-		sewageBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SewageBucket", 11996);
-		sludgeBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SludgeBucket", 11997);
-		mobEssenceBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MobEssenceBucket", 11998);
-		syringeEmptyItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeEmpty", 11999);
-		syringeHealthItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeHealth", 12000);
-		syringeGrowthItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeGrowth", 12001);
-		rawRubberItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RawRubber", 12002);
-		machineBaseItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MachineBlock", 12003);
-		safariNetItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SafariNet", 12004);
-		ceramicDyeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.CeramicDye", 12005);
-		blankRecordId = c.getItem(Configuration.CATEGORY_ITEM, "ID.BlankRecord", 12006);
-		syringeZombieId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeZombie", 12007);
-		safariNetSingleItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SafariNetSingleUse", 12008);
-		bioFuelItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.BioFuel", 12009);
-		bioFuelBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.BioFuelBucket", 12010);
-		upgradeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Upgrade", 12011);
-		safariNetLauncherItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SafariNetLauncher", 12012);
-		sugarCharcoalItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SugarCharcoal", 12013);
-		milkBottleItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MilkBottle", 12014);
-		spyglassItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Spyglass", 12015);
-		portaSpawnerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PortaSpawner", 12016);
-		strawItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Straw", 12017);
-		xpExtractorItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.XPExtractor", 12018);
-		syringeSlimeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeSlime", 12019);
-		syringeCureItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeCure", 12020);
-		logicCardItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Upgrade.PRC", 12021);
-		rednetMeterItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RedNet.Meter", 12022);
-		rednetMemoryCardItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RedNet.MemoryCard", 12023);
-		rulerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Ruler", 12024);
-		meatIngotRawItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatIngotRaw", 12025);
-		meatIngotCookedItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatIngotCooked", 12026);
-		meatNuggetRawItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatNuggetRaw", 12027);
-		meatNuggetCookedItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatNuggetCooked", 12028);
-		meatBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatBucket", 12029);
-		pinkSlimeBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PinkSlimeBucket", 12030);
-		pinkSlimeballItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PinkSlimeball", 12031);
-		safariNetJailerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SafariNetJailer", 12032);
-		laserFocusItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.LaserFocus", 12033);
-		chocolateMilkBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.ChocolateMilkBucket", 12034);
-		mushroomSoupBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MushroomSoupBucket", 12035);
-		needlegunItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun", 12036);
-		needlegunAmmoEmptyItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Empty", 12037);
-		needlegunAmmoStandardItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Standard", 12038);
-		needlegunAmmoLavaItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Lava", 12039);
-		needlegunAmmoSludgeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Sludge", 12040);
-		needlegunAmmoSewageItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Sewage", 12041);
-		needlegunAmmoFireItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Fire", 12042);
-		needlegunAmmoAnvilItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Anvil", 12043);
-		plasticCupItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticCup", 12044);
-		rocketLauncherItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RocketLauncher", 12045);
-		rocketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Rocket", 12046);
-		plasticCellItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticCell", 12047);
-		fishingRodItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.FishingRod", 12048);
-		bagItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticBag", 12049);
+		base = c.get(Configuration.CATEGORY_ITEM, "BaseID", 11987);
+		base.comment = "This is the base ID items will assign from. Delete the other IDs here to auto-align to this value.";
+		idBase = base.getInt(11987);
+		hammerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Hammer", idBase++);
+		milkItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Milk", idBase++);
+		sludgeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Sludge", idBase++);
+		sewageItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Sewage", idBase++);
+		mobEssenceItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MobEssence", idBase++);
+		fertilizerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.FertilizerItem", idBase++);
+		plasticSheetItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticSheet", idBase++);
+		rawPlasticItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RawPlastic", idBase++);
+		rubberBarItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RubberBar", idBase++);
+		sewageBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SewageBucket", idBase++);
+		sludgeBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SludgeBucket", idBase++);
+		mobEssenceBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MobEssenceBucket", idBase++);
+		syringeEmptyItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeEmpty", idBase++);
+		syringeHealthItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeHealth", idBase++);
+		syringeGrowthItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeGrowth", idBase++);
+		rawRubberItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RawRubber", idBase++);
+		machineBaseItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MachineBlock", idBase++);
+		safariNetItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SafariNet", idBase++);
+		ceramicDyeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.CeramicDye", idBase++);
+		blankRecordId = c.getItem(Configuration.CATEGORY_ITEM, "ID.BlankRecord", idBase++);
+		syringeZombieId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeZombie", idBase++);
+		safariNetSingleItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SafariNetSingleUse", idBase++);
+		bioFuelItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.BioFuel", idBase++);
+		bioFuelBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.BioFuelBucket", idBase++);
+		upgradeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Upgrade", idBase++);
+		safariNetLauncherItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SafariNetLauncher", idBase++);
+		sugarCharcoalItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SugarCharcoal", idBase++);
+		milkBottleItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MilkBottle", idBase++);
+		spyglassItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Spyglass", idBase++);
+		portaSpawnerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PortaSpawner", idBase++);
+		strawItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Straw", idBase++);
+		xpExtractorItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.XPExtractor", idBase++);
+		syringeSlimeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeSlime", idBase++);
+		syringeCureItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SyringeCure", idBase++);
+		logicCardItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Upgrade.PRC", idBase++);
+		rednetMeterItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RedNet.Meter", idBase++);
+		rednetMemoryCardItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RedNet.MemoryCard", idBase++);
+		rulerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Ruler", idBase++);
+		meatIngotRawItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatIngotRaw", idBase++);
+		meatIngotCookedItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatIngotCooked", idBase++);
+		meatNuggetRawItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatNuggetRaw", idBase++);
+		meatNuggetCookedItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatNuggetCooked", idBase++);
+		meatBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MeatBucket", idBase++);
+		pinkSlimeBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PinkSlimeBucket", idBase++);
+		pinkSlimeballItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PinkSlimeball", idBase++);
+		safariNetJailerItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.SafariNetJailer", idBase++);
+		laserFocusItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.LaserFocus", idBase++);
+		chocolateMilkBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.ChocolateMilkBucket", idBase++);
+		mushroomSoupBucketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.MushroomSoupBucket", idBase++);
+		needlegunItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun", idBase++);
+		needlegunAmmoEmptyItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Empty", idBase++);
+		needlegunAmmoStandardItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Standard", idBase++);
+		needlegunAmmoLavaItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Lava", idBase++);
+		needlegunAmmoSludgeItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Sludge", idBase++);
+		needlegunAmmoSewageItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Sewage", idBase++);
+		needlegunAmmoFireItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Fire", idBase++);
+		needlegunAmmoAnvilItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.NeedleGun.Ammo.Anvil", idBase++);
+		plasticCupItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticCup", idBase++);
+		rocketLauncherItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.RocketLauncher", idBase++);
+		rocketItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.Rocket", idBase++);
+		plasticCellItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticCell", idBase++);
+		fishingRodItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.FishingRod", idBase++);
+		bagItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticBag", idBase++);
+		plasticBootsItemId = c.getItem(Configuration.CATEGORY_ITEM, "ID.PlasticBoots", idBase++);
 		
 		zoolologistEntityId = c.get("Entity", "ID.Zoologist", 330);
 		enableSpawnerCarts = c.get("Entity", "EnableSpawnerCarts", true);
@@ -297,9 +309,11 @@ public class MFRConfig
 		
 		colorblindMode = c.get(Configuration.CATEGORY_GENERAL, "RedNet.EnableColorblindMode", false);
 		colorblindMode.comment = "Set to true to enable the RedNet GUI's colorblind mode.";
-		treeSearchMaxHorizontal = c.get(Configuration.CATEGORY_GENERAL, "SearchDistance.TreeMaxHoriztonal", 8);
+		deleteEntry(Configuration.CATEGORY_GENERAL, "SearchDistance.TreeMaxHoriztonal");
+		treeSearchMaxHorizontal = c.get(Configuration.CATEGORY_GENERAL, "SearchLimit.TreeMaxHorizontal", 200);
 		treeSearchMaxHorizontal.comment = "When searching for parts of a tree, how far out to the sides (radius) to search";
-		treeSearchMaxVertical = c.get(Configuration.CATEGORY_GENERAL, "SearchDistance.TreeMaxVertical", 80);
+		deleteEntry(Configuration.CATEGORY_GENERAL, "SearchDistance.TreeMaxVertical");
+		treeSearchMaxVertical = c.get(Configuration.CATEGORY_GENERAL, "SearchLimit.TreeMaxVertical", 256);
 		treeSearchMaxVertical.comment = "When searching for parts of a tree, how far up to search";
 		verticalHarvestSearchMaxVertical = c.get(Configuration.CATEGORY_GENERAL, "SearchDistance.StackingBlockMaxVertical", 5);
 		verticalHarvestSearchMaxVertical.comment = "How far upward to search for members of \"stacking\" blocks, like cactus and sugarcane";
@@ -321,8 +335,7 @@ public class MFRConfig
 		conveyorNeverCapturesTCGolems.comment = "If true, conveyors will NEVER capture Thaumcraft golems regardless of other settings.";
 		playSounds = c.get(Configuration.CATEGORY_GENERAL, "PlaySounds", true);
 		playSounds.comment = "Set to false to disable the harvester's sound when a block is harvested.";
-		enableSlipperyRoads = c.get(Configuration.CATEGORY_GENERAL, "Road.Slippery", true);
-		enableSlipperyRoads.comment = "If true, roads will be slippery like ice.";
+		deleteEntry(Configuration.CATEGORY_GENERAL, "Road.Slippery");
 		fruitTreeSearchMaxHorizontal = c.get(Configuration.CATEGORY_GENERAL, "SearchDistance.FruitTreeMaxHoriztonal", 5);
 		fruitTreeSearchMaxHorizontal.comment = "When searching for parts of a fruit tree, how far out to the sides (radius) to search";
 		fruitTreeSearchMaxVertical = c.get(Configuration.CATEGORY_GENERAL, "SearchDistance.FruitTreeMaxVertical", 20);
@@ -362,7 +375,7 @@ public class MFRConfig
 		mfrLakeSludgeRarity.comment = "Higher numbers make sludge lakes rarer. A value of one will be approximately one per chunk.";
 		mfrLakeSewageRarity = c.get(Configuration.CATEGORY_GENERAL, "WorldGen.LakeRarity.Sewage", 32);
 		mfrLakeSewageRarity.comment = "Higher numbers make sewage lakes rarer. A value of one will be approximately one per chunk.";
-		unifierBlacklist = c.get(Configuration.CATEGORY_GENERAL, "Unifier.Blacklist", "dyeBlue,dyeWhite,dyeBrown");
+		unifierBlacklist = c.get(Configuration.CATEGORY_GENERAL, "Unifier.Blacklist", "dyeBlue,dyeWhite,dyeBrown,dyeBlack,listAllwater,listAllmilk");
 		unifierBlacklist.comment = "A comma-separated list of ore dictionary entrys to disable unifying for. By default, MFR will not attempt to unify anything with more than one oredict name.";
 		enableLiquidSyringe = c.get(Configuration.CATEGORY_GENERAL, "LiquidSyringes", true);
 		enableLiquidSyringe.comment = "If true, Empty Syringes will be able to contain liquids and inject players.";
@@ -370,6 +383,12 @@ public class MFRConfig
 		enableSPAMRExploding.comment = "If true, SPAMRs will explode when they run out of fuel.";
 		enableFuelExploding = c.get(Configuration.CATEGORY_GENERAL, "Biofuel.Exploding", true);
 		enableFuelExploding.comment = "If true, biofuel will explode when in the nether.";
+		spawnerBlacklist = c.get(Configuration.CATEGORY_GENERAL, "AutoSpawner.Blacklist", "");
+		spawnerBlacklist.comment = "A comma-separated list of entity IDs (e.g.: CaveSpider,VillagerGolem,butterflyGE) to blacklist from the AutoSpawner.";
+		enableMassiveTree = c.get(Configuration.CATEGORY_GENERAL, "WorldGen.SacredRubberSapling", true);
+		enableMassiveTree.comment = "If true, enable adding Sacred Rubber Sapling to jungle temple loot.";
+		enableChunkLimitBypassing = c.get("Machine", Machine.ChunkLoader.getName() + ".IgnoreChunkLimit", false);
+		enableChunkLimitBypassing.comment = "If true, the Chunk Loader will ignore forgeChunkLoading.cfg.";
 		
 		vanillaRecipes = c.get("RecipeSets", "EnableVanillaRecipes", true);
 		vanillaRecipes.comment = "If true, MFR will register its standard (vanilla-item-only) recipes.";
@@ -418,7 +437,7 @@ public class MFRConfig
 		{
 				r = config.get(oldCategory, oldName, def);
 				old = r.getString();
-				config.getCategory(oldCategory).remove(oldName);
+				deleteEntry(oldCategory, oldName);
 		}
 		
 		r = config.get(category, name, def);
@@ -427,4 +446,8 @@ public class MFRConfig
 		return r;
 	}
 	
+	private static void deleteEntry(String category, String name)
+	{
+		config.getCategory(category).remove(name);
+	}
 }

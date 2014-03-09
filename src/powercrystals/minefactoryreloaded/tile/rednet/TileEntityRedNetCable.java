@@ -8,6 +8,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemDye;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.tileentity.TileEntity;
@@ -26,8 +27,8 @@ import powercrystals.minefactoryreloaded.setup.MFRConfig;
 
 public class TileEntityRedNetCable extends TileEntity implements INeighboorUpdateTile
 {
-	private int[] _sideColors = new int [6];
-	private byte _mode; // 0: standard, 1: force connection, 2: connect to cables only
+	protected int[] _sideColors = new int [6];
+	protected byte _mode; // 0: standard, 1: force connection, 2: connect to cables only
 	
 	private RedstoneNetwork _network;
 	private boolean _needsNetworkUpdate;
@@ -57,6 +58,12 @@ public class TileEntityRedNetCable extends TileEntity implements INeighboorUpdat
 		}
 	}
 	
+	@Override
+	public void invalidate() {
+		super.invalidate();
+		this.onChunkUnload();
+	}
+	
 	public void setSideColor(ForgeDirection side, int color)
 	{
 		if(side == ForgeDirection.UNKNOWN)
@@ -74,6 +81,11 @@ public class TileEntityRedNetCable extends TileEntity implements INeighboorUpdat
 			return 0;
 		}
 		return _sideColors[side.ordinal()];
+	}
+	
+	public int getSideColorValue(ForgeDirection side)
+	{
+		return ItemDye.dyeColors[~getSideColor(side) & 15];
 	}
 	
 	public byte getMode()
@@ -151,9 +163,13 @@ public class TileEntityRedNetCable extends TileEntity implements INeighboorUpdat
 	@Override
 	public Packet getDescriptionPacket()
 	{
-		return PacketWrapper.createPacket(MineFactoryReloadedCore.modNetworkChannel, Packets.CableDescription, new Object[]
+		return  PacketWrapper.createPacket(MineFactoryReloadedCore.modNetworkChannel,
+				Packets.CableDescription, new Object[]
 				{
-				xCoord, yCoord, zCoord, _sideColors[0], _sideColors[1], _sideColors[2], _sideColors[3], _sideColors[4], _sideColors[5], _mode
+					xCoord, yCoord, zCoord,
+					_sideColors[0], _sideColors[1], _sideColors[2],
+					_sideColors[3], _sideColors[4], _sideColors[5],
+					_mode
 				});
 	}
 	
@@ -180,6 +196,11 @@ public class TileEntityRedNetCable extends TileEntity implements INeighboorUpdat
 			updateNetwork();
 		}
 		_network.tick();
+	}
+	
+	public boolean canInterface(TileEntityRedNetEnergy with)
+	{
+		return true;
 	}
 	
 	@Override
@@ -324,6 +345,16 @@ public class TileEntityRedNetCable extends TileEntity implements INeighboorUpdat
 	@SideOnly(Side.CLIENT)
 	public AxisAlignedBB getRenderBoundingBox()
 	{
-		return INFINITE_EXTENT_AABB;
+		return INFINITE_EXTENT_AABB; // TODO: no
+	}
+
+    @Override
+	@SideOnly(Side.CLIENT)
+    public double getMaxRenderDistanceSquared()
+    {
+        return 4096.0D;
+    }
+
+	public void onNeighborTileChange(int x, int y, int z) {
 	}
 }

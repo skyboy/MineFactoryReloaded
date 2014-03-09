@@ -41,7 +41,9 @@ public abstract class TileEntityFactory extends TileEntity
 	private ForgeDirection _forwardDirection;
 	private boolean _canRotate = false;
 	
-	private boolean _isActive = false;
+	private boolean _isActive = false, _prevActive;
+	private long _lastActive;
+	
 	private boolean _manageFluids = false;
 	private boolean _manageSolids = false;
 	
@@ -49,6 +51,8 @@ public abstract class TileEntityFactory extends TileEntity
 	
 	protected HarvestAreaManager _areaManager;
 	protected Machine _machine;
+	
+	protected String _owner = "";
 	
 	protected TileEntityFactory(Machine machine)
 	{
@@ -183,13 +187,38 @@ public abstract class TileEntityFactory extends TileEntity
 	
 	public void setIsActive(boolean isActive)
 	{
-		if (_isActive != isActive & worldObj != null && !worldObj.isRemote)
+		if (_isActive != isActive & worldObj != null &&
+				!worldObj.isRemote && _lastActive < worldObj.getTotalWorldTime())
 		{
+			_lastActive = worldObj.getTotalWorldTime() + 101;
+			_prevActive = _isActive;
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 			PacketDispatcher.sendPacketToAllAround(xCoord, yCoord, zCoord,
 					50, worldObj.provider.dimensionId, getDescriptionPacket());
 		}
 		_isActive = isActive;
+	}
+	
+	@Override
+	public void updateEntity()
+	{
+		super.updateEntity();
+
+		if (!worldObj.isRemote && _prevActive != _isActive && _lastActive < worldObj.getTotalWorldTime())
+		{
+			_prevActive = _isActive;
+			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+			PacketDispatcher.sendPacketToAllAround(xCoord, yCoord, zCoord,
+					50, worldObj.provider.dimensionId, getDescriptionPacket());
+		}
+	}
+	
+	public void setOwner(String owner)
+	{
+		if (owner == null)
+			owner = "";
+		if (_owner == null || _owner.isEmpty())
+			_owner = owner;
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -238,6 +267,7 @@ public abstract class TileEntityFactory extends TileEntity
 		super.readFromNBT(nbttagcompound);
 		int rotation = nbttagcompound.getInteger("rotation");
 		rotateDirectlyTo(rotation);
+		_owner = nbttagcompound.getString("owner");
 	}
 	
 	@Override
@@ -245,6 +275,8 @@ public abstract class TileEntityFactory extends TileEntity
 	{
 		super.writeToNBT(nbttagcompound);
 		nbttagcompound.setInteger("rotation", getDirectionFacing().ordinal());
+		if (_owner != null)
+			nbttagcompound.setString("owner", _owner);
 	}
 	
 	public void onRedNetChanged(ForgeDirection side, int value)
@@ -293,4 +325,17 @@ public abstract class TileEntityFactory extends TileEntity
 	{
 		return _manageSolids;
 	}
+
+    @Override
+	@SideOnly(Side.CLIENT)
+    public double getMaxRenderDistanceSquared()
+    {
+        return -1D;
+    }
+
+    @Override
+	public boolean shouldRenderInPass(int pass)
+    {
+        return pass == 0 && getMaxRenderDistanceSquared() != -1D;
+    }
 }

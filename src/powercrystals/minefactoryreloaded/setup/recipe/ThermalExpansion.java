@@ -3,6 +3,8 @@ package powercrystals.minefactoryreloaded.setup.recipe;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
 import powercrystals.minefactoryreloaded.setup.MFRConfig;
 import powercrystals.minefactoryreloaded.setup.Machine;
@@ -11,6 +13,50 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ThermalExpansion extends Vanilla
 {
+	ItemStack conduitLiquid;
+	ItemStack tankBasic;
+	ItemStack lamp;
+	ItemStack machineFrame;
+	ItemStack pneumaticServo;
+	ItemStack powerCoilElectrum;
+	ItemStack powerCoilGold;
+	ItemStack powerCoilSilver;
+	ItemStack tesseractFrameFull;
+	ItemStack strongBox;
+	ItemStack strongBoxBasic;
+	ItemStack multimeter;
+	ItemStack invarAxe;
+	ItemStack invarSword;
+	ItemStack invarPickaxe;
+	ItemStack dynamoSteam;
+	ItemStack tesseract;
+	ItemStack tesseractFrameEmpty;
+	ItemStack cellResonant;
+	
+	@Override
+	protected void gatherItems()
+	{
+		conduitLiquid = GameRegistry.findItemStack("ThermalExpansion", "conduitFluidOpaque", 1);
+		tankBasic = GameRegistry.findItemStack("ThermalExpansion", "tankBasic", 1);
+		lamp = GameRegistry.findItemStack("ThermalExpansion", "lamp", 1);
+		machineFrame = GameRegistry.findItemStack("ThermalExpansion", "machineFrame", 1);
+		pneumaticServo = GameRegistry.findItemStack("ThermalExpansion", "pneumaticServo", 1);
+		powerCoilElectrum = GameRegistry.findItemStack("ThermalExpansion", "powerCoilElectrum", 1);
+		powerCoilGold = GameRegistry.findItemStack("ThermalExpansion", "powerCoilGold", 1);
+		powerCoilSilver = GameRegistry.findItemStack("ThermalExpansion", "powerCoilSilver", 1);
+		tesseractFrameFull = GameRegistry.findItemStack("ThermalExpansion", "tesseractFrameFull", 1);
+		strongBox = GameRegistry.findItemStack("ThermalExpansion", "strongboxReinforced", 1);
+		strongBoxBasic = GameRegistry.findItemStack("ThermalExpansion", "strongboxBasic", 1);
+		multimeter = GameRegistry.findItemStack("ThermalExpansion", "multimeter", 1);
+		invarAxe = GameRegistry.findItemStack("ThermalExpansion", "toolInvarAxe", 1);
+		invarSword = GameRegistry.findItemStack("ThermalExpansion", "toolInvarSword", 1);
+		invarPickaxe = GameRegistry.findItemStack("ThermalExpansion", "toolInvarPickaxe", 1);
+		dynamoSteam = GameRegistry.findItemStack("ThermalExpansion", "dynamoSteam", 1);
+		tesseract = new ItemStack(GameRegistry.findBlock("ThermalExpansion", "Tesseract"));
+		tesseractFrameEmpty = GameRegistry.findItemStack("ThermalExpansion", "tesseractFrameEmpty", 1);
+		cellResonant = GameRegistry.findItemStack("ThermalExpansion", "cellResonant", 1);
+	}
+	
 	@Override
 	protected void registerMachines()
 	{
@@ -20,23 +66,6 @@ public class ThermalExpansion extends Vanilla
 		}
 		try
 		{
-			ItemStack conduitLiquid = GameRegistry.findItemStack("ThermalExpansion", "conduitFluidOpaque", 1);
-			ItemStack tankBasic = GameRegistry.findItemStack("ThermalExpansion", "tankBasic", 1);
-			ItemStack lamp = GameRegistry.findItemStack("ThermalExpansion", "lamp", 1);
-			ItemStack machineFrame = GameRegistry.findItemStack("ThermalExpansion", "machineFrame", 1);
-			ItemStack pneumaticServo = GameRegistry.findItemStack("ThermalExpansion", "pneumaticServo", 1);
-			ItemStack powerCoilElectrum = GameRegistry.findItemStack("ThermalExpansion", "powerCoilElectrum", 1);
-			ItemStack powerCoilGold = GameRegistry.findItemStack("ThermalExpansion", "powerCoilGold", 1);
-			ItemStack powerCoilSilver = GameRegistry.findItemStack("ThermalExpansion", "powerCoilSilver", 1);
-			ItemStack tesseractFrameFull = GameRegistry.findItemStack("ThermalExpansion", "tesseractFrameFull", 1);
-			ItemStack strongBox = GameRegistry.findItemStack("ThermalExpansion", "strongboxReinforced", 1);
-			ItemStack strongBoxBasic = GameRegistry.findItemStack("ThermalExpansion", "strongboxBasic", 1);
-			ItemStack multimeter = GameRegistry.findItemStack("ThermalExpansion", "multimeter", 1);
-			ItemStack invarAxe = GameRegistry.findItemStack("ThermalExpansion", "toolInvarAxe", 1);
-			ItemStack invarSword = GameRegistry.findItemStack("ThermalExpansion", "toolInvarSword", 1);
-			ItemStack invarPickaxe = GameRegistry.findItemStack("ThermalExpansion", "toolInvarPickaxe", 1);
-			ItemStack dynamoSteam = GameRegistry.findItemStack("ThermalExpansion", "dynamoSteam", 1);
-			
 			registerMachine(Machine.Planter, new Object[] {
 					"PTP",
 					"SFS",
@@ -136,7 +165,7 @@ public class ThermalExpansion extends Vanilla
 					'P', "sheetPlastic",
 					'T', Item.bucketEmpty,
 					'F', machineFrame,
-					'O', "ingotTin",
+					'O', "ingotCopper",
 					'C', powerCoilGold
 						} );
 			
@@ -223,9 +252,9 @@ public class ThermalExpansion extends Vanilla
 						} );
 			
 			registerMachine(Machine.Ejector, 8, new Object[] {							
-					"PTP",
-					" F ",
-					"OOO",
+					"PPP",
+					" T ",
+					"OFO",
 					'P', "sheetPlastic",
 					'T', pneumaticServo,
 					'F', machineFrame,
@@ -238,7 +267,7 @@ public class ThermalExpansion extends Vanilla
 					"PSP",
 					'P', "sheetPlastic",
 					'T', Block.chest,
-					'S', Item.redstoneRepeater,
+					'S', multimeter,
 					'F', machineFrame
 						} );
 			
@@ -248,7 +277,7 @@ public class ThermalExpansion extends Vanilla
 					"PSP",
 					'P', "sheetPlastic",
 					'T', conduitLiquid,
-					'S', Item.redstoneRepeater,
+					'S', multimeter,
 					'F', machineFrame
 						} );
 			
@@ -323,7 +352,7 @@ public class ThermalExpansion extends Vanilla
 					"SFS",
 					"OCO",
 					'P', "sheetPlastic",
-					'T', "ingotCopper",
+					'T', multimeter,
 					'S', "ingotSilver",
 					'F', machineFrame,
 					'O', Item.comparator,
@@ -348,7 +377,7 @@ public class ThermalExpansion extends Vanilla
 					"OCO",
 					'P', "sheetPlastic",
 					'T', Item.fermentedSpiderEye,
-					'S', Item.slimeBall,
+					'S', "slimeball",
 					'F', machineFrame,
 					'O', Item.brick,
 					'C', Item.sugar
@@ -425,7 +454,7 @@ public class ThermalExpansion extends Vanilla
 			registerMachine(Machine.LaserDrillPrecharger, new Object[] {
 					"GSG",
 					"HFH",
-					"DCD",
+					"CDC",
 					'G', "sheetPlastic",
 					'D', Item.diamond,
 					'S', MineFactoryReloadedCore.pinkSlimeballItem,
@@ -519,8 +548,20 @@ public class ThermalExpansion extends Vanilla
 					'T', dynamoSteam,
 					'S', Block.pistonBase,
 					'F', machineFrame,
-					'O', "ingotInvar",
+					'O', "ingotSilver",
 					'C', powerCoilSilver
+						} );
+			
+			registerMachine(Machine.ChunkLoader, new Object[] {
+					"PEP",
+					"TFT",
+					"OCO",
+					'P', "sheetPlastic",
+					'T', tesseract,
+					'E', cellResonant,
+					'F', tesseractFrameEmpty,
+					'O', "ingotElectrum",
+					'C', powerCoilElectrum
 						} );
 		}
 		catch (Exception x)
@@ -528,4 +569,192 @@ public class ThermalExpansion extends Vanilla
 			x.printStackTrace();
 		}
 	}
-}//*/
+
+	@Override
+	protected void registerMiscItems()
+	{
+		if(!Loader.isModLoaded("ThermalExpansion"))
+		{
+			return;
+		}
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.fertilizerItem, 16), new Object[]
+				{
+			"WBW",
+			"STS",
+			"WBW",
+			'W', Item.wheat,
+			'B', new ItemStack(Item.dyePowder, 1, 15),
+			'S', Item.silk,
+			'T', "stickWood",
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.spyglassItem), new Object[]
+				{
+			"GLG",
+			"PLP",
+			" S ",
+			'G', "ingotGold",
+			'L', "glass",
+			'P', "sheetPlastic",
+			'S', "stickWood",
+				} ));
+		
+		if (MFRConfig.enablePortaSpawner.getBoolean(true))
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.portaSpawnerItem), new Object[]
+				{
+			"GLG",
+			"DND",
+			"GLG",
+			'G', "ingotInvar",
+			'L', "glass",
+			'D', "ingotEnderium",
+			'N', Item.netherStar
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.detCordBlock, 6), new Object[]
+				{
+			"PPP",
+			"PTP",
+			"PPP",
+			'P', "itemRubber",
+			'T', Block.tnt,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.fishingRodItem, 1), new Object[]
+				{
+			"DD ",
+			"DFD",
+			"TDD",
+			'D', "wireExplosive",
+			'F', Item.fishingRod,
+			'T', Block.torchRedstoneActive
+				} ));
+	}
+	
+	@Override
+	protected void registerRedNet()
+	{
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetCableBlock, 8), new Object[]
+				{
+			"PPP",
+			"RRR",
+			"PPP",
+			'R', Item.redstone,
+			'P', "sheetPlastic",
+				} ));
+		
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetCableBlock, 1, 2), new Object[]
+				{
+			"nuggetElectrum",
+			"nuggetElectrum",
+			"nuggetElectrum",
+			Item.redstone,
+			Item.redstone,
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+				} ));
+		
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetCableBlock, 1, 2), new Object[]
+				{
+			"ingotElectrum",
+			"ingotElectrum",
+			Block.blockRedstone,
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+			new ItemStack(MineFactoryReloadedCore.rednetCableBlock),
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 1, 11), new Object[]
+				{
+			"PRP",
+			"RGR",
+			"PIP",
+			'R', Item.redstone,
+			'P', "sheetPlastic",
+			'G', "glass",
+			'I', Item.ingotIron,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetLogicBlock), new Object[]
+				{
+			"RDR",
+			"LGL",
+			"PHP",
+			'H', new ItemStack(MineFactoryReloadedCore.factoryDecorativeBrickBlock, 1, 11),
+			'P', "sheetPlastic",
+			'G', "ingotGold",
+			'L', new ItemStack(Item.dyePowder, 1, 4),
+			'D', Item.diamond,
+			'R', Item.redstone,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 0), new Object[]
+				{
+			"RPR",
+			"PGP",
+			"RPR",
+			'P', "sheetPlastic",
+			'G', "ingotGold",
+			'R', Item.redstone,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 1), new Object[]
+				{
+			"GPG",
+			"PCP",
+			"RGR",
+			'C', new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 0),
+			'P', "sheetPlastic",
+			'G', "ingotGold",
+			'R', Item.redstone,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 2), new Object[]
+				{
+			"DPD",
+			"RCR",
+			"GDG",
+			'C', new ItemStack(MineFactoryReloadedCore.logicCardItem, 1, 1),
+			'P', "sheetPlastic",
+			'G', "ingotGold",
+			'D', Item.diamond,
+			'R', Item.redstone,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetMeterItem, 1, 0), new Object[]
+				{
+			" G",
+			"PR",
+			"PP",
+			'P', "sheetPlastic",
+			'G', "nuggetGold",
+			'R', Item.redstone,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetMemoryCardItem, 1, 0), new Object[]
+				{
+			"GGG",
+			"PRP",
+			"PPP",
+			'P', "sheetPlastic",
+			'G', "nuggetGold",
+			'R', Item.redstone,
+				} ));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MineFactoryReloadedCore.rednetPanelBlock, 1, 0), new Object[]
+				{
+			"PCP",
+			"PBP",
+			"KPK",
+			'P', "sheetPlastic",
+			'C', MineFactoryReloadedCore.rednetCableBlock,
+			'B', Block.bookShelf,
+			'K', new ItemStack(Item.dyePowder, 1, 0)
+				} ));
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(MineFactoryReloadedCore.rednetMemoryCardItem, 1, 0), new ItemStack(MineFactoryReloadedCore.rednetMemoryCardItem, 1, 0));
+	}
+}

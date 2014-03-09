@@ -14,11 +14,9 @@ public class GuiHarvester extends GuiFactoryPowered
 	
 	private GuiButton _settingSilkTouch;
 	private GuiButton _settingSmallShrooms;
-	private GuiButton _settingJungleWood;
 	
 	private static final String _silkTouchText = "Shear Leaves: ";
 	private static final String _smallShroomsText = "Small Shrooms: ";
-	private static final String _jungleWoodText = "Jungle Wood: ";
 	
 	public GuiHarvester(ContainerHarvester container, TileEntityHarvester te)
 	{
@@ -38,11 +36,10 @@ public class GuiHarvester extends GuiFactoryPowered
 		
 		_settingSilkTouch = new GuiButton(1, xOffset + 7, yOffset + 14, 110, 20, _silkTouchText);
 		_settingSmallShrooms = new GuiButton(2, xOffset + 7, yOffset + 34, 110, 20, _smallShroomsText);
-		_settingJungleWood = new GuiButton(3, xOffset + 7, yOffset + 54, 110, 20, _jungleWoodText);
+		//new GuiButton(3, xOffset + 7, yOffset + 54, 110, 20, );
 		
 		buttonList.add(_settingSilkTouch);
 		buttonList.add(_settingSmallShrooms);
-		buttonList.add(_settingJungleWood);
 	}
 	
 	@Override
@@ -51,7 +48,6 @@ public class GuiHarvester extends GuiFactoryPowered
 		super.updateScreen();
 		_settingSilkTouch.displayString = _silkTouchText + getSettingText("silkTouch");
 		_settingSmallShrooms.displayString = _smallShroomsText + getSettingText("harvestSmallMushrooms");
-		_settingJungleWood.displayString = _jungleWoodText + getSettingText("harvestJungleWood");
 	}
 	
 	@Override
@@ -69,8 +65,8 @@ public class GuiHarvester extends GuiFactoryPowered
 		}
 		else if(button.id == 3)
 		{
-			PacketDispatcher.sendPacketToServer(PacketWrapper.createPacket(MineFactoryReloadedCore.modNetworkChannel, Packets.HarvesterButton,
-					new Object[] { _harvester.xCoord, _harvester.yCoord, _harvester.zCoord, "harvestJungleWood", getNewSettingValue("harvestJungleWood") }));
+			//PacketDispatcher.sendPacketToServer(PacketWrapper.createPacket(MineFactoryReloadedCore.modNetworkChannel, Packets.HarvesterButton,
+			//		new Object[] { _harvester.xCoord, _harvester.yCoord, _harvester.zCoord, "", getNewSettingValue("") }));
 		}
 	}
 	

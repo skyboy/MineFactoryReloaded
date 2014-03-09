@@ -154,16 +154,23 @@ public class TileEntityRedNetHistorian extends TileEntityFactory
 		super.writeToNBT(nbttagcompound);
 		nbttagcompound.setInteger("subnet", _currentSubnet);
 	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public AxisAlignedBB getRenderBoundingBox()
-	{
-		return INFINITE_EXTENT_AABB;
-	}
 
 	@Override
 	public ConnectOverride overridePipeConnection(PipeType type, ForgeDirection with) {
 		return ConnectOverride.DISCONNECT;
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public AxisAlignedBB getRenderBoundingBox()
+	{
+		return INFINITE_EXTENT_AABB; // TODO: no
+	}
+
+    @Override
+	@SideOnly(Side.CLIENT)
+    public double getMaxRenderDistanceSquared()
+    {
+        return 4096.0D;
+    }
 }

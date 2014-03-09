@@ -11,7 +11,7 @@ public class DrinkHandlerMushroomSoup implements ILiquidDrinkHandler
 	public void onDrink(EntityPlayer player)
 	{
 		player.heal(4);
-		player.getFoodStats().addStats(4, 1.0F);
-		player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 15 * 20, 2));
+		player.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 5 * 20, 1));
+		player.addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 15 * 20, 2));
 	}
 }

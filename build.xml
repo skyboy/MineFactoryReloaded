@@ -38,9 +38,9 @@
 			<available file="${mcpsrc.dir}/cofh" type="dir"/>
 			<available file="${mcpsrc.dir}/buildcraft" type="dir"/>
 			<available file="${mcpsrc.dir}/ic2" type="dir"/>
-			<!--<available file="${mcpsrc.dir}/thermalexpansion" type="dir"/>-->
 			<!--<available file="${mcpsrc.dir}/thaumcraft" type="dir"/>-->
 			<available file="${mcpsrc.dir}/forestry" type="dir"/>
+			<available file="${mcp.dir}/lib/codechickenlib.jar" type="file"/>
 		</and>
 	</condition>
 	
@@ -52,9 +52,10 @@
 			<include name="**/*.jar"/>
 			<exclude name="**/*-sources.jar"/>
 		</fileset>
-		<pathelement location="${mcp.dir}/jars/bin/jinput.jar"/>
-		<pathelement location="${mcp.dir}/jars/bin/lwjgl.jar"/>
-		<pathelement location="${mcp.dir}/jars/bin/lwjgl_util.jar"/>
+		<fileset dir="${mcp.dir}/lib/">
+			<include name="**/*.jar"/>
+			<exclude name="**/*-sources.jar"/>
+		</fileset>
 	</path>
 
 	<target name="get-dependencies" depends="get-version" unless="${have-apis}">
@@ -71,9 +72,6 @@
 		
 		<echo message="Downloading ThermalExpansion API... " />
 		<get src="https://github.com/KingLemming/CoFHLib/archive/${cofh.commit}.zip" dest="${download.dir}/cofh-api.zip" />
-		<!--
-		<get src="https://dl.dropboxusercontent.com/u/57416963/Minecraft/Mods/ThermalExpansion/api/ThermalExpansion-API-2.3.0.zip" dest="${download.dir}/te-api.zip" />
-		-->
 		
 		<!--
 		<echo message="Downloading Thaumcraft API... " />
@@ -82,9 +80,14 @@
 		
 		<echo message="Downloading Forestry API... "/>
 		<get src="http://forestry.sengir.net/files/forestry/releases/2.3.0.1/forestry-api-2.3.0.1.zip" dest="${download.dir}/ForestryAPI.zip" />
+		
+		<echo message="Downloading CCL..."/>
+		<get src="http://files.minecraftforge.net/CodeChickenLib/CodeChickenLib-dev-1.6.4-1.0.0.55.jar" dest="${download.dir}/codechickenlib.jar" />
 	</target>
 
 	<target name="extract-dependencies" depends="setup-forge,get-dependencies" unless="${have-apis}">
+		<delete dir="${mcp.dir}/lib/" />
+		<mkdir dir="${mcp.dir}/lib/" />
 		<copy todir="${mcpsrc.dir}/powercrystals/core">
 			<fileset dir="${download.dir}/PowerCrystalsCore-master/src/powercrystals/core" />
 		</copy>
@@ -102,10 +105,6 @@
 		<unzip src="${download.dir}/cofh-api.zip" dest="${download.dir}" />
 		<mkdir dir="${mcpsrc.dir}/cofh" />
 		<move file="${download.dir}/CoFHLib-${cofh.commit}/cofh/api" todir="${mcpsrc.dir}/cofh" />
-		<!--
-		<unzip src="${download.dir}/te-api.zip" dest="${download.dir}/thermalexpansion/" />
-		<move file="${download.dir}/thermalexpansion/thermalexpansion" todir="${mcpsrc.dir}" />
-		-->
 		
 		<!--
 		<echo message="Extracting Thaumcraft API... " />
@@ -116,6 +115,9 @@
 		<echo message="Extracting Forestry API... " />
 		<unzip src="${download.dir}/ForestryAPI.zip" dest="${download.dir}" />
 		<move file="${download.dir}/forestry" todir="${mcpsrc.dir}" />
+			
+		<echo message="Extracting CCL... " />
+		<move file="${download.dir}/codechickenlib.jar" todir="${mcp.dir}/lib/" />
 	</target>
 
 	<mkdir dir="${download.dir}"/>
@@ -131,7 +133,13 @@
 		<copy todir="${mcpsrc.dir}/skyboy" overwrite="true">
 			<fileset dir="${src.dir}/skyboy"/>
 		</copy>
-		<copy todir="${mcpsrc.dir}" file="mcmod.info" overwrite="true"/>
+		<mkdir dir="${mcpsrc.dir}/codechicken" />
+		<copy todir="${mcpsrc.dir}/codechicken" overwrite="true">
+			<fileset dir="${src.dir}/codechicken"/>
+		</copy>
+		
+		<!-- Forestry compat submodule -->
+		<antcall target="MFR-Forestry"/>
 
 		<exec executable="${windows.python}" osfamily="windows" outputproperty="grep.out">
 			<arg value="grep.py"/>
@@ -176,6 +184,7 @@
 		<delete dir="${apiclasses.dir}" />
 		<delete dir="${mcp.dir}/reobf" />
 		<delete dir="${mcpsrc.dir}/powercrystals/minefactoryreloaded" />
+		<delete dir="${mcpsrc.dir}/denoflionsx/minefactoryreloaded" />
 		<delete dir="${mcp.dir}/bin/minecraft/powercrystals/minefactoryreloaded" />
 	</target>
 
@@ -184,14 +193,13 @@
 		<delete dir="${classes.dir}" />
 	</target>
 
-	<target name="MFR-Forestry" depends="download-jgit">
+	<target name="MFR-Forestry">
 		<!-- MFR-Forestry Setup Start -->
 		<echo message="Starting MFR-Forestry submodule build..."/>
 		<antcall target="clone-MFR-Forestry"/>
-		<ant antfile="${basedir}/MFR-Forestry/build.xml" target="main" inheritAll="false" useNativeBasedir="true"/>
-		<delete dir="${basedir}/MFR-Forestry/build/libs/classes/META-INF"/>
-		<copy todir="${classes.dir}">
-			<fileset dir="${basedir}/MFR-Forestry/build/libs/classes"/>
+		<mkdir dir="${mcpsrc.dir}/denoflionsx" />
+		<copy todir="${mcpsrc.dir}/denoflionsx" overwrite="true">
+			<fileset dir="MFR-Forestry/src/main/java/denoflionsx"/>
 		</copy>
 		<echo message="MFR-Forestry submodule build complete."/>
 		<!-- MFR-Forestry Setup End -->
@@ -199,7 +207,7 @@
 	
 	<available property="den-exists" file="${basedir}/MFR-Forestry/build.xml" />
 
-	<target name="clone-MFR-Forestry" unless="den-exists">
+	<target name="clone-MFR-Forestry" depends="download-jgit" unless="den-exists">
 		<taskdef resource="org/eclipse/jgit/ant/ant-tasks.properties">
 			<classpath>
 				<pathelement location="${download.dir}/jgit/jgit-ant.jar"/>
@@ -215,7 +223,6 @@
 		<fail unless="mfr-forestry-revision" message="MFR-Forestry revision not found."/>
 		<git-clone uri="https://github.com/denoflionsx/MFR-Forestry.git" dest="MFR-Forestry"/>
 		<git-checkout branch="${mfr-forestry-revision}" src="MFR-Forestry"/>
-		<git-clone uri="https://github.com/denoflionsx/UniversalBuildScript.git" dest="MFR-Forestry/UniversalBuildScript"/>
 	</target>
 
 	<target name="download-jgit" unless="should-download-jgit">
@@ -230,17 +237,21 @@
 		<!-- Recompile -->
 		<depend srcdir="${mcpsrc.dir}" destdir="${mcp.dir}/bin/minecraft">
 			<include name="powercrystals/minefactoryreloaded/**/*.java"/>
+			<include name="denoflionsx/minefactoryreloaded/**/*.java"/>
 		</depend>
 		
 		<javac srcdir="${mcpsrc.dir}" destdir="${mcp.dir}/bin/minecraft" target="1.6" source="1.6"
 			classpathref="mcp.classpath" debug="true" debuglevel="lines,source" includeAntRuntime="false">
 			<include name="powercrystals/minefactoryreloaded/**/*.java"/>
+			<include name="denoflionsx/minefactoryreloaded/**/*.java"/>
 		</javac>
 		
 		<!-- Dev jar -->
 		<copy todir="${classes.dir}">
 			<fileset dir="${mcp.dir}/bin/minecraft">
 				<include name="powercrystals/minefactoryreloaded/**/*.class" />
+				<include name="denoflionsx/minefactoryreloaded/**/*.class" />
+				<include name="codechicken/core/launch/Dep*.class" />
 				<include name="skyboy/**/*.class" />
 				<include name="cofh/**/*.class" />
 				<include name="ic2/**/*.class" />
@@ -268,19 +279,13 @@
 		<copy todir="${apiclasses.dir}/powercrystals/minefactoryreloaded/api">
 			<fileset dir="${mcpsrc.dir}/powercrystals/minefactoryreloaded/api" />
 		</copy>
-		
-		<!-- Forestry compat submodule -->
-		<antcall target="MFR-Forestry"/>
-
-		<!-- Forestry submodule cleanup -->
-		<delete dir="${classes.dir}/net"/>
-		<delete dir="${classes.dir}/cpw"/>
-		<delete file="${classes.dir}/dummy.txt"/>
 
 		<!-- Copy classes -->
 		<copy todir="${classes.dir}">
 			<fileset dir="${mcp.dir}/reobf/minecraft">
 				<include name="powercrystals/minefactoryreloaded/**/*.class" />
+				<include name="denoflionsx/minefactoryreloaded/**/*.class" />
+				<include name="codechicken/core/launch/Dep*.class" />
 				<include name="skyboy/**/*.class" />
 				<include name="cofh/**/*.class" />
 				<include name="ic2/**/*.class" />
@@ -292,7 +297,8 @@
 	</target>
 	
 	<target name="copy-assets">
-		<copy todir="${classes.dir}" file="mcmod.info"/>
+		<copy todir="${classes.dir}" file="mcmod.info" overwrite="true"/>
+		<copy todir="${classes.dir}" file="dependancies.info" overwrite="true"/>
 		
 		<copy todir="${classes.dir}/assets/minefactoryreloaded/textures">
 			<fileset dir="${mcpsrc.dir}/powercrystals/minefactoryreloaded/textures" />

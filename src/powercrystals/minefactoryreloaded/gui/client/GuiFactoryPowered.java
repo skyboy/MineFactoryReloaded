@@ -33,7 +33,7 @@ public class GuiFactoryPowered extends GuiFactoryInventory
 	@Override
 	protected void drawTooltips(int mouseX, int mouseY)
 	{
-		if(isPointInRegion(141, 15, 8, 60, mouseX, mouseY))
+		if(isPointInRegion(140, 15, 8, 60, mouseX, mouseY))
 		{
 			int energyPerMJ = TileEntityFactoryPowered.energyPerMJ;
 			int energyPerEU = TileEntityFactoryPowered.energyPerEU;
@@ -46,11 +46,11 @@ public class GuiFactoryPowered extends GuiFactoryInventory
 			lines.add(stored / energyPerEU + " / " + storedMax / energyPerEU + " " + "EU");
 			drawTooltip(lines, mouseX, mouseY);
 		}
-		else if(isPointInRegion(151, 15, 8, 60, mouseX, mouseY))
+		else if(isPointInRegion(150, 15, 8, 60, mouseX, mouseY))
 		{
 			drawBarTooltip("Work", "Wk", _tePowered.getWorkDone(), _tePowered.getWorkMax(), mouseX, mouseY);
 		}
-		else if(isPointInRegion(161, 15, 8, 60, mouseX, mouseY))
+		else if(isPointInRegion(160, 15, 8, 60, mouseX, mouseY))
 		{
 			drawBarTooltip("Idle", "t", _tePowered.getIdleTicks(), _tePowered.getIdleTicksMax(), mouseX, mouseY);
 		}

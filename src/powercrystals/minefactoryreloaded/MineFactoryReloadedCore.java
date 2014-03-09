@@ -1,5 +1,6 @@
 package powercrystals.minefactoryreloaded;
 
+import codechicken.core.launch.DepLoader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -80,6 +81,8 @@ import powercrystals.minefactoryreloaded.block.ItemBlockFactoryGlass;
 import powercrystals.minefactoryreloaded.block.ItemBlockFactoryGlassPane;
 import powercrystals.minefactoryreloaded.block.ItemBlockFactoryMachine;
 import powercrystals.minefactoryreloaded.block.ItemBlockFactoryRoad;
+import powercrystals.minefactoryreloaded.block.ItemBlockFactoryTree;
+import powercrystals.minefactoryreloaded.block.ItemBlockRedNetCable;
 import powercrystals.minefactoryreloaded.block.ItemBlockRedNetLogic;
 import powercrystals.minefactoryreloaded.block.ItemBlockRedNetPanel;
 import powercrystals.minefactoryreloaded.block.ItemBlockVanillaIce;
@@ -106,6 +109,7 @@ import powercrystals.minefactoryreloaded.item.ItemNeedlegunAmmoAnvil;
 import powercrystals.minefactoryreloaded.item.ItemNeedlegunAmmoBlock;
 import powercrystals.minefactoryreloaded.item.ItemNeedlegunAmmoFire;
 import powercrystals.minefactoryreloaded.item.ItemNeedlegunAmmoStandard;
+import powercrystals.minefactoryreloaded.item.ItemPlasticBoots;
 import powercrystals.minefactoryreloaded.item.ItemPortaSpawner;
 import powercrystals.minefactoryreloaded.item.ItemRedNetMemoryCard;
 import powercrystals.minefactoryreloaded.item.ItemRedNetMeter;
@@ -139,24 +143,26 @@ import powercrystals.minefactoryreloaded.setup.village.VillageTradeHandler;
 import powercrystals.minefactoryreloaded.tile.conveyor.TileEntityConveyor;
 import powercrystals.minefactoryreloaded.tile.machine.TileEntityUnifier;
 import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetCable;
+import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetEnergy;
 import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetHistorian;
 import powercrystals.minefactoryreloaded.tile.rednet.TileEntityRedNetLogic;
 import powercrystals.minefactoryreloaded.world.MineFactoryReloadedWorldGen;
 
 @Mod(modid = MineFactoryReloadedCore.modId, name = MineFactoryReloadedCore.modName, version = MineFactoryReloadedCore.version,
-dependencies = "required-after:PowerCrystalsCore@[1.1.7,);after:BuildCraft|Core;after:BuildCraft|Factory;after:BuildCraft|Energy;after:BuildCraft|Builders;after:BuildCraft|Transport;after:IC2")
+dependencies = "required-after:Forge@[9.11.1.953,);required-after:PowerCrystalsCore@[1.1.8,);after:BuildCraft|Core;after:BuildCraft|Factory;after:BuildCraft|Energy;after:BuildCraft|Builders;after:BuildCraft|Transport;after:IC2")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false,
 clientPacketHandlerSpec = @SidedPacketHandler(channels = { MineFactoryReloadedCore.modNetworkChannel }, packetHandler = ClientPacketHandler.class),
 serverPacketHandlerSpec = @SidedPacketHandler(channels = { MineFactoryReloadedCore.modNetworkChannel }, packetHandler = ServerPacketHandler.class),
 connectionHandler = ConnectionHandler.class)
 public class MineFactoryReloadedCore extends BaseMod
 {
-	@SidedProxy(clientSide = "powercrystals.minefactoryreloaded.net.ClientProxy", serverSide = "powercrystals.minefactoryreloaded.net.CommonProxy")
+	static{DepLoader.load();}
+	@SidedProxy(clientSide = "powercrystals.minefactoryreloaded.net.ClientProxy", serverSide = "powercrystals.minefactoryreloaded.net.ServerProxy")
 	public static IMFRProxy proxy;
 	
 	public static final String modId = "MineFactoryReloaded";
 	public static final String modNetworkChannel = "MFReloaded";
-	public static final String version = "1.6.2R2.7.5B1";
+	public static final String version = "1.6.4R2.7.6B1";
 	public static final String modName = "Minefactory Reloaded";
 
 	public static final String textureFolder      = "minefactoryreloaded:textures/";
@@ -166,16 +172,19 @@ public class MineFactoryReloadedCore extends BaseMod
 	public static final String tileEntityFolder   = textureFolder + "tileentity/";
 	public static final String mobTextureFolder   = textureFolder + "mob/";
 	public static final String modelTextureFolder = textureFolder + "itemmodels/";
+	public static final String armorTextureFolder = textureFolder + "armor/";
+	public static final String modelFolder = "/powercrystals/minefactoryreloaded/models/";
 	
 	public static int renderIdConveyor = 1000;
 	public static int renderIdFactoryGlassPane = 1001;
-	public static int renderIdRedstoneCable = 1002;
+	public static int renderIdUnused = 1002;
 	public static int renderIdFluidClassic = 1003;
 	public static int renderIdRedNetLogic = 1004;
 	public static int renderIdVineScaffold = 1005;
 	public static int renderIdRedNetPanel = 1006;
 	public static int renderIdFactoryGlass = 1007;
 	public static int renderIdDetCord = 1008;
+	public static int renderIdRedNet = 1009;
 	
 	public static Map<Integer, Block> machineBlocks = new HashMap<Integer, Block>();
 	
@@ -276,6 +285,7 @@ public class MineFactoryReloadedCore extends BaseMod
 	public static Item plasticCellItem;
 	public static Item fishingRodItem;
 	public static Item bagItem;
+	public static Item plasticBootsItem;
 
 	private static MineFactoryReloadedCore instance;
 
@@ -458,6 +468,8 @@ public class MineFactoryReloadedCore extends BaseMod
 		//plasticCellItem = CarbonContainer.cell;
 		fishingRodItem = (new ItemFishingRod(MFRConfig.fishingRodItemId.getInt()));
 		bagItem = (new ItemFactoryBag(MFRConfig.bagItemId.getInt())).setUnlocalizedName("mfr.plastic.bag").setMaxStackSize(24);
+		plasticBootsItem = new ItemPlasticBoots(MFRConfig.plasticBootsItemId.getInt()).
+				addRepairableItem(plasticSheetItem).addRepairableItem(rawPlasticItem);
 
 		for(Entry<Integer, Block> machine : machineBlocks.entrySet())
 		{
@@ -472,12 +484,12 @@ public class MineFactoryReloadedCore extends BaseMod
 		GameRegistry.registerBlock(factoryDecorativeStoneBlock, ItemBlockDecorativeStone.class, factoryDecorativeStoneBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(rubberWoodBlock, rubberWoodBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(rubberLeavesBlock, rubberLeavesBlock.getUnlocalizedName());
-		GameRegistry.registerBlock(rubberSaplingBlock, rubberSaplingBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(rubberSaplingBlock, ItemBlockFactoryTree.class, rubberSaplingBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(railPickupCargoBlock, railPickupCargoBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(railDropoffCargoBlock, railDropoffCargoBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(railPickupPassengerBlock, railPickupPassengerBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(railDropoffPassengerBlock, railDropoffPassengerBlock.getUnlocalizedName());
-		GameRegistry.registerBlock(rednetCableBlock, rednetCableBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(rednetCableBlock, ItemBlockRedNetCable.class, rednetCableBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(rednetLogicBlock, ItemBlockRedNetLogic.class, rednetLogicBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(rednetPanelBlock, ItemBlockRedNetPanel.class, rednetPanelBlock.getUnlocalizedName());
 		GameRegistry.registerBlock(vineScaffoldBlock, ItemBlockVineScaffold.class, vineScaffoldBlock.getUnlocalizedName());
@@ -493,8 +505,8 @@ public class MineFactoryReloadedCore extends BaseMod
 		GameRegistry.registerBlock(chocolateMilkLiquid, chocolateMilkLiquid.getUnlocalizedName());
 		GameRegistry.registerBlock(mushroomSoupLiquid, mushroomSoupLiquid.getUnlocalizedName());
 		
-		Block.setBurnProperties(rubberWoodBlock.blockID, 4, 20);
-		Block.setBurnProperties(rubberLeavesBlock.blockID, 30, 20);
+		Block.setBurnProperties(rubberWoodBlock.blockID, 8, 25);
+		Block.setBurnProperties(rubberLeavesBlock.blockID, 30, 25);
 		Block.setBurnProperties(detCordBlock.blockID, 10, 20);
 		
 		MinecraftForge.setBlockHarvestLevel(MineFactoryReloadedCore.rednetCableBlock, 0, "pickaxe", 0);
@@ -519,6 +531,7 @@ public class MineFactoryReloadedCore extends BaseMod
 		GameRegistry.registerTileEntity(TileEntityRedNetCable.class, "factoryRedstoneCable");
 		GameRegistry.registerTileEntity(TileEntityRedNetLogic.class, "factoryRednetLogic");
 		GameRegistry.registerTileEntity(TileEntityRedNetHistorian.class, "factoryRednetHistorian");
+		GameRegistry.registerTileEntity(TileEntityRedNetEnergy.class, "factoryRedstoneCableEnergy");
 		
 		EntityRegistry.registerModEntity(EntitySafariNet.class, "entitySafariNet", 0, instance, 160, 5, true);
 		EntityRegistry.registerModEntity(EntityPinkSlime.class, "mfrEntityPinkSlime", 1, instance, 160, 5, true);
@@ -549,6 +562,12 @@ public class MineFactoryReloadedCore extends BaseMod
 		OreDictionary.registerOre("dyeBrown", MineFactoryReloadedCore.fertilizerItem);
 		OreDictionary.registerOre("fertilizerOrganic", MineFactoryReloadedCore.fertilizerItem);
 		OreDictionary.registerOre("wireExplosive", MineFactoryReloadedCore.detCordBlock);
+		OreDictionary.registerOre("listAllmilk", MineFactoryReloadedCore.milkBottleItem);
+
+		OreDictionary.registerOre("slimeball", Item.slimeBall);
+		OreDictionary.registerOre("glass", Block.glass);
+		OreDictionary.registerOre("nuggetGold", Item.goldNugget);
+		OreDictionary.registerOre("ingotGold", Item.ingotGold);
 		
 		GameRegistry.registerFuelHandler(new MineFactoryReloadedFuelHandler());
 		
@@ -575,6 +594,8 @@ public class MineFactoryReloadedCore extends BaseMod
 		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(safariNetSingleItem), 1, 1, 25));
 		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(safariNetSingleItem), 1, 1, 25));
 		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER).addItem(new WeightedRandomChestContent(VillageTradeHandler.getHiddenNetStack(), 1, 1, 25));
+		if (MFRConfig.enableMassiveTree.getBoolean(true))
+			ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(rubberSaplingBlock, 1, 1), 1, 2, 1));
 		
 		VillagerRegistry.instance().registerVillageCreationHandler(new VillageCreationHandler());
 		VillagerRegistry.instance().registerVillagerId(MFRConfig.zoolologistEntityId.getInt());
@@ -629,6 +650,12 @@ public class MineFactoryReloadedCore extends BaseMod
 			MFRRegistry.registerUnifierBlacklist(entry);
 		}
 		
+		biomeWhitelist = MFRConfig.spawnerBlacklist.getString().split(",");
+		for(String entry : biomeWhitelist)
+		{
+			MFRRegistry.registerAutoSpawnerBlacklist(entry);
+		}
+		
 		if(MFRConfig.vanillaRecipes.getBoolean(true))
 		{
 			new Vanilla().registerRecipes();
@@ -681,6 +708,8 @@ public class MineFactoryReloadedCore extends BaseMod
 						EntityMinecartMobSpawner ent = new EntityMinecartMobSpawner(e.minecart.worldObj);
 						ent.readFromNBT(tag);
 						ent.worldObj.spawnEntityInWorld(ent);
+						ent.worldObj.playAuxSFXAtEntity(null, 2004, // particles 
+								(int)ent.posX, (int)ent.posY, (int)ent.posZ, 0);
 					}
 				}
 				else if (e.minecart.getMinecartType() == 4)

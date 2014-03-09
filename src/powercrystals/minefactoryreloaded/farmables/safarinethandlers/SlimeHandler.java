@@ -16,7 +16,7 @@ public class SlimeHandler implements ISafariNetHandler
 	}
 	
 	private static double log2 = Math.log(2);
-	private static String[] sizes = {"Tiny", "Medium", "Large", "Extra Large", "Massive"};
+	private static String[] sizes = {"Tiny", "Medium", "Large", "Extra Large", "Massive", "Incomprehensible"};
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override

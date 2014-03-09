@@ -16,18 +16,18 @@ public class BlockRailCargoPickup extends BlockFactoryRail
 {
 	public BlockRailCargoPickup(int id)
 	{
-		super(id, true);
+		super(id, true, false);
 		setUnlocalizedName("mfr.rail.cargo.pickup");
 	}
-	
+
 	@Override
 	public void onMinecartPass(World world, EntityMinecart entity, int x, int y, int z)
 	{
 		if (world.isRemote || !(entity instanceof IInventory))
 			return;
-		
+
 		IInventoryManager minecart = InventoryManager.create((IInventory)entity, ForgeDirection.UNKNOWN);
-		
+
 		for(Entry<ForgeDirection, IInventory> inventory : UtilInventory.findChests(world, x, y, z).entrySet())
 		{
 			IInventoryManager chest = InventoryManager.create(inventory.getValue(), inventory.getKey().getOpposite()); 
@@ -38,9 +38,9 @@ public class BlockRailCargoPickup extends BlockFactoryRail
 					continue;
 				}
 				ItemStack stackToAdd = contents.getValue().copy();
-				
+
 				ItemStack remaining = minecart.addItem(stackToAdd);
-				
+
 				if(remaining != null)
 				{
 					stackToAdd.stackSize -= remaining.stackSize;

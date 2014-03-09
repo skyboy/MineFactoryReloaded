@@ -27,11 +27,11 @@ public class GuiBioReactor extends GuiFactoryInventory
 	@Override
 	protected void drawTooltips(int mouseX, int mouseY)
 	{
-		if(isPointInRegion(151, 15, 8, 60, mouseX, mouseY))
+		if(isPointInRegion(150, 15, 8, 60, mouseX, mouseY))
 		{
 			drawBarTooltip("Efficiency", "", ((TileEntityBioReactor)_tileEntity).getOutputValue(), ((TileEntityBioReactor)_tileEntity).getOutputValueMax(), mouseX, mouseY);
 		}
-		else if(isPointInRegion(161, 15, 8, 60, mouseX, mouseY))
+		else if(isPointInRegion(160, 15, 8, 60, mouseX, mouseY))
 		{
 			drawBarTooltip("Buffer", "", ((TileEntityBioReactor)_tileEntity).getBurnTime(), ((TileEntityBioReactor)_tileEntity).getBurnTimeMax(), mouseX, mouseY);
 		}

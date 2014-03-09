@@ -23,8 +23,8 @@ public class HarvestablePamsFlower extends HarvestablePams
 	{
 		List<ItemStack> outStack = new ArrayList<ItemStack>();
 		TileEntity te = world.getBlockTileEntity( x, y, z );
-		int seedDrops = rand.nextInt(1) + 1;
-		int cropDrops = rand.nextInt(2) + 1;
+		int seedDrops = rand.nextInt(2) + 1;
+		int cropDrops = rand.nextInt(3) + 2;
 		if ( te != null )
 		{
 			try

@@ -40,12 +40,14 @@ public abstract class TileEntityFactoryPowered extends TileEntityFactoryInventor
 	public static final int energyPerEU = 4;
 	public static final int energyPerMJ = 10;
 	
+	private static final int energyFudge = 80;
+	
 	private int _energyStored;
 	private int _maxEnergyStored;
 	private int _maxEnergyTick;
 	private int _energyRequiredThisTick = 0;
 	
-	private int _energyActivation;
+	protected int _energyActivation;
 	
 	private int _workDone;
 	
@@ -71,14 +73,19 @@ public abstract class TileEntityFactoryPowered extends TileEntityFactoryInventor
 	{
 		super(machine);
 		_maxEnergyStored = machine.getMaxEnergyStorage();
-		_energyActivation = activationCost;
-		_maxEnergyTick = Math.min(activationCost * 5, 1000);
 		_powerProvider = new PowerHandler(this, PowerHandler.Type.MACHINE);
-		configurePowerProvider();
+		setActivationEnergy(activationCost);
 		setIsActive(false);
 	}
 	
 	// local methods
+	
+	protected void setActivationEnergy(int activationCost)
+	{
+		_energyActivation = activationCost;
+		_maxEnergyTick = Math.min(activationCost * 4, _maxEnergyStored);
+		configurePowerProvider();
+	}
 	
 	@Override
 	public void updateEntity()
@@ -102,7 +109,8 @@ public abstract class TileEntityFactoryPowered extends TileEntityFactoryInventor
 			_isAddedToIC2EnergyNet = true;
 		}
 		
-		int energyRequired = Math.min(getEnergyStoredMax() - getEnergyStored(), getActivationEnergy());
+		int energyRequired = Math.min(getEnergyStoredMax() - getEnergyStored(),
+				getActivationEnergy() + energyFudge);
 		
 		_energyRequiredThisTick = Math.max(_energyRequiredThisTick + energyRequired,
 				getMaxEnergyPerTick());
@@ -398,7 +406,7 @@ public abstract class TileEntityFactoryPowered extends TileEntityFactoryInventor
 	@Override
 	public int getMaxSafeInput()
 	{
-		return 128;
+		return Integer.MAX_VALUE;
 	}
 	
 	// IC2-lf methods

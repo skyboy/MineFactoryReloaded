@@ -11,7 +11,7 @@ public class MineFactoryReloadedFuelHandler implements IFuelHandler
 	{
 		if(fuel.itemID == MineFactoryReloadedCore.rubberWoodBlock.blockID)
 		{
-			return 300;
+			return 350;
 		}
 		if(fuel.itemID == MineFactoryReloadedCore.rubberLeavesBlock.blockID)
 		{

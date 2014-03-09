@@ -1,21 +1,38 @@
 package powercrystals.minefactoryreloaded.farmables.fruits;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import powercrystals.minefactoryreloaded.api.IFactoryFruit;
 
 public class FruitCocoa implements IFactoryFruit
 {
+	private int sourceId;
+	private ItemStack replBlock;
+	
+	public FruitCocoa(int sourceId, ItemStack replBlock)
+	{
+		if(sourceId > Block.blocksList.length)
+		{
+			throw new IllegalArgumentException("Passed an Item ID to FactoryFruitStandard's source block argument");
+		}
+		this.sourceId = sourceId;
+		this.replBlock = replBlock;
+	}
+	
+	public FruitCocoa(int sourceId)
+	{
+		this(sourceId, null);
+	}
+	
 	@Override
 	public int getSourceBlockId()
 	{
-		return Block.cocoaPlant.blockID;
+		return sourceId;
 	}
 	
 	@Override
@@ -28,7 +45,7 @@ public class FruitCocoa implements IFactoryFruit
 	@Override
 	public ItemStack getReplacementBlock(World world, int x, int y, int z)
 	{
-		return null;
+		return replBlock;
 	}
 	
 	@Override
@@ -39,9 +56,7 @@ public class FruitCocoa implements IFactoryFruit
 	@Override
 	public List<ItemStack> getDrops(World world, Random rand, int x, int y, int z)
 	{
-		ArrayList<ItemStack> result = new ArrayList<ItemStack>();
-		result.add(new ItemStack(Item.dyePowder, 3, 3));
-		return result;
+		return Block.blocksList[sourceId].getBlockDropped(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
 	}
 	
 	@Override

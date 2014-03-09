@@ -80,6 +80,8 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 			if(_inventory[0] != null)
 			{
 				List<String> names = OreDictTracker.getNamesFromItem(_inventory[0]);
+				// tracker does *not* also check the wildcard meta,
+				// avoiding issues with saplings and logs, etc.
 				
 				if(names == null || names.size() != 1 || MFRRegistry.getUnifierBlacklist().containsKey(names.get(0)))
 				{
@@ -95,6 +97,9 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 					output = OreDictionary.getOres(names.get(0)).get(0).copy();
 					output.stackSize = _inventory[0].stackSize;
 				}
+				
+				if (output != null && _inventory[0].itemID == output.itemID)
+					output = _inventory[0].copy();
 				
 				moveItemStack(output);
 			}
@@ -266,12 +271,12 @@ public class TileEntityUnifier extends TileEntityFactoryInventory implements ITa
 		}
 		if(_essence != null & _liquidxp != null)
 		{
-			if (_essence.isFluidEqual(resource))
-				return new FluidStack(_liquidxp.fluidID, resource.amount * 2);
-			else if (_liquidxp.isFluidEqual(resource))
+			if (_liquidxp.isFluidEqual(resource))
+				return new FluidStack(_essence.fluidID, resource.amount * 2);
+			else if (_essence.isFluidEqual(resource))
 			{
 				if(doFill) _roundingCompensation ^= (resource.amount & 1);
-				return new FluidStack(_essence.fluidID, 
+				return new FluidStack(_liquidxp.fluidID, 
 						resource.amount / 2 + (resource.amount & _roundingCompensation));
 			}
 		}

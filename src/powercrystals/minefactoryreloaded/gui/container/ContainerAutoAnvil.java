@@ -1,67 +1,59 @@
 package powercrystals.minefactoryreloaded.gui.container;
 
-import net.minecraft.entity.player.EntityPlayer;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.ItemStack;
+
 import powercrystals.minefactoryreloaded.gui.slot.SlotRemoveOnly;
 import powercrystals.minefactoryreloaded.tile.machine.TileEntityAutoAnvil;
 
 public class ContainerAutoAnvil extends ContainerFactoryPowered
 {
+	private TileEntityAutoAnvil _anvil;
+	private boolean repairOnly;
+
 	public ContainerAutoAnvil(TileEntityAutoAnvil anvil, InventoryPlayer inv)
 	{
 		super(anvil, inv);
+		_anvil = anvil;
+		repairOnly = anvil.getRepairOnly();
 	}
-	
+
 	@Override
 	protected void addSlots()
 	{
 		addSlotToContainer(new Slot(_te, 0, 8, 24));
 		addSlotToContainer(new Slot(_te, 1, 26, 24));
-		addSlotToContainer(new SlotRemoveOnly(_te, 2, 8, 54));
+		addSlotToContainer(new SlotRemoveOnly(_te, 2, 8, 48));
 	}
-	
+
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int slot)
+	public void detectAndSendChanges()
 	{
-		ItemStack stack = null;
-		Slot slotObject = (Slot) inventorySlots.get(slot);
-		
-		if(slotObject != null && slotObject.getHasStack())
+		super.detectAndSendChanges();
+		if (_anvil.getRepairOnly() != repairOnly)
 		{
-			ItemStack stackInSlot = slotObject.getStack();
-			stack = stackInSlot.copy();
-			
-			if(slot < 4)
+			repairOnly = _anvil.getRepairOnly();
+			int data = (repairOnly ? 1 : 0);
+			for(int i = 0; i < crafters.size(); i++)
 			{
-				if(!mergeItemStack(stackInSlot, 4, inventorySlots.size(), true))
-				{
-					return null;
-				}
+				((ICrafting)crafters.get(i)).sendProgressBarUpdate(this, 100, data);
 			}
-			else if(!mergeItemStack(stackInSlot, 0, 2, false))
-			{
-				return null;
-			}
-			
-			if(stackInSlot.stackSize == 0)
-			{
-				slotObject.putStack(null);
-			}
-			else
-			{
-				slotObject.onSlotChanged();
-			}
-			
-			if(stackInSlot.stackSize == stack.stackSize)
-			{
-				return null;
-			}
-			
-			slotObject.onPickupFromSlot(player, stackInSlot);
 		}
-		
-		return stack;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void updateProgressBar(int var, int value)
+	{
+		super.updateProgressBar(var, value);
+
+		if (var == 100)
+		{
+			_anvil.setRepairOnly((value & 1) == 1);
+		}
 	}
 }

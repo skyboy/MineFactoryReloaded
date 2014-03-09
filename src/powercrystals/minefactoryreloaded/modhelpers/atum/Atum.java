@@ -1,25 +1,28 @@
 package powercrystals.minefactoryreloaded.modhelpers.atum;
 
-import java.lang.reflect.Method;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.world.World;
-import powercrystals.minefactoryreloaded.MFRRegistry;
-import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
-import powercrystals.minefactoryreloaded.api.HarvestType;
-import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableStandard;
-import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableTreeLeaves;
-import powercrystals.minefactoryreloaded.farmables.plantables.PlantableStandard;
-import powercrystals.minefactoryreloaded.modhelpers.FertilizableCropReflection;
-import powercrystals.minefactoryreloaded.modhelpers.FertilizableSaplingReflection;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+
+import java.lang.reflect.Method;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
+
+import powercrystals.minefactoryreloaded.MFRRegistry;
+import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
+import powercrystals.minefactoryreloaded.api.HarvestType;
+import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableStandard;
+import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableTreeLeaves;
+import powercrystals.minefactoryreloaded.farmables.harvestables.HarvestableWood;
+import powercrystals.minefactoryreloaded.farmables.plantables.PlantableStandard;
+import powercrystals.minefactoryreloaded.modhelpers.FertilizableCropReflection;
+import powercrystals.minefactoryreloaded.modhelpers.FertilizableSaplingReflection;
 
 @Mod(modid = "MineFactoryReloaded|CompatAtum", name = "MFR Compat: Atum", version = MineFactoryReloadedCore.version, dependencies = "after:MineFactoryReloaded;after:Atum")
 @NetworkMod(clientSideRequired = false, serverSideRequired = false)
@@ -72,7 +75,7 @@ public class Atum
 			MFRRegistry.registerFertilizable(new FertilizableCropReflection(flaxId, atumFlaxFertilize, 5));
 			MFRRegistry.registerFertilizable(new FertilizableSaplingReflection(atumSaplingId, atumSaplingGrowTree));
 			
-			MFRRegistry.registerHarvestable(new HarvestableStandard(atumLogId, HarvestType.Tree));
+			MFRRegistry.registerHarvestable(new HarvestableWood(atumLogId));
 			MFRRegistry.registerHarvestable(new HarvestableTreeLeaves(atumLeavesId));
 			MFRRegistry.registerHarvestable(new HarvestableStandard(flaxId, HarvestType.Normal));
 			MFRRegistry.registerHarvestable(new HarvestableStandard(papyrusId, HarvestType.LeaveBottom));

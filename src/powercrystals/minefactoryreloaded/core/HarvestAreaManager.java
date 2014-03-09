@@ -133,6 +133,11 @@ public class HarvestAreaManager
 		hasDirtyUpgrade = true;
 	}
 	
+	public int getUpgradeLevel()
+	{
+		return _upgradeLevel;
+	}
+	
 	public Packet getUpgradePacket(TileEntity e)
 	{
 		if (hasDirtyUpgrade)

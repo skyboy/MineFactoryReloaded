@@ -15,6 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
@@ -154,7 +155,10 @@ public class ItemFactoryCup extends ItemFactory implements IAdvFluidContainerIte
 		if (fluid == null)
 		{
 			if (doFill)
+			{
 				fluid = resource.copy();
+				fluid.amount = 0;
+			}
 		}
 		else if (!fluid.isFluidEqual(resource))
 			return 0;
@@ -165,7 +169,7 @@ public class ItemFactoryCup extends ItemFactory implements IAdvFluidContainerIte
 		{
 			if (tag == null)
 				tag = stack.stackTagCompound = new NBTTagCompound();
-			fluid.amount = fillAmount;
+			fluid.amount += fillAmount;
 			tag.setTag("fluid", fluid.writeToNBT(fluidTag == null ? new NBTTagCompound() : fluidTag));
 			tag.setLong("uniqifier", (System.identityHashCode(resource) << 32) |
 					System.identityHashCode(stack));
@@ -182,22 +186,50 @@ public class ItemFactoryCup extends ItemFactory implements IAdvFluidContainerIte
 				(fluidTag = tag.getCompoundTag("fluid")) == null ||
 				(fluid = FluidStack.loadFluidStackFromNBT(fluidTag)) == null)
 			return null;
-		int drainAmount = (int)(Math.min(maxDrain, fluid.amount) * (Math.max(Math.random() - 0.75, 0) + 0.75));
+		int drainAmount = Math.min(maxDrain, fluid.amount);
 		if (doDrain)
 		{
+			tag.removeTag("fluid");
+			tag.removeTag("uniqifier");
+			fluid.amount -= drainAmount;
+			if (fluid.amount > 0)
+				fill(stack, fluid, true);
 			if (tag.hasKey("toDrain"))
 			{
 				drainAmount = tag.getInteger("toDrain");
 				tag.removeTag("toDrain");
 			}
-			tag.removeTag("fluid");
-			tag.removeTag("uniqifier");
-			stack.setItemDamage(stack.getItemDamage() + 1);
+			else
+				drainAmount *= (Math.max(Math.random() - 0.75, 0) + 0.75);
 		}
 		else
+		{
+			drainAmount *= (Math.max(Math.random() - 0.75, 0) + 0.75);
 			tag.setInteger("toDrain", drainAmount);
+		}
 		fluid.amount = drainAmount;
 		return fluid;
+	}
+
+	@Override
+	public ItemStack getContainerItemStack(ItemStack itemStack)
+	{
+		ItemStack r = itemStack.copy();
+		r.stackSize = 1;
+		r.attemptDamageItem(1, itemRand);
+		return r;
+	}
+
+	@Override
+	public Item getContainerItem()
+	{
+		return this;
+	}
+
+	@Override
+	public boolean hasContainerItem()
+	{
+		return true;
 	}
 
 	public boolean hasDrinkableLiquid(ItemStack stack)

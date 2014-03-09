@@ -2,79 +2,62 @@ package powercrystals.minefactoryreloaded.farmables.plantables;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
-import powercrystals.minefactoryreloaded.api.IFactoryPlantable;
 
-public class PlantableCocoa implements IFactoryPlantable
+public class PlantableCocoa extends PlantableStandard
 {
-	@Override
-	public int getSeedId()
+	public PlantableCocoa(int sourceId, int plantedBlockId)
 	{
-		return Item.dyePowder.itemID;
+		super(sourceId, plantedBlockId);
 	}
 	
-	@Override
-	public int getPlantedBlockId(World world, int x, int y, int z, ItemStack stack)
+	public PlantableCocoa(int sourceId, int plantedBlockId, int validMeta)
 	{
-		return Block.cocoaPlant.blockID;
-	}
-	
-	@Override
-	public int getPlantedBlockMetadata(World world, int x, int y, int z, ItemStack stack)
-	{
-		return 0;
+		super(sourceId, plantedBlockId, validMeta);
 	}
 	
 	@Override
 	public boolean canBePlantedHere(World world, int x, int y, int z, ItemStack stack)
 	{
-		return stack.getItemDamage() == 3 && world.isAirBlock(x, y, z) && isNextToJungleLog(world, x, y, z);
-	}
-	
-	private boolean isNextToJungleLog(World world, int x, int y, int z)
-	{
-		if (isJungleLog(world, x+1, y, z)
-				|| isJungleLog(world, x-1, y, z)
-				|| isJungleLog(world, x, y, z+1)
-				|| isJungleLog(world, x, y, z-1))
+		if(!world.isAirBlock(x, y, z) || (_validMeta != WILDCARD && stack.getItemDamage() != _validMeta))
 		{
-			return true;
+			return false;
 		}
-		
-		return false;
+		return isNextToAcceptableLog(world, x, y, z);
 	}
 	
-	private boolean isJungleLog(World world, int x, int y, int z)
+	protected boolean isNextToAcceptableLog(World world, int x, int y, int z)
+	{
+		return isGoodLog(world, x+1, y, z) ||
+				isGoodLog(world, x-1, y, z) ||
+				isGoodLog(world, x, y, z+1) ||
+				isGoodLog(world, x, y, z-1);
+	}
+	
+	protected boolean isGoodLog(World world, int x, int y, int z)
 	{
 		return world.getBlockId(x, y, z) == Block.wood.blockID && BlockLog.limitToValidMetadata(world.getBlockMetadata(x, y, z)) == 3;
 	}
 	
 	@Override
-	public void prePlant(World world, int x, int y, int z, ItemStack stack)
-	{
-	}
-	
-	@Override
-	public void postPlant(World world, int x, int y, int z, ItemStack stack)
+	public int getPlantedBlockMetadata(World world, int x, int y, int z, ItemStack stack)
 	{
 		int blockDirection = 4; // NORTH
-		if (isJungleLog(world, x-1, y, z))
+		if (isGoodLog(world, x-1, y, z))
 		{
 			blockDirection = 5; // SOUTH
 		}
-		else if (isJungleLog(world, x, y, z+1))
+		else if (isGoodLog(world, x, y, z+1))
 		{
 			blockDirection = 2; // EAST
 		}
-		else if (isJungleLog(world, x, y, z-1))
+		else if (isGoodLog(world, x, y, z-1))
 		{
 			blockDirection = 3; // WEST
 		}
 		
-		world.setBlockMetadataWithNotify(x, y, z, Direction.rotateOpposite[Direction.facingToDirection[blockDirection]], 2);
+		return Direction.rotateOpposite[Direction.facingToDirection[blockDirection]];
 	}
-	
 }

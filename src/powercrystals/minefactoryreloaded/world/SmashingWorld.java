@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -22,6 +23,12 @@ public class SmashingWorld extends WorldProxy
 	public SmashingWorld(World world)
 	{
 		super(world);
+	}
+	
+	@Override
+	public boolean spawnEntityInWorld(Entity par1Entity)
+	{
+		return true;
 	}
 
 	@Override
@@ -100,5 +107,4 @@ public class SmashingWorld extends WorldProxy
 		}
 		return drops;
 	}
-
 }

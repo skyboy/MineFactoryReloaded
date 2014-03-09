@@ -1,11 +1,14 @@
 package powercrystals.minefactoryreloaded.farmables.safarinethandlers;
 
+import static net.minecraft.util.EnumChatFormatting.*;
+
 import java.util.List;
 
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
 import powercrystals.minefactoryreloaded.api.ISafariNetHandler;
 
 public class EntityLivingHandler implements ISafariNetHandler
@@ -13,7 +16,7 @@ public class EntityLivingHandler implements ISafariNetHandler
 	@Override
 	public Class<?> validFor()
 	{
-		return EntityLivingBase.class;
+		return EntityLiving.class;
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -29,6 +32,7 @@ public class EntityLivingHandler implements ISafariNetHandler
 				infoList.add("Name: " + name);
 			}
 		}
-		infoList.add("Health: " + (tag.getShort("Health")));
+		if (advancedTooltips && tag.getBoolean("PersistenceRequired"))
+			infoList.add(DARK_GRAY + (ITALIC + "Persistant"));
 	}
 }

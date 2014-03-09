@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
 import powercrystals.minefactoryreloaded.api.rednet.IRedNetNoConnection;
 import powercrystals.minefactoryreloaded.gui.MFRCreativeTab;
+import powercrystals.minefactoryreloaded.world.WorldGenMassiveTree;
 import powercrystals.minefactoryreloaded.world.WorldGenRubberTree;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -46,22 +47,30 @@ public class BlockRubberSapling extends BlockSapling implements IRedNetNoConnect
 	public void growTree(World world, int x, int y, int z, Random rand)
 	{
 		if (world.isRemote)
-		{
 			return;
-		}
-		
+
+		int meta = world.getBlockMetadata(x, y, z);
 		world.setBlockToAir(x, y, z);
 		
-		if(!treeGen.growTree(world, rand, x, y, z))
+		if (meta == 1)
 		{
-			world.setBlock(x, y, z, blockID, 0, 4);
+			if (!new WorldGenMassiveTree().generate(world, rand, x, y, z))
+				world.setBlock(x, y, z, blockID, 1, 4);
 		}
+		else if (!treeGen.growTree(world, rand, x, y, z))
+			world.setBlock(x, y, z, blockID, 0, 4);
 	}
 	
 	@Override
 	public int idDropped(int meta, Random rand, int fortune)
 	{
 		return MineFactoryReloadedCore.rubberSaplingBlock.blockID;
+	}
+
+	@Override
+	public int damageDropped(int par1)
+	{
+		return par1;
 	}
 	
 	@Override
