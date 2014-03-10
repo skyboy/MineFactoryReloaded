@@ -10,7 +10,7 @@ Compiling
 
 You will need Apache Ant and Git.
 
-Run: https://github.com/skyboy/MineFactoryReloaded.git; && cd MineFactoryReloaded
+Run: git clone https://github.com/skyboy/MineFactoryReloaded.git; && cd MineFactoryReloaded
 
 It should download the repository and cd into the repository.
 
