@@ -391,6 +391,8 @@ chat.info.mfr.rednet.connection.cableonly = Set cable to cable-only connection m
 
 chat.info.mfr.bag.stacksize = You can only open one bag at a time
 
+tip.info.mfr.cannotplace = Cannot place for %s more seconds.
+
 tip.info.mfr.holdShift1 = Hold
 tip.info.mfr.holdShift2 = Shift
 tip.info.mfr.holdShift3 = for more information

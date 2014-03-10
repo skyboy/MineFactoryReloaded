@@ -61,6 +61,11 @@ public class MFRUtil
 		return localize(s + ".name", false);
 	}
 
+	public static String localize(String prefix, String s)
+	{
+		return localize(prefix + s + ".name", true, s);
+	}
+
 	public static String localize(String s, boolean exists)
 	{
 		return localize(s, exists, s);

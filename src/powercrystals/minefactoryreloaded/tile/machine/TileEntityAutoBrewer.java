@@ -95,6 +95,12 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered
 			
 			if (current != null && current.getItem() instanceof ItemPotion)
 			{
+				if (ingredient == null)
+				{
+					_inventory[getProcessSlot(row + 1)] = current;
+					_inventory[getProcessSlot(row)] = null;
+					continue;
+				}
 				for (int i = 0; i < 3; i++)
 				{
 					int slot = getResourceSlot(row, i);
