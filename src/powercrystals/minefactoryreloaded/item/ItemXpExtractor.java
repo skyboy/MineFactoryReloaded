@@ -61,7 +61,7 @@ public class ItemXpExtractor extends ItemFactory
 	{
 		if(player.experienceLevel > 0 && player.inventory.hasItem(Item.bucketEmpty.itemID))
 		{
-			player.experienceLevel--;
+			removeExperience(player, 17);
 			player.inventory.consumeInventoryItem(Item.bucketEmpty.itemID);
 			if(!player.inventory.addItemStackToInventory(new ItemStack(MineFactoryReloadedCore.mobEssenceBucketItem)))
 			{
@@ -92,4 +92,21 @@ public class ItemXpExtractor extends ItemFactory
 		
 		itemIcon = _icon1;
 	}
+	
+	private void removeExperience(EntityPlayer player, int xp)
+    	{
+	        player.experience -= (float)xp / (float)player.xpBarCap();
+	
+	        for (player.experienceTotal -= xp; player.experience <= 0F; player.experience = (player.experience/(float)player.xpBarCap()) + 1)
+	        {
+	        	player.experience *= (float)player.xpBarCap();
+	        	player.addExperienceLevel(-1);
+	        }
+	        
+	        if (player.experience > 1-(1/(float)player.xpBarCap()))
+	        {
+	        	player.experience = 0;
+	        	player.experienceLevel += 1;
+	        }
+    	}
 }
