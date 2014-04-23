@@ -22,6 +22,10 @@ local.properties
 # Locally stored "Eclipse launch configurations"
 *.launch
 
+# IntelliJ IDEA
+.idea
+*.iml
+
 # CDT-specific
 .cproject
 

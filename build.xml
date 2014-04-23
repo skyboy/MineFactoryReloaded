@@ -332,6 +332,12 @@
 			</fileset>
 		</unzip>
 		
+		<!-- fix for bad hash as Mojang re-released 1.6.4 without bumping version number -->
+		<replace file="${forge.dir}/fml/mc_versions.cfg" 
+		    token="server_md5 = ba3145656b1480122bd8759cecd7b7a1" value="server_md5 = abcf286a14f7aee82e8bf89270433509"/>
+		<replace file="${forge.dir}/fml/conf/mcp.cfg" 
+		    token="MD5Server  = ba3145656b1480122bd8759cecd7b7a1" value="MD5Server  = abcf286a14f7aee82e8bf89270433509"/>
+		
 		<!-- Change executables' permitions -->
 		<chmod file="${forge.dir}/install.sh" perm="+x"/>
 
@@ -392,10 +398,12 @@
 
 	<target name="download-core" unless="forge-exists">
 		<echo message="Downloading PowerCrystalsCore... " />
-		<get src="https://github.com/skyboy/PowerCrystalsCore/archive/master.zip" dest="${download.dir}/PowerCrystalsCore-master.zip"/>
+		<!--<get src="https://github.com/skyboy/PowerCrystalsCore/archive/master.zip" dest="${download.dir}/PowerCrystalsCore-master.zip"/>-->
+		<get src="https://github.com/skyboy/PowerCrystalsCore/archive/331a83220ec2678cf5cfee5578750c7a696ac903.zip" dest="${download.dir}/PowerCrystalsCore-master.zip"/>
 		
 		<echo message="Extracting PowerCrystalsCore... " />
 		<unzip src="${download.dir}/PowerCrystalsCore-master.zip" dest="${download.dir}"/>
+		<move file="${download.dir}/PowerCrystalsCore-331a83220ec2678cf5cfee5578750c7a696ac903" tofile="${download.dir}/PowerCrystalsCore-master"/>
 	</target>
 
 	<target name="download-ant-contrib" unless="should-download-ant-contrib">
