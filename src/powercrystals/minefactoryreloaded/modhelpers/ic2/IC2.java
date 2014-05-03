@@ -38,23 +38,6 @@ public class IC2
 	@EventHandler
 	public static void postLoad(FMLPostInitializationEvent evt)
 	{
-		ItemStack booties = new ItemStack(Item.bootsLeather, 64, 0);
-		Item.bootsLeather.func_82813_b(booties, 0x3479F2);
-		OreDictionary.registerOre("greggy_greg_do_please_kindly_stuff_a_sock_in_it", booties);
-		
-		if (Loader.isModLoaded("gregtech_addon"))
-		{
-			for (String str : OreDictionary.getOreNames())
-			{
-				ArrayList<ItemStack> list = OreDictionary.getOres(str); 
-				for (int i = list.size(); i --> 0; )
-				{
-					ItemStack stack = list.get(i);
-					OreDictionary.registerOre(str, stack);
-					OreDictionary.registerOre("\ngreggy_greg_do_please_kindly_stuff_a_sock_in_it\n" + str, stack);
-				}
-			}
-		}
 	}
 
 	@EventHandler
