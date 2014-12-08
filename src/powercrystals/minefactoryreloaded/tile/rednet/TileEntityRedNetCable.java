@@ -470,6 +470,8 @@ public class TileEntityRedNetCable extends TileEntityBase implements INode, ITra
 
 	public byte getMode(int side)
 	{
+		if (side == 6)
+			return _cableMode[side];
 		return (byte) (_cableMode[side] >> 1);
 	}
 
@@ -677,8 +679,13 @@ public class TileEntityRedNetCable extends TileEntityBase implements INode, ITra
 
 	public boolean isSolidOnSide(int side)
 	{
-		int m = _cableMode[side], i = m >> 1;
-				return ((m & 1) == 1) & i != 3 & i != 1;
+		if (_cableMode[6] == 1)
+			return false;
+		int m = _cableMode[side], i;
+		{
+			i = m >> 1;
+		}
+		return ((m & 1) == 1) & i != 3 & i != 1;
 	}
 
 	@Override

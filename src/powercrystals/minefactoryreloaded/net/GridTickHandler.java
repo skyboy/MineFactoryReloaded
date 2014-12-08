@@ -110,9 +110,10 @@ public class GridTickHandler<G extends IGrid, N extends INode> implements IGridC
 				Iterator<N> iter = conduit.iterator();
 				while (iter.hasNext())
 				{
-					cond = iter.next();
-					if (!cond.isNotValid())
-						cond.updateInternalTypes(this);
+					synchronized (cond = iter.next()) {
+						if (!cond.isNotValid())
+							cond.updateInternalTypes(this);
+					}
 				}
 				conduit.clear();
 			} catch(Throwable _) {
@@ -167,9 +168,10 @@ public class GridTickHandler<G extends IGrid, N extends INode> implements IGridC
 				Iterator<N> iter = conduit.iterator();
 				while (iter.hasNext())
 				{
-					cond = iter.next();
-					if (!cond.isNotValid())
-						cond.firstTick(this);
+					synchronized (cond = iter.next()) {
+						if (!cond.isNotValid())
+							cond.firstTick(this);
+					}
 				}
 				conduit.clear();
 			} catch(Throwable _) {

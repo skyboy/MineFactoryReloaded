@@ -1,6 +1,8 @@
 package powercrystals.minefactoryreloaded.render.item;
 
+import cofh.repack.codechicken.lib.lighting.LightModel;
 import cofh.repack.codechicken.lib.render.CCModel;
+import cofh.repack.codechicken.lib.render.CCRenderState;
 import cofh.repack.codechicken.lib.vec.Scale;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -33,6 +35,12 @@ public class NeedleGunItemRenderer implements IItemRenderer
 					MineFactoryReloadedCore.modelFolder + "NeedleGun.obj"), 4, new Scale(0.03, 0.03, 0.03));
 			base = gunModels.get("gun").backfacedCopy();
 			mag = gunModels.get("magazine").backfacedCopy();
+
+			base.computeNormals();
+			base.computeLighting(LightModel.standardLightModel);
+
+			mag.computeNormals();
+			mag.computeLighting(LightModel.standardLightModel);
 		}
 		catch(Exception e)
 		{
@@ -55,6 +63,7 @@ public class NeedleGunItemRenderer implements IItemRenderer
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data)
 	{
+		GL11.glEnable(GL11.GL_LIGHTING);
 		TextureManager renderengine = Minecraft.getMinecraft().renderEngine;
 
 		if (renderengine != null)
@@ -62,6 +71,7 @@ public class NeedleGunItemRenderer implements IItemRenderer
 			renderengine.bindTexture(needleGun);
 		}
 
+		CCRenderState.reset();
 		GL11.glPushMatrix();
 
 		if (type == ItemRenderType.EQUIPPED_FIRST_PERSON)
@@ -77,6 +87,7 @@ public class NeedleGunItemRenderer implements IItemRenderer
 		}
 		else
 		{
+			GL11.glDisable(GL11.GL_LIGHTING);
 			GL11.glRotatef(270, 1, 0, 0);
 			GL11.glTranslatef(0, -0.4F, 0);
 		}
@@ -89,5 +100,6 @@ public class NeedleGunItemRenderer implements IItemRenderer
 		Tessellator.instance.draw();
 
 		GL11.glPopMatrix();
+		GL11.glEnable(GL11.GL_LIGHTING);
 	}
 }
