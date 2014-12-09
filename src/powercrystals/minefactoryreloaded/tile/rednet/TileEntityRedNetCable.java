@@ -190,7 +190,7 @@ public class TileEntityRedNetCable extends TileEntityBase implements INode, ITra
 	@Override
 	public void updateInternalTypes(IGridController grid)
 	{
-		if (grid != RedstoneNetwork.HANDLER) return;
+		if (grid != RedstoneNetwork.HANDLER || worldObj == null) return;
 		boolean lastNode = isRSNode;
 		ForgeDirection[] dirs = ForgeDirection.VALID_DIRECTIONS;
 		dirty = false;
@@ -518,6 +518,9 @@ public class TileEntityRedNetCable extends TileEntityBase implements INode, ITra
 		if (_cableMode[6] == 1)
 			_mode = 3;
 
+		if(worldObj == null) {
+			return RedNetConnectionType.None;
+		}
 		int x = xCoord + side.offsetX;
 		int y = yCoord + side.offsetY;
 		int z = zCoord + side.offsetZ;
