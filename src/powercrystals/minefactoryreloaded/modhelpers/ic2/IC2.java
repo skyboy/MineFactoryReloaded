@@ -30,14 +30,6 @@ import powercrystals.minefactoryreloaded.setup.MFRThings;
 customProperties = @CustomProperty(k = "cofhversion", v = "true"))
 public class IC2
 {
-	@EventHandler
-	public static void postLoad(FMLPostInitializationEvent evt)
-	{
-		ItemArmor boots = net.minecraft.init.Items.leather_boots;
-		ItemStack booties = new ItemStack(boots, 64, 0);
-		boots.func_82813_b(booties, 0x3479F2);
-		OreDictionary.registerOre("greggy_greg_do_please_kindly_stuff_a_sock_in_it", booties);
-	}
 
 	@EventHandler
 	@Strippable("mod:IC2")
