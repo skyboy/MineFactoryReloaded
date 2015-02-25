@@ -9,7 +9,7 @@ import powercrystals.minefactoryreloaded.setup.MFRThings;
 
 public class MFRCreativeTab extends CreativeTabs
 {
-	public static final MFRCreativeTab tab = new MFRCreativeTab("MineFactory Reloaded", true);
+	public static final MFRCreativeTab tab = new MFRCreativeTab(MineFactoryReloadedCore.modName, true);
 	private boolean search;
 
 	public MFRCreativeTab(String label, boolean searchbar)
@@ -46,7 +46,13 @@ public class MFRCreativeTab extends CreativeTabs
     @Override
     public int getSearchbarWidth() {
 
-        return 62;
+        return 89;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean drawInForegroundOfTab() {
+        return false;
     }
 
 	@Override
