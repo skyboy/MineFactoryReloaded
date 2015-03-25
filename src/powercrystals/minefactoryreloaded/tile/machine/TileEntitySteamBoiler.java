@@ -143,8 +143,14 @@ public class TileEntitySteamBoiler extends TileEntityFactoryInventory
 
 			if (_temp > 80)
 			{
-				int i = drain(_tanks[1], 100, true);
-				_tanks[0].fill(new FluidStack(_liquidId, i * 4), true);
+				int maxDrain = Math.min(_tanks[0].getSpace(), 400);
+				
+				if ( maxDrain >= 4 ) // as it gets divided by 4, < 4 = 0 (see below)
+				{
+					int i = drain(_tanks[1], (maxDrain / 4), true);
+					_tanks[0].fill(new FluidStack(_liquidId, i * 4), true);
+				}
+				
 			}
 
 			if (skipConsumption || CoreUtils.isRedstonePowered(this))
