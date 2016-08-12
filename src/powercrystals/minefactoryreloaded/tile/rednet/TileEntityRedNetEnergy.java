@@ -369,6 +369,28 @@ public class TileEntityRedNetEnergy extends TileEntityRedNetCable implements
 		return 0;
 	}
 
+	@Override
+	public InterfaceType getTransportState(ForgeDirection from) {
+
+		if (transportTypes != null) {
+			return transportTypes[from.ordinal() ^ 1];
+		}
+		return InterfaceType.BALANCE;
+	}
+
+	@Override
+	public boolean setTransportState(InterfaceType state, ForgeDirection from) {
+
+		if ((sideMode[from.ordinal() ^ 1] >> 1) == 1 || !isInterfacing(from)) {
+			return false;
+		}
+		if (transportTypes == null) {
+			createTransportTypes();
+		}
+		transportTypes[from.ordinal() ^ 1] = state;
+		return true;
+	}
+
 	// ICrankable
 
 	@Override
@@ -430,28 +452,6 @@ public class TileEntityRedNetEnergy extends TileEntityRedNetCable implements
 			nbt.setInteger("Energy", energyForGrid);
 		else
 			energyForGrid = 0;
-	}
-
-	@Override
-	public InterfaceType getTransportState(ForgeDirection from) {
-
-		if (transportTypes != null) {
-			return transportTypes[from.ordinal() ^ 1];
-		}
-		return InterfaceType.BALANCE;
-	}
-
-	@Override
-	public boolean setTransportState(InterfaceType state, ForgeDirection from) {
-
-		if ((sideMode[from.ordinal() ^ 1] >> 1) == 1 || !isInterfacing(from)) {
-			return false;
-		}
-		if (transportTypes == null) {
-			createTransportTypes();
-		}
-		transportTypes[from.ordinal() ^ 1] = state;
-		return true;
 	}
 
 	void extract(ForgeDirection side, EnergyStorage storage) {

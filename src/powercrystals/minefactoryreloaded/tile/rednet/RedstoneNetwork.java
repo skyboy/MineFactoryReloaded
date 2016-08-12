@@ -354,7 +354,7 @@ public class RedstoneNetwork implements IGrid {
 		}
 
 		if (!_singleNodes[subnet].contains(node)) {
-			removeNode(node);
+			removeNode(node, false);
 			log("Network with ID %d:%d adding node %s", hashCode(), subnet, node);
 
 			_singleNodes[subnet].add(node);
@@ -385,7 +385,7 @@ public class RedstoneNetwork implements IGrid {
 			_updateSubnets[subnet] = _mustUpdate = true;
 	}
 
-	public void removeNode(BlockPosition node) {
+	public void removeNode(BlockPosition node, boolean unloading) {
 
 		boolean omniNode = _omniNodes.remove(node);
 		boolean notify = omniNode;
@@ -406,7 +406,7 @@ public class RedstoneNetwork implements IGrid {
 			}
 		}
 
-		if (notify) {
+		if (notify & !unloading) {
 			Block block = _world.getBlock(node.x, node.y, node.z);
 			if (block == rednetCableBlock) {
 				return;

@@ -14,7 +14,7 @@ import powercrystals.minefactoryreloaded.net.GridTickHandler;
 
 public class RedstoneEnergyNetwork implements IGrid {
 
-	public static final int TRANSFER_RATE = 1000;
+	public static final int TRANSFER_RATE = 2560;
 	public static final int STORAGE = TRANSFER_RATE * 6;
 	static final GridTickHandler<RedstoneEnergyNetwork, TileEntityRedNetEnergy> HANDLER =
 			GridTickHandler.energy;

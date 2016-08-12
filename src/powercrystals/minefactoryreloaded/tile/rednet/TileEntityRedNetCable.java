@@ -112,7 +112,7 @@ public class TileEntityRedNetCable extends TileEntityBase implements INode, ITra
 
 		markForRegen();
 		for (ForgeDirection d : ForgeDirection.VALID_DIRECTIONS)
-			_network.removeNode(new BlockPosition(xCoord, yCoord, zCoord, d).step(d));
+			_network.removeNode(new BlockPosition(xCoord, yCoord, zCoord, d).step(d), true);
 		_network.removeConduit(this);
 		_network = null;
 	}
@@ -247,7 +247,7 @@ public class TileEntityRedNetCable extends TileEntityBase implements INode, ITra
 				_network.addOrUpdateNode(bp, subnet, connectionType.isPlate);
 			}
 		} else {
-			_network.removeNode(bp);
+			_network.removeNode(bp, false);
 		}
 	}
 

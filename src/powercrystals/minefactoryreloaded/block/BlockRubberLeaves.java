@@ -61,8 +61,13 @@ public class BlockRubberLeaves extends BlockLeaves implements IRedNetNoConnectio
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
-		meta &= 3;
-		return !isOpaqueCube() ? _iconTransparent[meta] : _iconOpaque[meta];
+		meta %= 4; // bits 3 and 4 are state flags
+		// using mod instead of bitand to preserve sign just incase something is passing us a negative value
+		if (meta < 0 || meta >= _names.length) {
+			return Blocks.bedrock.getIcon(0, 0); // invalid metadata gets something distinct (green bedrock!)
+		}
+
+		return isOpaqueCube() ? _iconOpaque[meta] : _iconTransparent[meta];
 	}
 
 	@Override
