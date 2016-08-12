@@ -29,7 +29,7 @@ public class BlockFactoryPlastic extends BlockFactory {
 	public void registerBlockIcons(IIconRegister ir) {
 
 		for (int i = 0; i < _icons.length; i++) {
-			String name = getName(unlocalizedName, _names[i]);
+			String name = getName(getUnlocalizedName(), _names[i]);
 			_icons[i] = ir.registerIcon("minefactoryreloaded:tile." + name);
 		}
 	}
