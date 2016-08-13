@@ -575,5 +575,7 @@
 		<antcall target="install"/>
 	</target>
 
-	<target name="jar" depends="install"/>
+	//jar is used in the new Gradle scripts, hope changing it doesn't break anything 
+	//for the ant builder - sorry!  LakMoore
+	<target name="jar2" depends="install"/>
 </project>
