@@ -123,6 +123,7 @@ task 'setup-forge' (overwrite: true, dependsOn: copyToDirty)
 
 task setupDecompWorkspace (overwrite: true, dependsOn: 'setup-forge' )
 
+/*
 sourceSets {
     main {
         java {
@@ -133,4 +134,4 @@ sourceSets {
         }
     }
 }
-
+*/
