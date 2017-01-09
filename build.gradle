@@ -1,0 +1,153 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+ant.importBuild 'build.xml'
+
+// Basic directories
+def srcdir = ant.properties['src.dir']
+def builddir = ant.properties['build.dir']
+def resourcesdir = ant.properties['resources.dir']
+def downloaddir = ant.properties['download.dir']
+
+// Forge paths
+def forgeversion = ant.properties['forge.version']
+def forgedir = ant.properties['forge.dir']
+def forgebuilddir = ant.properties['forgebuild.dir']
+def compiledir = ant.properties['compile.dir']
+def libdir = ant.properties['lib.dir']
+def sourcesdir = ant.properties['sources.dir']
+def transformersdir = ant.properties['transformers.dir']
+def forgestsh = ant.properties['forge.stsh']
+def forgejar = ant.properties['forge.jar']
+def reobfcmd = ant.properties['reobf.cmd']
+def forgeurl = ant.properties['forge.url']
+
+//classpath
+def mcpclasspath = files(forgejar)
+mcpclasspath += fileTree(libdir) {
+	include '*.jar'
+	include '**/*.jar'
+//	exclude reobfjar    //reobfjar doesn't exist!?!?
+}
+mcpclasspath += fileTree("${builddir}/.gradle/caches") {
+	include 'modules*/files*/**/*.jar'
+	exclude 'modules*/files*/commons-io/commons-io/1.4/**/*.jar'
+	exclude 'modules*/files*/com.google.guava/guava/14*/**/*.jar'
+	exclude 'modules*/files*/com.google.guava/guava/15*/**/*.jar'
+	exclude 'modules*/files*/org.ow2.asm/asm-debug-all/4*/**/*.jar'
+}
+
+task unzipForge(type: Copy, dependsOn: 'download-forge') {
+    inputs.file "${downloaddir}/forge-${forgeversion}-src.zip"
+	
+//	new File(forgedir).deleteDir()
+    def zipFile = file("${downloaddir}/forge-${forgeversion}-src.zip")
+    def outputDir = file(forgedir)
+    outputDir.mkdir()
+ 
+    from zipTree(zipFile)
+    into outputDir
+}
+
+task cleanUpForge(type:Delete, dependsOn: unzipForge) {
+    delete	fileTree(forgedir).include('*.txt'), 
+		    fileTree("${forgedir}/src").include('**/*.info'),
+		    "${forgedir}/eclipse",
+		    "${forgedir}/src/main/java",
+		    "${builddir}/.gradle/caches/minecraft/net/minecraftforge/forge/${forgeversion}/srgs"
+}
+
+task buildForge(type:Exec, dependsOn: cleanUpForge) {
+    inputs.file "${downloaddir}/forge-${forgeversion}-src.zip"
+	outputs.dir forgebuilddir
+	
+	workingDir file(forgedir)
+	commandLine './gradlew', '-g=../.gradle', 'extractMinecraftSrc', 'eclipseClasspath'
+}
+
+task compileForge(type:JavaCompile, dependsOn: buildForge) {
+	source = fileTree("${forgebuilddir}/tmp/recompSrc")
+	destinationDir = file(compiledir)
+	sourceCompatibility = '1.7'
+	targetCompatibility = '1.7'
+	classpath = mcpclasspath
+	dependencyCacheDir = file("${forgebuilddir}/tmp/depcache")
+	options.debug = true
+	options.debugOptions.setDebugLevel('lines,source')
+	doFirst {
+	    new File(compiledir).mkdir()
+	    new File(libdir).mkdir()	    
+	}
+}
+
+task makeForgeJar (type:Jar, dependsOn: compileForge) {
+	archiveName "${forgejar}1"
+	from fileTree(compiledir)
+}
+
+task moveTransformers (type: Copy, dependsOn: makeForgeJar) {
+	from "${downloaddir}/CoFHCore-master/src/main/resources/CoFH_at.cfg" 
+	from "${resourcesdir}/META-INF/MFR_at.cfg" 
+	into "${transformersdir}/"
+}
+
+task reobfuscateToSRG (type: JavaExec, dependsOn: moveTransformers) {
+	classpath = fileTree(reobfcmd)
+	main = 'immibis.bon.cui.MCPRemap'
+	args = ['-q', '-m', '-to SRG', '-from MCP',
+			"-mcp ${forgestsh}/unpacked",
+			"-in ${forgejar}1",
+			"-out ${forgejar}2",
+			"-jref ${libdir}"]
+}
+
+task reobfuscateToMCP (type: JavaExec, dependsOn: reobfuscateToSRG) {
+	classpath = fileTree(reobfcmd)
+	main = 'immibis.bon.cui.MCPRemap'
+	args = ['-q', '-m', '-to MCP', '-from SRG',
+			"-mcp ${forgestsh}/unpacked",
+			"-in ${forgejar}2",
+			"-out ${forgejar}",
+			"-jref ${libdir}",
+			"-at ${transformersdir}"]
+}
+
+task tidyUp (type: Delete, dependsOn: reobfuscateToMCP) {
+  delete "${forgejar}1", "${forgejar}2", compiledir
+}
+
+task copyToDirty (type:Copy, dependsOn: tidyUp) {
+	from file(forgejar)
+	into "${builddir}/dirtyArtifacts/"
+}
+
+task 'setup-forge' (overwrite: true, dependsOn: copyToDirty)
+
+//just named it like this so that it is familiar
+task setupDecompWorkspace (overwrite: true, dependsOn: 'build' )
+
+eclipse {
+    classpath {
+        file.whenMerged { cp ->
+            cp.entries.add( 
+            	new org.gradle.plugins.ide.eclipse.model.SourceFolder(
+            	"${builddir}/.gradle/caches/minecraft/net/minecraftforge/forge/${forgeversion}/forgeSrc-${forgeversion}-sources.jar",
+            	null)
+            )
+        }
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'resources'
+        }
+    }
+}
+
+dependencies {
+	compile mcpclasspath + fileTree(libdir)
+}
