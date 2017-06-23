@@ -146,7 +146,26 @@ public abstract class MFRLiquidMover {
 		}
 		return 0;
 	}
+	
+	public static int fillTankWithXP(FluidTankCore tank, int XP) {
 
+		int maxAmount = tank.getSpace(), maxXP = (int) (maxAmount / 66.66666667f);
+		if (maxAmount <= 0) {
+			return 0;
+		}
+		int found = Math.min(XP, maxXP);
+		XP -= found;
+		if (XP <= 0) {
+			found = Math.max(found, 0);
+		}
+		if (found > 0) {
+			found = (int) (found * 66.66666667f);
+			tank.fill(FluidRegistry.getFluidStack("mob_essence", found), true);
+			return found;
+		}
+		return 0;
+	}
+	
 	public static void pumpLiquid(IFluidTank iFluidTank, TileEntityFactory from) {
 
 		if (iFluidTank != null && iFluidTank.getFluid() != null && iFluidTank.getFluid().amount > 0) {

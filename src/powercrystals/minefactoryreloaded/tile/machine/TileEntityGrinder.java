@@ -1,19 +1,29 @@
 package powercrystals.minefactoryreloaded.tile.machine;
 
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
 import cofh.core.fluid.FluidTankCore;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.WeightedRandom;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
+import net.minecraftforge.event.entity.living.ZombieEvent.SummonAidEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import powercrystals.minefactoryreloaded.MFRRegistry;
@@ -26,19 +36,15 @@ import powercrystals.minefactoryreloaded.gui.client.GuiFactoryPowered;
 import powercrystals.minefactoryreloaded.gui.container.ContainerFactoryPowered;
 import powercrystals.minefactoryreloaded.setup.Machine;
 import powercrystals.minefactoryreloaded.tile.base.TileEntityFactoryPowered;
-import powercrystals.minefactoryreloaded.world.GrindingWorldServer;
-
-import java.util.List;
-import java.util.Random;
 
 public class TileEntityGrinder extends TileEntityFactoryPowered {
 
 	public static final float DAMAGE = 0x1.fffffeP+120f;
-
+	
 	protected Random _rand;
-	protected GrindingWorldServer _grindingWorld;
 	protected GrindingDamage _damageSource;
-
+	protected EntityEventController _entityEventController;
+	
 	protected TileEntityGrinder(Machine machine) {
 
 		super(machine);
@@ -46,13 +52,17 @@ public class TileEntityGrinder extends TileEntityFactoryPowered {
 		_rand = new Random();
 		setManageSolids(true);
 		setCanRotate(true);
-		_tanks[0].setLock(FluidRegistry.getFluid("mob_essence"));
+		_entityEventController = new EntityEventController(this);
+		_entityEventController.bind();
 	}
 
 	public TileEntityGrinder() {
 
 		this(Machine.Grinder);
 		_damageSource = new GrindingDamage();
+		_entityEventController.setAllowItemDrops(false);
+		_entityEventController.setConsumeXP(true);
+		_tanks[0].setLock(FluidRegistry.getFluid("mob_essence"));
 	}
 
 	@Override
@@ -69,26 +79,13 @@ public class TileEntityGrinder extends TileEntityFactoryPowered {
 	}
 
 	@Override
-	public void setWorldObj(World world) {
-
-		super.setWorldObj(world);
-		if (_grindingWorld != null) {
-			_grindingWorld.clearReferences();
-			_grindingWorld.setMachine(null);
-		}
-		if (this.worldObj instanceof WorldServer)
-			_grindingWorld = new GrindingWorldServer((WorldServer) this.worldObj, this);
-	}
-
-	@Override
 	public void onChunkUnload() {
-
+		
 		super.onChunkUnload();
-		if (_grindingWorld != null) {
-			_grindingWorld.clearReferences();
-			_grindingWorld.setMachine(null);
-		}
-		_grindingWorld = null;
+
+		_entityEventController.unbind();
+		_entityEventController.clearReferences();
+		_entityEventController = null;		
 	}
 
 	public Random getRandom() {
@@ -113,11 +110,10 @@ public class TileEntityGrinder extends TileEntityFactoryPowered {
 
 		return 200;
 	}
-
+	
 	@Override
 	public boolean activateMachine() {
-
-		_grindingWorld.cleanReferences();
+		
 		List<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, _areaManager.getHarvestArea().toAxisAlignedBB());
 
 		entityList:
@@ -151,13 +147,14 @@ public class TileEntityGrinder extends TileEntityFactoryPowered {
 				}
 			}
 
-			if (!_grindingWorld.addEntityForGrinding(e)) {
-				continue entityList;
+			if(e instanceof EntityZombie) {
+				_entityEventController.addZombie((EntityZombie)e);
 			}
 
 			damageEntity(e);
 			if (e.getHealth() <= 0) {
 				//fillTank(_tanks[0], "mob_essence", 1);
+
 				setIdleTicks(20);
 			} else {
 				setIdleTicks(10);
@@ -178,10 +175,10 @@ public class TileEntityGrinder extends TileEntityFactoryPowered {
 		setRecentlyHit(entity, 100);
 		entity.attackEntityFrom(_damageSource, DAMAGE);
 	}
-
-	public void acceptXPOrb(EntityXPOrb orb) {
-
-		MFRLiquidMover.fillTankWithXP(_tanks[0], orb);
+	
+	
+	public int acceptXP(int XP) {
+		return MFRLiquidMover.fillTankWithXP(_tanks[0], XP);
 	}
 
 	@Override
@@ -218,6 +215,105 @@ public class TileEntityGrinder extends TileEntityFactoryPowered {
 	public int fill(EnumFacing facing, FluidStack resource, boolean doFill) {
 
 		return 0;
+	}
+	
+	public static class EntityEventController {
+		private TileEntityGrinder grinder;
+		private boolean allowItemDrops = false;
+		private boolean consumeXP = true;
+		private Set <EntityZombie> zombieCache;
+
+		public EntityEventController(TileEntityGrinder grinder){
+
+			this.grinder = grinder;
+			this.zombieCache = Sets.newHashSet();
+		}
+		
+		public void setAllowItemDrops(boolean allow) {
+
+			this.allowItemDrops = allow;
+		}	
+		
+		public void setConsumeXP(boolean consume) {
+			
+			this.consumeXP = consume;
+		}
+		
+		public void addZombie(EntityZombie e) {
+			
+			zombieCache.add(e);
+		}
+		
+		public void flushZombieCache() {
+			
+			zombieCache.clear();
+		}
+		
+		public void clearReferences() {
+			
+			this.zombieCache.clear();
+			this.zombieCache = null;
+			this.grinder = null;
+		}
+		
+		public void bind(){
+			
+			MinecraftForge.EVENT_BUS.register(this);
+		}
+		
+		public void unbind(){
+			
+			MinecraftForge.EVENT_BUS.unregister(this);
+		}
+		
+		// ZOMBIE AID HANDLING
+		@SubscribeEvent(priority=EventPriority.HIGHEST)
+		public void onSummonAidEvent(SummonAidEvent ev) {
+			
+			if(!zombieCache.isEmpty() && zombieCache.remove(ev.getSummoner())) {
+				ev.setResult(Result.DENY);
+			}
+		}
+		
+		// XP HANDLING
+		@SubscribeEvent
+		public void onExperienceDropEvent(LivingExperienceDropEvent ev) {
+			
+			if(consumeXP == false)
+				return;
+						
+			if(ev.getAttackingPlayer() != grinder._damageSource.getEntity())
+				return;
+
+			int XP = ev.getDroppedExperience();
+			grinder.acceptXP(XP);
+
+			ev.setCanceled(true);			
+		}
+		
+		
+		// ITEM DROP HANDLING
+		@SubscribeEvent
+		public void onLivingDropsEven(LivingDropsEvent ev) {
+			
+			if(ev.getSource() != grinder._damageSource)
+				return;
+			
+			
+			if (grinder.manageSolids()) {
+				for(EntityItem item : ev.getDrops()) {
+				
+					ItemStack drop = ((EntityItem) item).getEntityItem();
+					if (drop != null)
+						grinder.doDrop(drop);
+				}	
+			}
+	
+			if (allowItemDrops)
+				return;
+	
+			ev.setCanceled(true);
+		}
 	}
 
 }

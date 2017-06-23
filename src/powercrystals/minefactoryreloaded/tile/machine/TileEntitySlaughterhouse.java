@@ -21,16 +21,10 @@ public class TileEntitySlaughterhouse extends TileEntityGrinder
 		super(Machine.Slaughterhouse);
 		_damageSource = new GrindingDamage("mfr.slaughterhouse", 2);
 		setManageSolids(false);
+		_entityEventController.setAllowItemDrops(false);
+		_entityEventController.setConsumeXP(false);
 		_tanks[0].setLock(FluidRegistry.getFluid("meat"));
-		_tanks[1].setLock(FluidRegistry.getFluid("pinkslime"));
-	}
-
-	@Override
-	public void setWorldObj(World world)
-	{
-		super.setWorldObj(world);
-		if (_grindingWorld != null)
-			this._grindingWorld.setAllowSpawns(true);
+		_tanks[1].setLock(FluidRegistry.getFluid("pink_slime"));
 	}
 
 	@Override
@@ -43,7 +37,7 @@ public class TileEntitySlaughterhouse extends TileEntityGrinder
 	@Override
 	public boolean activateMachine()
 	{
-		_grindingWorld.cleanReferences();
+
 		List<?> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, _areaManager.getHarvestArea().toAxisAlignedBB());
 
 		entityList: for(Object o : entities)
@@ -57,7 +51,7 @@ public class TileEntitySlaughterhouse extends TileEntityGrinder
 				}
 			}
 			if((e instanceof EntityAgeable && ((EntityAgeable)e).getGrowingAge() < 0) || e.isEntityInvulnerable(_damageSource) ||
-					e.getHealth() <= 0 || !_grindingWorld.addEntityForGrinding(e))
+					e.getHealth() <= 0 )
 			{
 				continue;
 			}
@@ -68,7 +62,7 @@ public class TileEntitySlaughterhouse extends TileEntityGrinder
 				if (_rand.nextInt(8) != 0)
 					fillTank(_tanks[0], "meat", massFound);
 				else
-					fillTank(_tanks[1], "pinkslime", massFound);
+					fillTank(_tanks[1], "pink_slime", massFound);
 				setIdleTicks(10);
 			}
 			else
@@ -82,8 +76,9 @@ public class TileEntitySlaughterhouse extends TileEntityGrinder
 	}
 
 	@Override
-	public void acceptXPOrb(EntityXPOrb orb)
+	public int acceptXP(int XP)
 	{
+		return 0;
 	}
 
 	@Override
