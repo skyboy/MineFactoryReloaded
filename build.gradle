@@ -36,7 +36,20 @@ repositories {
         name = "Player's Maven"
         url = "http://maven.ic2.player.to/"
     }
-    maven { url "http://dvs1.progwml6.com/files/maven" }
+    maven {
+        name = "Progwml6's Maven"
+        url = "http://dvs1.progwml6.com/files/maven"
+    }
+    ivy {
+        name "Agricraft"
+        ivyPattern 'http://www.google.com/FAKE_URL/ugly_workaround_because_curseforge_403.txt'
+        artifactPattern "http://media.forgecdn.net/files/${agricraft_cf}/[module]-[revision].[ext]"
+    }
+    ivy {
+        name "InfinityLib"
+        ivyPattern 'http://www.google.com/FAKE_URL/ugly_workaround_because_curseforge_403.txt'
+        artifactPattern "http://media.forgecdn.net/files/${infinitylib_cf}/[module]-[revision].[ext]"
+    }
 }
 
 dependencies {
@@ -44,7 +57,8 @@ dependencies {
     compile "cofh:CoFHCore:${mc_version}-${cofhcore_version}:deobf"
     compile "net.industrial-craft:industrialcraft-2:${ic2_version}"
     compile "net.sengir.forestry:forestry_${mc_version}:${forestry_version}"
-    //deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}"
+    deobfCompile "com.infinityraider:agricraft:${agricraft_version}"
+    deobfCompile "com.infinityraider:infinitylib:${infinitylib_version}"
 }
 
 sourceCompatibility = 1.8
