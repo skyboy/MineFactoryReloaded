@@ -75,8 +75,11 @@ public class TileEntityGrinder extends TileEntityFactoryPowered {
 			_grindingWorld.clearReferences();
 			_grindingWorld.setMachine(null);
 		}
-		if (this.worldObj instanceof WorldServer)
+		if (this.worldObj instanceof WorldServer) {
 			_grindingWorld = new GrindingWorldServer((WorldServer) this.worldObj, this);
+			_damageSource.setupGrindingPlayer((WorldServer) this.worldObj);
+		}
+
 	}
 
 	@Override
@@ -117,11 +120,13 @@ public class TileEntityGrinder extends TileEntityFactoryPowered {
 	public boolean activateMachine() {
 
 		_grindingWorld.cleanReferences();
-		List<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, _areaManager.getHarvestArea().toAxisAlignedBB());
+		List<EntityLivingBase> entities = worldObj
+				.getEntitiesWithinAABB(EntityLivingBase.class, _areaManager.getHarvestArea().toAxisAlignedBB());
 
 		entityList:
 		for (EntityLivingBase e : entities) {
-			if (e instanceof EntityAgeable && ((EntityAgeable) e).getGrowingAge() < 0 || e.isEntityInvulnerable(_damageSource) || e.getHealth() <= 0) {
+			if (e instanceof EntityAgeable && ((EntityAgeable) e).getGrowingAge() < 0 || e.isEntityInvulnerable(_damageSource) ||
+					e.getHealth() <= 0) {
 				continue;
 			}
 

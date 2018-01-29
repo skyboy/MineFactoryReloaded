@@ -1,24 +1,24 @@
 package powercrystals.minefactoryreloaded.setup.recipe;
 
-import static cofh.lib.util.helpers.ItemHelper.*;
-import static net.minecraft.init.Blocks.*;
-import static net.minecraft.init.Items.*;
-import static net.minecraftforge.oredict.OreDictionary.*;
-import static powercrystals.minefactoryreloaded.setup.MFRConfig.*;
-import static powercrystals.minefactoryreloaded.setup.MFRThings.*;
-import static powercrystals.minefactoryreloaded.setup.Machine.*;
-
-import java.util.Arrays;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-
 import powercrystals.minefactoryreloaded.block.ItemBlockRedNetLogic;
 import powercrystals.minefactoryreloaded.core.MFRUtil;
 import powercrystals.minefactoryreloaded.setup.MFRFluids;
 import powercrystals.minefactoryreloaded.setup.Machine;
 import powercrystals.minefactoryreloaded.setup.recipe.handler.ShapelessMachineTinker;
+
+import java.util.Arrays;
+
+import static cofh.lib.util.helpers.ItemHelper.*;
+import static net.minecraft.init.Blocks.*;
+import static net.minecraft.init.Items.*;
+import static net.minecraftforge.oredict.OreDictionary.getOres;
+import static net.minecraftforge.oredict.OreDictionary.registerOre;
+import static powercrystals.minefactoryreloaded.setup.MFRConfig.*;
+import static powercrystals.minefactoryreloaded.setup.MFRThings.*;
+import static powercrystals.minefactoryreloaded.setup.Machine.*;
 
 public class Vanilla {
 
@@ -730,6 +730,7 @@ public class Vanilla {
 			protected ItemStack getTinkeredMachine(ItemStack machine) {
 
 				machine = machine.copy();
+				machine.stackSize = 1;
 				NBTTagCompound tag = machine.getTagCompound();
 				if (tag == null) machine.setTagCompound(tag = new NBTTagCompound());
 				tag.setBoolean("hasTinkerStuff", true);

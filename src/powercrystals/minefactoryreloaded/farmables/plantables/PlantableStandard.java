@@ -3,12 +3,11 @@ package powercrystals.minefactoryreloaded.farmables.plantables;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
-import net.minecraft.util.EnumFacing;
 import net.minecraftforge.oredict.OreDictionary;
-
 import powercrystals.minefactoryreloaded.api.IFactoryPlantable;
 import powercrystals.minefactoryreloaded.api.ReplacementBlock;
 
@@ -89,7 +88,7 @@ public class PlantableStandard implements IFactoryPlantable
 		Block groundId = world.getBlockState(pos.down()).getBlock();
 		return (_block.canPlaceBlockAt(world, pos) && _block.canReplace(world, pos, EnumFacing.DOWN, stack)) ||
 				(_block instanceof IPlantable && groundId != null &&
-				groundId.canSustainPlant(world.getBlockState(pos), world, pos, EnumFacing.UP, (IPlantable)_block));
+				groundId.canSustainPlant(world.getBlockState(pos.down()), world, pos.down(), EnumFacing.UP, (IPlantable)_block));
 	}
 
 	@Override

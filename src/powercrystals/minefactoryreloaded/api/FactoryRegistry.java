@@ -2,10 +2,11 @@ package powercrystals.minefactoryreloaded.api;
 
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
-import static net.minecraftforge.fml.common.event.FMLInterModComms.IMCMessage;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+
+import static net.minecraftforge.fml.common.event.FMLInterModComms.IMCMessage;
 
 /**
  * @author PowerCrystals
@@ -94,7 +95,7 @@ public class FactoryRegistry
 	 */
 	public static void sendMessage(String message, Object value)
 	{
-		if (!Loader.isModLoaded("MineFactoryReloaded") ||
+		if (!Loader.isModLoaded("minefactoryreloaded") ||
 				Loader.instance().activeModContainer() == null)
 			return;
 		try

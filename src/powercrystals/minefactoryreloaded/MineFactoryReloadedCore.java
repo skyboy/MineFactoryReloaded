@@ -1,6 +1,7 @@
 package powercrystals.minefactoryreloaded;
 
 //this import brought to you by the department of redundancies department, the department that brought you this import
+
 import codechicken.lib.CodeChickenLib;
 import cofh.CoFHCore;
 import cofh.core.world.WorldHandler;
@@ -22,10 +23,16 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.CustomProperty;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
+import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.common.event.FMLMissingMappingsEvent;
 import net.minecraftforge.fml.common.event.FMLMissingMappingsEvent.MissingMapping;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.event.FMLModIdMappingEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -33,11 +40,18 @@ import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import org.apache.logging.log4j.Logger;
 import powercrystals.minefactoryreloaded.farmables.MFRFarmables;
 import powercrystals.minefactoryreloaded.gui.MFRGUIHandler;
+import powercrystals.minefactoryreloaded.modhelpers.CompatRegistry;
 import powercrystals.minefactoryreloaded.net.CommonProxy;
 import powercrystals.minefactoryreloaded.net.EntityHandler;
 import powercrystals.minefactoryreloaded.net.GridTickHandler;
 import powercrystals.minefactoryreloaded.net.MFRPacket;
-import powercrystals.minefactoryreloaded.setup.*;
+import powercrystals.minefactoryreloaded.setup.BaseMod;
+import powercrystals.minefactoryreloaded.setup.BehaviorDispenseSafariNet;
+import powercrystals.minefactoryreloaded.setup.MFRConfig;
+import powercrystals.minefactoryreloaded.setup.MFRFluids;
+import powercrystals.minefactoryreloaded.setup.MFRLoot;
+import powercrystals.minefactoryreloaded.setup.MFRThings;
+import powercrystals.minefactoryreloaded.setup.MineFactoryReloadedFuelHandler;
 import powercrystals.minefactoryreloaded.setup.recipe.EnderIO;
 import powercrystals.minefactoryreloaded.setup.recipe.Vanilla;
 import powercrystals.minefactoryreloaded.setup.village.VillageCreationHandler;
@@ -248,6 +262,8 @@ public class MineFactoryReloadedCore extends BaseMod {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent evt) {
+
+		CompatRegistry.init();
 
 		TileEntityUnifier.updateUnifierLiquids();
 

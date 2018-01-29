@@ -1,8 +1,15 @@
 package powercrystals.minefactoryreloaded.tile.machine;
 
 import cofh.lib.util.helpers.ItemHelper;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.loot.LootContext;
@@ -10,19 +17,6 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.lang.reflect.Field;
-import java.util.Random;
-import java.util.concurrent.atomic.AtomicLong;
-
-import net.minecraft.block.Block;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
-
 import powercrystals.minefactoryreloaded.block.BlockFactoryMachine;
 import powercrystals.minefactoryreloaded.core.Area;
 import powercrystals.minefactoryreloaded.gui.client.GuiFactoryInventory;
@@ -31,6 +25,10 @@ import powercrystals.minefactoryreloaded.gui.container.ContainerFisher;
 import powercrystals.minefactoryreloaded.setup.MFRConfig;
 import powercrystals.minefactoryreloaded.setup.Machine;
 import powercrystals.minefactoryreloaded.tile.base.TileEntityFactoryPowered;
+
+import java.lang.reflect.Field;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class TileEntityFisher extends TileEntityFactoryPowered {
 
@@ -185,6 +183,10 @@ public class TileEntityFisher extends TileEntityFactoryPowered {
 	protected void onFactoryInventoryChanged() {
 
 		super.onFactoryInventoryChanged();
+
+		if (worldObj == null)
+			return;
+
 		boost = 0;
 		_needItem = false;
 		if (!worldObj.isRemote && _inventory[0] != null) {

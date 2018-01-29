@@ -5,6 +5,7 @@ import cofh.lib.util.helpers.ItemHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionUtils;
@@ -86,7 +87,7 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 
 		boolean hasWorkToDo = false, didWork = false;
 		boolean doingWork = getWorkDone() > 0;
-		if (doingWork & !_inventoryDirty)
+		if (doingWork && !_inventoryDirty)
 			hasWorkToDo = true;
 		else {
 			final int waterCost = MFRConfig.autobrewerFluidCost.getInt();
@@ -95,7 +96,8 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 				if (_inventory[31] != null && _inventory[processSlot] == null && _inventory[templateSlot] != null) {
 
 					if (row == 0 || _inventory[getTemplateSlot(row - 1)] == null) {
-						ItemStack waterBottle = new ItemStack(Items.POTIONITEM);
+						ItemStack waterBottle = PotionUtils
+								.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
 						if (BrewingRecipeRegistry.hasOutput(waterBottle, _inventory[templateSlot]))
 							if (drain(waterCost, false, _tanks[0]) == waterCost) {
 								drain(waterCost, true, _tanks[0]);
@@ -125,7 +127,7 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 
 		setWorkDone(0);
 
-		for (int row = 6; row-- > 0;) {
+		for (int row = 6; row-- > 0; ) {
 			ItemStack current = _inventory[getProcessSlot(row)];
 			if (current == null) {
 				continue;
@@ -141,10 +143,10 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 			if (template == null) {
 				continue;
 			}
-			for (int i = 3; i-- > 0; ) {
-				final int slot = getResourceSlot(row, i);
+			for (int col = 3; col-- > 0; ) {
+				final int slot = getResourceSlot(row, col);
 				ItemStack ingredient = _inventory[slot];
-				if (spareResources[row] <= 0 && !ingredientsEqual(template, ingredient)) {
+				if (spareResources[row] <= 0 && !UtilInventory.stacksEqual(template, ingredient)) {
 					continue;
 				}
 
@@ -161,37 +163,45 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 				if (current == newPotion)
 					break;
 
-				if (spareResources[row] > 0) {
-					--spareResources[row];
-					break;
-				}
-				--ingredient.stackSize;
-				spareResources[row] += 1;
+				consumeIngredient(ingredient, row, col, slot);
 
-				if (template.getItem().hasContainerItem(ingredient)) {
-					ItemStack r = template.getItem().getContainerItem(ingredient);
-					if (r != null && (r.stackSize <= 0 || (r.isItemStackDamageable() && r.getItemDamage() > r.getMaxDamage())))
-						r = null;
-					if (ingredient.stackSize <= 0)
-						_inventory[slot] = ingredient = r;
-					else {
-						if (i < 2 && _inventory[slot + 1] == null) {
-							_inventory[slot + 1] = r;
-						} else if (i < 1 && _inventory[slot + 2] == null) {
-							_inventory[slot + 2] = r;
-						} else if (_inventory[getProcessSlot(6)] == null) {
-							_inventory[getProcessSlot(6)] = r;
-						} else {
-							UtilInventory.dropStack(this, r);
-						}
-					}
-				}
-				if (ingredient != null && ingredient.stackSize <= 0)
-					_inventory[slot] = null;
 				break;
 			}
 		}
 		return true;
+	}
+
+	private void consumeIngredient(ItemStack template, int row, int col, int slot) {
+
+		ItemStack ingredient = _inventory[slot];
+		if (spareResources[row] == 0) {
+			--ingredient.stackSize;
+
+			if (template.getItem().hasContainerItem(ingredient)) {
+				ItemStack r = template.getItem().getContainerItem(ingredient);
+				if (r != null && (r.stackSize <= 0 || (r.isItemStackDamageable() && r.getItemDamage() > r.getMaxDamage())))
+					r = null;
+				if (ingredient.stackSize <= 0)
+					_inventory[slot] = ingredient = r;
+				else {
+					if (col < 2 && _inventory[slot + 1] == null) {
+						_inventory[slot + 1] = r;
+					} else if (col < 1 && _inventory[slot + 2] == null) {
+						_inventory[slot + 2] = r;
+					} else if (_inventory[getProcessSlot(6)] == null) {
+						_inventory[getProcessSlot(6)] = r;
+					} else {
+						UtilInventory.dropStack(this, r);
+					}
+				}
+			}
+			if (ingredient != null && ingredient.stackSize <= 0)
+				_inventory[slot] = null;
+
+			spareResources[row]++;
+		} else {
+			spareResources[row]--;
+		}
 	}
 
 	private boolean canBrew(int row) {
@@ -207,12 +217,13 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 		}
 
 		boolean hasIngredients = spareResources[row] > 0;
-		if (!hasIngredients) for (int i = 0; i < 3; i++) {
-			if (ingredientsEqual(ingredient, _inventory[getResourceSlot(row, i)])) {
-				hasIngredients = true;
-				break;
+		if (!hasIngredients)
+			for (int i = 0; i < 3; i++) {
+				if (ingredientsEqual(ingredient, _inventory[getResourceSlot(row, i)])) {
+					hasIngredients = true;
+					break;
+				}
 			}
-		}
 		if (!hasIngredients) {
 			return false;
 		}
@@ -255,14 +266,19 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 		int row = slot / 5;
 		int column = slot % 5;
 
-		if (itemstack == null) return false;
-		if (slot == 31) return itemstack.getItem().equals(Items.GLASS_BOTTLE);
-		if (row == 6) return false;
-		if (column == 1) return false;
+		if (itemstack == null)
+			return false;
+		if (slot == 31)
+			return itemstack.getItem().equals(Items.GLASS_BOTTLE);
+		if (row == 6)
+			return false;
+		if (column == 1)
+			return false;
 
 		ItemStack template = _inventory[getTemplateSlot(row)];
-		if (column == 0) return template != null && BrewingRecipeRegistry.hasOutput(itemstack, template) &&
-				(row == 0 || _inventory[getTemplateSlot(row - 1)] == null);
+		if (column == 0)
+			return template != null && BrewingRecipeRegistry.hasOutput(itemstack, template) &&
+					(row == 0 || _inventory[getTemplateSlot(row - 1)] == null);
 		return ingredientsEqual(template, itemstack);
 	}
 
@@ -272,15 +288,18 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 		int row = slot / 5;
 		int column = slot % 5;
 
-		if (row == 6) return slot != 31;
-		if (column == 1) return false;
-		if (column == 0) return _inventory[getTemplateSlot(row)] == null;
+		if (row == 6)
+			return slot != 31;
+		if (column == 1)
+			return false;
+		if (column == 0)
+			return _inventory[getTemplateSlot(row)] == null;
 		return !ingredientsEqual(_inventory[getTemplateSlot(row)], itemstack);
 	}
 
 	private boolean ingredientsEqual(ItemStack template, ItemStack ingredient) {
 
-		if (template == null | ingredient == null || !BrewingRecipeRegistry.isValidIngredient(template)) {
+		if (template == null || ingredient == null || !BrewingRecipeRegistry.isValidIngredient(template)) {
 			return false;
 		}
 
@@ -382,4 +401,23 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 		return null;
 	}
 
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
+
+		tag = super.writeToNBT(tag);
+
+		tag.setByteArray("spareResources", spareResources);
+
+		return tag;
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+
+		super.readFromNBT(tag);
+
+		if (tag.hasKey("spareResources")) {
+			spareResources = tag.getByteArray("spareResources");
+		}
+	}
 }

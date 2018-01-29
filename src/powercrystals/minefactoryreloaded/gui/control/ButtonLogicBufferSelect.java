@@ -1,7 +1,6 @@
 package powercrystals.minefactoryreloaded.gui.control;
 
 import cofh.lib.gui.element.ElementButtonOption;
-
 import net.minecraft.util.EnumFacing;
 import powercrystals.minefactoryreloaded.gui.client.GuiRedNetLogic;
 
@@ -23,7 +22,8 @@ public class ButtonLogicBufferSelect extends ElementButtonOption
 		char[] dir = {'L','B','R','F',};
 		char[] dirMap = new char[4];
 		for (int i = 0; i < 4; ++i)
-			dirMap[(i + rotation.getIndex()) & 3] = dir[i];
+			dirMap[ (i + rotation.getHorizontalIndex() + 1) & 3] = dir[i];
+		//TODO needs a lot of refactoring - getHorizontalIndex() + 1 here is a hack to avoid having to go through that now
 		
 		_ignoreChanges = true;
 		if(_buttonType == LogicButtonType.Input)
