@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+FMLAT: MFR_at.cfg
+ContainedDeps: MineFactoryReloaded-core-${core_version}.jar

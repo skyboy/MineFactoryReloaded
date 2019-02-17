@@ -1,0 +1,86 @@
+{
+    "ccl_marker": 1,
+    "variant_sets": [
+        "type,facing,cb",
+        "type"
+    ],
+    "defaults": {
+        "model": "minecraft:cube",
+        "transform": "ccl:default-block",
+        "textures": {
+            "particle": "blocks/machines/tile.mfr.machine.0.active.side",
+            "down": "blocks/machines/tile.mfr.machine.0.bottom",
+            "up": "blocks/machines/tile.mfr.machine.0.top",
+            "north": "blocks/machines/tile.mfr.machine.0.active.side",
+            "south": "blocks/machines/tile.mfr.machine.0.active.side",
+            "west": "blocks/machines/tile.mfr.machine.0.active.side",
+            "east": "blocks/machines/tile.mfr.machine.0.active.side"
+        }
+    },
+    "texture_domain": "minefactoryreloaded",
+    "variants": {
+        "type": {
+            "item_router": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.itemrouter.top",
+                    "down": "blocks/machines/tile.mfr.machine.itemrouter.bottom",
+                    "north": "blocks/machines/tile.mfr.machine.itemrouter.front",
+                    "south": "blocks/machines/tile.mfr.machine.itemrouter.back",
+                    "west": "blocks/machines/tile.mfr.machine.itemrouter.left",
+                    "east": "blocks/machines/tile.mfr.machine.itemrouter.right"
+                },
+                "variants": {
+                    "cb": {
+                        "true": {
+                            "textures": {
+                                "down": "blocks/machines/tile.mfr.machine.itemrouter.bottom.cb",
+                                "north": "blocks/machines/tile.mfr.machine.itemrouter.front.cb",
+                                "south": "blocks/machines/tile.mfr.machine.itemrouter.back.cb",
+                                "west": "blocks/machines/tile.mfr.machine.itemrouter.left.cb",
+                                "east": "blocks/machines/tile.mfr.machine.itemrouter.right.cb"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "liquid_router": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.liquidrouter.top",
+                    "down": "blocks/machines/tile.mfr.machine.liquidrouter.bottom",
+                    "north": "blocks/machines/tile.mfr.machine.liquidrouter.front",
+                    "south": "blocks/machines/tile.mfr.machine.liquidrouter.back",
+                    "west": "blocks/machines/tile.mfr.machine.liquidrouter.left",
+                    "east": "blocks/machines/tile.mfr.machine.liquidrouter.right"
+                },
+                "variants": {
+                    "cb": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.liquidrouter.top.cb",
+                                "down": "blocks/machines/tile.mfr.machine.liquidrouter.bottom.cb",
+                                "north": "blocks/machines/tile.mfr.machine.liquidrouter.front.cb",
+                                "south": "blocks/machines/tile.mfr.machine.liquidrouter.back.cb",
+                                "west": "blocks/machines/tile.mfr.machine.liquidrouter.left.cb",
+                                "east": "blocks/machines/tile.mfr.machine.liquidrouter.right.cb"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            }
+        },
+        "facing": {
+            "north": {},
+            "south": {
+                "y": 180
+            },
+            "west": {
+                "y": 270
+            },
+            "east": {
+                "y": 90
+            }
+        }
+    }
+}

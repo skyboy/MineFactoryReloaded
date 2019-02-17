@@ -1,0 +1,85 @@
+{
+    "ccl_marker": 1,
+    "variant_sets": [
+        "type,facing",
+        "type"
+    ],
+    "defaults": {
+        "model": "minecraft:cube",
+        "transform": "ccl:default-block",
+        "textures": {
+            "particle": "blocks/machines/tile.mfr.machine.0.active.side",
+            "down": "blocks/machines/tile.mfr.machine.0.bottom",
+            "up": "blocks/machines/tile.mfr.machine.0.top",
+            "north": "blocks/machines/tile.mfr.machine.0.active.side",
+            "south": "blocks/machines/tile.mfr.machine.0.active.side",
+            "west": "blocks/machines/tile.mfr.machine.0.active.side",
+            "east": "blocks/machines/tile.mfr.machine.0.active.side"
+        }
+    },
+    "texture_domain": "minefactoryreloaded",
+    "variants": {
+        "type": {
+            "ejector": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.ejector.front",
+                    "south": "blocks/machines/tile.mfr.machine.ejector.back",
+                    "west": "blocks/machines/tile.mfr.machine.ejector.left",
+                    "east": "blocks/machines/tile.mfr.machine.ejector.right"
+                }
+
+            },
+            "enchantment_router": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.enchantmentrouter.top",
+                    "down": "blocks/machines/tile.mfr.machine.enchantmentrouter.bottom",
+                    "north": "blocks/machines/tile.mfr.machine.enchantmentrouter.front",
+                    "south": "blocks/machines/tile.mfr.machine.enchantmentrouter.back",
+                    "west": "blocks/machines/tile.mfr.machine.enchantmentrouter.left",
+                    "east": "blocks/machines/tile.mfr.machine.enchantmentrouter.right"
+                }
+
+            },
+            "auto_anvil": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.autoanvil.top",
+                    "north": "blocks/machines/tile.mfr.machine.autoanvil.front",
+                    "south": "blocks/machines/tile.mfr.machine.autoanvil.back",
+                    "west": "blocks/machines/tile.mfr.machine.autoanvil.side",
+                    "east": "blocks/machines/tile.mfr.machine.autoanvil.side"
+                }
+
+            },
+            "block_placer": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.blockplacer.front",
+                    "south": "blocks/machines/tile.mfr.machine.blockplacer.back",
+                    "west": "blocks/machines/tile.mfr.machine.blockplacer.left",
+                    "east": "blocks/machines/tile.mfr.machine.blockplacer.right"
+                }
+
+            },
+            "mob_counter": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.mobcounter.front",
+                    "south": "blocks/machines/tile.mfr.machine.mobcounter.side",
+                    "west": "blocks/machines/tile.mfr.machine.mobcounter.side",
+                    "east": "blocks/machines/tile.mfr.machine.mobcounter.side"
+                }
+
+            }
+        },
+        "facing": {
+            "north": {},
+            "south": {
+                "y": 180
+            },
+            "west": {
+                "y": 270
+            },
+            "east": {
+                "y": 90
+            }
+        }
+    }
+}

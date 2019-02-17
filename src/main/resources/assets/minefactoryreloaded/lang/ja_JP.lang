@@ -1,0 +1,481 @@
+﻿#PARSE_ESCAPES
+tile.mfr.machine.planter.name = プランター
+tile.mfr.machine.fisher.name = フィッシャー
+tile.mfr.machine.harvester.name = ハーヴェスター
+tile.mfr.machine.rancher.name = ランチャー
+tile.mfr.machine.fertilizer.name = フェーティライザー
+tile.mfr.machine.vet.name = Veterinary Station
+tile.mfr.machine.itemcollector.name = アイテムコレクター
+tile.mfr.machine.blockbreaker.name = ブロックブレーカー
+tile.mfr.machine.weathercollector.name = ウェザーコレクター
+tile.mfr.machine.sludgeboiler.name = スラッジボイラー
+tile.mfr.machine.sewer.name = スーワー
+tile.mfr.machine.composter.name = コンポスター
+tile.mfr.machine.breeder.name = ブリーダー
+tile.mfr.machine.grinder.name = グラインダー
+tile.mfr.machine.autoenchanter.name = オートエンチャンター
+tile.mfr.machine.chronotyper.name = クロノタイパー
+
+tile.mfr.machine.ejector.name = イジェクター
+tile.mfr.machine.itemrouter.name = アイテムルーター
+tile.mfr.machine.liquidrouter.name = リキッドルーター
+tile.mfr.machine.deepstorageunit.name = ディープストレージユニット
+tile.mfr.machine.liquicrafter.name = リキッドクラフター
+tile.mfr.machine.lavafabricator.name = ラーバファブリケーター
+tile.mfr.machine.steamboiler.name = スチームボイラー
+tile.mfr.machine.autojukebox.name = オートジュークボックス
+tile.mfr.machine.unifier.name = ユニファイアー
+tile.mfr.machine.autospawner.name = オートスポナー
+tile.mfr.machine.bioreactor.name = バイオリアクター
+tile.mfr.machine.biofuelgenerator.name = バイオフュールジェネレーター
+tile.mfr.machine.autodisenchanter.name = オートディスエンチャンター
+tile.mfr.machine.slaughterhouse.name = スローターハウス
+tile.mfr.machine.meatpacker.name = ミートパッカー
+tile.mfr.machine.enchantmentrouter.name = エンチャントメントルーター
+
+tile.mfr.machine.laserdrill.name = レーザードリル
+tile.mfr.machine.laserdrillprecharger.name = レーザードリルプリチャージャー
+tile.mfr.machine.autoanvil.name = オートアンヴィル
+tile.mfr.machine.blocksmasher.name = ブロックスマッシャー
+tile.mfr.machine.rednote.name = RedNote Block
+tile.mfr.machine.autobrewer.name = オートブリューワー
+tile.mfr.machine.fruitpicker.name = フルーツピッカー
+tile.mfr.machine.blockplacer.name = ブロックプレーサー
+tile.mfr.machine.mobcounter.name = モブカウンター
+tile.mfr.machine.steamturbine.name = スチームタービン
+tile.mfr.machine.chunkloader.name = チャンクローダー
+tile.mfr.machine.fountain.name = 噴水
+tile.mfr.machine.mobrouter.name = モブルーター
+
+tile.mfr.conveyor.default.name = ベルトコンベア
+tile.mfr.conveyor.white.name = ベルトコンベア (White)
+tile.mfr.conveyor.orange.name = ベルトコンベア (Orange)
+tile.mfr.conveyor.magenta.name = ベルトコンベア (Magenta)
+tile.mfr.conveyor.lightblue.name = ベルトコンベア (Light Blue)
+tile.mfr.conveyor.yellow.name = ベルトコンベア (Yellow)
+tile.mfr.conveyor.lime.name = ベルトコンベア (Lime)
+tile.mfr.conveyor.pink.name = ベルトコンベア (Pink)
+tile.mfr.conveyor.gray.name = ベルトコンベア (Gray)
+tile.mfr.conveyor.lightgray.name = ベルトコンベア (Light Gray)
+tile.mfr.conveyor.cyan.name = ベルトコンベア (Cyan)
+tile.mfr.conveyor.purple.name = ベルトコンベア (Purple)
+tile.mfr.conveyor.blue.name = ベルトコンベア (Blue)
+tile.mfr.conveyor.brown.name = ベルトコンベア (Brown)
+tile.mfr.conveyor.green.name = ベルトコンベア (Green)
+tile.mfr.conveyor.red.name = ベルトコンベア (Red)
+tile.mfr.conveyor.black.name = ベルトコンベア (Black)
+
+tile.mfr.stained_glass.block.white.name = ステンドグラス (White)
+tile.mfr.stained_glass.block.orange.name = ステンドグラス (Orange)
+tile.mfr.stained_glass.block.magenta.name = ステンドグラス (Magenta)
+tile.mfr.stained_glass.block.lightblue.name = ステンドグラス (Light Blue)
+tile.mfr.stained_glass.block.yellow.name = ステンドグラス (Yellow)
+tile.mfr.stained_glass.block.lime.name = ステンドグラス (Lime)
+tile.mfr.stained_glass.block.pink.name = ステンドグラス (Pink)
+tile.mfr.stained_glass.block.gray.name = ステンドグラス (Gray)
+tile.mfr.stained_glass.block.lightgray.name = ステンドグラス (Light Gray)
+tile.mfr.stained_glass.block.cyan.name = ステンドグラス (Cyan)
+tile.mfr.stained_glass.block.purple.name = ステンドグラス (Purple)
+tile.mfr.stained_glass.block.blue.name = ステンドグラス (Blue)
+tile.mfr.stained_glass.block.brown.name = ステンドグラス (Brown)
+tile.mfr.stained_glass.block.green.name = ステンドグラス (Green)
+tile.mfr.stained_glass.block.red.name = ステンドグラス (Red)
+tile.mfr.stained_glass.block.black.name = ステンドグラス (Black)
+
+tile.mfr.stained_glass.pane.white.name = ステンドグラス板 (White)
+tile.mfr.stained_glass.pane.orange.name = ステンドグラス板 (Orange)
+tile.mfr.stained_glass.pane.magenta.name = ステンドグラス板 (Magenta)
+tile.mfr.stained_glass.pane.lightblue.name = ステンドグラス板 (Light Blue)
+tile.mfr.stained_glass.pane.yellow.name = ステンドグラス板 (Yellow)
+tile.mfr.stained_glass.pane.lime.name = ステンドグラス板 (Lime)
+tile.mfr.stained_glass.pane.pink.name = ステンドグラス板 (Pink)
+tile.mfr.stained_glass.pane.gray.name = ステンドグラス板 (Gray)
+tile.mfr.stained_glass.pane.lightgray.name = ステンドグラス板 (Light Gray)
+tile.mfr.stained_glass.pane.cyan.name = ステンドグラス板 (Cyan)
+tile.mfr.stained_glass.pane.purple.name = ステンドグラス板 (Purple)
+tile.mfr.stained_glass.pane.blue.name = ステンドグラス板 (Blue)
+tile.mfr.stained_glass.pane.brown.name = ステンドグラス板 (Brown)
+tile.mfr.stained_glass.pane.green.name = ステンドグラス板 (Green)
+tile.mfr.stained_glass.pane.red.name = ステンドグラス板 (Red)
+tile.mfr.stained_glass.pane.black.name = ステンドグラス板 (Black)
+
+tile.mfr.road.default.name = 道路
+tile.mfr.road.light.off.name = 道路照明
+tile.mfr.road.light.on.name = 道路照明
+tile.mfr.road.light.inverted.off.name = 反転道路照明
+tile.mfr.road.light.inverted.on.name = 反転道路照明
+
+tile.mfr.plastic.block.plain.name = Block of Plastic
+
+tile.mfr.decorative.brick.ice.name = 氷Bricks
+tile.mfr.decorative.brick.glowstone.name = グロウストーンBricks
+tile.mfr.decorative.brick.lapis.name = ラピスラズリBricks
+tile.mfr.decorative.brick.obsidian.name = Obsidian Bricks
+tile.mfr.decorative.brick.pavedstone.name = Paved Stone Bricks
+tile.mfr.decorative.brick.snow.name = Snow Bricks
+tile.mfr.decorative.brick.ice.large.name = Large Ice Bricks
+tile.mfr.decorative.brick.glowstone.large.name = Large Glowstone Bricks
+tile.mfr.decorative.brick.lapis.large.name = Large Lapis Bricks
+tile.mfr.decorative.brick.obsidian.large.name = Large Obsidian Bricks
+tile.mfr.decorative.brick.pavedstone.large.name = Large Paved Stone Bricks
+tile.mfr.decorative.brick.snow.large.name = Large Snow Bricks
+tile.mfr.decorative.brick.meatraw.name = Raw Meat Block
+tile.mfr.decorative.brick.meatcooked.name = Cooked Meat Block
+tile.mfr.decorative.brick.brick.large.name = Large Bricks
+tile.mfr.decorative.brick.sugar_charcoal.name = Sugar Charcoal Block
+
+tile.mfr.decorative.stone.black.smooth.name = Smooth Blackstone
+tile.mfr.decorative.stone.black.cobble.name = Cobble Blackstone
+tile.mfr.decorative.stone.black.brick.small.name = Small Blackstone Bricks
+tile.mfr.decorative.stone.black.brick.large.name = Large Blackstone Bricks
+tile.mfr.decorative.stone.black.gravel.name = Blackstone Gravel
+tile.mfr.decorative.stone.black.paved.name = Paved Blackstone
+tile.mfr.decorative.stone.white.smooth.name = Smooth Whitestone
+tile.mfr.decorative.stone.white.cobble.name = Cobble Whitestone
+tile.mfr.decorative.stone.white.brick.small.name = Small Whitestone Bricks
+tile.mfr.decorative.stone.white.brick.large.name = Large Whitestone Bricks
+tile.mfr.decorative.stone.white.gravel.name = Whitestone Gravel
+tile.mfr.decorative.stone.white.paved.name = Paved Whitestone
+
+tile.mfr.pink_slime.block.name = ピンクスライムブロック
+
+tile.ice.unmelting.name = 不溶氷
+
+tile.mfr.vine.scaffold.name = 蔦の足場
+
+tile.mfr.detcord.name = 導爆線
+
+tile.mfr.farmland.name = Fertile Soil
+
+tile.mfr.rubber_wood.sapling.normal.name = ゴムの苗木
+tile.mfr.rubber_wood.sapling.sacred.name = Sacred Rubber Sapling
+tile.mfr.rubber_wood.sapling.mega.name = Mega Rubber Sapling
+tile.mfr.rubber_wood.sapling.massive.name = Sacred Rubber Sapling
+tile.mfr.rubber_wood.log.name = ゴムの原木
+tile.mfr.rubber_wood.leaves.normal.name = ゴムの葉
+tile.mfr.rubber_wood.leaves.dry.name = 乾燥したゴムの葉
+
+tile.mfr.rail.cargo.dropoff.name = 荷降ろしレール
+tile.mfr.rail.cargo.pickup.name = 積み込みレール
+tile.mfr.rail.passenger.dropoff.name = 自動駅レール(降車)
+tile.mfr.rail.passenger.pickup.name = 自動駅レール(乗車)
+
+tile.mfr.cable.redstone.name = レッドネットケーブル
+tile.mfr.cable.redstone.glass.name = レッドネットケーブル
+tile.mfr.cable.redstone.energy.name = レッドネットエネルギーケーブル
+tile.mfr.cable.redstone.energyglass.name = レッドネットエネルギーケーブル
+tile.mfr.plastic.pipe.name = プラスチックパイプ
+
+tile.mfr.rednet.logic.name = レッドネットコントローラ
+tile.mfr.rednet.panel.historian.name = レッドネットヒストリアン
+
+tile.mfr.machine_block.machine = item.mfr.machineblock
+tile.mfr.machine_block.prc.name = レッドネットコントローラハウジング
+
+tile.mfr.tank.name = プラスチックタンク
+
+fluid.mfr.milk.fluid.name = 牛乳
+fluid.mfr.sludge.fluid.name = 汚泥
+fluid.mfr.sewage.fluid.name = 汚水
+fluid.mfr.mobessence.fluid.name = モブエッセンス
+fluid.mfr.biofuel.fluid.name = バイオ燃料
+fluid.mfr.meat.fluid.name = 肉
+fluid.mfr.pink_slime.fluid.name = ピンクスライム
+fluid.mfr.chocolatemilk.fluid.name = チョコレート牛乳
+fluid.mfr.mushroomsoup.fluid.name = キノコシチュー
+fluid.mfr.steam.fluid.name = スチーム
+
+entity.MineFactoryReloaded.mfrEntityPinkSlime.name = ピンクスライム
+
+item.mfr.bucket.milk.name = 牛乳入りバケツ
+item.mfr.bucket.sewage.name = 汚水入りバケツ
+item.mfr.bucket.sludge.name = 汚泥入りバケツ
+item.mfr.bucket.essence.name = モブエッセンス入りバケツ
+item.mfr.bucket.biofuel.name = バイオ燃料入りバケツ
+item.mfr.bucket.meat.name = 肉入りバケツ
+item.mfr.bucket.pink_slime.name = ピンクスライム入りバケツ
+item.mfr.bucket.chocolatemilk.name = チョコレート牛乳入りバケツ
+item.mfr.bucket.mushroomsoup.name = キノコシチュー入りバケツ
+
+item.mfr.plastic.cup.name = ポリカップ
+item.mfr.plastic.cup.prefix.name =
+item.mfr.plastic.cup.suffix.name = Cup
+item.mfr.plastic.cell.name = Plastic Cell
+item.mfr.plastic.cell.prefix.name =
+item.mfr.plastic.cell.suffix.name = Cell
+
+item.mfr.plastic.armor.helm.name  = プラスチックのヘルメット
+item.mfr.plastic.armor.chest.name = プラスチックのチェストプレート
+item.mfr.plastic.armor.legs.name  = プラスチックのレギンス
+item.mfr.plastic.armor.boots.name = プラスチックのブーツ
+
+item.mfr.syringe.cure.name = De-Zombification Syringe
+item.mfr.syringe.empty.name = Empty Syringe
+item.mfr.syringe.empty.prefix.name =
+item.mfr.syringe.empty.suffix.name = Syringe
+item.mfr.syringe.growth.name = Growth Syringe
+item.mfr.syringe.health.name = Health Syringe
+item.mfr.syringe.slime.name = Slime Embiggening Syringe
+item.mfr.syringe.zombie.name = Zombie Syringe
+
+item.mfr.machine_block.name = ファクトリーマシンブロック
+item.mfr.hammer.name = 精密ハンマー
+item.mfr.plastic.sheet.name = プラスチックシート
+item.mfr.plastic.raw.name = 生プラスチック
+item.mfr.plastic.bag.name = ビニール袋
+item.mfr.rubber.bar.name = ゴムの板
+item.mfr.rubber.raw.name = ゴム
+item.mfr.record.blank.name = 空のレコード
+
+item.mfr.safarinet.reusable.name = サファリネット
+item.mfr.safarinet.single_use.name = サファリネット(シングルユース)
+item.mfr.safarinet.jailer.name = ジェイラーズ・サファリネット
+item.mfr.safarinet.launcher.name = サファリネットランチャー
+
+item.mfr.sugar_charcoal.name = 砂糖炭
+item.mfr.fertilizer.name = 工業用肥料
+item.mfr.milk_bottle.name = 牛乳入り瓶
+item.mfr.spyglass.name = 望遠鏡
+item.mfr.ruler.name = 定規
+item.mfr.xp_extractor.name = 経験値抽出機
+item.mfr.porta_spawner.name = スポナー移動機
+item.mfr.straw.name = ストロー
+
+item.mfr.rednet.meter.name = レッドネット測定器
+item.mfr.rednet.meter.info.name = RedNet Multimeter
+item.mfr.rednet.meter.debug.name = Debugger
+item.mfr.rednet.memorycard.name = PRC Memory Card
+
+item.mfr.meat.ingot.raw.name = 生肉インゴット
+item.mfr.meat.ingot.cooked.name = 焼肉インゴット
+item.mfr.meat.nugget.raw.name = 生肉ナゲット
+item.mfr.meat.nugget.cooked.name = 焼肉ナゲット
+
+item.mfr.pink_slime.ball.name = ピンクスライムボール
+item.mfr.pink_slime.gem.name = ピンクスライムクリスタル
+
+item.mfr.rocket.name = 自己推進式対物ロケット
+item.mfr.rocket.smart.name = 追跡型自己推進式対物ロケット
+item.mfr.rocket_launcher.name = SPAMRランチャー
+item.mfr.fishing_rod.name = 釣竿
+
+item.mfr.ceramic.dye.white.name = セラミック染料 (White)
+item.mfr.ceramic.dye.orange.name = セラミック染料 (Orange)
+item.mfr.ceramic.dye.magenta.name = セラミック染料 (Magenta)
+item.mfr.ceramic.dye.lightblue.name = セラミック染料 (Light Blue)
+item.mfr.ceramic.dye.yellow.name = セラミック染料 (Yellow)
+item.mfr.ceramic.dye.lime.name = セラミック染料 (Lime)
+item.mfr.ceramic.dye.pink.name = セラミック染料 (Pink)
+item.mfr.ceramic.dye.gray.name = セラミック染料 (Gray)
+item.mfr.ceramic.dye.lightgray.name = セラミック染料 (Light Gray)
+item.mfr.ceramic.dye.cyan.name = セラミック染料 (Cyan)
+item.mfr.ceramic.dye.purple.name = セラミック染料 (Purple)
+item.mfr.ceramic.dye.blue.name = セラミック染料 (Blue)
+item.mfr.ceramic.dye.brown.name = セラミック染料 (Brown)
+item.mfr.ceramic.dye.green.name = セラミック染料 (Green)
+item.mfr.ceramic.dye.red.name = セラミック染料 (Red)
+item.mfr.ceramic.dye.black.name = セラミック染料 (Black)
+
+item.mfr.laser.focus.white.name = レーザーフォーカス (White)
+item.mfr.laser.focus.orange.name = レーザーフォーカス (Orange)
+item.mfr.laser.focus.magenta.name = レーザーフォーカス (Magenta)
+item.mfr.laser.focus.lightblue.name = レーザーフォーカス (Light Blue)
+item.mfr.laser.focus.yellow.name = レーザーフォーカス (Yellow)
+item.mfr.laser.focus.lime.name = レーザーフォーカス (Lime)
+item.mfr.laser.focus.pink.name = レーザーフォーカス (Pink)
+item.mfr.laser.focus.gray.name = レーザーフォーカス (Gray)
+item.mfr.laser.focus.lightgray.name = レーザーフォーカス (Light Gray)
+item.mfr.laser.focus.cyan.name = レーザーフォーカス (Cyan)
+item.mfr.laser.focus.purple.name = レーザーフォーカス (Purple)
+item.mfr.laser.focus.blue.name = レーザーフォーカス (Blue)
+item.mfr.laser.focus.brown.name = レーザーフォーカス (Brown)
+item.mfr.laser.focus.green.name = レーザーフォーカス (Green)
+item.mfr.laser.focus.red.name = レーザーフォーカス (Red)
+item.mfr.laser.focus.black.name = レーザーフォーカス (Black)
+
+item.mfr.upgrade.radius.cobble.name = アップグレードパーツ (Cobble)
+item.mfr.upgrade.radius.lapis.name = アップグレードパーツ (Lapis)
+item.mfr.upgrade.radius.iron.name = アップグレードパーツ (Iron)
+item.mfr.upgrade.radius.tin.name = アップグレードパーツ (Tin)
+item.mfr.upgrade.radius.copper.name = アップグレードパーツ (Copper)
+item.mfr.upgrade.radius.bronze.name = アップグレードパーツ (Bronze)
+item.mfr.upgrade.radius.silver.name = アップグレードパーツ (Silver)
+item.mfr.upgrade.radius.gold.name = アップグレードパーツ (Gold)
+item.mfr.upgrade.radius.quartz.name = アップグレードパーツ (Quartz)
+item.mfr.upgrade.radius.diamond.name = アップグレードパーツ (Diamond)
+item.mfr.upgrade.radius.platinum.name = アップグレードパーツ (Platinum)
+item.mfr.upgrade.radius.emerald.name = アップグレードパーツ (Emerald)
+
+item.mfr.upgrade.logic.100.name = PRC LX-100 拡張論理回路
+item.mfr.upgrade.logic.300.name = PRC LX-300 拡張論理回路
+item.mfr.upgrade.logic.500.name = PRC LX-500 拡張論理回路
+
+item.mfr.needlegun.name = ニードルガン
+item.mfr.needlegun.ammo.empty.name = ニードルガンの弾倉
+item.mfr.needlegun.ammo.standard.name = ニードルガンの弾（針)
+item.mfr.needlegun.ammo.pierce.name = ニードルガンの弾（Shrapnel)
+item.mfr.needlegun.ammo.lava.name = ニードルガンの弾（針）
+item.mfr.needlegun.ammo.sludge.name = ニードルガンの弾（汚泥）
+item.mfr.needlegun.ammo.sewage.name = ニードルガンの弾（汚水）
+item.mfr.needlegun.ammo.fire.name = ニードルガンの弾（炎）
+item.mfr.needlegun.ammo.anvil.name = ニードルガンの弾（金床）
+
+circuit.mfr.noop = (No-Op)
+circuit.mfr.adder.analog = Adder (Analog)
+circuit.mfr.adder.digital.full = Adder (Digital, Full)
+circuit.mfr.adder.digital.half = Adder (Digital, Half)
+circuit.mfr.and.2 = And (2-Input)
+circuit.mfr.and.3 = And (3-Input)
+circuit.mfr.and.4 = And (4-Input)
+circuit.mfr.boolean.equal = Equals
+circuit.mfr.boolean.greater = Greater Than
+circuit.mfr.boolean.greaterequal = Greater Than Or Equal
+circuit.mfr.boolean.less = Less Than
+circuit.mfr.boolean.lessequal = Less Than Or Equal
+circuit.mfr.boolean.notequal = Not Equals
+circuit.mfr.counter = Counter
+circuit.mfr.decompose.decimal = Decompose Int -> Decimal
+circuit.mfr.delay = Delay
+circuit.mfr.delay8ch = Delay (8-Channel)
+circuit.mfr.demux.16.analog = DeMux (16-Out, Analog)
+circuit.mfr.demux.4 = DeMux (4-Output)
+circuit.mfr.fanout = Fanout
+circuit.mfr.flipflop.jk = JK-FlipFlop
+circuit.mfr.flipflop.t = T-FlipFlop
+circuit.mfr.inverter = Inverter
+circuit.mfr.latch.d.clocked = D-Latch (Clocked)
+circuit.mfr.latch.d.gated = D-Latch (Gated)
+circuit.mfr.latch.sr = SR-Latch
+circuit.mfr.latch.sr.gated = SR-Latch (Gated)
+circuit.mfr.max.2 = Maximum (2-Input)
+circuit.mfr.max.3 = Maximum (3-Input)
+circuit.mfr.max.4 = Maximum (4-Input)
+circuit.mfr.min.2 = Minimum (2-Input)
+circuit.mfr.min.3 = Minimum (3-Input)
+circuit.mfr.min.4 = Minimum (4-Input)
+circuit.mfr.multiplier = Multiplier
+circuit.mfr.multipulse = Multipulse
+circuit.mfr.mux.16.analog = Mux (15-Input, Analog)
+circuit.mfr.mux.4 = Mux (4-Input)
+circuit.mfr.nand.2 = Nand (2-Input)
+circuit.mfr.nand.3 = Nand (3-Input)
+circuit.mfr.nand.4 = Nand (4-Input)
+circuit.mfr.negator = Negator
+circuit.mfr.nor.2 = Nor (2-Input)
+circuit.mfr.nor.3 = Nor (3-Input)
+circuit.mfr.nor.4 = Nor (4-Input)
+circuit.mfr.oneshot = One-Shot Pulse
+circuit.mfr.or.2 = Or (2-Input)
+circuit.mfr.or.3 = Or (3-Input)
+circuit.mfr.or.4 = Or (4-Input)
+circuit.mfr.passthrough = Passthrough
+circuit.mfr.passthrough.gated = Passthrough (Gated)
+circuit.mfr.passthrough.roundrobin = Passthrough (Ring)
+circuit.mfr.pulselengthener = Pulse Lengthener
+circuit.mfr.randomizer.analog = Randomizer (Analog)
+circuit.mfr.randomizer.digital = Randomizer (Digital)
+circuit.mfr.scaler = Scaler
+circuit.mfr.schmitttrigger = Schmitt Trigger
+circuit.mfr.sevensegmentencoder = Seven-Segment Encoder
+circuit.mfr.subtractor = Subtractor
+circuit.mfr.wavegenerator.sawtooth.falling = Wave (Sawtooth, Falling)
+circuit.mfr.wavegenerator.sawtooth.rising = Wave (Sawtooth, Rising)
+circuit.mfr.wavegenerator.sine = Wave (Sine)
+circuit.mfr.wavegenerator.square = Wave (Square) [Timer]
+circuit.mfr.wavegenerator.triangle = Wave (Triangle)
+circuit.mfr.xnor.2 = Xnor (2-Input)
+circuit.mfr.xnor.3 = Xnor (3-Input)
+circuit.mfr.xnor.4 = Xnor (4-Input)
+circuit.mfr.xor.2 = Xor (2-Input)
+circuit.mfr.xor.3 = Xor (3-Input)
+circuit.mfr.xor.4 = Xor (4-Input)
+
+container.mfr.radius = Radius:
+container.mfr.power = Energy draw:
+
+chat.info.mfr.safarinet.capture = キャプチャモード
+chat.info.mfr.safarinet.release = リリースモード
+
+chat.info.mfr.spyglass.nosight = Nothing in sight
+chat.info.mfr.spyglass.hitentity = Found a %s at %.1f, %.1f, %.1f
+chat.info.mfr.spyglass.hitblock = Found %s [%s:%d] at %.1f, %.1f, %.1f
+chat.info.mfr.spyglass.hitunknown = Found UNKNOWN (bugged mod?) at %.1f, %.1f, %.1f
+
+chat.info.mfr.ruler.nosight = Nothing in sight
+chat.info.mfr.ruler.hitentity = Hit entity - measurement failed
+chat.info.mfr.ruler.startposition = Recorded start position
+chat.info.mfr.ruler.distance = distance: %d, count: %d
+chat.info.mfr.ruler.total = Total Distance: %.1f
+
+chat.info.mfr.rednet.meter.cable.allzero = All RedNet subnets are 0
+chat.info.mfr.rednet.meter.cable.restzero = All other RedNet subnets are 0
+chat.info.mfr.rednet.meter.varprefix = Variable
+chat.info.mfr.rednet.meter.var.allzero = All variables are 0
+chat.info.mfr.rednet.meter.var.restzero = All other variables are 0
+chat.info.mfr.rednet.meter.dustprefix = Redstone Dust
+
+chat.info.mfr.rednet.memorycard.uploaded = PRC program uploaded to memory card from PRC
+chat.info.mfr.rednet.memorycard.downloaded = PRC program downloaded from memory card to PRC
+chat.info.mfr.rednet.memorycard.error = PRC contains insufficient circuits to hold this program
+
+chat.info.mfr.rednet.tile.standard = Set cable to standard connection mode
+chat.info.mfr.rednet.tile.cableonly = Set cable to cable-only connection mode
+
+chat.info.mfr.rednet.connection.standard = Set side to standard connection mode
+chat.info.mfr.rednet.connection.forced = Set side to forced-connection mode
+chat.info.mfr.rednet.connection.forcedstrong = Set side to strong-connection mode
+chat.info.mfr.rednet.connection.cableonly = Set side to cable-only connection mode
+
+chat.info.mfr.fluid.connection.disabled = Set side to disabled connection mode
+chat.info.mfr.fluid.connection.output = Set side to output connection mode
+chat.info.mfr.fluid.connection.extract = Set side to extract connection mode
+
+chat.info.mfr.fluid.install.torch = Installed Redstone Torch, RS control inverted
+chat.info.mfr.fluid.install.block = Installed Redstone Block, RS control disabled
+
+chat.info.mfr.bag.stacksize = You can only open one bag at a time
+
+chat.info.mfr.chunkloader.noticket = You have too many chunk loaders and this one cannot function.
+
+# Tooltips: these can be added to any item by a lang file, but they cannot be removed
+# this is a limitation of the localization system.
+# Replace "item." or "tile." with "tip.info" and remove ".name" and that tooltip will be
+# displayed under the item with exceptions, such as the PRC which uses a custom entry for legacy reasons
+
+tip.info.mfr.rubber_wood.sapling.massive = Warning: Pakratt's world ship.
+
+tip.info.mfr.prc = If you're lost, read the (in-game) manual
+
+tip.info.mfr.xpextractor = Requires an empty container to fill
+
+tip.info.mfr.mobcounter = Emits an analog redstone signal\nproportional to the count of\nmobs that are within range.
+
+tip.info.mfr.laserdrill = Placed over a hole to bedrock or the void
+tip.info.mfr.laserdrillprecharger = Placed one block away from a valid laser target
+
+# These tooltips are not the entire tooltip, but part of a custom format or entry
+
+tip.info.mfr.cannotplace = Cannot place for %s more seconds.
+
+tip.info.mfr.safarinet.mode = Sneak-click to change mode
+tip.info.mfr.safarinet.persistent = Released creatures don't despawn normally
+tip.info.mfr.safarinet.mystery = It is a mystery
+
+tip.info.mfr.memorycard.wipe = Place in crafting grid to wipe
+
+tip.info.mfr.generator.produces = Produces RF only.
+
+tip.info.mfr.dsu.contains = Contains %s
+
+tip.info.mfr.needlegun.ammo = %s rounds
+
+tip.info.mfr.upgrade.radius = Radius increase: %s
+
+death.attack.mfr.slaughterhouse = %1$s was processed into Liquid Meat
+death.attack.mfr.slaughterhouse.player = %1$s was doomed to be processed into Liquid Meat by %2$s
+death.attack.mfr.slaughterhouse.1 = %1$s was processed into meat sauce
+death.attack.mfr.slaughterhouse.1.player = %1$s was doomed to be processed into meat sauce by %2$s
+death.attack.mfr.grinder = %1$s was ground to bits
+death.attack.mfr.grinder.player = %2$s ensured %1$s was ground to bits
+death.attack.mfr.laser = %1$s was disintegrated
+death.attack.mfr.laser.player = %2$s ensured %1$s was disintegrated

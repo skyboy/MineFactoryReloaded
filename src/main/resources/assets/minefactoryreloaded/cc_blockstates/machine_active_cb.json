@@ -1,0 +1,65 @@
+{
+    "ccl_marker": 1,
+    "variant_sets": [
+        "type,active,cb",
+        "type"
+    ],
+    "defaults": {
+        "model": "minecraft:cube",
+        "transform": "ccl:default-block",
+        "textures": {
+            "particle": "blocks/machines/tile.mfr.machine.0.active.side",
+            "down": "blocks/machines/tile.mfr.machine.0.bottom",
+            "up": "blocks/machines/tile.mfr.machine.0.top",
+            "north": "blocks/machines/tile.mfr.machine.0.active.side",
+            "south": "blocks/machines/tile.mfr.machine.0.active.side",
+            "west": "blocks/machines/tile.mfr.machine.0.active.side",
+            "east": "blocks/machines/tile.mfr.machine.0.active.side"
+        }
+    },
+    "texture_domain": "minefactoryreloaded",
+    "variants": {
+        "type": {
+            "planter": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.planter.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.planter.side",
+                    "south": "blocks/machines/tile.mfr.machine.planter.side",
+                    "east": "blocks/machines/tile.mfr.machine.planter.side",
+                    "west": "blocks/machines/tile.mfr.machine.planter.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.planter.active.top"
+                            },
+                            "variants": {
+                                "cb": {
+                                    "true": {
+                                        "textures": {
+                                            "up": "blocks/machines/tile.mfr.machine.planter.active.top.cb"
+                                        }
+                                    },
+                                    "false": {}
+                                }
+                            }
+                        },
+                        "false": {
+                            "variants": {
+                                "cb": {
+                                    "true": {
+                                        "textures": {
+                                            "up": "blocks/machines/tile.mfr.machine.planter.idle.top.cb"
+                                        }
+                                    },
+                                    "false":{}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

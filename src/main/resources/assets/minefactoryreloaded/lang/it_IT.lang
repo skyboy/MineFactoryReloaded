@@ -1,0 +1,640 @@
+#PARSE_ESCAPES
+tile.mfr.machine.planter.name = Piantatrice
+tile.mfr.machine.fisher.name = Pescatrice
+tile.mfr.machine.harvester.name = Mietitrice
+tile.mfr.machine.rancher.name = Fattore
+tile.mfr.machine.fertilizer.name = Fertilizatrice
+tile.mfr.machine.vet.name = Stazione veterinaria
+tile.mfr.machine.itemcollector.name = Raccoglitrice di oggetti
+tile.mfr.machine.blockbreaker.name = Spaccatrice di blocchi
+tile.mfr.machine.weathercollector.name = Collezionatrice atmosferico
+tile.mfr.machine.sludgeboiler.name = Caldaia a melma
+tile.mfr.machine.sewer.name = Fogna
+tile.mfr.machine.composter.name = Compostatrice
+tile.mfr.machine.breeder.name = Allevatrice
+tile.mfr.machine.grinder.name = Tritatrice
+tile.mfr.machine.autoenchanter.name = Auto-incantatrice
+tile.mfr.machine.chronotyper.name = Chronoanalizatrice
+
+tile.mfr.machine.ejector.name = Espulsore
+tile.mfr.machine.itemrouter.name = Indirizatrice di oggetti
+tile.mfr.machine.liquidrouter.name = Indirizatrice di liquidi
+tile.mfr.machine.deepstorageunit.name = Unità di deposito profondo
+tile.mfr.machine.liquicrafter.name = Fabbricatrice con fluidi
+tile.mfr.machine.lavafabricator.name = Fabbricatrice di lava
+tile.mfr.machine.steamboiler.name = Caldaia a vapore
+tile.mfr.machine.autojukebox.name = Auto-jukebox
+tile.mfr.machine.unifier.name = Unificatrice
+tile.mfr.machine.autospawner.name = Auto-generatore
+tile.mfr.machine.bioreactor.name = Bioreattore
+tile.mfr.machine.biofuelgenerator.name = Generatore a combustibile biologico
+tile.mfr.machine.autodisenchanter.name = Auto-disincantatrice
+tile.mfr.machine.slaughterhouse.name = Macellatrice
+tile.mfr.machine.meatpacker.name = Imballatrice di carne
+tile.mfr.machine.enchantmentrouter.name = Indirizatrice di incantesimi
+
+tile.mfr.machine.laserdrill.name = Trivella laser
+tile.mfr.machine.laserdrillprecharger.name = Pre-caricatrice per trivella laser
+tile.mfr.machine.autoanvil.name = Auto-incudine
+tile.mfr.machine.blocksmasher.name = Distruggitrice di blocchi
+tile.mfr.machine.rednote.name = RedBlocco sonoro
+tile.mfr.machine.autobrewer.name = Auto-distillatrice
+tile.mfr.machine.fruitpicker.name = Raccoglitrice di frutta
+tile.mfr.machine.blockplacer.name = Piazzatrice di blocchi
+tile.mfr.machine.mobcounter.name = Contatrice di mob
+tile.mfr.machine.steamturbine.name = Turbina a vapore
+tile.mfr.machine.chunkloader.name = Caricatrice di chunk
+tile.mfr.machine.fountain.name = Fontana
+tile.mfr.machine.mobrouter.name = Indirizatrice di mob
+
+tile.mfr.conveyor.default.name = Nastro trasportatore
+tile.mfr.conveyor.white.name = Nastro trasportatore (bianco)
+tile.mfr.conveyor.orange.name = Nastro trasportatore (arancione)
+tile.mfr.conveyor.magenta.name = Nastro trasportatore (magenta)
+tile.mfr.conveyor.lightblue.name = Nastro trasportatore (azzurro)
+tile.mfr.conveyor.yellow.name = Nastro trasportatore (giallo)
+tile.mfr.conveyor.lime.name = Nastro trasportatore (lime)
+tile.mfr.conveyor.pink.name = Nastro trasportatore (Pink)
+tile.mfr.conveyor.gray.name = Nastro trasportatore (grigio)
+tile.mfr.conveyor.lightgray.name = Nastro trasportatore (grigio chiaro)
+tile.mfr.conveyor.cyan.name = Nastro trasportatore (ciano)
+tile.mfr.conveyor.purple.name = Nastro trasportatore (viola)
+tile.mfr.conveyor.blue.name = Nastro trasportatore (blu)
+tile.mfr.conveyor.brown.name = Nastro trasportatore (marrone)
+tile.mfr.conveyor.green.name = Nastro trasportatore (grigio)
+tile.mfr.conveyor.red.name = Nastro trasportatore (rosso)
+tile.mfr.conveyor.black.name = Nastro trasportatore (nero)
+
+tile.mfr.stained_glass.block.white.name = Vetro colorato (bianco)
+tile.mfr.stained_glass.block.orange.name = Vetro colorato (arancione)
+tile.mfr.stained_glass.block.magenta.name = Vetro colorato (magenta)
+tile.mfr.stained_glass.block.lightblue.name = Vetro colorato (azzurro)
+tile.mfr.stained_glass.block.yellow.name = Vetro colorato (giallo)
+tile.mfr.stained_glass.block.lime.name = Vetro colorato (lime)
+tile.mfr.stained_glass.block.pink.name = Vetro colorato (Pink)
+tile.mfr.stained_glass.block.gray.name = Vetro colorato (grigio)
+tile.mfr.stained_glass.block.lightgray.name = Vetro colorato (grigio chiaro)
+tile.mfr.stained_glass.block.cyan.name = Vetro colorato (ciano)
+tile.mfr.stained_glass.block.purple.name = Vetro colorato (viola)
+tile.mfr.stained_glass.block.blue.name = Vetro colorato (blu)
+tile.mfr.stained_glass.block.brown.name = Vetro colorato (marrone)
+tile.mfr.stained_glass.block.green.name = Vetro colorato (grigio)
+tile.mfr.stained_glass.block.red.name = Vetro colorato (rosso)
+tile.mfr.stained_glass.block.black.name = Vetro colorato (nero)
+
+tile.mfr.stained_glass.pane.white.name = Pannello di vetro colorato (bianco)
+tile.mfr.stained_glass.pane.orange.name = Pannello di vetro colorato (arancione)
+tile.mfr.stained_glass.pane.magenta.name = Pannello di vetro colorato (magenta)
+tile.mfr.stained_glass.pane.lightblue.name = Pannello di vetro colorato (azzurro)
+tile.mfr.stained_glass.pane.yellow.name = Pannello di vetro colorato (giallo)
+tile.mfr.stained_glass.pane.lime.name = Pannello di vetro colorato (lime)
+tile.mfr.stained_glass.pane.pink.name = Pannello di vetro colorato (Pink)
+tile.mfr.stained_glass.pane.gray.name = Pannello di vetro colorato (grigio)
+tile.mfr.stained_glass.pane.lightgray.name = Pannello di vetro colorato (grigio chiaro)
+tile.mfr.stained_glass.pane.cyan.name = Pannello di vetro colorato (ciano)
+tile.mfr.stained_glass.pane.purple.name = Pannello di vetro colorato (viola)
+tile.mfr.stained_glass.pane.blue.name = Pannello di vetro colorato (blu)
+tile.mfr.stained_glass.pane.brown.name = Pannello di vetro colorato (marrone)
+tile.mfr.stained_glass.pane.green.name = Pannello di vetro colorato (grigio)
+tile.mfr.stained_glass.pane.red.name = Pannello di vetro colorato (rosso)
+tile.mfr.stained_glass.pane.black.name = Pannello di vetro colorato (nero)
+
+tile.mfr.road.default.name = Strada
+tile.mfr.road.light.off.name = Luce stradale
+tile.mfr.road.light.on.name = Luce stradale
+tile.mfr.road.light.inverted.off.name = Luce stradale (invertito)
+tile.mfr.road.light.inverted.on.name = Luce stradale (invertito)
+
+tile.mfr.plastic.block.plain.name = Blocco di plastica
+
+tile.mfr.decorative.brick.ice.name = Mattoni di ghiaccio
+tile.mfr.decorative.brick.glowstone.name = Mattoni di luminite
+tile.mfr.decorative.brick.lapis.name = Mattoni di lapislazzuli
+tile.mfr.decorative.brick.obsidian.name = Mattoni di ossidiana
+tile.mfr.decorative.brick.pavedstone.name = Mattoni di strada lastricata
+tile.mfr.decorative.brick.snow.name = Mattoni di neve
+tile.mfr.decorative.brick.ice.large.name = Ghiaccio concio
+tile.mfr.decorative.brick.glowstone.large.name = Luminite concia
+tile.mfr.decorative.brick.lapis.large.name = Lapislazzuli conci
+tile.mfr.decorative.brick.obsidian.large.name = Ossidiana concia
+tile.mfr.decorative.brick.pavedstone.large.name = Strada lastricata concia
+tile.mfr.decorative.brick.snow.large.name = Neve concia
+tile.mfr.decorative.brick.meatraw.name = Blocco di carne cruda
+tile.mfr.decorative.brick.meatcooked.name = Blocco di carne cotta
+tile.mfr.decorative.brick.brick.large.name = Mattoni conci
+tile.mfr.decorative.brick.sugar_charcoal.name = Blocco di carbonella di zucchero
+
+tile.mfr.decorative.stone.black.smooth.name = Roccianera
+tile.mfr.decorative.stone.black.cobble.name = Pietramenero
+tile.mfr.decorative.stone.black.brick.small.name = Mattoni di pietranera
+tile.mfr.decorative.stone.black.brick.large.name = Pietranera concia
+tile.mfr.decorative.stone.black.gravel.name = Ghiaia di pietranera
+tile.mfr.decorative.stone.black.paved.name = Pietranera lastricata
+tile.mfr.decorative.stone.white.smooth.name = Rocciabianca
+tile.mfr.decorative.stone.white.cobble.name = Pietramebianco
+tile.mfr.decorative.stone.white.brick.small.name = Mattoni di pietrabianca
+tile.mfr.decorative.stone.white.brick.large.name = Pietrabianca concia
+tile.mfr.decorative.stone.white.gravel.name = Ghiaia di pietrabianca
+tile.mfr.decorative.stone.white.paved.name = Pietrabianca lastricata
+
+tile.mfr.pink_slime.block.name = Blocco di gelatina rosa
+
+tile.ice.unmelting.name = Ghiaccio (inscioglibile)
+
+tile.mfr.vine.scaffold.name = Impalcatura di rampicante
+
+tile.mfr.detcord.name = Filo detonante
+
+tile.mfr.farmland.name = Terreno fertile
+
+tile.mfr.rubber_wood.sapling.normal.name = Arboscello della gomma
+tile.mfr.rubber_wood.sapling.sacred.name = Arboscello della gomma sacro
+tile.mfr.rubber_wood.sapling.mega.name = Mega arboscello della gomma
+tile.mfr.rubber_wood.sapling.massive.name = Arboscello della gomma sacro
+tile.mfr.rubber_wood.log.name = Legno della gomma
+tile.mfr.rubber_wood.leaves.normal.name = Foglie della gomma
+tile.mfr.rubber_wood.leaves.dry.name = Foglie della gomma secche
+
+tile.mfr.rail.cargo.dropoff.name = Rotaia di sbarco per merci
+tile.mfr.rail.cargo.pickup.name = Rotaia d'imbarco per merci
+tile.mfr.rail.passenger.dropoff.name = Rotaia di sbarco per passeggeri
+tile.mfr.rail.passenger.pickup.name = Rotaia d'imbarco per passeggeri
+
+tile.mfr.cable.redstone.name = Cavo RedNet
+tile.mfr.cable.redstone.glass.name = Cavo RedNet
+tile.mfr.cable.redstone.energy.name = Cavo RedNet per corrente
+tile.mfr.cable.redstone.energyglass.name = Cavo RedNet per corrente
+tile.mfr.plastic.pipe.name = Tubo di plastica
+
+tile.mfr.rednet.logic.name = Regolatrice programmabile RedNet
+tile.mfr.rednet.panel.historian.name = Storico RedNet
+
+tile.mfr.machine_block.machine = item.mfr.machineblock
+tile.mfr.machine_block.prc.name = Custodia per regolatrice programmabile RedNet
+
+tile.mfr.tank.name = Serbatoio di plastica
+
+fluid.mfr.milk.fluid.name = Latte
+fluid.mfr.sludge.fluid.name = Melma
+fluid.mfr.sewage.fluid.name = Escrementi
+fluid.mfr.mobessence.fluid.name = Essenza
+fluid.mfr.biofuel.fluid.name = Combustibile biologico
+fluid.mfr.meat.fluid.name = Carne
+fluid.mfr.pink_slime.fluid.name = Gelatina rosa
+fluid.mfr.chocolatemilk.fluid.name = Latte al cioccolato
+fluid.mfr.mushroomsoup.fluid.name = Zuppa di funghi
+fluid.mfr.steam.fluid.name = Vapore
+
+entity.MineFactoryReloaded.mfrEntityPinkSlime.name = Gelatina rosa
+
+item.mfr.bucket.milk.name = Secchio di latte
+item.mfr.bucket.sewage.name = Secchio di melma
+item.mfr.bucket.sludge.name = Secchio di escrementi
+item.mfr.bucket.essence.name = Secchio di essenza
+item.mfr.bucket.biofuel.name = Secchio di combustibile biologico
+item.mfr.bucket.meat.name = Secchio di carne
+item.mfr.bucket.pink_slime.name = Secchio di gelatina rosa
+item.mfr.bucket.chocolatemilk.name = Secchio di latte al cioccolato
+item.mfr.bucket.mushroomsoup.name = Secchio di zuppa di funghi
+
+item.mfr.plastic.cup.name = Bicchiere di plastica
+item.mfr.plastic.cup.prefix.name = Bicchiere di
+item.mfr.plastic.cup.suffix.name =
+item.mfr.plastic.cell.name = Cella di plastica
+item.mfr.plastic.cell.prefix.name = Cella di
+item.mfr.plastic.cell.suffix.name = 
+
+item.mfr.plastic.armor.helm.name  = Elmo di plastica
+item.mfr.plastic.armor.chest.name = Corazza di plastica
+item.mfr.plastic.armor.legs.name  = Gambiera di plastica
+item.mfr.plastic.armor.boots.name = Stivali di plastica
+
+item.mfr.syringe.cure.name = Siringa de-zombificante
+item.mfr.syringe.empty.name = Siringa vuota
+item.mfr.syringe.empty.prefix.name = Siringa di
+item.mfr.syringe.empty.suffix.name =
+item.mfr.syringe.growth.name = Siringa della crescita
+item.mfr.syringe.health.name = Siringa della salute
+item.mfr.syringe.slime.name = Siringa della grandezza di gelatina
+item.mfr.syringe.zombie.name = Siringa zombi
+
+item.mfr.machine_block.name = Blocco per macchinario
+item.mfr.hammer.name = Martello di precisione
+
+item.mfr.plastic = Plastica
+item.mfr.plastic.ability = Duro
+item.mfr.plastic.sheet.name = Foglio di plastica
+item.mfr.plastic.raw.name = Plastica grezza
+item.mfr.plastic.bag.name = Sacchetto di plastica
+
+item.mfr.rubber.bar.name = Barra di gomma
+item.mfr.rubber.raw.name = Gomma grezza
+item.mfr.record.blank.name = Disco vuoto
+
+item.mfr.safarinet.reusable.name = Rete safari (riutilizzabile)
+item.mfr.safarinet.single_use.name = Rete safari (monouso)
+item.mfr.safarinet.jailer.name = Rete safari del carceriere
+item.mfr.safarinet.jailer.fancy.name = Rete safari del carceriere dorato
+item.mfr.safarinet.launcher.name = Lanciatore di reti safari
+
+item.mfr.sugar_charcoal.name = Carbonella di zucchero
+item.mfr.fertilizer.name = Fertilizzante industriale
+item.mfr.milk_bottle.name = Bottiglia di latte
+item.mfr.spyglass.name = Cannocchiale
+item.mfr.ruler.name = Righello
+item.mfr.xp_extractor.name = Estrattore di XP
+item.mfr.porta_spawner.name = Generatore portabile
+item.mfr.straw.name = Cannuccia
+
+item.mfr.rednet.meter.name = Metro RedNet
+item.mfr.rednet.meter.info.name = Multimetro Multimeter
+item.mfr.rednet.meter.debug.name = Debugger
+item.mfr.rednet.memorycard.name = Sceda di memoria PRC
+
+item.mfr.meat.ingot.raw.name = Lingotto di carne cruda
+item.mfr.meat.ingot.cooked.name = Lingotto di carne cotta
+item.mfr.meat.nugget.raw.name = Pepita di "carne" cruda
+item.mfr.meat.nugget.cooked.name = Pepita di "carne" cotta
+
+item.mfr.pink_slime = Gelatina rosa
+item.mfr.pink_slime.ability = Gelatinoso\nrosa
+item.mfr.pink_slime.ball.name = Palla di gelatina rosa
+item.mfr.pink_slime.gem.name = Cristallo di gelatina rosa
+
+item.mfr.rocket.name = Razzo autopropulsore anti-materiale
+item.mfr.rocket.smart.name = Razzo autopropulsore anti-materiale a rilevamento
+item.mfr.rocket_launcher.name = Lanciatore RAPAM
+item.mfr.fishing_rod.name = Canna da pesca
+
+item.mfr.potato_launcher.name = Cannone a patate
+
+item.mfr.ceramic.dye.white.name = Ceramica colorata (bianco)
+item.mfr.ceramic.dye.orange.name = Ceramica colorata (arancione)
+item.mfr.ceramic.dye.magenta.name = Ceramica colorata (magenta)
+item.mfr.ceramic.dye.lightblue.name = Ceramica colorata (azzurro)
+item.mfr.ceramic.dye.yellow.name = Ceramica colorata (giallo)
+item.mfr.ceramic.dye.lime.name = Ceramica colorata (lime)
+item.mfr.ceramic.dye.pink.name = Ceramica colorata (Pink)
+item.mfr.ceramic.dye.gray.name = Ceramica colorata (grigio)
+item.mfr.ceramic.dye.lightgray.name = Ceramica colorata (grigio chiaro)
+item.mfr.ceramic.dye.cyan.name = Ceramica colorata (ciano)
+item.mfr.ceramic.dye.purple.name = Ceramica colorata (viola)
+item.mfr.ceramic.dye.blue.name = Ceramica colorata (blu)
+item.mfr.ceramic.dye.brown.name = Ceramica colorata (marrone)
+item.mfr.ceramic.dye.green.name = Ceramica colorata (grigio)
+item.mfr.ceramic.dye.red.name = Ceramica colorata (rosso)
+item.mfr.ceramic.dye.black.name = Ceramica colorata (nero)
+
+item.mfr.laser.focus.white.name = Focus per laser (bianco)
+item.mfr.laser.focus.orange.name = Focus per laser (arancione)
+item.mfr.laser.focus.magenta.name = Focus per laser (magenta)
+item.mfr.laser.focus.lightblue.name = Focus per laser (azzurro)
+item.mfr.laser.focus.yellow.name = Focus per laser (giallo)
+item.mfr.laser.focus.lime.name = Focus per laser (lime)
+item.mfr.laser.focus.pink.name = Focus per laser (Pink)
+item.mfr.laser.focus.gray.name = Focus per laser (grigio)
+item.mfr.laser.focus.lightgray.name = Focus per laser (grigio chiaro)
+item.mfr.laser.focus.cyan.name = Focus per laser (ciano)
+item.mfr.laser.focus.purple.name = Focus per laser (viola)
+item.mfr.laser.focus.blue.name = Focus per laser (blu)
+item.mfr.laser.focus.brown.name = Focus per laser (marrone)
+item.mfr.laser.focus.green.name = Focus per laser (grigio)
+item.mfr.laser.focus.red.name = Focus per laser (rosso)
+item.mfr.laser.focus.black.name = Focus per laser (nero)
+
+item.mfr.upgrade.radius.cobble.name = Potenziamento (pietrame)
+item.mfr.upgrade.radius.lapis.name = Potenziamento (lapis)
+item.mfr.upgrade.radius.iron.name = Potenziamento (ferro)
+item.mfr.upgrade.radius.tin.name = Potenziamento (stagno)
+item.mfr.upgrade.radius.copper.name = Potenziamento (rame)
+item.mfr.upgrade.radius.bronze.name = Potenziamento (bronzo)
+item.mfr.upgrade.radius.silver.name = Potenziamento (argento)
+item.mfr.upgrade.radius.gold.name = Potenziamento (oro)
+item.mfr.upgrade.radius.quartz.name = Potenziamento (quarzo)
+item.mfr.upgrade.radius.diamond.name = Potenziamento (diamante)
+item.mfr.upgrade.radius.platinum.name = Potenziamento (platino)
+item.mfr.upgrade.radius.emerald.name = Potenziamento (smeraldo)
+
+item.mfr.upgrade.logic.100.name = Scheda di espansione logica PRC LX-100
+item.mfr.upgrade.logic.300.name = Scheda di espansione logica PRC LX-300
+item.mfr.upgrade.logic.500.name = Scheda di espansione logica PRC LX-500
+
+item.mfr.needlegun.name = Sparachiodi
+item.mfr.needlegun.ammo.empty.name = Caricatore per sparachiodi
+item.mfr.needlegun.ammo.standard.name = Caricatore per sparachiodi (aghi)
+item.mfr.needlegun.ammo.pierce.name = Caricatore per sparachiodi (frammenti)
+item.mfr.needlegun.ammo.lava.name = Caricatore per sparachiodi (lava)
+item.mfr.needlegun.ammo.sludge.name =Caricatore per sparachiodi (escrementi)
+item.mfr.needlegun.ammo.sewage.name = Caricatore per sparachiodi (melma)
+item.mfr.needlegun.ammo.fire.name = Caricatore per sparachiodi (fuoco)
+item.mfr.needlegun.ammo.anvil.name = Caricatore per sparachiodi (incudine)
+
+circuit.mfr.noop = (No-Op)
+circuit.mfr.adder.analog = Adder (Analog)
+circuit.mfr.adder.digital.full = Adder (Digital, Full)
+circuit.mfr.adder.digital.half = Adder (Digital, Half)
+circuit.mfr.and.2 = And (2-Input)
+circuit.mfr.and.3 = And (3-Input)
+circuit.mfr.and.4 = And (4-Input)
+circuit.mfr.boolean.equal = Equals
+circuit.mfr.boolean.greater = Greater Than
+circuit.mfr.boolean.greaterequal = Greater Than Or Equal
+circuit.mfr.boolean.less = Less Than
+circuit.mfr.boolean.lessequal = Less Than Or Equal
+circuit.mfr.boolean.notequal = Not Equals
+circuit.mfr.counter = Counter
+circuit.mfr.decompose.decimal = Decompose Int -> Decimal
+circuit.mfr.delay = Delay
+circuit.mfr.delay8ch = Delay (8-Channel)
+circuit.mfr.demux.16.analog = DeMux (16-Out, Analog)
+circuit.mfr.demux.4 = DeMux (4-Output)
+circuit.mfr.fanout = Fanout
+circuit.mfr.flipflop.jk = JK-FlipFlop
+circuit.mfr.flipflop.t = T-FlipFlop
+circuit.mfr.inverter = Inverter
+circuit.mfr.latch.d.clocked = D-Latch (Clocked)
+circuit.mfr.latch.d.gated = D-Latch (Gated)
+circuit.mfr.latch.sr = SR-Latch
+circuit.mfr.latch.sr.gated = SR-Latch (Gated)
+circuit.mfr.max.2 = Maximum (2-Input)
+circuit.mfr.max.3 = Maximum (3-Input)
+circuit.mfr.max.4 = Maximum (4-Input)
+circuit.mfr.min.2 = Minimum (2-Input)
+circuit.mfr.min.3 = Minimum (3-Input)
+circuit.mfr.min.4 = Minimum (4-Input)
+circuit.mfr.multiplier = Multiplier
+circuit.mfr.multipulse = Multipulse
+circuit.mfr.mux.16.analog = Mux (15-Input, Analog)
+circuit.mfr.mux.4 = Mux (4-Input)
+circuit.mfr.nand.2 = Nand (2-Input)
+circuit.mfr.nand.3 = Nand (3-Input)
+circuit.mfr.nand.4 = Nand (4-Input)
+circuit.mfr.negator = Negator
+circuit.mfr.nor.2 = Nor (2-Input)
+circuit.mfr.nor.3 = Nor (3-Input)
+circuit.mfr.nor.4 = Nor (4-Input)
+circuit.mfr.oneshot = One-Shot Pulse
+circuit.mfr.or.2 = Or (2-Input)
+circuit.mfr.or.3 = Or (3-Input)
+circuit.mfr.or.4 = Or (4-Input)
+circuit.mfr.passthrough = Passthrough
+circuit.mfr.passthrough.gated = Passthrough (Gated)
+circuit.mfr.passthrough.roundrobin = Passthrough (Ring)
+circuit.mfr.pulselengthener = Pulse Lengthener
+circuit.mfr.randomizer.analog = Randomizer (Analog)
+circuit.mfr.randomizer.digital = Randomizer (Digital)
+circuit.mfr.scaler = Scaler
+circuit.mfr.schmitttrigger = Schmitt Trigger
+circuit.mfr.sevensegmentencoder = Seven-Segment Encoder
+circuit.mfr.subtractor = Subtractor
+circuit.mfr.wavegenerator.sawtooth.falling = Wave (Sawtooth, Falling)
+circuit.mfr.wavegenerator.sawtooth.rising = Wave (Sawtooth, Rising)
+circuit.mfr.wavegenerator.sine = Wave (Sine)
+circuit.mfr.wavegenerator.square = Wave (Square) [Timer]
+circuit.mfr.wavegenerator.triangle = Wave (Triangle)
+circuit.mfr.xnor.2 = Xnor (2-Input)
+circuit.mfr.xnor.3 = Xnor (3-Input)
+circuit.mfr.xnor.4 = Xnor (4-Input)
+circuit.mfr.xor.2 = Xor (2-Input)
+circuit.mfr.xor.3 = Xor (3-Input)
+circuit.mfr.xor.4 = Xor (4-Input)
+
+container.mfr.radius = Raggio:
+container.mfr.power = Uso di energia:
+container.mfr.pendingDrops = Questo macchinario è imbottito di oggetti
+
+chat.info.mfr.safarinet.capture = Cambia a modalità cattura
+chat.info.mfr.safarinet.release = Cambia a modalità rilascia
+
+chat.info.mfr.spyglass.nosight = Niente in vista
+chat.info.mfr.spyglass.hitentity = Trovato un %s a %.1f, %.1f, %.1f
+chat.info.mfr.spyglass.hitblock = Trovato %s [%s#%d] at %.0f, %.0f, %.0f
+chat.info.mfr.spyglass.hitunknown = Trovato SCONOSCIUTO (mod buggato?) a %.1f, %.1f, %.1f
+
+chat.info.mfr.ruler.nosight = Niente in vista
+chat.info.mfr.ruler.hitentity = Colpito mob - misurazione fallita
+chat.info.mfr.ruler.startposition = Registrato posizione d'inizio
+chat.info.mfr.ruler.distance = distanza: %d, conta: %d
+chat.info.mfr.ruler.total = Distanza totale: %.1f
+
+chat.info.mfr.rednet.meter.cable.allzero = Tutti i RedNet subnets sono 0
+chat.info.mfr.rednet.meter.cable.restzero = Tutti gli altri RedNet subnets sono 0
+chat.info.mfr.rednet.meter.varprefix = Variabile
+chat.info.mfr.rednet.meter.var.allzero = Tutti i variabili sono 0
+chat.info.mfr.rednet.meter.var.restzero = Tutti gli altri variabili sono 0
+chat.info.mfr.rednet.meter.dustprefix = Polvere di pietrarossa
+
+chat.info.mfr.rednet.memorycard.uploaded = Programma PRC salvato su Sceda di memoria da PRC
+chat.info.mfr.rednet.memorycard.downloaded = Programma PRC scaricato da Sceda di memoria da PRC
+chat.info.mfr.rednet.memorycard.error = PRC contiene circuiti insufficienti per tenere questo programma
+chat.info.mfr.rednet.memorycard.error2 = Questo PRC è usato da qualcun altro
+
+chat.info.mfr.rednet.tile.standard = Messo cavo su modalità connesione standard
+chat.info.mfr.rednet.tile.cableonly = Messo cu modalità connesione solo-cavo
+
+chat.info.mfr.rednet.connection.standard = Messo lato su modalità connesione standard
+chat.info.mfr.rednet.connection.forced = Messo lato su modalità connesione forzata
+chat.info.mfr.rednet.connection.forcedstrong = Messo lato su modalità connesione dorte
+chat.info.mfr.rednet.connection.cableonly = Messo lato su modalità connesione solo-cavo
+
+chat.info.mfr.fluid.connection.disabled = Messo lato su modalità disabilita connesione
+chat.info.mfr.fluid.connection.output = Messo lato su modalità connesione uscita
+chat.info.mfr.fluid.connection.extract = Messo lato su modalità connesione estrazione
+
+chat.info.mfr.fluid.install.torch = Intallato Torcia di pietrarossa, controllo PS invertita
+chat.info.mfr.fluid.install.block = Intallato Blocco di pietrarossa, controllo PS disabilitato
+
+chat.info.mfr.bag.stacksize = Puoi aprire soltanto un sacchetto alla volta
+
+chat.info.mfr.chunkloader.noticket = Hai troppi Caricatrici di chunk e questo qui non può funzionare.
+
+# Tooltips: these can be added to any item by a lang file, but they cannot be removed
+# this is a limitation of the localization system.
+# Replace "item." or "tile." with "tip.info" and remove ".name" and that tooltip will be
+# displayed under the item with exceptions, such as the PRC which uses a custom entry for legacy reasons
+
+tip.info.mfr.rubber_wood.sapling.massive = Attenzione: non piantarlo in casa.
+
+tip.info.mfr.prc = Se ti sei perso, leggi il manuale (nel gioco)
+
+tip.info.mfr.xpextractor = Richiede un contenitore vuoto da riempire
+
+tip.info.mfr.mobcounter = Emette un segnale di petrarossa\ndirettamente proporzionale\nal numero di mob nei dintorni.
+
+tip.info.mfr.laserdrill = Mettilo sopra un buco che arriva fino alla roccia del sottostrato o nel Vuoto
+tip.info.mfr.laserdrillprecharger = Mettilo un blocco da un laser
+
+# These tooltips are not the entire tooltip, but part of a custom format or entry
+
+tip.info.mfr.cannotplace = Non può piazzare per altri %s secondi.
+
+tip.info.mfr.safarinet.mode = Shift-click per cambiare modalità
+tip.info.mfr.safarinet.persistent = Creature rilasciate non despawnano normalmente
+tip.info.mfr.safarinet.nametag = Creature rilasciate mostreranno sempre la loro targhetta
+tip.info.mfr.safarinet.mystery = E' un mistero
+
+tip.info.mfr.memorycard.programmedFor = Programmati per:\n      \u00A7a%s
+tip.info.mfr.memorycard.programmed = \u0020     \u00A7aPrgrammati %d circuiti
+tip.info.mfr.memorycard.wipe = Metti in una griglia di fabbricazione per cancellare
+
+tip.info.mfr.generator.produces = Produce solo RF.
+
+tip.info.mfr.dsu.contains = Contiene %s
+
+tip.info.mfr.needlegun.ammo = %s colpi
+
+tip.info.mfr.upgrade.radius = Raggio aumentato: %s
+
+death.attack.mfr.slaughterhouse = %1$s è stato lavorato in carne solida
+death.attack.mfr.slaughterhouse.player = %1$s è stato obbligato a essere lavorato in carne solida da %2$s
+death.attack.mfr.slaughterhouse.1 = %1$s è stato trasformato in sugo di carne
+death.attack.mfr.slaughterhouse.1.player = %1$s è stato obbligato ad essere trasformato in sugo di carne da %2$s
+death.attack.mfr.grinder = %1$s è stato tritato in pezzettini
+death.attack.mfr.grinder.player = %2$s si è assicurato che %1$s fosse tritato in pezzettini
+death.attack.mfr.laser = %1$s è stato disintegrato
+death.attack.mfr.laser.player = %2$s si è assicurato che %1$s fosse disintegrato
+
+#TConstuct tools
+
+item.mfr.plastic.display = Plastica
+item.mfr.pink_slime.display = Gelatina rosa
+
+tool.pickaxe.plastic=Piccone di plastica
+tool.pickaxe.pinkslime=Piccone di gelatina rosa
+
+tool.shovel.plastic=Pala di plastica
+tool.shovel.pinkslime=Pala di gelatina rosa
+
+tool.hatchet.plastic=Accetta di plastica
+tool.hatchet.pinkslime=Accetta di gelatina rosa
+
+tool.broadsword.plastic=Spadone di plastica
+tool.broadsword.pinkslime=Spadone di gelatina rosa
+
+tool.longsword.plastic=Spada lunga di plastica
+tool.longsword.pinkslime=Spada lunga di gelatina rosa
+
+tool.rapier.plastic=Stocco di plastica
+tool.rapier.pinkslime=Stocco di gelatina rosa
+
+tool.dagger.plastic=Daga di plastica
+tool.dagger.pinkslime=Daga di gelatina rosa
+
+tool.cutlass.plastic=Sciabola di plastica
+tool.cutlass.pinkslime=Sciabola di gelatina rosa
+
+tool.fryingpan.plastic=Padella di plastica
+tool.fryingpan.pinkslime=Padella di gelatina rosa
+
+tool.battlesign.plastic=Padella di plastica
+tool.battlesign.pinkslime=Padella di gelatina rosa
+
+tool.battlesign.plastic=Insegna da guerra di plastica
+tool.battlesign.pinkslime=Insegna da guerra di gelatina rosa
+
+tool.mattock.plastic=Zappa di plastica
+tool.mattock.pinkslime=Zappa di gelatina rosa
+
+tool.chisel.plastic=Scalpello di plastica
+tool.chisel.pinkslime=Scalpello di gelatina rosa
+
+tool.lumberaxe.plastic=Ascia di plastica
+tool.lumberaxe.pinkslime=Ascia di gelatina rosa
+
+tool.cleaver.plastic=Mannaia di plastica
+tool.cleaver.pinkslime=Mannaia di gelatina rosa
+
+tool.scythe.plastic=Falce di plastica
+tool.scythe.pinkslime=Falce di gelatina rosa
+
+tool.excavator.plastic=Vanga di plastica
+tool.excavator.pinkslime=Vanga di gelatina rosa
+
+tool.hammer.plastic=Martello di plastica
+tool.hammer.pinkslime=Martello di gelatina rosa
+
+tool.battleaxe.plastic=Ascia da battaglia di plastica
+tool.battleaxe.pinkslime=Ascia da battaglia di gelatina rosa
+
+tool.shortbow.plastic=Arco corto di plastica
+tool.shortbow.pinkslime=Arco corto di gelatina rosa
+
+tool.longbow.plastic=Arco lungo di plastica
+tool.longbow.pinkslime=Arco lungo di gelatina rosa
+
+tool.crossbow.plastic=Balestra di plastica
+tool.crossbow.pinkslime=Balestra di gelatina rosa
+
+tool.arrowammo.plastic=Frecce di plastica
+tool.arrowammo.pinkslime=Frecce di gelatina rosa
+
+tool.shuriken.plastic=Shuriken di plastica
+tool.shuriken.pinkslime=Shuriken di gelatina rosa
+
+tool.throwingknife.plastic=Coltello da lancio di plastica
+tool.throwingknife.pinkslime=Coltello da lancio di gelatina rosa
+
+tool.javelin.plastic=Giavellotto di plastica
+tool.javelin.pinkslime=Giavellotto di gelatina rosa
+
+toolpart.ToolRod.plastic=Manico di plastica
+toolpart.PickaxeHead.plastic=Testa di piccone di plastica
+toolpart.ShovelHead.plastic=Testa di pala di plastica
+toolpart.AxeHead.plastic=Testa d'ascia di plastica
+toolpart.Binding.plastic=Legatura di plastica
+toolpart.ToughBinding.plastic=Legatura resistente di plastica
+toolpart.ToughRod.plastic=Manico resistente di plastica
+toolpart.LargePlate.plastic=Piastra grande di plastica
+toolpart.SwordBlade.plastic=Lama di spada di plastica
+toolpart.LargeGuard.plastic=Guardia larga di plastica
+toolpart.MediumGuard.plastic=Guardia media di plastica
+toolpart.Crossbar.plastic=Guardia traversa di plastica
+toolpart.KnifeBlade.plastic=Lama di coltello di plastica
+toolpart.FullGuard.plastic=Guardia piena di plastica
+toolpart.FrypanHead.plastic=Padella di plastica
+toolpart.SignHead.plastic=Testa di cartello di plastica
+toolpart.ChiselHead.plastic=Testa di scalpello di plastica
+toolpart.ScytheHead.plastic=Testa di falce di plastica
+toolpart.LumberAxeHead.plastic=Testa d'ascia larga di plastica
+toolpart.ExcavatorHead.plastic=Testa di vanga di plastica
+toolpart.ToolShard.plastic=Frammento di plastica
+toolpart.LargeSwordBlade.plastic=Grande lama di spada di plastica
+toolpart.HammerHead.plastic=Testa di martello di plastica
+toolpart.Bowstring.plastic=Corda d'arco di plastica
+toolpart.ArrowHead.plastic=Testa di freccia di plastica
+toolpart.Shuriken.plastic=Shuriken di plastica
+toolpart.CrossbowLimb.plastic=Fusto di balestra di plastica
+toolpart.CrossbowBody.plastic=Flettente di balestra di plastica
+toolpart.BowLimb.plastic=Flettente di arco di plastica
+toolpart.Bolt.plastic=Dardo di plastica
+
+toolpart.ToolRod.pinkslime=Manico di gelatina rosa
+toolpart.PickaxeHead.pinkslime=Testa di piccone di gelatina rosa
+toolpart.ShovelHead.pinkslime=Testa di pala di gelatina rosa
+toolpart.AxeHead.pinkslime=Testa d'ascia di gelatina rosa
+toolpart.Binding.pinkslime=Legatura di gelatina rosa
+toolpart.ToughBinding.pinkslime=Legatura resistente di gelatina rosa
+toolpart.ToughRod.pinkslime=Manico resistente di gelatina rosa
+toolpart.LargePlate.pinkslime=Piastra grande di gelatina rosa
+toolpart.SwordBlade.pinkslime=Lama di spada di gelatina rosa
+toolpart.LargeGuard.pinkslime=Guardia larga di gelatina rosa
+toolpart.MediumGuard.pinkslime=Guardia media di gelatina rosa
+toolpart.Crossbar.pinkslime=Guardia traversa di gelatina rosa
+toolpart.KnifeBlade.pinkslime=Lama di coltello di gelatina rosa
+toolpart.FullGuard.pinkslime=Guardia piena di gelatina rosa
+toolpart.FrypanHead.pinkslime=Padella di gelatina rosa
+toolpart.SignHead.pinkslime=Testa di cartello di gelatina rosa
+toolpart.ChiselHead.pinkslime=Testa di scalpello di gelatina rosa
+toolpart.ScytheHead.pinkslime=Testa di falce di gelatina rosa
+toolpart.LumberAxeHead.pinkslime=Testa d'ascia larga di gelatina rosa
+toolpart.ExcavatorHead.pinkslime=Testa di vanga di gelatina rosa
+toolpart.ToolShard.pinkslime=Frammento di gelatina rosa
+toolpart.LargeSwordBlade.pinkslime=Grande lama di spada di gelatina rosa
+toolpart.HammerHead.pinkslime=Testa di martello di gelatina rosa
+toolpart.Bowstring.pinkslime=Corda d'arco di gelatina rosa
+toolpart.ArrowHead.pinkslime=Testa di freccia di gelatina rosa
+toolpart.Shuriken.pinkslime=Shuriken di gelatina rosa
+toolpart.CrossbowLimb.pinkslime=Fusto di balestra di gelatina rosa
+toolpart.CrossbowBody.pinkslime=Flettente di balestra di gelatina rosa
+toolpart.BowLimb.pinkslime=Flettente di arco di gelatina rosa
+toolpart.Bolt.pinkslime=Dardo di gelatina rosa

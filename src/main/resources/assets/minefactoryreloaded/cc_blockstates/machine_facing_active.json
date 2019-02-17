@@ -1,0 +1,282 @@
+{
+    "ccl_marker": 1,
+    "variant_sets": [
+        "type,facing,active",
+        "type"
+    ],
+    "defaults": {
+        "model": "minecraft:cube",
+        "transform": "ccl:default-block",
+        "textures": {
+            "particle": "blocks/machines/tile.mfr.machine.0.active.side",
+            "down": "blocks/machines/tile.mfr.machine.0.bottom",
+            "up": "blocks/machines/tile.mfr.machine.0.top",
+            "north": "blocks/machines/tile.mfr.machine.0.active.side",
+            "south": "blocks/machines/tile.mfr.machine.0.active.side",
+            "west": "blocks/machines/tile.mfr.machine.0.active.side",
+            "east": "blocks/machines/tile.mfr.machine.0.active.side"
+        }
+    },
+    "texture_domain": "minefactoryreloaded",
+    "variants": {
+        "type": {
+            "harvester": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.harvester.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.harvester.back",
+                    "west": "blocks/machines/tile.mfr.machine.harvester.left",
+                    "east": "blocks/machines/tile.mfr.machine.harvester.right"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.harvester.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "rancher": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.rancher.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.rancher.back",
+                    "west": "blocks/machines/tile.mfr.machine.rancher.side",
+                    "east": "blocks/machines/tile.mfr.machine.rancher.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.rancher.active.front"
+                            }
+                        },
+                        "false": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.rancher.idle.front"
+                            }
+                        }
+                    }
+                }
+            },
+            "fertilizer": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.fertilizer.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.fertilizer.back",
+                    "west": "blocks/machines/tile.mfr.machine.fertilizer.left",
+                    "east": "blocks/machines/tile.mfr.machine.fertilizer.right"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.fertilizer.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "vet": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.vet.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.vet.side",
+                    "west": "blocks/machines/tile.mfr.machine.vet.side",
+                    "east": "blocks/machines/tile.mfr.machine.vet.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.vet.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "block_breaker": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.blockbreaker.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.blockbreaker.back",
+                    "west": "blocks/machines/tile.mfr.machine.blockbreaker.left",
+                    "east": "blocks/machines/tile.mfr.machine.blockbreaker.right"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.blockbreaker.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "sludge_boiler": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.sludgeboiler.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.sludgeboiler.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.sludgeboiler.idle.left",
+                    "east": "blocks/machines/tile.mfr.machine.sludgeboiler.idle.right"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.sludgeboiler.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.sludgeboiler.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.sludgeboiler.active.left",
+                                "east": "blocks/machines/tile.mfr.machine.sludgeboiler.active.right"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "breeder": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.breeder.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.breeder.side",
+                    "west": "blocks/machines/tile.mfr.machine.breeder.side",
+                    "east": "blocks/machines/tile.mfr.machine.breeder.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.breeder.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "grinder": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.grinder.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.grinder.back",
+                    "west": "blocks/machines/tile.mfr.machine.grinder.left",
+                    "east": "blocks/machines/tile.mfr.machine.grinder.right"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.grinder.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "chronotyper": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.chronotyper.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.chronotyper.back",
+                    "west": "blocks/machines/tile.mfr.machine.chronotyper.side",
+                    "east": "blocks/machines/tile.mfr.machine.chronotyper.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.chronotyper.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "slaughter_house": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.slaughterhouse.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.slaughterhouse.side",
+                    "west": "blocks/machines/tile.mfr.machine.slaughterhouse.side",
+                    "east": "blocks/machines/tile.mfr.machine.slaughterhouse.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.slaughterhouse.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "laser_drill_precharger": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.laserdrillprecharger.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.laserdrillprecharger.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.laserdrillprecharger.side",
+                    "west": "blocks/machines/tile.mfr.machine.laserdrillprecharger.side",
+                    "east": "blocks/machines/tile.mfr.machine.laserdrillprecharger.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.laserdrillprecharger.active.top",
+                                "north": "blocks/machines/tile.mfr.machine.laserdrillprecharger.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "fruit_picker": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.fruitpicker.top",
+                    "north": "blocks/machines/tile.mfr.machine.fruitpicker.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.fruitpicker.back",
+                    "west": "blocks/machines/tile.mfr.machine.fruitpicker.side",
+                    "east": "blocks/machines/tile.mfr.machine.fruitpicker.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.fruitpicker.active.front"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "mob_router": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.mobrouter.idle.front",
+                    "south": "blocks/machines/tile.mfr.machine.mobrouter.idle.back",
+                    "west": "blocks/machines/tile.mfr.machine.mobrouter.left",
+                    "east": "blocks/machines/tile.mfr.machine.mobrouter.right"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.mobrouter.active.front",
+                                "south": "blocks/machines/tile.mfr.machine.mobrouter.active.back"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            }
+        },
+        "facing": {
+            "north": {},
+            "south": {
+                "y": 180
+            },
+            "west": {
+                "y": 270
+            },
+            "east": {
+                "y": 90
+            }
+        }
+    }
+}

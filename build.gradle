@@ -1,3 +1,5 @@
+import java.util.regex.Pattern
+
 // This simple grabs the latest 'forge' plugin, or ForgeGradle, from Forge's servers.
 buildscript {
     repositories {
@@ -12,7 +14,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
 
@@ -22,6 +24,11 @@ apply plugin: 'maven'
 
 group = 'powercrystals' // Your main package.
 archivesBaseName = 'MineFactoryReloaded'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext.mod_version = pullVersion()
 
 repositories {
     maven {
@@ -37,19 +44,75 @@ repositories {
         url = "http://maven.ic2.player.to/"
     }
     maven { url "http://dvs1.progwml6.com/files/maven" }
+    maven {
+        name "BuildCraft"
+        url = "https://mod-buildcraft.com/maven"
+    }
 }
 
 dependencies {
     compile "codechicken:CodeChickenLib:${mc_version}-${ccl_version}:deobf"
     compile "cofh:CoFHCore:${mc_version}-${cofhcore_version}:deobf"
+    compile "cofh:RedstoneFlux:${rf_mc_version}-${rf_version}:deobf"
+    compile "cofh:CoFHWorld:${mc_version}-${cofhworld_version}:deobf"
     compile "net.industrial-craft:industrialcraft-2:${ic2_version}"
     compile "net.sengir.forestry:forestry_${mc_version}:${forestry_version}"
+    //deobfCompile "com.mod-buildcraft:buildcraft-api:${buildcraft_version}"
     //deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}"
 }
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 version = "${mod_version}." + (System.getenv("BUILD_NUMBER") ?: "1")
+
+sourceSets {
+    api {
+        java {
+            srcDir 'src/api/java'
+        }
+    }
+    dependencies {
+        java {
+            srcDir 'src/dependencies/java/'
+        }
+        compileClasspath += sourceSets.api.compileClasspath
+    }
+    core {
+        java {
+            srcDir 'src/core/java'
+        }
+        resources {
+            srcDir 'src/core/resources'
+        }
+        compileClasspath += sourceSets.api.compileClasspath
+    }
+    compat {
+        java {
+            srcDir 'src/compat/java'
+        }
+        compileClasspath += sourceSets.api.compileClasspath
+        compileClasspath += sourceSets.api.output
+        compileClasspath += sourceSets.dependencies.output
+    }
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+        compileClasspath += sourceSets.api.output
+        compileClasspath += sourceSets.core.output
+        compileClasspath += sourceSets.dependencies.output
+    }
+    doLast {
+
+        // hey, guess what: forgegradle is broken and evaluates a fixed sourceSet name (`main`: no matter what) at `apply plugin:`
+        // this *could* be solved by defining it before then, but we need things they set to actually work, and they crash if we define `api` before they force-define it
+        // so now we have to use their magic names and hope they don't change to add our stuff to their sets!
+        // i want ant back
+        reobfJar.classpath += sourceSets.core.output
+        reobfJar.classpath += sourceSets.api.output
+        reobfJar.classpath += sourceSets.dependencies.output
+    }
+}
 
 minecraft {
     version = mc_version + "-" + forge_version
@@ -59,55 +122,82 @@ minecraft {
     makeObfSourceJar = false
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src'
-        }
-        resources {
-            srcDir 'resources'
-        }
-    }
-}
-
-processResources {
-    inputs.property "version", version
-    inputs.property "mc_version", mc_version
-
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version': project.version, 'mc_version': mc_version
-    }
-    rename '(.+_at.cfg)', 'META-INF/$1'
-}
-
 version = "${project.minecraft.version}-${project.version}"
 
-def commonManifest = {
-    attributes 'FMLAT': 'MFR_at.cfg'
+processResources {
+    filesMatching(['mcmod.info', '**/*.MF'], {
+        it.expand 'core_version': "${mfr_core_version}", 'version': "${mod_version}", 'mc_version': "${mc_version}"
+    })
+    filesMatching('META-INF/libraries/*.MF', {
+        // cannot do `rename` on the base closure: that renames *all* .MF files, even though we're filtered
+        it.setName(it.getName().replaceAll('^(.+).MF$', '$1.meta'))
+    })
+}
+
+processCoreResources {
+    // hey, you know what's *NOT* possible? code re-use! just copy-paste everything!
+    filesMatching(['mcmod.info', '**/*.MF'], {
+        it.expand 'core_version': "${mfr_core_version}", 'version': "${mod_version}", 'mc_version': "${mc_version}"
+    })
+    filesMatching('META-INF/libraries/*.MF', {
+        // cannot do `rename` on the base closure: that renames *all* .MF files, even though we're filtered
+        it.setName(it.getName().replaceAll('^(.+).MF$', '$1.meta'))
+    })
+}
+
+task coreJar(type: Jar) {
+    from sourceSets.core.output
+    appendix = 'core'
+    version = "${mfr_core_version}"
+    manifest { from sourceSets.core.output.resourcesDir.toString() + '/META-INF/MANIFEST.MF' }
+}
+
+task moveCore {
+    dependsOn 'coreJar'
+    doLast {
+        // ??? really? "We don't support this, but we integrate with our competitor so you can do it with them through us!"
+        // seriously, i just want rid of this shit and to use ant for everything again.
+        ant.move file: coreJar.archivePath,
+                todir: sourceSets.main.output.resourcesDir.toString() + '/META-INF/libraries'
+    }
 }
 
 jar {
+    dependsOn 'moveCore'
+    from([sourceSets.api.output, sourceSets.compat.output]) // this is a +=
     classifier = 'universal'
-    manifest commonManifest
+    manifest { from sourceSets.main.output.resourcesDir.toString() + '/META-INF/MANIFEST.MF' }
 }
 
 task deobfJar(type: Jar) {
     from sourceSets.main.output
     classifier = 'deobf'
-    manifest commonManifest
+    manifest = jar.manifest
 }
 
 task srcJar(type: Jar) {
-    from sourceSets.main.allSource
-    classifier = 'sources'
-    manifest commonManifest
+    from([sourceSets.api.allSource, sourceSets.api.output])
+    classifier = 'api'
 }
 
 // Tell the artifact system about our extra jars
 artifacts {
     archives deobfJar
     archives srcJar
+}
+
+def pullVersion() {
+    def file = file("src/main/java/powercrystals/minefactoryreloaded/MFRProps.java")
+    def version = ""
+    def pattern = Pattern.compile("VERSION = \"([^\"]*)\";")
+    file.eachLine { String s ->
+        def matcher = pattern.matcher(s)
+        if (matcher.find()) {
+            version = matcher.group(1)
+            return
+        }
+    }
+    return version
 }
 
 // Configure an upload task.

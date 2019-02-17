@@ -1,0 +1,503 @@
+#PARSE_ESCAPES
+tile.mfr.machine.planter.name = Pflanzer
+tile.mfr.machine.fisher.name = Fischer
+tile.mfr.machine.harvester.name = Ernter
+tile.mfr.machine.rancher.name = Rancher
+tile.mfr.machine.fertilizer.name = Düngemaschine
+tile.mfr.machine.vet.name = Tierarzt
+tile.mfr.machine.itemcollector.name = Itemsammler
+tile.mfr.machine.blockbreaker.name = Blockentferner
+tile.mfr.machine.weathercollector.name = Wettersammler
+tile.mfr.machine.sludgeboiler.name = Schlackekessel
+tile.mfr.machine.sewer.name = Kloake
+tile.mfr.machine.composter.name = Komposter
+tile.mfr.machine.breeder.name = Züchter
+tile.mfr.machine.grinder.name = Mahlwerk
+tile.mfr.machine.autoenchanter.name = Automatischer Zaubertisch
+tile.mfr.machine.chronotyper.name = Wachstumsanzeige
+
+tile.mfr.machine.ejector.name = Auswerfer
+tile.mfr.machine.itemrouter.name = Itemrouter
+tile.mfr.machine.liquidrouter.name = Flüssigkeitsrouter
+tile.mfr.machine.deepstorageunit.name = Tiefenspeicher
+tile.mfr.machine.liquicrafter.name = Flüssigkeits-Werkbank
+tile.mfr.machine.lavafabricator.name = Lavafabrik
+tile.mfr.machine.steamboiler.name = Dampfkessel
+tile.mfr.machine.autojukebox.name = Automatischer Plattenspieler
+tile.mfr.machine.unifier.name = Vereiniger
+tile.mfr.machine.autospawner.name = Automatischer Spawner
+tile.mfr.machine.bioreactor.name = Bioreaktor
+tile.mfr.machine.biofuelgenerator.name = Biodieselgenerator
+tile.mfr.machine.autodisenchanter.name = Automatischer Entzauberer
+tile.mfr.machine.slaughterhouse.name = Schlachterei
+tile.mfr.machine.meatpacker.name = Fleischverpacker
+tile.mfr.machine.enchantmentrouter.name = Verzauberungsrouter
+
+tile.mfr.machine.laserdrill.name = Laser-Bohrer
+tile.mfr.machine.laserdrillprecharger = Laserbohrer-Vorladegerät
+tile.mfr.machine.autoanvil.name = Automatischer Amboss
+tile.mfr.machine.blocksmasher.name = Blockzertrümmerer
+tile.mfr.machine.rednote.name = RedNotenblock
+tile.mfr.machine.autobrewer.name = Automatischer Braustand
+tile.mfr.machine.fruitpicker.name = Fruchtsammler
+tile.mfr.machine.blockplacer.name = Block-Platzierer
+tile.mfr.machine.mobcounter.name = Mob-Zähler
+tile.mfr.machine.steamturbine.name = Dampfturbine
+tile.mfr.machine.chunkloader.name = Chunk-Loader
+tile.mfr.machine.fountain.name = Brunnen
+tile.mfr.machine.mobrouter.name = Monster-Router
+
+tile.mfr.conveyor.default.name = Förderband
+tile.mfr.conveyor.white.name = Weißes Förderband
+tile.mfr.conveyor.orange.name = Orangenes Förderband
+tile.mfr.conveyor.magenta.name = Magenta Förderband
+tile.mfr.conveyor.lightblue.name = Hellblaues Förderband
+tile.mfr.conveyor.yellow.name = Gelbes Förderband
+tile.mfr.conveyor.lime.name = Hellgrünes Förderband
+tile.mfr.conveyor.pink.name = Pinkes Förderband
+tile.mfr.conveyor.gray.name = Graues Förderband
+tile.mfr.conveyor.lightgray.name = Hellgraues Förderband
+tile.mfr.conveyor.cyan.name = Türkises Förderband
+tile.mfr.conveyor.purple.name = Violettes Förderband
+tile.mfr.conveyor.blue.name = Blaues Förderband
+tile.mfr.conveyor.brown.name = Braunes Förderband
+tile.mfr.conveyor.green.name = Grünes Förderband
+tile.mfr.conveyor.red.name = Rotes Förderband
+tile.mfr.conveyor.black.name = Schwarzes Förderband
+
+tile.mfr.stained_glass.block.white.name = Weiß getöntes Glas
+tile.mfr.stained_glass.block.orange.name = Orange getöntes Glas
+tile.mfr.stained_glass.block.magenta.name = Magentafarben getöntes Glas
+tile.mfr.stained_glass.block.lightblue.name = Hellblau getöntes Glas
+tile.mfr.stained_glass.block.yellow.name = Gelb getöntes Glas
+tile.mfr.stained_glass.block.lime.name = Hellgrün getöntes Glas
+tile.mfr.stained_glass.block.pink.name = Pink getöntes Glas
+tile.mfr.stained_glass.block.gray.name = Grau getöntes Glas
+tile.mfr.stained_glass.block.lightgray.name = Hellgrau getöntes Glas
+tile.mfr.stained_glass.block.cyan.name = Türkis getöntes Glas
+tile.mfr.stained_glass.block.purple.name = Violett getöntes Glas
+tile.mfr.stained_glass.block.blue.name = Blau getöntes Glas
+tile.mfr.stained_glass.block.brown.name = Braun getöntes Glas
+tile.mfr.stained_glass.block.green.name = Grün getöntes Glas
+tile.mfr.stained_glass.block.red.name = Rot getöntes Glas
+tile.mfr.stained_glass.block.black.name = Schwarz getöntes Glas
+
+tile.mfr.stained_glass.pane.white.name = Weiß getönte Glasscheibe
+tile.mfr.stained_glass.pane.orange.name = Orange getönte Glasscheibe
+tile.mfr.stained_glass.pane.magenta.name = Magentafarben getönte Glasscheibe
+tile.mfr.stained_glass.pane.lightblue.name = Hellblau getönte Glasscheibe
+tile.mfr.stained_glass.pane.yellow.name = Gelb getönte Glasscheibe
+tile.mfr.stained_glass.pane.lime.name = Hellgrün getönte Glasscheibe
+tile.mfr.stained_glass.pane.pink.name = Pink getönte Glasscheibe
+tile.mfr.stained_glass.pane.gray.name = Grau getönte Glasscheibe
+tile.mfr.stained_glass.pane.lightgray.name = Hellgrau getönte Glasscheibe
+tile.mfr.stained_glass.pane.cyan.name = Türkis getönte Glasscheibe
+tile.mfr.stained_glass.pane.purple.name = Violett getönte Glasscheibe
+tile.mfr.stained_glass.pane.blue.name = Blau getönte Glasscheibe
+tile.mfr.stained_glass.pane.brown.name = Braun getönte Glasscheibe
+tile.mfr.stained_glass.pane.green.name = Grün getönte Glasscheibe
+tile.mfr.stained_glass.pane.red.name = Rot getönte Glasscheibe
+tile.mfr.stained_glass.pane.black.name = Schwarz getönte Glasscheibe
+
+tile.mfr.road.default.name = Straße
+tile.mfr.road.light.off.name = Straßenlaterne
+tile.mfr.road.light.on.name = Straßenlaterne
+tile.mfr.road.light.inverted.off.name = Invertierte Straßenlaterne
+tile.mfr.road.light.inverted.on.name = Invertierte Straßenlaterne
+
+tile.mfr.plastic.block.plain.name = Plastikblock
+
+tile.mfr.decorative.brick.ice.name = Eisziegel
+tile.mfr.decorative.brick.glowstone.name = Glühsteinziegel
+tile.mfr.decorative.brick.lapis.name = Lapislazuliziegel
+tile.mfr.decorative.brick.obsidian.name = Obsidianziegel
+tile.mfr.decorative.brick.pavedstone.name = Gepflasterte Steinziegel
+tile.mfr.decorative.brick.snow.name = Schneeziegel
+tile.mfr.decorative.brick.ice.large.name = Großer Eisziegel
+tile.mfr.decorative.brick.glowstone.large.name = Großer Glühsteinziegel
+tile.mfr.decorative.brick.lapis.large.name = Großer Lapislazuliziegel
+tile.mfr.decorative.brick.obsidian.large.name = Großer Obsidianziegel
+tile.mfr.decorative.brick.pavedstone.large.name = Große Gepflasterte Steinziegel
+tile.mfr.decorative.brick.snow.large.name = Großer Schneeziegel
+tile.mfr.decorative.brick.meatraw.name = Roher Fleischblock
+tile.mfr.decorative.brick.meatcooked.name = Gekochter Fleischblock
+tile.mfr.decorative.brick.brick.large.name = Große Ziegel
+tile.mfr.decorative.brick.sugar_charcoal.name = Zuckerkohleblock
+
+tile.mfr.decorative.stone.black.smooth.name = Glatter schwarzer Stein
+tile.mfr.decorative.stone.black.cobble.name = Schwarzer Pflasterstein
+tile.mfr.decorative.stone.black.brick.small.name = Kleine schwarze Ziegel
+tile.mfr.decorative.stone.black.brick.large.name = Große schwarze Ziegel
+tile.mfr.decorative.stone.black.gravel.name = Schwarzer Kies
+tile.mfr.decorative.stone.black.paved.name = Schwarzer gepflasterter Stein
+tile.mfr.decorative.stone.white.smooth.name = Glatter weißer Stein
+tile.mfr.decorative.stone.white.cobble.name = Weißer Pflasterstein
+tile.mfr.decorative.stone.white.brick.small.name = Kleine weiße Ziegel
+tile.mfr.decorative.stone.white.brick.large.name = Große weiße Ziegel
+tile.mfr.decorative.stone.white.gravel.name = Weißer Kies
+tile.mfr.decorative.stone.white.paved.name = Weißer gepflasterter Stein
+
+tile.mfr.pink_slime.block.name = Rosa Schleimblock
+
+tile.ice.unmelting.name = Nichtschmelzendes Eis
+
+tile.mfr.vine.scaffold.name = Lianengerüst
+
+tile.mfr.detcord.name = Sprengschnur
+
+tile.mfr.farmland.name = Fruchtbare Erde
+
+tile.mfr.rubber_wood.sapling.normal.name = Gummibaumsetzling
+tile.mfr.rubber_wood.sapling.sacred.name = Heiliger Gummibaumsetzling
+tile.mfr.rubber_wood.sapling.mega.name = Mega-Gummibaumsetzling
+tile.mfr.rubber_wood.sapling.massive.name = Heiliger Gummibaumsetzling
+tile.mfr.rubber_wood.log.name = Gummibaumholz
+tile.mfr.rubber_wood.leaves.normal.name = Gummibaumblätter
+tile.mfr.rubber_wood.leaves.dry.name = Trockene Gummibaumblätter
+
+tile.mfr.rail.cargo.dropoff.name = Entladungsgleis
+tile.mfr.rail.cargo.pickup.name = Beladungsgleis
+tile.mfr.rail.passenger.dropoff.name = Aussteigegleis
+tile.mfr.rail.passenger.pickup.name = Einsteigegleis
+
+tile.mfr.cable.redstone.name = RedNet-Kabel
+tile.mfr.cable.redstone.glass.name = RedNet-Kabel
+tile.mfr.cable.redstone.energy.name = RedNet-Energiekabel
+tile.mfr.cable.redstone.energyglass.name = RedNet-Energiekabel
+tile.mfr.plastic.pipe.name = Plastikrohr
+
+tile.mfr.rednet.logic.name = Programmierbarer RedNet-Controller
+tile.mfr.rednet.panel.historian.name = Graph
+
+tile.mfr.machine_block.machine = item.mfr.machineblock
+tile.mfr.machine_block.prc.name = Gehäuse für den Programmierbaren RedNet-Controller
+
+tile.mfr.tank.name = Plastiktank
+
+fluid.mfr.milk.fluid.name = Milch
+fluid.mfr.sludge.fluid.name = Schlacke
+fluid.mfr.sewage.fluid.name = Gülle
+fluid.mfr.mobessence.fluid.name = Essenz
+fluid.mfr.biofuel.fluid.name = Biodiesel
+fluid.mfr.meat.fluid.name = Fleischmasse
+fluid.mfr.pink_slime.fluid.name = Rosa Schleim
+fluid.mfr.chocolatemilk.fluid.name = Kakao
+fluid.mfr.mushroomsoup.fluid.name = Pilzsuppe
+fluid.mfr.steam.fluid.name = Dampf
+
+entity.MineFactoryReloaded.mfrEntityPinkSlime.name = Rosa Schleim
+
+item.mfr.bucket.milk.name = Milcheimer
+item.mfr.bucket.sewage.name = Gülleeimer
+item.mfr.bucket.sludge.name = Schlackeeimer
+item.mfr.bucket.essence.name = Eimer mit Monsteressenz
+item.mfr.bucket.biofuel.name = Eimer mit Biodiesel
+item.mfr.bucket.meat.name = Eimer mit Fleischmasse
+item.mfr.bucket.pink_slime.name = Eimer mit rosa Schleim
+item.mfr.bucket.chocolatemilk.name = Eimer mit Kakao
+item.mfr.bucket.mushroomsoup.name = Eimer mit Pilzsuppe
+
+item.mfr.plastic.cup.name = Plastikbecher
+item.mfr.plastic.cup.prefix.name = Becher mit
+item.mfr.plastic.cup.suffix.name = 
+item.mfr.plastic.cell.name = Plastikzelle
+item.mfr.plastic.cell.prefix.name = Zelle mit
+item.mfr.plastic.cell.suffix.name =
+
+item.mfr.glass.armor.helm.name = Sonnenbrille
+
+item.mfr.plastic.armor.helm.name  = Plastikhelm
+item.mfr.plastic.armor.chest.name = Plastikbrustpanzer
+item.mfr.plastic.armor.legs.name  = Plastikbeinschutz
+item.mfr.plastic.armor.boots.name = Plastikstiefel
+
+item.mfr.syringe.cure.name = Dezombifikationsspritze
+item.mfr.syringe.empty.name = Leere Spritze
+item.mfr.syringe.empty.prefix.name = Spritze mit
+item.mfr.syringe.empty.suffix.name =
+item.mfr.syringe.growth.name = Wachstumsspritze
+item.mfr.syringe.health.name = Gesundheitsspritze
+item.mfr.syringe.slime.name = Schleimvergrößerungsspritze
+item.mfr.syringe.zombie.name = Zombifizierungsspritze
+
+item.mfr.machine_block.name = Maschinenblock
+item.mfr.hammer.name = Präzisionsschmiedehammer
+
+item.mfr.plastic = Plastik
+item.mfr.plastic.ability = Zäh
+item.mfr.plastic.sheet.name = Plastikfolie
+item.mfr.plastic.raw.name = Rohplastik
+item.mfr.plastic.bag.name = Plastiktüte
+
+item.mfr.rubber.bar.name = Gummiriegel
+item.mfr.rubber.raw.name = Kautschuk
+item.mfr.record.blank.name = Leere Schallplatte
+
+item.mfr.safarinet.reusable.name = Wiederverwendbares Safarinetz
+item.mfr.safarinet.single_use.name = Wegwerfsafarinetz
+item.mfr.safarinet.jailer.name = Gefängnis-Safarinetz
+item.mfr.safarinet.jailer.fancy.name = Goldenes Gefängnis-Safarinetz
+item.mfr.safarinet.launcher.name = Safarinetzwerfer
+
+item.mfr.sugar_charcoal.name = Zuckerkohle
+item.mfr.fertilizer.name = Industriedünger
+item.mfr.milk_bottle.name = Milchflasche
+item.mfr.spyglass.name = Fernglas
+item.mfr.ruler.name = Lineal
+item.mfr.xp_extractor.name = Erfahrungsextrakteur
+item.mfr.porta_spawner.name = Portalspawner
+item.mfr.straw.name = Strohhalm
+
+item.mfr.rednet.meter.name = RedNet-Messgerät
+item.mfr.rednet.meter.info.name = RedNet-Multimeter
+item.mfr.rednet.meter.debug.name = Debugger
+item.mfr.rednet.memorycard.name = PRC-Speicherkarte
+
+item.mfr.meat.ingot.raw.name = Roher Fleischbarren
+item.mfr.meat.ingot.cooked.name = Gekochter Fleischbarren
+item.mfr.meat.nugget.raw.name = Roher Fleischnugget
+item.mfr.meat.nugget.cooked.name = Gekochter Fleischnugget
+
+item.mfr.pink_slime = Rosa Schleim
+item.mfr.pink_slime.ability = Schleimig\nRosa
+item.mfr.pink_slime.ball.name = Rosa Schleimball
+item.mfr.pink_slime.gem.name = Rosa Schleimkristall
+
+item.mfr.rocket.name = Selbstangetriebene Anti-Material-Rakete (SPAMR)
+item.mfr.rocket.smart.name = Verfolgende Selbstangetriebene Anti-Material-Rakete
+item.mfr.rocket_launcher.name = SPAMR-Raketenwerfer
+
+item.mfr.potato_launcher.name = Kartoffelkanone
+
+item.mfr.fishing_rod.name = Angel
+
+item.mfr.ceramic.dye.white.name = Weiße Lasur
+item.mfr.ceramic.dye.orange.name = Orange Lasur
+item.mfr.ceramic.dye.magenta.name = Magentafarbene Lasur
+item.mfr.ceramic.dye.lightblue.name = Hellblaue Lasur
+item.mfr.ceramic.dye.yellow.name = Gelbe Lasur
+item.mfr.ceramic.dye.lime.name = Hellgrüne Lasur
+item.mfr.ceramic.dye.pink.name = Pinke Lasur
+item.mfr.ceramic.dye.gray.name = Graue Lasur
+item.mfr.ceramic.dye.lightgray.name = Hellgraue Lasur
+item.mfr.ceramic.dye.cyan.name = Türkise Lasur
+item.mfr.ceramic.dye.purple.name = Violette Lasur
+item.mfr.ceramic.dye.blue.name = Blaue Lasur
+item.mfr.ceramic.dye.brown.name = Braune Lasur
+item.mfr.ceramic.dye.green.name = Grüne Lasur
+item.mfr.ceramic.dye.red.name = Rote Lasur
+item.mfr.ceramic.dye.black.name = Schwarze Lasur
+
+item.mfr.laser.focus.white.name = Weiße Linse
+item.mfr.laser.focus.orange.name = Orange Linse
+item.mfr.laser.focus.magenta.name = Magentafarbene Linse
+item.mfr.laser.focus.lightblue.name = Hellblaue Linse
+item.mfr.laser.focus.yellow.name = Gelbe Linse
+item.mfr.laser.focus.lime.name = Hellgrüne Linse
+item.mfr.laser.focus.pink.name = Pinke Linse
+item.mfr.laser.focus.gray.name = Graue Linse
+item.mfr.laser.focus.lightgray.name = Hellgraue Linse
+item.mfr.laser.focus.cyan.name = Türkise Linse
+item.mfr.laser.focus.purple.name = Violette Linse
+item.mfr.laser.focus.blue.name = Blaue Linse
+item.mfr.laser.focus.brown.name = Braune Linse
+item.mfr.laser.focus.green.name = Grüne Linse
+item.mfr.laser.focus.red.name = Rote Linse
+item.mfr.laser.focus.black.name = Schwarze Linse
+
+item.mfr.upgrade.radius.cobble.name = Pflasterstein-Upgrade
+item.mfr.upgrade.radius.lapis.name = Lapislazuli-Upgrade
+item.mfr.upgrade.radius.iron.name = Eisenupgrade
+item.mfr.upgrade.radius.tin.name = Zinnupgrade
+item.mfr.upgrade.radius.copper.name = Kupferupgrade
+item.mfr.upgrade.radius.bronze.name = Bronzeupgrade
+item.mfr.upgrade.radius.silver.name = Silberupgrade
+item.mfr.upgrade.radius.gold.name = Goldupgrade
+item.mfr.upgrade.radius.quartz.name = Quarzupgrade
+item.mfr.upgrade.radius.diamond.name = Diamantupgrade
+item.mfr.upgrade.radius.platinum.name = Platinupgrade
+item.mfr.upgrade.radius.emerald.name = Smaragdupgrade
+
+item.mfr.upgrade.logic.100.name = PRC LX-100 Logische Erweiterungskarte
+item.mfr.upgrade.logic.300.name = PRC LX-300 Logische Erweiterungskarte
+item.mfr.upgrade.logic.500.name = PRC LX-500 Logische Erweiterungskarte
+
+item.mfr.needlegun.name = Needlegun
+item.mfr.needlegun.ammo.empty.name = Needlegun-Magazin
+item.mfr.needlegun.ammo.standard.name = Needlegun-Munition (Nadeln)
+item.mfr.needlegun.ammo.pierce.name = Needlegun Ammo (Splitter)
+item.mfr.needlegun.ammo.lava.name = Needlegun-Munition (Lava)
+item.mfr.needlegun.ammo.sludge.name = Needlegun-Munition (Schlacke)
+item.mfr.needlegun.ammo.sewage.name = Needlegun-Munition (Gülle)
+item.mfr.needlegun.ammo.fire.name = Needlegun-Munition (Feuer)
+item.mfr.needlegun.ammo.anvil.name = Needlegun-Munition (Amboss)
+
+circuit.mfr.noop = (No-Op)
+circuit.mfr.adder.analog = Analoger Addierer
+circuit.mfr.adder.digital.full = Volladdierer
+circuit.mfr.adder.digital.half = Halbaddierer
+circuit.mfr.and.2 = AND (2 Eingänge)
+circuit.mfr.and.3 = AND (3 Eingänge)
+circuit.mfr.and.4 = AND (4 Eingänge)
+circuit.mfr.boolean.equal = Gleich
+circuit.mfr.boolean.greater = Größer
+circuit.mfr.boolean.greaterequal = Größer oder gleich
+circuit.mfr.boolean.less = Kleiner
+circuit.mfr.boolean.lessequal = Kleiner oder gleich
+circuit.mfr.boolean.notequal = Ungleich
+circuit.mfr.counter = Zähler
+circuit.mfr.decompose.decimal = Zerlegen Int -> Dezimalzahl
+circuit.mfr.delay = Verzögerung
+circuit.mfr.delay8ch = Verzögerung (8 Kanäle)
+circuit.mfr.demux.16.analog = DeMux (16 Ausgänge, Analog)
+circuit.mfr.demux.4 = DeMux (4 Ausgänge)
+circuit.mfr.fanout = Verzweigung
+circuit.mfr.flipflop.jk = JK-Flipflop
+circuit.mfr.flipflop.t = T-Flipflop
+circuit.mfr.inverter = Invertierer
+circuit.mfr.latch.d.clocked = D-Flipflop (Getaktet)
+circuit.mfr.latch.d.gated = D-Flipflop (Vergattert)
+circuit.mfr.latch.sr = RS-Flipflop
+circuit.mfr.latch.sr.gated = RS-Flipflop (Vergattert)
+circuit.mfr.max.2 = Maximum (2 Eingänge)
+circuit.mfr.max.3 = Maximum (3 Eingänge)
+circuit.mfr.max.4 = Maximum (4 Eingänge)
+circuit.mfr.min.2 = Minimum (2 Eingänge)
+circuit.mfr.min.3 = Minimum (3 Eingänge)
+circuit.mfr.min.4 = Minimum (4 Eingänge)
+circuit.mfr.multiplier = Multiplikator
+circuit.mfr.multipulse = Multipuls
+circuit.mfr.mux.16.analog = Mux (15-Input, Analog)
+circuit.mfr.mux.4 = Mux (4 Eingänge)
+circuit.mfr.nand.2 = NAND (2 Eingänge)
+circuit.mfr.nand.3 = NAND (3 Eingänge)
+circuit.mfr.nand.4 = NAND (4 Eingänge)
+circuit.mfr.negator = NICHT
+circuit.mfr.nor.2 = NOR (2 Eingänge)
+circuit.mfr.nor.3 = NOR (3 Eingänge)
+circuit.mfr.nor.4 = NOR (4 Eingänge)
+circuit.mfr.oneshot = Pulse
+circuit.mfr.or.2 = OR (2 Eingänge)
+circuit.mfr.or.3 = OR (3 Eingänge)
+circuit.mfr.or.4 = OR (4 Eingänge)
+circuit.mfr.passthrough = Durchgangsschaltung
+circuit.mfr.passthrough.gated = Durchgangsschaltung (Analog)
+circuit.mfr.passthrough.roundrobin = Ringdurchgangsschaltung
+circuit.mfr.pulselengthener = Pulsverlängerer
+circuit.mfr.randomizer.analog = Randomizer (Analog)
+circuit.mfr.randomizer.digital = Randomizer (Digital)
+circuit.mfr.scaler = Frequenzteiler
+circuit.mfr.schmitttrigger = Schmitt-Trigger
+circuit.mfr.sevensegmentencoder = 7-Segmentkodierer
+circuit.mfr.subtractor = Subtraktor
+circuit.mfr.wavegenerator.sawtooth.falling = Sägezahngenerator (Fallend)
+circuit.mfr.wavegenerator.sawtooth.rising = Sägezahngenerator (Steigend)
+circuit.mfr.wavegenerator.sine = Sinuswellengenerator
+circuit.mfr.wavegenerator.square = Rechteckswellengenerator [Timer]
+circuit.mfr.wavegenerator.triangle = Dreieckswellengenerator
+circuit.mfr.xnor.2 = XNOR (2 Eingänge)
+circuit.mfr.xnor.3 = XNOR (3 Eingänge)
+circuit.mfr.xnor.4 = XNOR (4 Eingänge)
+circuit.mfr.xor.2 = XOR (2 Eingänge)
+circuit.mfr.xor.3 = XOR (3 Eingänge)
+circuit.mfr.xor.4 = XOR (4 Eingänge)
+
+container.mfr.radius = Radius:
+container.mfr.power = Energieverbrauch:
+
+container.mfr.autobrewer.resources = Ressourcen
+
+container.mfr.pendingDrops = Dies Maschine ist mit Items gestopft
+
+chat.info.mfr.safarinet.capture = Gewechselt in Fangmodus
+chat.info.mfr.safarinet.release = Gewechselt in Freilassmodus
+
+chat.info.mfr.spyglass.nosight = Nichts in Sichtweite
+chat.info.mfr.spyglass.hitentity = %s bei %.1f, %.1f, %.1f gefunden
+chat.info.mfr.spyglass.hitblock = %s [%s:%d] bei %.1f, %.1f, %.1f gefunden
+chat.info.mfr.spyglass.hitunknown = UNBEKANNTES (Bug?) bei %.1f, %.1f, %.1f gefunden
+
+chat.info.mfr.ruler.nosight = Nichts in Sichtweite
+chat.info.mfr.ruler.hitentity = Auf Wesen getroffen - Messung fehlgeschlagen
+chat.info.mfr.ruler.startposition = Startposition aufgenommen
+chat.info.mfr.ruler.distance = Entfernung: %d, Zählung: %d
+chat.info.mfr.ruler.total = Gesamtdistanz: %.1f
+
+chat.info.mfr.rednet.meter.cable.allzero = Alle RedNet-Subnetzwerke sind 0
+chat.info.mfr.rednet.meter.cable.restzero = Alle anderen RedNet-Subnetzwerke sind 0
+chat.info.mfr.rednet.meter.varprefix = Variable
+chat.info.mfr.rednet.meter.var.allzero = Alle Variablen sind 0
+chat.info.mfr.rednet.meter.var.restzero = Alle anderen Variablen sind 0
+chat.info.mfr.rednet.meter.dustprefix = Redstonestaub
+
+chat.info.mfr.rednet.memorycard.uploaded = PRC-Programm vom PRC auf Speicherkarte geladen
+chat.info.mfr.rednet.memorycard.downloaded = PRC-Programm von Speicherkarte auf PRC geladen
+chat.info.mfr.rednet.memorycard.error = PRC besutzt zu wenige Schaltkreise, um dieses Programm zu laden
+chat.info.mfr.rednet.memorycard.error2 = Diese RPC wird von jemandem benutzt
+
+chat.info.mfr.rednet.tile.standard = Kabel auf Standard-Verbindungsmodus gestellt
+chat.info.mfr.rednet.tile.cableonly = Kabel auf Nur-Kabel-Verbindungsmodus gestellt
+
+chat.info.mfr.rednet.connection.standard = Seite auf Standard-Verbindungsmodus gestellt
+chat.info.mfr.rednet.connection.forced = Seite auf Erzwungenen Verbindungsmodus gestellt
+chat.info.mfr.rednet.connection.forcedstrong = Seite auf Verstärkten Verbindungsmodus gestellt
+chat.info.mfr.rednet.connection.cableonly = Seite auf Nur-Kabel-Verbindungsmodus gestellt
+
+chat.info.mfr.fluid.connection.disabled = Lege Seite fest, auf der Verbindungen verhindert werden sollen
+chat.info.mfr.fluid.connection.output = Lege Seite fest, die in den Ausgangsmodus gesetzt werden soll
+chat.info.mfr.fluid.connection.extract = Lege Seite fest, die in den Extraktionsmodus gesetzt werden soll
+
+chat.info.mfr.fluid.install.torch = Installierte Redstone-Fackel, RS-Steuerung invertiert
+chat.info.mfr.fluid.install.block = Installierter Redstone-Block, RS-Steuerung deaktiviert
+
+chat.info.mfr.bag.stacksize = Du kannst nur eine Tüte zur Zeit öffnen
+
+chat.info.mfr.chunkloader.noticket = Du hast zu viele Chunk-Loader, dieser funktioniert nicht.
+
+# Tooltips: these can be added to any item by a lang file, but they cannot be removed
+# this is a limitation of the localization system.
+# Replace "item." or "tile." with "tip.info" and remove ".name" and that tooltip will be
+# displayed under the item with exceptions, such as the PRC which uses a custom entry for legacy reasons
+
+tip.info.mfr.hammer = Wie eine Zange, nur mehr zertrümmernd
+
+tip.info.mfr.rubber_wood.sapling.massive = Warnung: Packratt's Weltenschiff.
+
+tip.info.mfr.prc = Wenn du nicht mehr weißt, wie es weitergeht, lese die Anleitung.
+
+tip.info.mfr.xpextractor = Benötigt einen leerer Behälter zum Füllen
+
+tip.info.mfr.mobcounter = Gibt ein analoges Redstonesignal ab\nproportinal zur Menge an\nMobs in Reichweite.
+
+tip.info.mfr.laserdrill = Platziert über einem Lock zu Bedrock oder dem Nichts
+tip.info.mfr.laserdrillprecharger = Plaziert einen Block von einem validen Laserziel entfernt
+
+# These tooltips are not the entire tooltip, but part of a custom format or entry
+
+tip.info.mfr.cannotplace = Kann für %s weitere Sekunden nichts platzieren.
+
+tip.info.mfr.safarinet.mode = Shift-klicke, um Modus zu ändern
+tip.info.mfr.safarinet.persistent = Freigelassene Kreaturen verschwinden nicht auf normale Weise
+tip.info.mfr.safarinet.nametag = Freigelassene Kreaturen werden immer ihr Namensschild zeigen
+tip.info.mfr.safarinet.mystery = Es ist ein Mysterium
+
+tip.info.mfr.memorycard.programmedFor = Programmiert von:\n      \u00A7a%s
+tip.info.mfr.memorycard.programmed = \u0020     \u00A7aProgrammierte %d Schaltungen
+tip.info.mfr.memorycard.wipe = Platziere in Fertigungsgitter zum Löschen
+
+tip.info.mfr.generator.produces = Produziert nur RF.
+
+tip.info.mfr.dsu.contains = Enthält %s
+
+tip.info.mfr.needlegun.ammo = %s Kugeln
+
+tip.info.mfr.upgrade.radius = Radius increase: %s
+
+death.attack.mfr.slaughterhouse = %1$s wurde zu flüssigem Fleisch verarbeitet
+death.attack.mfr.slaughterhouse.player = %1$s wurde von %2$s dazu verdammt, zu flüssigem Fleisch verarbeitet zu werden
+death.attack.mfr.slaughterhouse.1 = %1$s wurde zu Fleischsauße verarbeitet
+death.attack.mfr.slaughterhouse.1.player = %1$s wurde von %2$s dazu verdammt, zu Fleischsauße verarbeitet zu werden
+death.attack.mfr.grinder = %1$s wurde in Bröckchen zermahlen
+death.attack.mfr.grinder.player = %2$s stellte sicher, dass %1$s in Bröckchen zermahlen wurde
+death.attack.mfr.laser = %1$s wurde desintegriert
+death.attack.mfr.laser.player = %2$s stellte sicher, dass %1$s desintegriert wurde

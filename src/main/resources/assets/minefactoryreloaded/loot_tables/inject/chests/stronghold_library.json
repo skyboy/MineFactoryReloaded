@@ -1,0 +1,26 @@
+{
+    "pools": [
+        {
+            "name": "mfr",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "entryName": "minefactoryreloaded:rubber_wood_sapling",
+                    "name": "minefactoryreloaded:rubber_wood_sapling",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 3
+                        }
+                    ]
+                },
+                {
+                    "type": "empty",
+                    "weight": 99
+                }
+            ]
+        }
+    ]
+}

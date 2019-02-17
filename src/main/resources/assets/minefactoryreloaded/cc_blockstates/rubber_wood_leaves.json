@@ -1,0 +1,47 @@
+{
+	"ccl_marker": 1,
+	"variant_sets": [
+		"fancy,variant"
+	],
+	"defaults": {
+		"model": "minecraft:leaves",
+		"transform": "ccl:default-block"
+	},
+	"texture_domain": "minefactoryreloaded",
+	"variants": {
+		"fancy": {
+			"true": {
+				"variants": {
+					"variant": {
+						"normal": {
+							"textures": {
+								"all": "blocks/tile.mfr.rubberwood.leaves.transparent"
+							}
+						},
+						"dry": {
+							"textures": {
+								"all": "blocks/tile.mfr.rubberwood.leaves.dry.transparent"
+							}
+						}
+					}
+				}
+			},
+			"false" : {
+				"variants": {
+					"variant": {
+						"normal": {
+							"textures": {
+								"all": "blocks/tile.mfr.rubberwood.leaves.opaque"
+							}
+						},
+						"dry": {
+							"textures": {
+								"all": "blocks/tile.mfr.rubberwood.leaves.dry.opaque"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

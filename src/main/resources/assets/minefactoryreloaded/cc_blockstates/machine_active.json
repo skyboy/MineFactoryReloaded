@@ -1,0 +1,272 @@
+{
+    "ccl_marker": 1,
+    "variant_sets": [
+        "type,active",
+        "type"
+    ],
+    "defaults": {
+        "model": "minecraft:cube",
+        "transform": "ccl:default-block",
+        "textures": {
+            "particle": "blocks/machines/tile.mfr.machine.0.active.side",
+            "down": "blocks/machines/tile.mfr.machine.0.bottom",
+            "up": "blocks/machines/tile.mfr.machine.0.top",
+            "north": "blocks/machines/tile.mfr.machine.0.active.side",
+            "south": "blocks/machines/tile.mfr.machine.0.active.side",
+            "west": "blocks/machines/tile.mfr.machine.0.active.side",
+            "east": "blocks/machines/tile.mfr.machine.0.active.side"
+        }
+    },
+    "texture_domain": "minefactoryreloaded",
+    "variants": {
+        "type": {
+            "fisher": {
+                "textures": {
+                    "down": "blocks/machines/tile.mfr.machine.fisher.idle.bottom",
+                    "up": "blocks/machines/tile.mfr.machine.fisher.top",
+                    "north": "blocks/machines/tile.mfr.machine.fisher.side",
+                    "south": "blocks/machines/tile.mfr.machine.fisher.side",
+                    "east": "blocks/machines/tile.mfr.machine.fisher.side",
+                    "west": "blocks/machines/tile.mfr.machine.fisher.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "down": "blocks/machines/tile.mfr.machine.fisher.active.bottom"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "item_collector": {
+                "textures": {
+                    "down": "blocks/machines/tile.mfr.machine.itemcollector.idle.bottom",
+                    "up": "blocks/machines/tile.mfr.machine.itemcollector.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.itemcollector.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.itemcollector.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.itemcollector.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.itemcollector.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "down": "blocks/machines/tile.mfr.machine.itemcollector.active.bottom",
+                                "up": "blocks/machines/tile.mfr.machine.itemcollector.active.top",
+                                "north": "blocks/machines/tile.mfr.machine.itemcollector.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.itemcollector.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.itemcollector.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.itemcollector.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "deep_storage_unit": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.deepstorageunit.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.deepstorageunit.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.deepstorageunit.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.deepstorageunit.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.deepstorageunit.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.deepstorageunit.active.top",
+                                "north": "blocks/machines/tile.mfr.machine.deepstorageunit.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.deepstorageunit.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.deepstorageunit.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.deepstorageunit.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "liqui_crafter": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.liquicrafter.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.liquicrafter.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.liquicrafter.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.liquicrafter.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.liquicrafter.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.liquicrafter.active.top",
+                                "north": "blocks/machines/tile.mfr.machine.liquicrafter.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.liquicrafter.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.liquicrafter.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.liquicrafter.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "lava_fabricator": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.lavafabricator.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.lavafabricator.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.lavafabricator.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.lavafabricator.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.lavafabricator.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.lavafabricator.active.top",
+                                "north": "blocks/machines/tile.mfr.machine.lavafabricator.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.lavafabricator.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.lavafabricator.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.lavafabricator.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "steam_boiler": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.steamboiler.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.steamboiler.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.steamboiler.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.steamboiler.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "north": "blocks/machines/tile.mfr.machine.steamboiler.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.steamboiler.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.steamboiler.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.steamboiler.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "bio_fuel_generator": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.biofuelgenerator.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.biofuelgenerator.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.biofuelgenerator.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.biofuelgenerator.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.biofuelgenerator.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.biofuelgenerator.active.top",
+                                "north": "blocks/machines/tile.mfr.machine.biofuelgenerator.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.biofuelgenerator.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.biofuelgenerator.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.biofuelgenerator.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "laser_drill": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.laserdrill.top",
+                    "down": "blocks/machines/tile.mfr.machine.laserdrill.idle.bottom",
+                    "north": "blocks/machines/tile.mfr.machine.laserdrill.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.laserdrill.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.laserdrill.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.laserdrill.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "down": "blocks/machines/tile.mfr.machine.laserdrill.active.bottom",
+                                "north": "blocks/machines/tile.mfr.machine.laserdrill.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.laserdrill.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.laserdrill.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.laserdrill.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "steam_turbine": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.steamturbine.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.steamturbine.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.steamturbine.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.steamturbine.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.steamturbine.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.steamturbine.active.top",
+                                "north": "blocks/machines/tile.mfr.machine.steamturbine.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.steamturbine.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.steamturbine.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.steamturbine.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "chunk_loader": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.chunkloader.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.chunkloader.idle.side",
+                    "south": "blocks/machines/tile.mfr.machine.chunkloader.idle.side",
+                    "east": "blocks/machines/tile.mfr.machine.chunkloader.idle.side",
+                    "west": "blocks/machines/tile.mfr.machine.chunkloader.idle.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.chunkloader.active.top",
+                                "north": "blocks/machines/tile.mfr.machine.chunkloader.active.side",
+                                "south": "blocks/machines/tile.mfr.machine.chunkloader.active.side",
+                                "east": "blocks/machines/tile.mfr.machine.chunkloader.active.side",
+                                "west": "blocks/machines/tile.mfr.machine.chunkloader.active.side"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            },
+            "fountain": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.fountain.idle.top",
+                    "north": "blocks/machines/tile.mfr.machine.fountain.side",
+                    "south": "blocks/machines/tile.mfr.machine.fountain.side",
+                    "east": "blocks/machines/tile.mfr.machine.fountain.side",
+                    "west": "blocks/machines/tile.mfr.machine.fountain.side"
+                },
+                "variants": {
+                    "active": {
+                        "true": {
+                            "textures": {
+                                "up": "blocks/machines/tile.mfr.machine.fountain.active.top"
+                            }
+                        },
+                        "false": {}
+                    }
+                }
+            }
+        }
+    }
+}

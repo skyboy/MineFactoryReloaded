@@ -1,0 +1,138 @@
+{
+    "ccl_marker": 1,
+    "variant_sets": [
+        "type"
+    ],
+    "defaults": {
+        "model": "minecraft:cube",
+        "transform": "ccl:default-block",
+        "textures": {
+            "particle": "blocks/machines/tile.mfr.machine.0.active.side",
+            "down": "blocks/machines/tile.mfr.machine.0.bottom",
+            "up": "blocks/machines/tile.mfr.machine.0.top",
+            "north": "blocks/machines/tile.mfr.machine.0.active.side",
+            "south": "blocks/machines/tile.mfr.machine.0.active.side",
+            "west": "blocks/machines/tile.mfr.machine.0.active.side",
+            "east": "blocks/machines/tile.mfr.machine.0.active.side"
+        }
+    },
+    "texture_domain": "minefactoryreloaded",
+    "variants": {
+        "type": {
+            "weather_collector": {
+                "textures": {
+                    "down": "blocks/machines/tile.mfr.machine.weathercollector.bottom",
+                    "up": "blocks/machines/tile.mfr.machine.weathercollector.top",
+                    "north": "blocks/machines/tile.mfr.machine.weathercollector.side",
+                    "south": "blocks/machines/tile.mfr.machine.weathercollector.side",
+                    "east": "blocks/machines/tile.mfr.machine.weathercollector.side",
+                    "west": "blocks/machines/tile.mfr.machine.weathercollector.side"
+                }
+            },
+            "sewer": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.sewer.top",
+                    "north": "blocks/machines/tile.mfr.machine.sewer.side",
+                    "south": "blocks/machines/tile.mfr.machine.sewer.side",
+                    "east": "blocks/machines/tile.mfr.machine.sewer.side",
+                    "west": "blocks/machines/tile.mfr.machine.sewer.side"
+                }
+            },
+            "composter": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.composter.side",
+                    "south": "blocks/machines/tile.mfr.machine.composter.side",
+                    "east": "blocks/machines/tile.mfr.machine.composter.side",
+                    "west": "blocks/machines/tile.mfr.machine.composter.side"
+                }
+            },
+            "auto_enchanter": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.autoenchanter.top",
+                    "north": "blocks/machines/tile.mfr.machine.autoenchanter.side",
+                    "south": "blocks/machines/tile.mfr.machine.autoenchanter.side",
+                    "east": "blocks/machines/tile.mfr.machine.autoenchanter.side",
+                    "west": "blocks/machines/tile.mfr.machine.autoenchanter.side"
+                }
+            },
+            "auto_jukebox": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.autojukebox.top",
+                    "north": "blocks/machines/tile.mfr.machine.autojukebox.side",
+                    "south": "blocks/machines/tile.mfr.machine.autojukebox.side",
+                    "east": "blocks/machines/tile.mfr.machine.autojukebox.side",
+                    "west": "blocks/machines/tile.mfr.machine.autojukebox.side"
+                }
+            },
+            "unifier": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.unifier.side",
+                    "south": "blocks/machines/tile.mfr.machine.unifier.side",
+                    "east": "blocks/machines/tile.mfr.machine.unifier.side",
+                    "west": "blocks/machines/tile.mfr.machine.unifier.side"
+                }
+            },
+            "auto_spawner": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.autospawner.top",
+                    "north": "blocks/machines/tile.mfr.machine.autospawner.side",
+                    "south": "blocks/machines/tile.mfr.machine.autospawner.side",
+                    "east": "blocks/machines/tile.mfr.machine.autospawner.side",
+                    "west": "blocks/machines/tile.mfr.machine.autospawner.side"
+                }
+            },
+            "bio_reactor": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.bioreactor.top",
+                    "north": "blocks/machines/tile.mfr.machine.bioreactor.side",
+                    "south": "blocks/machines/tile.mfr.machine.bioreactor.side",
+                    "east": "blocks/machines/tile.mfr.machine.bioreactor.side",
+                    "west": "blocks/machines/tile.mfr.machine.bioreactor.side"
+                }
+            },
+            "auto_disenchanter": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.autodisenchanter.top",
+                    "north": "blocks/machines/tile.mfr.machine.autodisenchanter.side",
+                    "south": "blocks/machines/tile.mfr.machine.autodisenchanter.side",
+                    "east": "blocks/machines/tile.mfr.machine.autodisenchanter.side",
+                    "west": "blocks/machines/tile.mfr.machine.autodisenchanter.side"
+                }
+            },
+            "meat_packer": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.meatpacker.top",
+                    "north": "blocks/machines/tile.mfr.machine.meatpacker.side",
+                    "south": "blocks/machines/tile.mfr.machine.meatpacker.side",
+                    "east": "blocks/machines/tile.mfr.machine.meatpacker.side",
+                    "west": "blocks/machines/tile.mfr.machine.meatpacker.side"
+                }
+            },
+            "block_smasher": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.blocksmasher.side",
+                    "south": "blocks/machines/tile.mfr.machine.blocksmasher.side",
+                    "east": "blocks/machines/tile.mfr.machine.blocksmasher.side",
+                    "west": "blocks/machines/tile.mfr.machine.blocksmasher.side"
+                }
+            },
+            "red_note": {
+                "textures": {
+                    "up": "blocks/machines/tile.mfr.machine.rednote.top",
+                    "north": "blocks/machines/tile.mfr.machine.rednote.side",
+                    "south": "blocks/machines/tile.mfr.machine.rednote.side",
+                    "east": "blocks/machines/tile.mfr.machine.rednote.side",
+                    "west": "blocks/machines/tile.mfr.machine.rednote.side"
+                }
+            },
+            "auto_brewer": {
+                "textures": {
+                    "north": "blocks/machines/tile.mfr.machine.autobrewer.side",
+                    "south": "blocks/machines/tile.mfr.machine.autobrewer.side",
+                    "east": "blocks/machines/tile.mfr.machine.autobrewer.side",
+                    "west": "blocks/machines/tile.mfr.machine.autobrewer.side"
+                }
+            }
+        }
+    }
+}

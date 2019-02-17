@@ -1,0 +1,26 @@
+{
+    "pools": [
+        {
+            "name": "mfr",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "entryName": "minefactoryreloaded:rubber_wood_sapling",
+                    "name": "minefactoryreloaded:rubber_wood_sapling",
+                    "weight": 5
+                },
+                {
+                    "type": "item",
+                    "entryName": "minefactoryreloaded:plastic_sheet",
+                    "name": "minefactoryreloaded:plastic_sheet",
+                    "weight": 10
+                },
+                {
+                    "type": "empty",
+                    "weight": 85
+                }
+            ]
+        }
+    ]
+}

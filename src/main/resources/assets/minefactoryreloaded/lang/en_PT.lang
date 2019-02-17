@@ -1,0 +1,277 @@
+#PARSE_ESCAPES
+tile.mfr.machine.planter.name = Magic Planter
+tile.mfr.machine.fisher.name = Magic Fisher
+tile.mfr.machine.harvester.name = Magic Hatchet
+tile.mfr.machine.rancher.name = Magic Rancher
+tile.mfr.machine.fertilizer.name = Magic Fertilizer
+tile.mfr.machine.autoenchanter.name = Magic-Wizard's Workbench
+tile.mfr.machine.chronotyper.name = Chronotyper
+
+tile.mfr.machine.deepstorageunit.name = Ye Tall Man's Endless Coffer
+tile.mfr.machine.lavafabricator.name = Molten Rock Maker
+tile.mfr.machine.autojukebox.name = Magic-Jukebox
+tile.mfr.machine.autospawner.name = Tamed Creator o' Beasts
+tile.mfr.machine.bioreactor.name = Plant Rotter
+tile.mfr.machine.biofuelgenerator.name = PlantFuel Generator
+tile.mfr.machine.autodisenchanter.name = Magic-Disenchanter
+tile.mfr.machine.enchantmentrouter.name = Wizard's Router
+
+tile.mfr.machine.laserdrill.name = Magic Beam Emitter
+tile.mfr.machine.laserdrillprecharger.name = Magic Beam Charger
+tile.mfr.machine.autoanvil.name = Magic-Slab O' Fixin
+tile.mfr.machine.blocksmasher.name = Rock Smasher
+tile.mfr.machine.rednote.name = RedNoise Block
+tile.mfr.machine.autobrewer.name = Magic-Still
+tile.mfr.machine.fruitpicker.name = Magic-Picker o' Scurvey's Cure
+tile.mfr.machine.mobcounter.name = Magic creature counterinatorrr
+tile.mfr.machine.mobrouter.name = Creature Mover
+
+tile.mfr.conveyor.default.name = Magic Rubber Belt
+tile.mfr.conveyor.white.name = Magic Rubber Belt (White)
+tile.mfr.conveyor.orange.name = Magic Rubber Belt (Orange)
+tile.mfr.conveyor.magenta.name = Magic Rubber Belt (Magenta)
+tile.mfr.conveyor.lightblue.name = Magic Rubber Belt (Light Blue)
+tile.mfr.conveyor.yellow.name = Magic Rubber Belt (Yellow)
+tile.mfr.conveyor.lime.name = Magic Rubber Belt (Lime)
+tile.mfr.conveyor.pink.name = Magic Rubber Belt (Pink)
+tile.mfr.conveyor.gray.name = Magic Rubber Belt (Gray)
+tile.mfr.conveyor.lightgray.name = Magic Rubber Belt (Light Gray)
+tile.mfr.conveyor.cyan.name = Magic Rubber Belt (Cyan)
+tile.mfr.conveyor.purple.name = Magic Rubber Belt (Purple)
+tile.mfr.conveyor.blue.name = Magic Rubber Belt (Blue)
+tile.mfr.conveyor.brown.name = Magic Rubber Belt (Brown)
+tile.mfr.conveyor.green.name = Magic Rubber Belt (Green)
+tile.mfr.conveyor.red.name = Magic Rubber Belt (Red)
+tile.mfr.conveyor.black.name = Magic Rubber Belt (Black)
+
+tile.mfr.stained_glass.pane.white.name = Stained Porthole (White)
+tile.mfr.stained_glass.pane.orange.name = Stained Porthole (Orange)
+tile.mfr.stained_glass.pane.magenta.name = Stained Porthole (Magenta)
+tile.mfr.stained_glass.pane.lightblue.name = Stained Porthole (Light Blue)
+tile.mfr.stained_glass.pane.yellow.name = Stained Porthole (Yellow)
+tile.mfr.stained_glass.pane.lime.name = Stained Porthole (Lime)
+tile.mfr.stained_glass.pane.pink.name = Stained Porthole (Pink)
+tile.mfr.stained_glass.pane.gray.name = Stained Porthole (Gray)
+tile.mfr.stained_glass.pane.lightgray.name = Stained Porthole (Light Gray)
+tile.mfr.stained_glass.pane.cyan.name = Stained Porthole (Cyan)
+tile.mfr.stained_glass.pane.purple.name = Stained Porthole (Purple)
+tile.mfr.stained_glass.pane.blue.name = Stained Porthole (Blue)
+tile.mfr.stained_glass.pane.brown.name = Stained Porthole (Brown)
+tile.mfr.stained_glass.pane.green.name = Stained Porthole (Green)
+tile.mfr.stained_glass.pane.red.name = Stained Porthole (Red)
+tile.mfr.stained_glass.pane.black.name = Stained Porthole (Black)
+
+tile.mfr.plastic.block.plain.name = Block o' Plastic
+
+tile.mfr.decorative.brick.ice.name = Frost Bricks
+tile.mfr.decorative.brick.glowstone.name = Brimstone Bricks
+tile.mfr.decorative.brick.lapis.name = Bricks o' Lāzhward
+tile.mfr.decorative.brick.obsidian.name = Bricks o' Tears
+tile.mfr.decorative.brick.pavedstone.name = Bricks o' Paved Stone
+tile.mfr.decorative.brick.snow.name = Bricks o' Slush
+tile.mfr.decorative.brick.ice.large.name = Large Frost Bricks
+tile.mfr.decorative.brick.glowstone.large.name = Large Brimstone Bricks
+tile.mfr.decorative.brick.lapis.large.name = Large Bricks o' Lāzhward
+tile.mfr.decorative.brick.obsidian.large.name = Large Bricks o' Tears
+tile.mfr.decorative.brick.pavedstone.large.name = Large Bricks o' Paved Stone
+tile.mfr.decorative.brick.snow.large.name = Large Bricks o' Slush
+tile.mfr.decorative.brick.meatraw.name = Block o' Fresh Meat
+tile.mfr.decorative.brick.meatcooked.name = Block o' Cooked Meat
+tile.mfr.decorative.brick.brick.large.name = Large Clay Bricks
+tile.mfr.decorative.brick.sugar_charcoal.name = Burnt Block o' Sugarrr
+
+tile.mfr.decorative.stone.black.smooth.name = Smooth Blackstone
+tile.mfr.decorative.stone.black.cobble.name = Flagstone Blackstone
+tile.mfr.decorative.stone.black.brick.small.name = Small Bricks o' Blackstone
+tile.mfr.decorative.stone.black.brick.large.name = Large Bricks o' Blackstone
+tile.mfr.decorative.stone.black.gravel.name = Blackstone Rubble
+tile.mfr.decorative.stone.black.paved.name = Paved Blackstone
+tile.mfr.decorative.stone.white.smooth.name = Smooth Whitestone
+tile.mfr.decorative.stone.white.cobble.name = Flagstone Whitestone
+tile.mfr.decorative.stone.white.brick.small.name = Small Bricks o' Whitestone
+tile.mfr.decorative.stone.white.brick.large.name = Large Bricks o' Whitestone
+tile.mfr.decorative.stone.white.gravel.name = Whitestone Rubble
+tile.mfr.decorative.stone.white.paved.name = Paved Whitestone
+
+tile.ice.unmelting.name = Frost (Unmelting)
+
+tile.mfr.vine.scaffold.name = Swinger Scaffolding
+
+tile.mfr.farmland.name = Fertile Dirt
+
+tile.mfr.rubber_wood.sapling.normal.name = Meager Rubber shrub
+tile.mfr.rubber_wood.sapling.sacred.name = Sacred Rubber shrub
+tile.mfr.rubber_wood.sapling.mega.name = Mega Rubber shrub
+tile.mfr.rubber_wood.sapling.massive.name = Ship in a Meager shrub
+tile.mfr.rubber_wood.log.name = Rubber Timber Logs
+tile.mfr.rubber_wood.leaves.normal.name = Leaves o' Rubber
+tile.mfr.rubber_wood.leaves.dry.name = Dry Leaves o' Rubber
+
+tile.mfr.rail.cargo.dropoff.name = Cargo Dropoff Track
+tile.mfr.rail.cargo.pickup.name = Cargo Pickup Track
+tile.mfr.rail.passenger.dropoff.name = Passenger Dropoff Track
+tile.mfr.rail.passenger.pickup.name = Passenger Pickup Track
+
+fluid.mfr.milk.fluid.name = Cow's Juice
+fluid.mfr.sludge.fluid.name = Sludge
+fluid.mfr.sewage.fluid.name = Poop
+fluid.mfr.mobessence.fluid.name = Elder Rum
+fluid.mfr.biofuel.fluid.name = PlantFuel
+fluid.mfr.meat.fluid.name = Meat
+fluid.mfr.pink_slime.fluid.name = Pink Slime
+fluid.mfr.chocolatemilk.fluid.name = Chocolate Cow's Juice
+fluid.mfr.mushroomsoup.fluid.name = 'Shroom Goulash
+fluid.mfr.steam.fluid.name = Steam
+
+entity.MineFactoryReloaded.mfrEntityPinkSlime.name = Cube o' Pink Slime
+
+item.mfr.bucket.milk.name = Pail o' Cow's Juice
+item.mfr.bucket.sewage.name = Pail o' Poop
+item.mfr.bucket.sludge.name = Pail o' Sludge
+item.mfr.bucket.essence.name = Bucket o' Elder Rum
+item.mfr.bucket.biofuel.name = Bucket o' PlantFuel
+item.mfr.bucket.meat.name = Pail o' Meat
+item.mfr.bucket.pink_slime.name = Pail o' Pink Slime
+item.mfr.bucket.chocolatemilk.name = Pail o' Chocolate Cow's Juice
+item.mfr.bucket.mushroomsoup.name = Bucket o' 'Shroom Goulash
+
+item.mfr.plastic.cup.name = Cup
+item.mfr.plastic.cup.prefix.name = Cup o' 
+item.mfr.plastic.cup.suffix.name =
+
+item.mfr.plastic.armor.helm.name  = Plastic Bandana
+item.mfr.plastic.armor.chest.name = Plastic Jacket
+item.mfr.plastic.armor.legs.name  = Breeches o' Plastic
+item.mfr.plastic.armor.boots.name = Pegleg o' Plastic
+
+item.mfr.machine_block.name = Factory Machine Block
+item.mfr.hammer.name = Precision Sledgehammer
+item.mfr.fertilizer.name = Cow Patty
+item.mfr.rubber.bar.name = Bouncy Bar
+item.mfr.rubber.raw.name = Sticky Drop
+item.mfr.syringe.cure.name = De-Corpsefication Stabber
+item.mfr.syringe.empty.name = Empty Stabber
+item.mfr.syringe.empty.prefix.name = Stabber o'
+item.mfr.syringe.empty.suffix.name = 
+item.mfr.syringe.growth.name = Growth Stabber
+item.mfr.syringe.health.name = Health Stabber
+item.mfr.syringe.slime.name = Slime Embiggener Stabber
+item.mfr.syringe.zombie.name = Corpse Stabber
+item.mfr.record.blank.name = Blank Shanty
+item.mfr.safarinet.reusable.name = Ahab's Net
+item.mfr.safarinet.single_use.name = Pip's Net
+item.mfr.safarinet.jailer.name = Cooke's Net
+item.mfr.safarinet.launcher.name = Net Blunderbuss
+item.mfr.sugar_charcoal.name = Burnt Sugarrr
+item.mfr.milk_bottle.name = Bottle o' Cow's Juice
+item.mfr.spyglass.name = Spyglass
+item.mfr.xp_extractor.name = Elder Rum Extractor
+
+item.mfr.ruler.name = Measurin' Stick
+item.mfr.meat.ingot.raw.name = Fresh Meat
+item.mfr.meat.ingot.cooked.name = Cooked Meat
+item.mfr.meat.nugget.raw.name = Nugget o' fresh "Meat"
+item.mfr.meat.nugget.cooked.name = Nugget o' cooked "Meat"
+item.mfr.pink_slime.ball.name = Ball o' Pink Slime
+item.mfr.rocket.name = Flyin' Powder Keg
+item.mfr.rocket.smart.name = Followin' Flyin' Powder Keg
+item.mfr.rocket_launcher.name = Hand Cannon
+item.mfr.fishing_rod.name = Rod o' Man Fishin'
+item.mfr.plastic.bag.name = Bag
+
+item.mfr.ceramic.dye.white.name = Clay Dye (White)
+item.mfr.ceramic.dye.orange.name = Clay Dye (Orange)
+item.mfr.ceramic.dye.magenta.name = Clay Dye (Magenta)
+item.mfr.ceramic.dye.lightblue.name = Clay Dye (Light Blue)
+item.mfr.ceramic.dye.yellow.name = Clay Dye (Yellow)
+item.mfr.ceramic.dye.lime.name = Clay Dye (Lime)
+item.mfr.ceramic.dye.pink.name = Clay Dye (Pink)
+item.mfr.ceramic.dye.gray.name = Clay Dye (Gray)
+item.mfr.ceramic.dye.lightgray.name = Clay Dye (Light Gray)
+item.mfr.ceramic.dye.cyan.name = Clay Dye (Cyan)
+item.mfr.ceramic.dye.purple.name = Clay Dye (Purple)
+item.mfr.ceramic.dye.blue.name = Clay Dye (Blue)
+item.mfr.ceramic.dye.brown.name = Clay Dye (Brown)
+item.mfr.ceramic.dye.green.name = Clay Dye (Green)
+item.mfr.ceramic.dye.red.name = Clay Dye (Red)
+item.mfr.ceramic.dye.black.name = Clay Dye (Black)
+
+item.mfr.laser.focus.white.name = Magic Beam Focus (White)
+item.mfr.laser.focus.orange.name = Magic Beam Focus (Orange)
+item.mfr.laser.focus.magenta.name = Magic Beam Focus (Magenta)
+item.mfr.laser.focus.lightblue.name = Magic Beam Focus (Light Blue)
+item.mfr.laser.focus.yellow.name = Magic Beam Focus (Yellow)
+item.mfr.laser.focus.lime.name = Magic Beam Focus (Lime)
+item.mfr.laser.focus.pink.name = Magic Beam Focus (Pink)
+item.mfr.laser.focus.gray.name = Magic Beam Focus (Gray)
+item.mfr.laser.focus.lightgray.name = Magic Beam Focus (Light Gray)
+item.mfr.laser.focus.cyan.name = Magic Beam Focus (Cyan)
+item.mfr.laser.focus.purple.name = Magic Beam Focus (Purple)
+item.mfr.laser.focus.blue.name = Magic Beam Focus (Blue)
+item.mfr.laser.focus.brown.name = Magic Beam Focus (Brown)
+item.mfr.laser.focus.green.name = Magic Beam Focus (Green)
+item.mfr.laser.focus.red.name = Magic Beam Focus (Red)
+item.mfr.laser.focus.black.name = Magic Beam Focus (Black)
+
+item.mfr.upgrade.radius.cobble.name = Upgrade (Flagstone)
+item.mfr.upgrade.radius.lapis.name = Upgrade (Stone o' Lāzhward)
+item.mfr.upgrade.radius.iron.name = Upgrade (Steel)
+item.mfr.upgrade.radius.tin.name = Upgrade (Tin)
+item.mfr.upgrade.radius.copper.name = Upgrade (Copper)
+item.mfr.upgrade.radius.bronze.name = Upgrade (Bronze)
+item.mfr.upgrade.radius.silver.name = Upgrade (Silver)
+item.mfr.upgrade.radius.gold.name = Upgrade (Gold)
+item.mfr.upgrade.radius.quartz.name = Upgrade (White rock)
+item.mfr.upgrade.radius.diamond.name = Upgrade (Shinies)
+item.mfr.upgrade.radius.platinum.name = Upgrade (Platinum)
+item.mfr.upgrade.radius.emerald.name = Upgrade (Fool's Diamond)
+
+item.mfr.needlegun.name = Blunderbuss
+item.mfr.needlegun.ammo.empty.name = Blunderbuss Magazine
+item.mfr.needlegun.ammo.standard.name = Blunderbuss Ammo (Needles)
+item.mfr.needlegun.ammo.lava.name = Blunderbuss Ammo (Molten Rock)
+item.mfr.needlegun.ammo.sludge.name = Blunderbuss Ammo (Sludge)
+item.mfr.needlegun.ammo.sewage.name = Blunderbuss Ammo (Poop)
+item.mfr.needlegun.ammo.fire.name = Blunderbuss Ammo (Flames)
+item.mfr.needlegun.ammo.anvil.name = Blunderbuss Ammo (Slab o' Fixin')
+
+chat.info.mfr.rednet.meter.cable.allzero = All RedNet subnets are 0
+chat.info.mfr.rednet.meter.cable.restzero = All other RedNet subnets are 0
+chat.info.mfr.rednet.meter.varprefix = Variable
+chat.info.mfr.rednet.meter.var.allzero = All variables are 0
+chat.info.mfr.rednet.meter.var.restzero = All other variables are 0
+chat.info.mfr.rednet.meter.dustprefix = Magic Powderrr
+
+chat.info.mfr.fluid.install.torch = Installed Magic Torch, Magic control inverted
+chat.info.mfr.fluid.install.block = Installed Chunk o' Magic Powderrr, Magic control disabled
+
+chat.info.mfr.bag.stacksize = Ye can only open one bag at a time
+
+chat.info.mfr.chunkloader.noticket = Ye have too many chunk loaders and this one cannot function.
+
+# Tooltips: these can be added to any item by a lang file, but they cannot be removed
+# this is a limitation o' the localization system.
+# Replace "item." or "tile." with "tip.info" and remove ".name" and that tooltip will be
+# displayed under the item with exceptions, such as the PRC which uses a custom entry for legacy reasons
+
+tip.info.mfr.rubber_wood.sapling.massive = Beware: Pakratt's world ship.
+
+tip.info.mfr.prc = If ye be lost, read the (in-game) manual
+
+tip.info.mfr.xpextractor = Requires an empty pail to fill
+
+tip.info.mfr.mobcounter = Emits a varied magic \npowder glow akin to the \ncount o' creatures in range.
+
+tip.info.mfr.laserdrill = Put over a hole to the har'est rock\n or Davy Jones' Locker
+tip.info.mfr.laserdrillprecharger = Put one block away from a magic beam
+
+# These tooltips are not the entire tooltip, but part o' a custom format or entry
+
+tip.info.mfr.safarinet.mystery = It be a mystery
+
+tip.info.mfr.memorycard.wipe = Place in craftin' grid to wipe
+
+tip.info.mfr.generator.produces = Produces RF only.
+
+death.attack.mfr.laser = %1$s disappeared
+death.attack.mfr.laser.player = %2$s ensured %1$s disappeared

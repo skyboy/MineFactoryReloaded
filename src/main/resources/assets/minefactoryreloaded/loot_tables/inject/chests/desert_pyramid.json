@@ -1,0 +1,20 @@
+{
+    "pools": [
+        {
+            "name": "mfr",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "entryName": "minefactoryreloaded:safarinet_single_use",
+                    "name": "minefactoryreloaded:safarinet_single_use",
+                    "weight": 25
+                },
+                {
+                    "type": "empty",
+                    "weight": 75
+                }
+            ]
+        }
+    ]
+}
