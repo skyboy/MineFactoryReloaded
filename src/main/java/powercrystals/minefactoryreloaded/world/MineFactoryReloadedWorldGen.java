@@ -1,6 +1,6 @@
 package powercrystals.minefactoryreloaded.world;
 
-import cofh.cofhworld.feature.IFeatureGenerator;
+import cofh.cofhworld.world.IFeatureGenerator;
 import com.google.common.primitives.Ints;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
