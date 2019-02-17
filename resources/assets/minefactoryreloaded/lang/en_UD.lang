@@ -1,0 +1,516 @@
+tile.mfr.machine.planter.name =ɹǝʇuɐꞁԀ 
+tile.mfr.machine.fisher.name =ɹǝɥsᴉℲ 
+tile.mfr.machine.harvester.name =ɹǝʇsǝʌɹɐH 
+tile.mfr.machine.rancher.name =ɹǝɥɔuɐᴚ 
+tile.mfr.machine.fertilizer.name =ɹǝzᴉꞁᴉʇɹǝℲ 
+tile.mfr.machine.vet.name =uoᴉʇɐʇS ʎɹɐuᴉɹǝʇǝᴧ 
+tile.mfr.machine.itemcollector.name =ɹoʇɔǝꞁꞁoƆ ɯǝʇI 
+tile.mfr.machine.blockbreaker.name =ɹǝʞɐǝɹᗺ ʞɔoꞁᗺ 
+tile.mfr.machine.weathercollector.name =ɹoʇɔǝꞁꞁoƆ ɹǝɥʇɐǝM 
+tile.mfr.machine.sludgeboiler.name =ɹǝꞁᴉoᗺ ǝᵷpnꞁS 
+tile.mfr.machine.sewer.name =ɹǝʍǝS 
+tile.mfr.machine.composter.name =ɹǝʇsodɯoƆ 
+tile.mfr.machine.breeder.name =ɹǝpǝǝɹᗺ 
+tile.mfr.machine.grinder.name =ɹǝpuᴉɹ⅁ 
+tile.mfr.machine.autoenchanter.name =ɹǝʇuɐɥɔuƎ-oʇnⱯ 
+tile.mfr.machine.chronotyper.name =ɹǝdʎʇouoɹɥƆ 
+
+tile.mfr.machine.ejector.name =ɹoʇɔǝɾƎ 
+tile.mfr.machine.itemrouter.name =ɹǝʇnoᴚ ɯǝʇI 
+tile.mfr.machine.liquidrouter.name =ɹǝʇnoᴚ pᴉnbᴉꞀ 
+tile.mfr.machine.deepstorageunit.name =ʇᴉu∩ ǝᵷɐɹoʇS dǝǝᗡ 
+tile.mfr.machine.liquicrafter.name =ɹǝʇɟɐɹƆᴉnbᴉꞀ 
+tile.mfr.machine.lavafabricator.name =ɹoʇɐɔᴉɹqɐℲ ɐʌɐꞀ 
+tile.mfr.machine.steamboiler.name =ɹǝꞁᴉoᗺ ɯɐǝʇS 
+tile.mfr.machine.autojukebox.name =xoqǝʞnՐ-oʇnⱯ 
+tile.mfr.machine.unifier.name =ɹǝᴉɟᴉu∩ 
+tile.mfr.machine.autospawner.name =ɹǝuʍɐdS-oʇnⱯ 
+tile.mfr.machine.bioreactor.name =ɹoʇɔɐǝᴚoᴉᗺ 
+tile.mfr.machine.biofuelgenerator.name =ɹoʇɐɹǝuǝ⅁ ꞁǝnℲoᴉᗺ 
+tile.mfr.machine.autodisenchanter.name =ɹǝʇuɐɥɔuǝsᴉᗡ-oʇnⱯ 
+tile.mfr.machine.slaughterhouse.name =ǝsnoɥɹǝʇɥᵷnɐꞁS 
+tile.mfr.machine.meatpacker.name =ɹǝʞɔɐԀ ʇɐǝW 
+tile.mfr.machine.enchantmentrouter.name =ɹǝʇnoᴚ ʇuǝɯʇuɐɥɔuƎ 
+
+tile.mfr.machine.laserdrill.name =ꞁꞁᴉɹᗡ ɹǝsɐꞀ 
+tile.mfr.machine.laserdrillprecharger.name =ɹǝᵷɹɐɥɔǝɹԀ ꞁꞁᴉɹᗡ ɹǝsɐꞀ 
+tile.mfr.machine.autoanvil.name =ꞁᴉʌuⱯ-oʇnⱯ 
+tile.mfr.machine.blocksmasher.name =ɹǝɥsɐɯS ʞɔoꞁᗺ 
+tile.mfr.machine.rednote.name =ʞɔoꞁᗺ ǝʇoNpǝᴚ 
+tile.mfr.machine.autobrewer.name =ɹǝʍǝɹᗺ-oʇnⱯ 
+tile.mfr.machine.fruitpicker.name =ɹǝʞɔᴉԀ ʇᴉnɹℲ 
+tile.mfr.machine.blockplacer.name =ɹǝɔɐꞁԀ ʞɔoꞁᗺ 
+tile.mfr.machine.mobcounter.name =ɹǝʇunoƆ qoW 
+tile.mfr.machine.steamturbine.name =ǝuᴉqɹn⟘ ɯɐǝʇS 
+tile.mfr.machine.chunkloader.name =ɹǝpɐoꞀ ʞunɥƆ 
+tile.mfr.machine.fountain.name =uᴉɐʇunoℲ 
+tile.mfr.machine.mobrouter.name =ɹǝʇnoᴚ qoW 
+
+tile.mfr.conveyor.default.name =ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.white.name =(ǝʇᴉɥM) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.orange.name =(ǝᵷuɐɹO) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.magenta.name =(ɐʇuǝᵷɐW) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.lightblue.name =(ǝnꞁᗺ ʇɥᵷᴉꞀ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.yellow.name =(ʍoꞁꞁǝ⅄) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.lime.name =(ǝɯᴉꞀ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.pink.name =(ʞuᴉԀ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.gray.name =(ʎɐɹ⅁) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.lightgray.name =(ʎɐɹ⅁ ʇɥᵷᴉꞀ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.cyan.name =(uɐʎƆ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.purple.name =(ǝꞁdɹnԀ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.blue.name =(ǝnꞁᗺ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.brown.name =(uʍoɹᗺ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.green.name =(uǝǝɹ⅁) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.red.name =(pǝᴚ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+tile.mfr.conveyor.black.name =(ʞɔɐꞁᗺ) ʇꞁǝᗺ ɹoʎǝʌuoƆ 
+
+tile.mfr.stainedglass.block.white.name =(ǝʇᴉɥM) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.orange.name =(ǝᵷuɐɹO) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.magenta.name =(ɐʇuǝᵷɐW) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.lightblue.name =(ǝnꞁᗺ ʇɥᵷᴉꞀ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.yellow.name =(ʍoꞁꞁǝ⅄) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.lime.name =(ǝɯᴉꞀ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.pink.name =(ʞuᴉԀ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.gray.name =(ʎɐɹ⅁) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.lightgray.name =(ʎɐɹ⅁ ʇɥᵷᴉꞀ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.cyan.name =(uɐʎƆ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.purple.name =(ǝꞁdɹnԀ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.blue.name =(ǝnꞁᗺ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.brown.name =(uʍoɹᗺ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.green.name =(uǝǝɹ⅁) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.red.name =(pǝᴚ) ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.block.black.name =(ʞɔɐꞁᗺ) ssɐꞁ⅁ pǝuᴉɐʇS 
+
+tile.mfr.stainedglass.pane.white.name =(ǝʇᴉɥM) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.orange.name =(ǝᵷuɐɹO) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.magenta.name =(ɐʇuǝᵷɐW) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.lightblue.name =(ǝnꞁᗺ ʇɥᵷᴉꞀ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.yellow.name =(ʍoꞁꞁǝ⅄) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.lime.name =(ǝɯᴉꞀ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.pink.name =(ʞuᴉԀ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.gray.name =(ʎɐɹ⅁) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.lightgray.name =(ʎɐɹ⅁ ʇɥᵷᴉꞀ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.cyan.name =(uɐʎƆ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.purple.name =(ǝꞁdɹnԀ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.blue.name =(ǝnꞁᗺ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.brown.name =(uʍoɹᗺ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.green.name =(uǝǝɹ⅁) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.red.name =(pǝᴚ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+tile.mfr.stainedglass.pane.black.name =(ʞɔɐꞁᗺ) ǝuɐԀ ssɐꞁ⅁ pǝuᴉɐʇS 
+
+tile.mfr.road.default.name =pɐoᴚ 
+tile.mfr.road.light.off.name =ʇɥᵷᴉꞀ pɐoᴚ 
+tile.mfr.road.light.on.name =ʇɥᵷᴉꞀ pɐoᴚ 
+tile.mfr.road.light.inverted.off.name =(pǝʇɹǝʌuI) ʇɥᵷᴉꞀ pɐoᴚ 
+tile.mfr.road.light.inverted.on.name =(pǝʇɹǝʌuI) ʇɥᵷᴉꞀ pɐoᴚ 
+
+tile.mfr.plastic.plain.name =ɔᴉʇsɐꞁԀ ɟo ʞɔoꞁᗺ 
+tile.mfr.plastic.bricks.name =sʞɔᴉɹᗺ ɔᴉʇsɐꞁԀ 
+tile.mfr.plastic.brickslarge.name =sʞɔᴉɹᗺ ɔᴉʇsɐꞁԀ ǝᵷɹɐꞀ 
+tile.mfr.plastic.chiseled.name =sʞɔᴉɹᗺ ɔᴉʇsɐꞁԀ pǝꞁǝsᴉɥƆ 
+tile.mfr.plastic.column.name =uɯnꞁoƆ ɔᴉʇsɐꞁԀ 
+tile.mfr.plastic.paver.name =ɹǝʌɐԀ ɔᴉʇsɐꞁԀ 
+tile.mfr.plastic.road.name =pɐoᴚ ɔᴉʇsɐꞁԀ 
+
+tile.mfr.decorative.brick.ice.name =sʞɔᴉɹᗺ ǝɔI 
+tile.mfr.decorative.brick.glowstone.name =sʞɔᴉɹᗺ ǝuoʇsʍoꞁ⅁ 
+tile.mfr.decorative.brick.lapis.name =sʞɔᴉɹᗺ sᴉdɐꞀ 
+tile.mfr.decorative.brick.obsidian.name =sʞɔᴉɹᗺ uɐᴉpᴉsqO 
+tile.mfr.decorative.brick.pavedstone.name =sʞɔᴉɹᗺ ǝuoʇS pǝʌɐԀ 
+tile.mfr.decorative.brick.snow.name =sʞɔᴉɹᗺ ʍouS 
+tile.mfr.decorative.brick.icelarge.name =sʞɔᴉɹᗺ ǝɔI ǝᵷɹɐꞀ 
+tile.mfr.decorative.brick.glowstonelarge.name =sʞɔᴉɹᗺ ǝuoʇsʍoꞁ⅁ ǝᵷɹɐꞀ 
+tile.mfr.decorative.brick.lapislarge.name =sʞɔᴉɹᗺ sᴉdɐꞀ ǝᵷɹɐꞀ 
+tile.mfr.decorative.brick.obsidianlarge.name =sʞɔᴉɹᗺ uɐᴉpᴉsqO ǝᵷɹɐꞀ 
+tile.mfr.decorative.brick.pavedstonelarge.name =sʞɔᴉɹᗺ ǝuoʇS pǝʌɐԀ ǝᵷɹɐꞀ 
+tile.mfr.decorative.brick.snowlarge.name =sʞɔᴉɹᗺ ʍouS ǝᵷɹɐꞀ 
+tile.mfr.decorative.brick.meatraw.name =ʞɔoꞁᗺ ʇɐǝW ʍɐᴚ 
+tile.mfr.decorative.brick.meatcooked.name =ʞɔoꞁᗺ ʇɐǝW pǝʞooƆ 
+tile.mfr.decorative.brick.bricklarge.name =sʞɔᴉɹᗺ ǝᵷɹɐꞀ 
+tile.mfr.decorative.brick.sugarcharcoal.name =ʞɔoꞁᗺ ꞁɐoɔɹɐɥƆ ɹɐᵷnS 
+
+tile.mfr.decorative.stone.blacksmooth.name =ǝuoʇsʞɔɐꞁᗺ ɥʇooɯS 
+tile.mfr.decorative.stone.blackcobble.name =ǝuoʇsʞɔɐꞁᗺ ǝꞁqqoƆ 
+tile.mfr.decorative.stone.blackbricksmall.name =sʞɔᴉɹᗺ ǝuoʇsʞɔɐꞁᗺ ꞁꞁɐɯS 
+tile.mfr.decorative.stone.blackbricklarge.name =sʞɔᴉɹᗺ ǝuoʇsʞɔɐꞁᗺ ǝᵷɹɐꞀ 
+tile.mfr.decorative.stone.blackgravel.name =ꞁǝʌɐɹ⅁ ǝuoʇsʞɔɐꞁᗺ 
+tile.mfr.decorative.stone.blackpaved.name =ǝuoʇsʞɔɐꞁᗺ pǝʌɐԀ 
+tile.mfr.decorative.stone.whitesmooth.name =ǝuoʇsǝʇᴉɥM ɥʇooɯS 
+tile.mfr.decorative.stone.whitecobble.name =ǝuoʇsǝʇᴉɥM ǝꞁqqoƆ 
+tile.mfr.decorative.stone.whitebricksmall.name =sʞɔᴉɹᗺ ǝuoʇsǝʇᴉɥM ꞁꞁɐɯS 
+tile.mfr.decorative.stone.whitebricklarge.name =sʞɔᴉɹᗺ ǝuoʇsǝʇᴉɥM ǝᵷɹɐꞀ 
+tile.mfr.decorative.stone.whitegravel.name =ꞁǝʌɐɹ⅁ ǝuoʇsǝʇᴉɥM 
+tile.mfr.decorative.stone.whitepaved.name =ǝuoʇsǝʇᴉɥM pǝʌɐԀ 
+
+tile.mfr.pinkslime.block.name =ʞɔoꞁᗺ ǝɯᴉꞁS ʞuᴉԀ 
+
+tile.ice.unmelting.name =(ᵷuᴉʇꞁǝɯu∩) ǝɔI 
+
+tile.mfr.vinescaffold.name =ᵷuᴉpꞁoɟɟɐɔS ǝuᴉᴧ 
+
+tile.mfr.detcord.name =pɹoƆʇǝᗡ 
+
+tile.mfr.farmland.name =ꞁᴉoS ǝꞁᴉʇɹǝℲ 
+
+tile.mfr.rubberwood.sapling.normal.name =ᵷuᴉꞁdɐS ɹǝqqnᴚ 
+tile.mfr.rubberwood.sapling.sacred.name =ᵷuᴉꞁdɐS ɹǝqqnᴚ pǝɹɔɐS 
+tile.mfr.rubberwood.sapling.mega.name =ᵷuᴉꞁdɐS ɹǝqqnᴚ ɐᵷǝW 
+tile.mfr.rubberwood.sapling.massive.name =ᵷuᴉꞁdɐS ɹǝqqnᴚ pǝɹɔɐS 
+tile.mfr.rubberwood.log.name =pooM ɹǝqqnᴚ 
+tile.mfr.rubberwood.leaves.normal.name =sǝʌɐǝꞀ ɹǝqqnᴚ 
+tile.mfr.rubberwood.leaves.dry.name =sǝʌɐǝꞀ ɹǝqqnᴚ ʎɹᗡ 
+
+tile.mfr.rail.cargo.dropoff.name =ꞁᴉɐᴚ ɟɟodoɹᗡ oᵷɹɐƆ 
+tile.mfr.rail.cargo.pickup.name =ꞁᴉɐᴚ dnʞɔᴉԀ oᵷɹɐƆ 
+tile.mfr.rail.passenger.dropoff.name =ꞁᴉɐᴚ ɟɟodoɹᗡ ɹǝᵷuǝssɐԀ 
+tile.mfr.rail.passenger.pickup.name =ꞁᴉɐᴚ dnʞɔᴉԀ ɹǝᵷuǝssɐԀ 
+
+tile.mfr.cable.redstone.name =ǝꞁqɐƆ ʇǝNpǝᴚ 
+tile.mfr.cable.redstone.glass.name =ǝꞁqɐƆ ʇǝNpǝᴚ 
+tile.mfr.cable.redstone.energy.name =ǝꞁqɐƆ ʎᵷɹǝuƎ ʇǝNpǝᴚ 
+tile.mfr.cable.redstone.energyglass.name =ǝꞁqɐƆ ʎᵷɹǝuƎ ʇǝNpǝᴚ 
+tile.mfr.cable.plastic.name =ǝdᴉԀ ɔᴉʇsɐꞁԀ 
+
+tile.mfr.rednet.logic.name =ɹǝꞁꞁoɹʇuoƆ ʇǝNpǝᴚ ǝꞁqɐɯɯɐɹᵷoɹԀ 
+tile.mfr.rednet.panel.historian.name =uɐᴉɹoʇsᴉH ʇǝNpǝᴚ 
+
+tile.mfr.machineblock.machine =ʞɔoꞁqǝuᴉɥɔɐɯ˙ɹɟɯ˙ɯǝʇᴉ 
+tile.mfr.machineblock.prc.name =ᵷuᴉsnoH ɹǝꞁꞁoɹʇuoƆ ʇǝNpǝᴚ ǝꞁqɐɯɯɐɹᵷoɹԀ 
+
+tile.mfr.tank.name =ʞuɐ⟘ ɔᴉʇsɐꞁԀ 
+
+fluid.mfr.milk.still.name =ʞꞁᴉW 
+fluid.mfr.sludge.still.name =ǝᵷpnꞁS 
+fluid.mfr.sewage.still.name =ǝᵷɐʍǝS 
+fluid.mfr.mob_essence.still.name =ǝɔuǝssƎ 
+fluid.mfr.biofuel.still.name =ꞁǝnℲoᴉᗺ 
+fluid.mfr.meat.still.name =ʇɐǝW 
+fluid.mfr.pink_slime.still.name =ǝɯᴉꞁS ʞuᴉԀ 
+fluid.mfr.chocolate_milk.still.name =ʞꞁᴉW ǝʇɐꞁoɔoɥƆ 
+fluid.mfr.mushroom_soup.still.name =dnoS ɯooɹɥsnW 
+fluid.mfr.steam.still.name =ɯɐǝʇS 
+
+entity.MineFactoryReloaded.mfrEntityPinkSlime.name =ǝɯᴉꞁS ʞuᴉԀ 
+
+item.mfr.bucket.milk.name =ʇǝʞɔnᗺ ʞꞁᴉW 
+item.mfr.bucket.sewage.name =ʇǝʞɔnᗺ ǝᵷɐʍǝS 
+item.mfr.bucket.sludge.name =ʇǝʞɔnᗺ ǝᵷpnꞁS 
+item.mfr.bucket.essence.name =ʇǝʞɔnᗺ ǝɔuǝssƎ 
+item.mfr.bucket.biofuel.name =ʇǝʞɔnᗺ ꞁǝnℲoᴉᗺ 
+item.mfr.bucket.meat.name =ʇǝʞɔnᗺ ʇɐǝW 
+item.mfr.bucket.pinkslime.name =ʇǝʞɔnᗺ ǝɯᴉꞁS ʞuᴉԀ 
+item.mfr.bucket.chocolatemilk.name =ʇǝʞɔnᗺ ʞꞁᴉW ǝʇɐꞁoɔoɥƆ 
+item.mfr.bucket.mushroomsoup.name =ʇǝʞɔnᗺ dnoS ɯooɹɥsnW 
+
+item.mfr.plastic.cup.name =dnƆ ɔᴉʇsɐꞁԀ 
+item.mfr.plastic.cup.prefix.name =
+item.mfr.plastic.cup.suffix.name =dnƆ 
+item.mfr.plastic.cell.name =ꞁꞁǝƆ ɔᴉʇsɐꞁԀ 
+item.mfr.plastic.cell.prefix.name =
+item.mfr.plastic.cell.suffix.name =ꞁꞁǝƆ 
+
+item.mfr.glass.armor.helm.name =sǝssɐꞁᵷunS 
+
+item.mfr.plastic.armor.helm.name  =ʇǝɯꞁǝH ɔᴉʇsɐꞁԀ 
+item.mfr.plastic.armor.chest.name =ǝʇɐꞁdʇsɐǝɹᗺ ɔᴉʇsɐꞁԀ 
+item.mfr.plastic.armor.legs.name  =sᵷuᴉᵷᵷǝꞀ ɔᴉʇsɐꞁԀ 
+item.mfr.plastic.armor.boots.name =sʇooᗺ ɔᴉʇsɐꞁԀ 
+
+item.mfr.syringe.cure.name =ǝᵷuᴉɹʎS uoᴉʇɐɔᴉɟᴉqɯoZ-ǝᗡ 
+item.mfr.syringe.empty.name =ǝᵷuᴉɹʎS ʎʇdɯƎ 
+item.mfr.syringe.empty.prefix.name =
+item.mfr.syringe.empty.suffix.name =ǝᵷuᴉɹʎS 
+item.mfr.syringe.growth.name =ǝᵷuᴉɹʎS ɥʇʍoɹ⅁ 
+item.mfr.syringe.health.name =ǝᵷuᴉɹʎS ɥʇꞁɐǝH 
+item.mfr.syringe.slime.name =ǝᵷuᴉɹʎS ᵷuᴉuǝᵷᵷᴉqɯƎ ǝɯᴉꞁS 
+item.mfr.syringe.zombie.name =ǝᵷuᴉɹʎS ǝᴉqɯoZ 
+
+item.mfr.machineblock.name =ʞɔoꞁᗺ ǝuᴉɥɔɐW ʎɹoʇɔɐℲ 
+item.mfr.hammer.name =ɹǝɯɯɐɥǝᵷpǝꞁS uoᴉsᴉɔǝɹԀ 
+
+item.mfr.plastic =ɔᴉʇsɐꞁԀ 
+item.mfr.plastic.ability =ɥᵷno⟘ 
+item.mfr.plastic.sheet.name =sʇǝǝɥS ɔᴉʇsɐꞁԀ 
+item.mfr.plastic.raw.name =ɔᴉʇsɐꞁԀ ʍɐᴚ 
+item.mfr.plastic.bag.name =ᵷɐᗺ ɔᴉʇsɐꞁԀ 
+
+item.mfr.rubber.bar.name =ɹɐᗺ ɹǝqqnᴚ 
+item.mfr.rubber.raw.name =ɹǝqqnᴚ ʍɐᴚ 
+item.mfr.record.blank.name =pɹoɔǝᴚ ʞuɐꞁᗺ 
+
+item.mfr.safarinet.reusable.name =(ǝꞁqɐsnǝᴚ) ʇǝN ᴉɹɐɟɐS 
+item.mfr.safarinet.singleuse.name =(ǝs∩-ǝꞁᵷuᴉS) ʇǝN ᴉɹɐɟɐS 
+item.mfr.safarinet.jailer.name =ʇǝN ᴉɹɐɟɐS s,ɹǝꞁᴉɐՐ 
+item.mfr.safarinet.jailer.fancy.name =ʇǝN ᴉɹɐɟɐS s,ɹǝꞁᴉɐՐ uǝpꞁo⅁ 
+item.mfr.safarinet.launcher.name =ɹǝɥɔunɐꞀ ʇǝN ᴉɹɐɟɐS 
+
+item.mfr.sugarcharcoal.name =ꞁɐoɔɹɐɥƆ ɹɐᵷnS 
+item.mfr.fertilizer.name =ɹǝzᴉꞁᴉʇɹǝℲ ꞁɐᴉɹʇsnpuI 
+item.mfr.milkbottle.name =ǝꞁʇʇoᗺ ʞꞁᴉW 
+item.mfr.spyglass.name =ssɐꞁᵷʎdS 
+item.mfr.ruler.name =ɹǝꞁnᴚ 
+item.mfr.xpextractor.name =ɹoʇɔɐɹʇxƎ ԀX 
+item.mfr.portaspawner.name =ɹǝuʍɐdSɐʇɹoԀ 
+item.mfr.straw.name =ʍɐɹʇS 
+
+item.mfr.rednet.meter.name =ɹǝʇǝW ʇǝNpǝᴚ 
+item.mfr.rednet.meter.info.name =ɹǝʇǝɯᴉʇꞁnW ʇǝNpǝᴚ 
+item.mfr.rednet.meter.debug.name =ɹǝᵷᵷnqǝᗡ 
+item.mfr.rednet.memorycard.name =pɹɐƆ ʎɹoɯǝW ƆᴚԀ 
+
+item.mfr.meat.ingot.raw.name =ʇoᵷuI ʇɐǝW ʍɐᴚ 
+item.mfr.meat.ingot.cooked.name =ʇoᵷuI ʇɐǝW pǝʞooƆ 
+item.mfr.meat.nugget.raw.name =ʇǝᵷᵷnN „ʇɐǝW„ ʍɐᴚ 
+item.mfr.meat.nugget.cooked.name =ʇǝᵷᵷnN „ʇɐǝW„ pǝʞooƆ 
+
+item.mfr.pinkslime =ǝɯᴉꞁS ʞuᴉԀ 
+item.mfr.pinkslime.ability =ʞuᴉԀ\nʎɯᴉꞁS 
+item.mfr.pinkslime.ball.name =ꞁꞁɐqǝɯᴉꞁS ʞuᴉԀ 
+item.mfr.pinkslime.gem.name =ꞁɐʇsʎɹƆ ǝɯᴉꞁS ʞuᴉԀ 
+
+item.mfr.rocket.name =ʇǝʞɔoᴚ ꞁɐᴉɹǝʇɐW ᴉʇuⱯ pǝꞁꞁǝdoɹԀ-ɟꞁǝS 
+item.mfr.rocket.smart.name =ʇǝʞɔoᴚ ꞁɐᴉɹǝʇɐW ᴉʇuⱯ pǝꞁꞁǝdoɹԀ-ɟꞁǝS ᵷuᴉʞɔɐɹ⟘ 
+item.mfr.rocketlauncher.name =ɹǝɥɔunɐꞀ ᴚWⱯԀS 
+
+item.mfr.potatolauncher.name =uouuɐƆ oʇɐʇoԀ 
+
+item.mfr.fishingrod.name =poᴚ ᵷuᴉɥsᴉℲ 
+
+item.mfr.ceramicdye.white.name =(ǝʇᴉɥM) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.orange.name =(ǝᵷuɐɹO) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.magenta.name =(ɐʇuǝᵷɐW) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.lightblue.name =(ǝnꞁᗺ ʇɥᵷᴉꞀ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.yellow.name =(ʍoꞁꞁǝ⅄) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.lime.name =(ǝɯᴉꞀ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.pink.name =(ʞuᴉԀ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.gray.name =(ʎɐɹ⅁) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.lightgray.name =(ʎɐɹ⅁ ʇɥᵷᴉꞀ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.cyan.name =(uɐʎƆ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.purple.name =(ǝꞁdɹnԀ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.blue.name =(ǝnꞁᗺ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.brown.name =(uʍoɹᗺ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.green.name =(uǝǝɹ⅁) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.red.name =(pǝᴚ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+item.mfr.ceramicdye.black.name =(ʞɔɐꞁᗺ) ǝʎᗡ ɔᴉɯɐɹǝƆ 
+
+item.mfr.laserfocus.white.name =(ǝʇᴉɥM) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.orange.name =(ǝᵷuɐɹO) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.magenta.name =(ɐʇuǝᵷɐW) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.lightblue.name =(ǝnꞁᗺ ʇɥᵷᴉꞀ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.yellow.name =(ʍoꞁꞁǝ⅄) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.lime.name =(ǝɯᴉꞀ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.pink.name =(ʞuᴉԀ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.gray.name =(ʎɐɹ⅁) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.lightgray.name =(ʎɐɹ⅁ ʇɥᵷᴉꞀ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.cyan.name =(uɐʎƆ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.purple.name =(ǝꞁdɹnԀ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.blue.name =(ǝnꞁᗺ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.brown.name =(uʍoɹᗺ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.green.name =(uǝǝɹ⅁) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.red.name =(pǝᴚ) snɔoℲ ɹǝsɐꞀ 
+item.mfr.laserfocus.black.name =(ʞɔɐꞁᗺ) snɔoℲ ɹǝsɐꞀ 
+
+item.mfr.upgrade.radius.cobble.name =(ǝꞁqqoƆ) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.lapis.name =(sᴉdɐꞀ) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.iron.name =(uoɹI) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.tin.name =(uᴉ⟘) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.copper.name =(ɹǝddoƆ) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.bronze.name =(ǝzuoɹᗺ) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.silver.name =(ɹǝʌꞁᴉS) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.gold.name =(pꞁo⅁) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.quartz.name =(zʇɹɐnΌ) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.diamond.name =(puoɯɐᴉᗡ) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.platinum.name =(ɯnuᴉʇɐꞁԀ) ǝpɐɹᵷd∩ 
+item.mfr.upgrade.radius.emerald.name =(pꞁɐɹǝɯƎ) ǝpɐɹᵷd∩ 
+
+item.mfr.upgrade.logic.100.name =pɹɐƆ uoᴉsuɐdxƎ ɔᴉᵷoꞀ 00⥝-XꞀ ƆᴚԀ 
+item.mfr.upgrade.logic.300.name =pɹɐƆ uoᴉsuɐdxƎ ɔᴉᵷoꞀ 00Ɛ-XꞀ ƆᴚԀ 
+item.mfr.upgrade.logic.500.name =pɹɐƆ uoᴉsuɐdxƎ ɔᴉᵷoꞀ 005-XꞀ ƆᴚԀ 
+
+item.mfr.needlegun.name =unᵷǝꞁpǝǝN 
+item.mfr.needlegun.ammo.empty.name =ǝuᴉzɐᵷɐW unᵷǝꞁpǝǝN 
+item.mfr.needlegun.ammo.standard.name =(sǝꞁpǝǝN) oɯɯⱯ unᵷǝꞁpǝǝN 
+item.mfr.needlegun.ammo.pierce.name =(ꞁǝudɐɹɥS) oɯɯⱯ unᵷǝꞁpǝǝN 
+item.mfr.needlegun.ammo.lava.name =(ɐʌɐꞀ) oɯɯⱯ unᵷǝꞁpǝǝN 
+item.mfr.needlegun.ammo.sludge.name =(ǝᵷpnꞁS) oɯɯⱯ unᵷǝꞁpǝǝN 
+item.mfr.needlegun.ammo.sewage.name =(ǝᵷɐʍǝS) oɯɯⱯ unᵷǝꞁpǝǝN 
+item.mfr.needlegun.ammo.fire.name =(ǝɹᴉℲ) oɯɯⱯ unᵷǝꞁpǝǝN 
+item.mfr.needlegun.ammo.anvil.name =(ꞁᴉʌuⱯ) oɯɯⱯ unᵷǝꞁpǝǝN 
+
+circuit.mfr.noop =(dO-oN) 
+circuit.mfr.adder.analog =(ᵷoꞁɐuⱯ) ɹǝppⱯ 
+circuit.mfr.adder.digital.full =(ꞁꞁnℲ 'ꞁɐʇᴉᵷᴉᗡ) ɹǝppⱯ 
+circuit.mfr.adder.digital.half =(ɟꞁɐH 'ꞁɐʇᴉᵷᴉᗡ) ɹǝppⱯ 
+circuit.mfr.and.2 =(ʇnduI-ᘔ) puⱯ 
+circuit.mfr.and.3 =(ʇnduI-Ɛ) puⱯ 
+circuit.mfr.and.4 =(ʇnduI-ᔭ) puⱯ 
+circuit.mfr.boolean.equal =sꞁɐnbƎ 
+circuit.mfr.boolean.greater =uɐɥ⟘ ɹǝʇɐǝɹ⅁ 
+circuit.mfr.boolean.greaterequal =ꞁɐnbƎ ɹO uɐɥ⟘ ɹǝʇɐǝɹ⅁ 
+circuit.mfr.boolean.less =uɐɥ⟘ ssǝꞀ 
+circuit.mfr.boolean.lessequal =ꞁɐnbƎ ɹO uɐɥ⟘ ssǝꞀ 
+circuit.mfr.boolean.notequal =sꞁɐnbƎ ʇoN 
+circuit.mfr.counter =ɹǝʇunoƆ 
+circuit.mfr.decompose.decimal =ꞁɐɯᴉɔǝᗡ <- ʇuI ǝsodɯoɔǝᗡ 
+circuit.mfr.delay =ʎɐꞁǝᗡ 
+circuit.mfr.delay8ch =(ꞁǝuuɐɥƆ-8) ʎɐꞁǝᗡ 
+circuit.mfr.demux.16.analog =(ᵷoꞁɐuⱯ 'ʇnO-9⥝) xnWǝᗡ 
+circuit.mfr.demux.4 =(ʇndʇnO-ᔭ) xnWǝᗡ 
+circuit.mfr.fanout =ʇnouɐℲ 
+circuit.mfr.flipflop.jk =doꞁℲdᴉꞁℲ-ʞՐ 
+circuit.mfr.flipflop.t =doꞁℲdᴉꞁℲ-⟘ 
+circuit.mfr.inverter =ɹǝʇɹǝʌuI 
+circuit.mfr.latch.d.clocked =(pǝʞɔoꞁƆ) ɥɔʇɐꞀ-ᗡ 
+circuit.mfr.latch.d.gated =(pǝʇɐ⅁) ɥɔʇɐꞀ-ᗡ 
+circuit.mfr.latch.sr =ɥɔʇɐꞀ-ᴚS 
+circuit.mfr.latch.sr.gated =(pǝʇɐ⅁) ɥɔʇɐꞀ-ᴚS 
+circuit.mfr.max.2 =(ʇnduI-ᘔ) ɯnɯᴉxɐW 
+circuit.mfr.max.3 =(ʇnduI-Ɛ) ɯnɯᴉxɐW 
+circuit.mfr.max.4 =(ʇnduI-ᔭ) ɯnɯᴉxɐW 
+circuit.mfr.min.2 =(ʇnduI-ᘔ) ɯnɯᴉuᴉW 
+circuit.mfr.min.3 =(ʇnduI-Ɛ) ɯnɯᴉuᴉW 
+circuit.mfr.min.4 =(ʇnduI-ᔭ) ɯnɯᴉuᴉW 
+circuit.mfr.multiplier =ɹǝᴉꞁdᴉʇꞁnW 
+circuit.mfr.multipulse =ǝsꞁndᴉʇꞁnW 
+circuit.mfr.mux.16.analog =(ᵷoꞁɐuⱯ 'ʇnduI-5⥝) xnW 
+circuit.mfr.mux.4 =(ʇnduI-ᔭ) xnW 
+circuit.mfr.nand.2 =(ʇnduI-ᘔ) puɐN 
+circuit.mfr.nand.3 =(ʇnduI-Ɛ) puɐN 
+circuit.mfr.nand.4 =(ʇnduI-ᔭ) puɐN 
+circuit.mfr.negator =ɹoʇɐᵷǝN 
+circuit.mfr.nor.2 =(ʇnduI-ᘔ) ɹoN 
+circuit.mfr.nor.3 =(ʇnduI-Ɛ) ɹoN 
+circuit.mfr.nor.4 =(ʇnduI-ᔭ) ɹoN 
+circuit.mfr.oneshot =ǝsꞁnԀ ʇoɥS-ǝuO 
+circuit.mfr.or.2 =(ʇnduI-ᘔ) ɹO 
+circuit.mfr.or.3 =(ʇnduI-Ɛ) ɹO 
+circuit.mfr.or.4 =(ʇnduI-ᔭ) ɹO 
+circuit.mfr.passthrough =ɥᵷnoɹɥʇssɐԀ 
+circuit.mfr.passthrough.gated =(pǝʇɐ⅁) ɥᵷnoɹɥʇssɐԀ 
+circuit.mfr.passthrough.roundrobin =(ᵷuᴉᴚ) ɥᵷnoɹɥʇssɐԀ 
+circuit.mfr.pulselengthener =ɹǝuǝɥʇᵷuǝꞀ ǝsꞁnԀ 
+circuit.mfr.randomizer.analog =(ᵷoꞁɐuⱯ) ɹǝzᴉɯopuɐᴚ 
+circuit.mfr.randomizer.digital =(ꞁɐʇᴉᵷᴉᗡ) ɹǝzᴉɯopuɐᴚ 
+circuit.mfr.scaler =ɹǝꞁɐɔS 
+circuit.mfr.schmitttrigger =ɹǝᵷᵷᴉɹ⟘ ʇʇᴉɯɥɔS 
+circuit.mfr.sevensegmentencoder =ɹǝpoɔuƎ ʇuǝɯᵷǝS-uǝʌǝS 
+circuit.mfr.subtractor =ɹoʇɔɐɹʇqnS 
+circuit.mfr.wavegenerator.sawtooth.falling =(ᵷuᴉꞁꞁɐℲ 'ɥʇooʇʍɐS) ǝʌɐM 
+circuit.mfr.wavegenerator.sawtooth.rising =(ᵷuᴉsᴉᴚ 'ɥʇooʇʍɐS) ǝʌɐM 
+circuit.mfr.wavegenerator.sine =(ǝuᴉS) ǝʌɐM 
+circuit.mfr.wavegenerator.square =[ɹǝɯᴉ⟘] (ǝɹɐnbS) ǝʌɐM 
+circuit.mfr.wavegenerator.triangle =(ǝꞁᵷuɐᴉɹ⟘) ǝʌɐM 
+circuit.mfr.xnor.2 =(ʇnduI-ᘔ) ɹouX 
+circuit.mfr.xnor.3 =(ʇnduI-Ɛ) ɹouX 
+circuit.mfr.xnor.4 =(ʇnduI-ᔭ) ɹouX 
+circuit.mfr.xor.2 =(ʇnduI-ᘔ) ɹoX 
+circuit.mfr.xor.3 =(ʇnduI-Ɛ) ɹoX 
+circuit.mfr.xor.4 =(ʇnduI-ᔭ) ɹoX 
+
+container.mfr.radius =:snᴉpɐᴚ 
+container.mfr.power =:ʍɐɹp ʎᵷɹǝuƎ 
+
+container.mfr.autobrewer.resources =sǝɔɹnosǝᴚ 
+
+container.mfr.pendingDrops =sɯǝʇᴉ pǝɟɟnʇsɔⱢⱯ00\u sɐɥ ǝuᴉɥɔɐɯ sᴉɥ⟘ 
+container.mfr.redstoneSignal =ꞁɐuᵷᴉs ǝuoʇspǝᴚᔭⱢⱯ00\u ɐ sɐɥ ǝuᴉɥɔɐɯ sᴉɥ⟘ 
+
+chat.info.mfr.safarinet.capture =ǝpoɯ ǝɹnʇdɐɔ oʇ pǝᵷuɐɥƆ 
+chat.info.mfr.safarinet.release =ǝpoɯ ǝsɐǝꞁǝɹ oʇ pǝᵷuɐɥƆ 
+
+chat.info.mfr.spyglass.nosight =ʇɥᵷᴉs uᴉ ᵷuᴉɥʇoN 
+chat.info.mfr.spyglass.hitentity =ɟ⥝˙% 'ɟ⥝˙% 'ɟ⥝˙% ʇɐ %s ɐ punoℲ 
+chat.info.mfr.spyglass.hitblock =ɟ0˙% 'ɟ0˙% 'ɟ0˙% ʇɐ [%d#%2$s] %1$s punoℲ 
+chat.info.mfr.spyglass.hitunknown =ɟ⥝˙% 'ɟ⥝˙% 'ɟ⥝˙% ʇɐ (¿poɯ pǝᵷᵷnq) NMONʞN∩ punoℲ 
+
+chat.info.mfr.ruler.nosight =ʇɥᵷᴉs uᴉ ᵷuᴉɥʇoN 
+chat.info.mfr.ruler.hitentity =pǝꞁᴉɐɟ ʇuǝɯǝɹnsɐǝɯ - ʎʇᴉʇuǝ ʇᴉH 
+chat.info.mfr.ruler.startposition =uoᴉʇᴉsod ʇɹɐʇs pǝpɹoɔǝᴚ 
+chat.info.mfr.ruler.distance =%2$d :ʇunoɔ '%1$d :ǝɔuɐʇsᴉp 
+chat.info.mfr.ruler.total =ɟ⥝˙% :ǝɔuɐʇsᴉᗡ ꞁɐʇo⟘ 
+
+chat.info.mfr.rednet.meter.cable.allzero =0 ǝɹɐ sʇǝuqns ʇǝNpǝᴚ ꞁꞁⱯ 
+chat.info.mfr.rednet.meter.cable.restzero =0 ǝɹɐ sʇǝuqns ʇǝNpǝᴚ ɹǝɥʇo ꞁꞁⱯ 
+chat.info.mfr.rednet.meter.varprefix =ǝꞁqɐᴉɹɐᴧ 
+chat.info.mfr.rednet.meter.var.allzero =0 ǝɹɐ sǝꞁqɐᴉɹɐʌ ꞁꞁⱯ 
+chat.info.mfr.rednet.meter.var.restzero =0 ǝɹɐ sǝꞁqɐᴉɹɐʌ ɹǝɥʇo ꞁꞁⱯ 
+chat.info.mfr.rednet.meter.dustprefix =ʇsnᗡ ǝuoʇspǝᴚ 
+
+chat.info.mfr.rednet.memorycard.uploaded =ƆᴚԀ ɯoɹɟ pɹɐɔ ʎɹoɯǝɯ oʇ pǝpɐoꞁdn ɯɐɹᵷoɹd ƆᴚԀ 
+chat.info.mfr.rednet.memorycard.downloaded =ƆᴚԀ oʇ pɹɐɔ ʎɹoɯǝɯ ɯoɹɟ pǝpɐoꞁuʍop ɯɐɹᵷoɹd ƆᴚԀ 
+chat.info.mfr.rednet.memorycard.empty =ɯɐɹᵷoɹd ʎuɐ uᴉɐʇuoɔ ʇou sǝop ƆᴚԀ 
+chat.info.mfr.rednet.memorycard.error =ɯɐɹᵷoɹd sᴉɥʇ pꞁoɥ oʇ sʇᴉnɔɹᴉɔ ʇuǝᴉɔᴉɟɟnsuᴉ suᴉɐʇuoɔ ƆᴚԀ 
+chat.info.mfr.rednet.memorycard.error2 =ǝuoǝɯos ʎq pǝsn ᵷuᴉǝq sᴉ ƆᴚԀ sᴉɥ⟘ 
+
+chat.info.mfr.rednet.tile.standard =ǝpoɯ uoᴉʇɔǝuuoɔ pɹɐpuɐʇs oʇ ǝꞁqɐɔ ʇǝS 
+chat.info.mfr.rednet.tile.cableonly =ǝpoɯ uoᴉʇɔǝuuoɔ ʎꞁuo-ǝꞁqɐɔ oʇ ǝꞁqɐɔ ʇǝS 
+
+chat.info.mfr.rednet.connection.standard =ǝpoɯ uoᴉʇɔǝuuoɔ pɹɐpuɐʇs oʇ ǝpᴉs ʇǝS 
+chat.info.mfr.rednet.connection.forced =ǝpoɯ uoᴉʇɔǝuuoɔ-pǝɔɹoɟ oʇ ǝpᴉs ʇǝS 
+chat.info.mfr.rednet.connection.forcedstrong =ǝpoɯ uoᴉʇɔǝuuoɔ-ᵷuoɹʇs oʇ ǝpᴉs ʇǝS 
+chat.info.mfr.rednet.connection.cableonly =ǝpoɯ uoᴉʇɔǝuuoɔ ʎꞁuo-ǝꞁqɐɔ oʇ ǝpᴉs ʇǝS 
+
+chat.info.mfr.fluid.connection.disabled =ǝpoɯ uoᴉʇɔǝuuoɔ pǝꞁqɐsᴉp oʇ ǝpᴉs ʇǝS 
+chat.info.mfr.fluid.connection.output =ǝpoɯ uoᴉʇɔǝuuoɔ ʇndʇno oʇ ǝpᴉs ʇǝS 
+chat.info.mfr.fluid.connection.extract =ǝpoɯ uoᴉʇɔǝuuoɔ ʇɔɐɹʇxǝ oʇ ǝpᴉs ʇǝS 
+
+chat.info.mfr.fluid.install.torch =pǝʇɹǝʌuᴉ ꞁoɹʇuoɔ Sᴚ 'ɥɔɹo⟘ ǝuoʇspǝᴚ pǝꞁꞁɐʇsuI 
+chat.info.mfr.fluid.install.block =pǝꞁqɐsᴉp ꞁoɹʇuoɔ Sᴚ 'ʞɔoꞁᗺ ǝuoʇspǝᴚ pǝꞁꞁɐʇsuI 
+
+chat.info.mfr.bag.stacksize =ǝɯᴉʇ ɐ ʇɐ ᵷɐq ǝuo uǝdo ʎꞁuo uɐɔ no⅄ 
+
+chat.info.mfr.chunkloader.noticket =˙uoᴉʇɔunɟ ʇouuɐɔ ǝuo sᴉɥʇ puɐ sɹǝpɐoꞁ ʞunɥɔ ʎuɐɯ ooʇ ǝʌɐɥ no⅄ 
+
+
+tip.info.mfr.hammer =ɹǝᴉɥsɐɯs ʇnq 'ɥɔuǝɹʍ ɐ ǝʞᴉꞀ 
+
+tip.info.mfr.rubberwood.sapling.massive =˙dᴉɥs pꞁɹoʍ s,ʇʇɐɹʞɐԀ :ᵷuᴉuɹɐM 
+
+tip.info.mfr.prc =ꞁɐnuɐɯ (ǝɯɐᵷ-uᴉ) ǝɥʇ pɐǝɹ 'ʇsoꞁ ǝɹ,noʎ ɟI 
+
+tip.info.mfr.xpextractor =ꞁꞁᴉɟ oʇ ɹǝuᴉɐʇuoɔ ʎʇdɯǝ uɐ sǝɹᴉnbǝᴚ 
+
+tip.info.mfr.mobcounter =˙ǝᵷuɐɹ uᴉɥʇᴉʍ ǝɹɐ ʇɐɥʇ sqoɯ\nɟo ʇunoɔ ǝɥʇ oʇ ꞁɐuoᴉʇɹodoɹd\nꞁɐuᵷᴉs ǝuoʇspǝɹ ᵷoꞁɐuɐ uɐ sʇᴉɯƎ 
+
+tip.info.mfr.laserdrill =pᴉoʌ ǝɥʇ ɹo ʞɔoɹpǝq oʇ ǝꞁoɥ ɐ ɹǝʌo pǝɔɐꞁԀ 
+tip.info.mfr.laserdrillprecharger =ʇǝᵷɹɐʇ ɹǝsɐꞁ pᴉꞁɐʌ ɐ ɯoɹɟ ʎɐʍɐ ʞɔoꞁq ǝuo pǝɔɐꞁԀ 
+
+
+tip.info.mfr.cannotplace =˙spuoɔǝs ǝɹoɯ %s ɹoɟ ǝɔɐꞁd ʇouuɐƆ 
+
+tip.info.mfr.safarinet.mode =ǝpoɯ ǝᵷuɐɥɔ oʇ ʞɔᴉꞁɔ-ʞɐǝuS 
+tip.info.mfr.safarinet.persistent =ʎꞁꞁɐɯɹou uʍɐdsǝp ʇ,uop sǝɹnʇɐǝɹɔ pǝsɐǝꞁǝᴚ 
+tip.info.mfr.safarinet.nametag =ᵷɐʇǝɯɐu ɹᴉǝɥʇ ʎɐꞁdsᴉp sʎɐʍꞁɐ ꞁꞁᴉʍ sǝɹnʇɐǝɹɔ pǝsɐǝꞁǝᴚ 
+tip.info.mfr.safarinet.mystery =ʎɹǝʇsʎɯ ɐ sᴉ ʇI 
+
+tip.info.mfr.memorycard.programmedFor =%sɐⱢⱯ00\u      \n:ɹoɟ pǝɯɯɐɹᵷoɹԀ 
+tip.info.mfr.memorycard.programmed =sʇᴉnɔɹᴉɔ %d pǝɯɯɐɹᵷoɹԀɐⱢⱯ00\u     0ᘔ00\u 
+tip.info.mfr.memorycard.wipe =ǝdᴉʍ oʇ pᴉɹᵷ ᵷuᴉʇɟɐɹɔ uᴉ ǝɔɐꞁԀ 
+
+tip.info.mfr.generator.produces =˙ʎꞁuo Ⅎᴚ sǝɔnpoɹԀ 
+
+tip.info.mfr.dsu.contains =%s suᴉɐʇuoƆ 
+
+tip.info.mfr.needlegun.ammo =spunoɹ %s 
+
+tip.info.mfr.upgrade.radius =%s :ǝsɐǝɹɔuᴉ snᴉpɐᴚ 
+
+death.attack.mfr.slaughterhouse =ʇɐǝW pᴉnbᴉꞀ oʇuᴉ pǝssǝɔoɹd sɐʍ %1$s 
+death.attack.mfr.slaughterhouse.player =%2$s ʎq ʇɐǝW pᴉnbᴉꞀ oʇuᴉ pǝssǝɔoɹd ǝq oʇ pǝɯoop sɐʍ %1$s 
+death.attack.mfr.slaughterhouse.1 =ǝɔnɐs ʇɐǝɯ oʇuᴉ pǝssǝɔoɹd sɐʍ %1$s 
+death.attack.mfr.slaughterhouse.1.player =%2$s ʎq ǝɔnɐs ʇɐǝɯ oʇuᴉ pǝssǝɔoɹd ǝq oʇ pǝɯoop sɐʍ %1$s 
+death.attack.mfr.grinder =sʇᴉq oʇ punoɹᵷ sɐʍ %1$s 
+death.attack.mfr.grinder.player =sʇᴉq oʇ punoɹᵷ sɐʍ %1$s pǝɹnsuǝ %2$s 
+death.attack.mfr.laser =pǝʇɐɹᵷǝʇuᴉsᴉp sɐʍ %1$s 
+death.attack.mfr.laser.player =pǝʇɐɹᵷǝʇuᴉsᴉp sɐʍ %1$s pǝɹnsuǝ %2$s 
+
+info.mfr.work=ʞɹoM
+info.mfr.idle=ǝꞁpI
+info.mfr.buffer=ɹǝɟɟnᗺ
+info.mfr.efficiency=ʎɔuǝᴉɔᴉɟɟƎ
+info.mfr.template=ǝʇɐꞁdɯǝ⟘
+info.mfr.output=ʇndʇnO
+info.mfr.preferences=sǝɔuǝɹǝɟǝɹԀ
+info.mfr.loot=ʇooꞀ
+info.mfr.legacy=ʎɔɐᵷǝꞀ
+info.mfr.folded=pǝpꞁoℲ
